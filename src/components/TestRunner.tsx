@@ -3,6 +3,8 @@ import { Check, Headphones, X } from "lucide-react";
 import { api } from "../lib/api";
 import type { Test, TestResult } from "../lib/types";
 import { useToast } from "../state/toast";
+import { useSession } from "../state/session";
+import { clearSave, loadSave, writeSave } from "../lib/saved";
 import { AudioButtons, useSay } from "./Audio";
 import { Button, PageLoader, Progress } from "./ui";
 
@@ -10,6 +12,8 @@ import { Button, PageLoader, Progress } from "./ui";
 export function TestRunner({ testId, onDone }: { testId: string; onDone: (r: TestResult, t: Test) => void }) {
   const toast = useToast();
   const say = useSay();
+  const { uid } = useSession();
+  const slot = `test:${testId}`;
   const [test, setTest] = useState<Test | null>(null);
   const [i, setI] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -17,8 +21,22 @@ export function TestRunner({ testId, onDone }: { testId: string; onDone: (r: Tes
   const [err, setErr] = useState<string | null>(null);
 
   useEffect(() => {
-    api.test(testId).then(setTest).catch((e) => setErr((e as Error).message));
-  }, [testId]);
+    api.test(testId).then((t) => {
+      // pick up an unfinished attempt on this device: same question, same answers
+      const s = loadSave<{ i: number; answers: Record<string, number> }>(uid, `test:${testId}`);
+      if (s && Number.isInteger(s.i) && s.i >= 0 && s.i < t.items.length && s.answers && typeof s.answers === "object") {
+        const ids = new Set(t.items.map((x) => x.id));
+        setAnswers(Object.fromEntries(Object.entries(s.answers).filter(([k, v]) => ids.has(k) && Number.isInteger(v))));
+        setI(s.i);
+      }
+      setTest(t);
+    }).catch((e) => setErr((e as Error).message));
+  }, [testId]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (!test) return;
+    if (i > 0 || Object.keys(answers).length) writeSave(uid, slot, { i, answers });
+  }, [test, i, answers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const item = test?.items[i];
   useEffect(() => {
@@ -36,7 +54,9 @@ export function TestRunner({ testId, onDone }: { testId: string; onDone: (r: Tes
   const submit = async () => {
     setBusy(true);
     try {
-      onDone(await api.submitTest(test.id, answers), test);
+      const r = await api.submitTest(test.id, answers);
+      clearSave(uid, slot);
+      onDone(r, test);
     } catch (e) {
       toast({ title: (e as Error).message, tone: "error" });
     } finally {

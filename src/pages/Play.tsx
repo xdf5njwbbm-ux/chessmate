@@ -5,11 +5,13 @@ import { api } from "../lib/api";
 import { POOLS, SUGGESTED_BOT_ELO, TIME_CONTROLS, bracket, tcLabel } from "../lib/constants";
 import { ago, clock, pref, setPref } from "../lib/format";
 import { BLIND_LEVELS, type BlindLevel } from "../lib/blindfold";
+import { clearSave, loadSave, type BotMode, type BotSave } from "../lib/saved";
 import type { ChallengeItem, GameSummary, Mini } from "../lib/types";
 import { useSession } from "../state/session";
 import { useLive } from "../state/live";
 import { useToast } from "../state/toast";
-import { Button, Chip, Initials, LevelBadge, PageHeader, RatingBadge, SectionTitle, Segmented, Sheet, Spinner, Toggle } from "../components/ui";
+import { Button, Chip, Confirm, Initials, LevelBadge, PageHeader, RatingBadge, SectionTitle, Segmented, Sheet, Spinner, Toggle } from "../components/ui";
+import { ResumeBotGames } from "../components/Resume";
 
 export const inviteUrl = (code: string) => `${window.location.origin}${import.meta.env.BASE_URL}#/invite/${code}`;
 
@@ -31,7 +33,7 @@ function TimeControlPicker({ value, onChange, live }: { value: string; onChange:
 }
 
 export default function Play() {
-  const { profile } = useSession();
+  const { profile, uid } = useSession();
   const { inbox, refreshInbox } = useLive();
   const navigate = useNavigate();
   const toast = useToast();
@@ -48,6 +50,7 @@ export default function Play() {
   const [botBlind, setBotBlind] = useState<boolean>(() => pref("botBlind", false));
   const [blindLevel, setBlindLevel] = useState<BlindLevel>(() => pref<BlindLevel>("blindLevel", "intermediate"));
   const [blind, setBlind] = useState<boolean>(() => pref("onlineBlind", false));
+  const [replacing, setReplacing] = useState<{ mode: BotMode; save: BotSave } | null>(null);
 
   useEffect(() => {
     if (params.get("mode") === "online") onlineRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -102,14 +105,20 @@ export default function Play() {
     }
   };
 
-  const startBot = () => {
+  const startBot = (confirmed = false) => {
+    const mode: BotMode = botBlind ? "blindfold" : "computer";
+    // an unfinished game of this kind is only thrown away if you say so
+    const save = loadSave<BotSave>(uid, mode);
+    if (!confirmed && save?.moves?.length) return setReplacing({ mode, save });
+    clearSave(uid, mode);
     const color = botColor === "random" ? (Math.random() < 0.5 ? "white" : "black") : botColor;
-    navigate(`/play/${botBlind ? "blindfold" : "computer"}?elo=${botElo}&color=${color}`);
+    navigate(`/play/${mode}?elo=${botElo}&color=${color}`);
   };
 
   return (
     <div>
       <PageHeader title="Play chess" subtitle="Rated games are against people. Stockfish games are for practice and never change your rating." />
+      <ResumeBotGames className="mb-4" />
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="card p-5">
@@ -148,7 +157,7 @@ export default function Play() {
           )}
           <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
             <Segmented value={botColor} onChange={setBotColor} options={[{ v: "white", l: "White" }, { v: "random", l: "Random" }, { v: "black", l: "Black" }]} />
-            <Button onClick={startBot}>Start game</Button>
+            <Button onClick={() => startBot()}>Start game</Button>
           </div>
         </div>
 
@@ -187,6 +196,16 @@ export default function Play() {
       </div>
 
       <Lists inbox={inbox} refresh={refreshInbox} />
+
+      <Confirm
+        open={!!replacing}
+        onClose={() => setReplacing(null)}
+        title="Start a new game?"
+        body={replacing && `You have an unfinished ${replacing.mode === "blindfold" ? "blindfold " : ""}game against Stockfish (move ${Math.floor(replacing.save.moves.length / 2) + 1}). Starting a new one discards it.`}
+        confirmLabel="Start new game"
+        danger
+        onConfirm={() => startBot(true)}
+      />
 
       <FriendSheet open={friend} onClose={() => setFriend(false)} defaults={{ tc, rated, ruChat, blind }} onSent={refreshInbox} />
     </div>

@@ -1,15 +1,23 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowRight, BookOpenCheck, Check, Lightbulb, RotateCcw, X } from "lucide-react";
 import { api, isPremiumError } from "../lib/api";
 import { buildExercises, reviewPair, sameSentence, scored, type Exercise } from "../lib/exercises";
 import type { Lesson as LessonT } from "../lib/types";
+import { clearSave, loadSave, writeSave } from "../lib/saved";
 import { useSession } from "../state/session";
 import { useLive } from "../state/live";
 import { useToast } from "../state/toast";
 import { RussianLine, WordSheet, stressMapFrom } from "../components/RussianText";
 import { AudioButtons, SpeakPractice, useSay } from "../components/Audio";
 import { BackButton, Button, EmptyState, PageLoader, PremiumLock, Progress, Ring } from "../components/ui";
+
+/** Where you are in a lesson, kept on this device: your place in the exercises and how far you'd read. */
+type PracticeSave = { exercises: Exercise[]; i: number; right: number; wrong: Exercise[]; picked: string | null };
+type LessonSave = { phase: "study" | "practice"; y?: number; practice?: PracticeSave };
+
+const validPractice = (p: PracticeSave | undefined): p is PracticeSave =>
+  !!p && Array.isArray(p.exercises) && p.exercises.length > 0 && Number.isInteger(p.i) && p.i >= 0 && p.i < p.exercises.length && Array.isArray(p.wrong) && Number.isFinite(p.right);
 
 function Rich({ text }: { text: string }) {
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
@@ -18,20 +26,67 @@ function Rich({ text }: { text: string }) {
 
 export default function Lesson() {
   const { id = "" } = useParams();
-  const { profile } = useSession();
+  const { profile, uid } = useSession();
   const [lesson, setLesson] = useState<LessonT | null>(null);
   const [err, setErr] = useState<{ msg: string; premium: boolean } | null>(null);
   const [phase, setPhase] = useState<"study" | "practice" | "done">("study");
   const [result, setResult] = useState<{ score: number; wrong: Exercise[]; res?: Awaited<ReturnType<typeof api.completeLesson>> } | null>(null);
   const [vocabWord, setVocabWord] = useState<{ ru: string; en: string; stressed: string } | null>(null);
+  const [progress, setProgress] = useState<PracticeSave | null>(null);
+  const slot = `lesson:${id}`;
+  const saved = useRef<LessonSave>({ phase: "study" });
+  const restoreY = useRef(0);
+  const phaseRef = useRef(phase);
+  phaseRef.current = phase;
+
+  /** Keeps a place in the exercises or a reading position worth coming back to; otherwise forgets the lesson. */
+  const persist = (patch: Partial<LessonSave>) => {
+    const next = { ...saved.current, ...patch };
+    saved.current = next;
+    if (next.practice || (next.y ?? 0) > 200) writeSave(uid, slot, next);
+    else clearSave(uid, slot);
+  };
 
   useEffect(() => {
+    const s = loadSave<LessonSave>(uid, `lesson:${id}`);
+    const practice = validPractice(s?.practice) ? s!.practice : undefined;
+    saved.current = { phase: practice && s?.phase === "practice" ? "practice" : "study", y: s?.y, practice };
+    restoreY.current = saved.current.phase === "study" ? s?.y ?? 0 : 0;
+    setProgress(practice ?? null);
     setLesson(null);
-    setPhase("study");
+    setPhase(saved.current.phase);
     setResult(null);
     window.scrollTo(0, 0);
     api.lesson(id).then(setLesson).catch((e) => setErr({ msg: (e as Error).message, premium: isPremiumError(e) }));
-  }, [id]);
+  }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // save which part you're in and your place in the exercises as you go
+  useEffect(() => {
+    if (lesson && phase !== "done") persist({ phase, practice: progress ?? undefined });
+  }, [lesson, phase, progress]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // reading: come back to the same spot, and remember it as you scroll
+  useEffect(() => {
+    if (!lesson || phase !== "study") return;
+    const y = restoreY.current;
+    restoreY.current = 0;
+    if (y) requestAnimationFrame(() => window.scrollTo(0, y));
+    let t: number | undefined;
+    const onScroll = () => {
+      clearTimeout(t);
+      t = window.setTimeout(() => phaseRef.current === "study" && persist({ y: Math.round(window.scrollY) }), 300);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [lesson, phase]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const startPractice = () => {
+    setPhase("practice");
+    window.scrollTo(0, 0);
+  };
 
   const stress = useMemo(() => stressMapFrom(lesson?.vocab ?? []), [lesson]);
 
@@ -39,7 +94,25 @@ export default function Lesson() {
   if (!lesson || !profile) return <PageLoader />;
 
   if (phase === "practice") {
-    return <Practice lesson={lesson} onDone={(r) => { setResult(r); setPhase("done"); window.scrollTo(0, 0); }} onExit={() => setPhase("study")} />;
+    return (
+      <Practice
+        lesson={lesson}
+        resume={progress}
+        onProgress={setProgress}
+        onDone={(r) => {
+          setResult(r);
+          setProgress(null);
+          saved.current = { phase: "study" };
+          clearSave(uid, slot);
+          setPhase("done");
+          window.scrollTo(0, 0);
+        }}
+        onExit={() => {
+          restoreY.current = saved.current.y ?? 0;
+          setPhase("study");
+        }}
+      />
+    );
   }
   if (phase === "done" && result) {
     return <Results lesson={lesson} result={result} onRetry={() => setPhase("practice")} onStudy={() => setPhase("study")} />;
@@ -102,32 +175,58 @@ export default function Lesson() {
         </div>
       </section>
 
-      <div className="sticky bottom-4 mt-10 flex justify-center">
-        <Button size="lg" className="shadow-2xl" onClick={() => { setPhase("practice"); window.scrollTo(0, 0); }}>
-          <BookOpenCheck className="size-5" /> Start exercises
-        </Button>
+      <div className="sticky bottom-4 mt-10 flex justify-center gap-2">
+        {progress ? (
+          <>
+            <Button size="lg" className="shadow-2xl" onClick={startPractice}>
+              <BookOpenCheck className="size-5" /> Resume exercises · {progress.i + 1}/{progress.exercises.length}
+            </Button>
+            <Button size="lg" variant="secondary" className="!bg-ink-800 !px-4 shadow-2xl" aria-label="Restart the exercises" title="Restart the exercises" onClick={() => { setProgress(null); startPractice(); }}>
+              <RotateCcw className="size-5" />
+            </Button>
+          </>
+        ) : (
+          <Button size="lg" className="shadow-2xl" onClick={startPractice}>
+            <BookOpenCheck className="size-5" /> Start exercises
+          </Button>
+        )}
       </div>
       <WordSheet word={vocabWord} onClose={() => setVocabWord(null)} />
     </div>
   );
 }
 
-function Practice({ lesson, onDone, onExit }: { lesson: LessonT; onDone: (r: { score: number; wrong: Exercise[]; res?: Awaited<ReturnType<typeof api.completeLesson>> }) => void; onExit: () => void }) {
+function Practice({ lesson, resume, onProgress, onDone, onExit }: {
+  lesson: LessonT;
+  resume: PracticeSave | null;
+  onProgress: (p: PracticeSave) => void;
+  onDone: (r: { score: number; wrong: Exercise[]; res?: Awaited<ReturnType<typeof api.completeLesson>> }) => void;
+  onExit: () => void;
+}) {
   const { profile } = useSession();
   const toast = useToast();
   const { celebrate } = useLive();
   const say = useSay();
-  const exercises = useMemo(() => buildExercises(lesson, profile?.ru_forms ?? "m"), [lesson, profile?.ru_forms]);
-  const [i, setI] = useState(0);
-  const [picked, setPicked] = useState<string | null>(null);
+  // a resumed set keeps its exact questions and order (they're shuffled when first built)
+  const [exercises] = useState(() => resume?.exercises ?? buildExercises(lesson, profile?.ru_forms ?? "m"));
+  const [i, setI] = useState(resume?.i ?? 0);
+  const [picked, setPicked] = useState<string | null>(resume?.picked ?? null);
   const [order, setOrder] = useState<number[]>([]);
-  const [right, setRight] = useState(0);
-  const [wrong, setWrong] = useState<Exercise[]>([]);
+  const [right, setRight] = useState(resume?.right ?? 0);
+  const [wrong, setWrong] = useState<Exercise[]>(resume?.wrong ?? []);
   const [busy, setBusy] = useState(false);
+  const firstRun = useRef(true);
   const ex = exercises[i];
   const total = exercises.filter(scored).length;
 
   useEffect(() => {
+    onProgress({ exercises, i, right, wrong, picked });
+  }, [i, right, wrong, picked]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    const reopenedAnswered = firstRun.current && picked != null;
+    firstRun.current = false;
+    if (reopenedAnswered) return; // came back to a question already answered: keep it answered (and scored once)
     setPicked(null);
     setOrder([]);
     if (ex?.kind === "listen") {

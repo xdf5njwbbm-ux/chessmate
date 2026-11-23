@@ -8,6 +8,8 @@ import { blindLevelLabel, moveAccuracy } from "../lib/blindfold";
 import { api, recordAiGame } from "../lib/api";
 import { TERMINATION } from "../lib/constants";
 import { uuid } from "../lib/format";
+import { clearSave, writeSave } from "../lib/saved";
+import { loadBotGame, toUci } from "../lib/botSave";
 import type { Game, Level } from "../lib/types";
 import { useSession } from "../state/session";
 import { useLive } from "../state/live";
@@ -26,28 +28,30 @@ type Ended = { result: string; termination: string; saved?: Game; summary: Blind
 export default function BlindfoldGame() {
   const [params] = useSearchParams();
   const navigate = useNavigate();
-  const { profile } = useSession();
+  const { profile, uid } = useSession();
   const { celebrate } = useLive();
   const toast = useToast();
-  const elo = Math.max(100, Math.min(3000, Number(params.get("elo")) || 900));
-  const color: "w" | "b" = params.get("color") === "black" ? "b" : "w";
+  // an unfinished game on this device picks up where it was left (the Play page clears it before a new one)
+  const [saved] = useState(() => loadBotGame(uid, "blindfold"));
+  const elo = saved?.elo ?? Math.max(100, Math.min(3000, Number(params.get("elo")) || 900));
+  const color: "w" | "b" = saved?.color ?? (params.get("color") === "black" ? "b" : "w");
   const ruLevel = (profile?.ru_level ?? "A1") as Level;
 
   const [gameKey, setGameKey] = useState(0);
-  const [moves, setMoves] = useState<Move[]>([]);
+  const [moves, setMoves] = useState<Move[]>(() => saved?.history ?? []);
   const [thinking, setThinking] = useState(false);
   const [engineState, setEngineState] = useState<"loading" | "ready" | "error">("loading");
   const [ended, setEnded] = useState<Ended | null>(null);
   const [confirmResign, setConfirmResign] = useState(false);
   const engine = useRef<Engine | null>(null);
   const evalForUser = useRef<number | null>(null);
-  const quality = useRef<{ acc: number[]; mistakes: number; blunders: number }>({ acc: [], mistakes: 0, blunders: 0 });
-  const ref = useRef(uuid());
+  const quality = useRef<{ acc: number[]; mistakes: number; blunders: number }>(saved?.quality ?? { acc: [], mistakes: 0, blunders: 0 });
+  const ref = useRef(saved?.ref ?? uuid());
   const generation = useRef(0);
   const endCard = useRef<HTMLDivElement>(null);
 
   const fen = moves.at(-1)?.after ?? new Chess().fen();
-  const bf = useBlindfold({ moves, myColor: color, over: !!ended, ruLevel, gameKey: String(gameKey) });
+  const bf = useBlindfold({ moves, myColor: color, over: !!ended, ruLevel, gameKey: String(gameKey), resume: saved?.blind });
 
   useEffect(() => {
     const e = new Engine();
@@ -140,11 +144,20 @@ export default function BlindfoldGame() {
     [elo, toast], // eslint-disable-line react-hooks/exhaustive-deps
   );
 
-  // the engine opens when you have black; otherwise get a baseline evaluation for your first move
+  // keep the game (and its training counters) on this device after every move and reveal
   useEffect(() => {
-    if (engineState !== "ready" || moves.length !== 0 || ended) return;
-    if (color === "b") aiTurn([]);
-    else engine.current?.evaluate(new Chess().fen(), 10).then((r) => (evalForUser.current = r.score)).catch(() => {});
+    if (ended || !moves.length) clearSave(uid, "blindfold");
+    else writeSave(uid, "blindfold", { ref: ref.current, elo, color, moves: moves.map(toUci), quality: quality.current, blind: bf.snapshot() });
+  }, [moves, ended, bf.counts]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Stockfish moves when it's its turn (opening as white, or a reply in a resumed game); otherwise get a baseline evaluation for your move
+  useEffect(() => {
+    if (engineState !== "ready" || thinking || ended) return;
+    if (new Chess(fen).turn() !== color) aiTurn(moves);
+    else {
+      const gen = generation.current;
+      engine.current?.evaluate(fen, 10).then((r) => gen === generation.current && (evalForUser.current = r.score)).catch(() => {});
+    }
   }, [engineState, gameKey]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const onMove = async (from: string, to: string, promotion?: string) => {

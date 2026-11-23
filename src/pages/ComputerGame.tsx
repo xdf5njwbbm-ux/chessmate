@@ -7,6 +7,8 @@ import { describeMove, classifyLoss, type MoveCard, type Reaction } from "../lib
 import { api, recordAiGame } from "../lib/api";
 import { TERMINATION } from "../lib/constants";
 import { uuid } from "../lib/format";
+import { clearSave, writeSave } from "../lib/saved";
+import { loadBotGame, toUci } from "../lib/botSave";
 import type { Game, Level } from "../lib/types";
 import { useSession } from "../state/session";
 import { useToast } from "../state/toast";
@@ -27,25 +29,29 @@ const BOT_ANIMATION_MS = 600;
 export default function ComputerGame() {
   const [params] = useSearchParams();
   const navigate = useNavigate();
-  const { profile } = useSession();
+  const { profile, uid } = useSession();
   const toast = useToast();
-  const elo = Math.max(100, Math.min(3000, Number(params.get("elo")) || 900));
-  const color: "w" | "b" = params.get("color") === "black" ? "b" : "w";
   const level = (profile?.ru_level ?? "A1") as Level;
   const forms = profile?.ru_forms ?? "m";
+  // an unfinished game on this device picks up where it was left (the Play page clears it before a new one)
+  const [saved] = useState(() => loadBotGame(uid, "computer"));
+  const elo = saved?.elo ?? Math.max(100, Math.min(3000, Number(params.get("elo")) || 900));
+  const color: "w" | "b" = saved?.color ?? (params.get("color") === "black" ? "b" : "w");
 
   const [gameKey, setGameKey] = useState(0);
-  const [moves, setMoves] = useState<Move[]>([]);
-  const [cards, setCards] = useState<{ ply: number; card: MoveCard }[]>([]);
+  const [moves, setMoves] = useState<Move[]>(() => saved?.history ?? []);
+  const [cards, setCards] = useState<{ ply: number; card: MoveCard }[]>(() =>
+    (saved?.history ?? []).map((move, ply) => ({ ply, card: describeMove({ move, ply, level, forms, speaker: move.color === color ? "me" : "ai" }) })),
+  );
   const [thinking, setThinking] = useState(false);
   const [engineState, setEngineState] = useState<"loading" | "ready" | "error">("loading");
   const [ended, setEnded] = useState<null | { result: string; termination: string; saved?: Game }>(null);
-  const [undos, setUndos] = useState(0);
+  const [undos, setUndos] = useState(saved?.undos ?? 0);
   const [confirmResign, setConfirmResign] = useState(false);
   const [focus, setFocus] = useState<FocusWord[]>([]);
   const engine = useRef<Engine | null>(null);
   const evalForUser = useRef<number | null>(null);
-  const ref = useRef(uuid());
+  const ref = useRef(saved?.ref ?? uuid());
   const generation = useRef(0);
   const endCard = useRef<HTMLDivElement>(null);
   const wide = useWide();
@@ -136,9 +142,20 @@ export default function ComputerGame() {
     [elo, level, forms, finish, toast],
   );
 
-  // engine opens when the learner has black
+  // keep the game on this device after every move, so leaving or reloading never resets it
   useEffect(() => {
-    if (engineState === "ready" && color === "b" && moves.length === 0 && !thinking && !ended) aiTurn([], null);
+    if (ended || !moves.length) clearSave(uid, "computer");
+    else writeSave(uid, "computer", { ref: ref.current, elo, color, moves: moves.map(toUci), undos });
+  }, [moves, undos, ended]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Stockfish moves first when the learner has black, or picks up its reply in a resumed game
+  useEffect(() => {
+    if (engineState !== "ready" || thinking || ended) return;
+    if (new Chess(fen).turn() !== color) aiTurn(moves, null);
+    else if (moves.length) {
+      const gen = generation.current;
+      engine.current?.evaluate(fen, 10).then((r) => gen === generation.current && (evalForUser.current = r.score)).catch(() => {});
+    }
   }, [engineState, gameKey]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const onMove = async (from: string, to: string, promotion?: string) => {

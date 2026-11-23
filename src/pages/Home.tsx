@@ -7,6 +7,7 @@ import { pct, ratingText } from "../lib/format";
 import type { Dashboard } from "../lib/types";
 import { useSession } from "../state/session";
 import { useLive } from "../state/live";
+import { ResumeBotGames } from "../components/Resume";
 import { Button, LevelBadge, PageLoader, Progress, Ring, SectionTitle, Stat, TierIcon } from "../components/ui";
 
 function greeting() {
@@ -78,6 +79,8 @@ export default function Home() {
           <ArrowRight className="size-4 text-accent" />
         </button>
       )}
+
+      <ResumeBotGames className="mb-6" />
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         {/* continue learning */}

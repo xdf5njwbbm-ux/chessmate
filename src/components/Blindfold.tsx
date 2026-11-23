@@ -6,6 +6,7 @@ import {
 } from "../lib/blindfold";
 import { pref, setPref } from "../lib/format";
 import type { Level } from "../lib/types";
+import type { BlindResume } from "../lib/saved";
 import { useSay, SpeakPractice } from "./Audio";
 
 /** English speech for "hear it in English" (the device voice; Russian goes through the app's voices). */
@@ -31,7 +32,7 @@ export type BlindSummary = { reveals: number; reveal_ms: number; longest_blind_s
  * reveal toggling (purely visual — it never touches the game), response
  * times, the no-reveal streak and spoken announcements of the opponent's moves.
  */
-export function useBlindfold({ moves, myColor, over, ruLevel, gameKey }: { moves: Move[]; myColor: "w" | "b"; over: boolean; ruLevel: Level; gameKey: string }) {
+export function useBlindfold({ moves, myColor, over, ruLevel, gameKey, resume }: { moves: Move[]; myColor: "w" | "b"; over: boolean; ruLevel: Level; gameKey: string; resume?: BlindResume }) {
   const say = useSay();
   const [level, setLevelState] = useState<BlindLevel>(() => pref<BlindLevel>("blindLevel", "intermediate"));
   const [voice, setVoiceState] = useState<boolean>(() => pref("blindVoice", true));
@@ -40,6 +41,7 @@ export function useBlindfold({ moves, myColor, over, ruLevel, gameKey }: { moves
   const revealedRef = useRef(false);
   revealedRef.current = revealed;
   const s = useRef({ revealStart: 0, revealMs: 0, revealedThisMove: false, turnStart: null as number | null, responses: [] as number[], seenPly: -1 });
+  const resumeFrom = useRef(resume);
 
   const setLevel = (l: BlindLevel) => {
     setLevelState(l);
@@ -50,11 +52,13 @@ export function useBlindfold({ moves, myColor, over, ruLevel, gameKey }: { moves
     setPref("blindVoice", v);
   };
 
-  // new game → fresh session
+  // new game → fresh session (a resumed game carries its counters over, once)
   useEffect(() => {
-    s.current = { revealStart: 0, revealMs: 0, revealedThisMove: false, turnStart: null, responses: [], seenPly: moves.length - 1 };
+    const r = resumeFrom.current;
+    resumeFrom.current = undefined;
+    s.current = { revealStart: 0, revealMs: r?.reveal_ms ?? 0, revealedThisMove: false, turnStart: null, responses: r?.responses ?? [], seenPly: moves.length - 1 };
     setRevealed(false);
-    setCounts({ reveals: 0, streak: 0, longest: 0 });
+    setCounts(r ? { reveals: r.reveals, streak: r.streak, longest: r.longest } : { reveals: 0, streak: 0, longest: 0 });
     if ((moves.length % 2 === 0 ? "w" : "b") === myColor) s.current.turnStart = Date.now();
   }, [gameKey]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -115,7 +119,16 @@ export function useBlindfold({ moves, myColor, over, ruLevel, gameKey }: { moves
     };
   };
 
-  return { level, setLevel, caps: CAPS[level], voice, setVoice, revealed: revealed || over, toggleReveal, counts, summary, speakMove };
+  /** Counters to save with an unfinished game. */
+  const snapshot = (): BlindResume => ({
+    reveals: counts.reveals,
+    streak: counts.streak,
+    longest: counts.longest,
+    reveal_ms: s.current.revealMs + (revealed && s.current.revealStart ? Date.now() - s.current.revealStart : 0),
+    responses: [...s.current.responses],
+  });
+
+  return { level, setLevel, caps: CAPS[level], voice, setVoice, revealed: revealed || over, toggleReveal, counts, summary, snapshot, speakMove };
 }
 
 export type BlindfoldState = ReturnType<typeof useBlindfold>;
