@@ -11,11 +11,18 @@ import type { Game, Level } from "../lib/types";
 import { useSession } from "../state/session";
 import { useToast } from "../state/toast";
 import { Board, capturedPieces } from "../components/Board";
-import { LearningPanel } from "../components/LearningPanel";
+import { LearningPanel, LearningPopup } from "../components/LearningPanel";
+import { useWide } from "../lib/useMedia";
 import { MoveList, PlayerBar } from "../components/GameParts";
 import { BackButton, Button, Confirm, Spinner } from "../components/ui";
 
 type FocusWord = { id: string; ru: string; stressed: string; en: string };
+
+/** Stockfish answers in a few milliseconds; a short, human-feeling pause makes its moves easy to follow. */
+const BOT_MIN_THINK_MS = 1100;
+const BOT_THINK_JITTER_MS = 700;
+/** Its piece glides slowly enough to see where it came from. */
+const BOT_ANIMATION_MS = 600;
 
 export default function ComputerGame() {
   const [params] = useSearchParams();
@@ -41,6 +48,9 @@ export default function ComputerGame() {
   const ref = useRef(uuid());
   const generation = useRef(0);
   const endCard = useRef<HTMLDivElement>(null);
+  const wide = useWide();
+  const [collapse, setCollapse] = useState(0);
+  const boardBox = useRef<HTMLDivElement>(null);
 
   const fen = moves.at(-1)?.after ?? new Chess().fen();
 
@@ -78,7 +88,12 @@ export default function ComputerGame() {
 
   const isOver = !!ended;
   useEffect(() => {
-    if (isOver) setTimeout(() => endCard.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 50);
+    if (isOver) {
+      setTimeout(() => {
+        setCollapse((n) => n + 1); // get the pop-up out of the way of the result card
+        endCard.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }, 50);
+    }
   }, [isOver]);
 
   const addCard = (ply: number, card: MoveCard) => setCards((c) => [...c.filter((x) => x.ply < ply), { ply, card }]);
@@ -89,11 +104,15 @@ export default function ComputerGame() {
       if (!e) return;
       const gen = generation.current;
       setThinking(true);
+      const started = performance.now();
       try {
         await e.ready;
         const before = history.at(-1)?.after ?? new Chess().fen();
         const uci = await e.botMove(before, elo);
         if (gen !== generation.current || !uci) return;
+        const wait = BOT_MIN_THINK_MS + Math.random() * BOT_THINK_JITTER_MS - (performance.now() - started);
+        if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+        if (gen !== generation.current) return;
         const c = new Chess(before);
         const mv = c.move({ from: uci.slice(0, 2), to: uci.slice(2, 4), promotion: uci[4] || undefined });
         const next = [...history, mv];
@@ -189,7 +208,7 @@ export default function ComputerGame() {
   const draw = ended?.result === "1/2-1/2";
 
   return (
-    <div className="grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-[minmax(0,1fr)_380px] xl:grid-cols-[minmax(0,1fr)_420px]">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-5 pb-20 lg:grid-cols-[minmax(0,1fr)_380px] lg:pb-0 xl:grid-cols-[minmax(0,1fr)_420px]">
       <div className="mx-auto w-full max-w-[600px]">
         <div className="mb-1 flex items-center gap-2">
           <BackButton to="/play" />
@@ -205,14 +224,17 @@ export default function ComputerGame() {
           color={aiColor}
           note={thinking ? "thinking…" : null}
         />
+        <div ref={boardBox} onPointerDown={() => !wide && setCollapse((n) => n + 1)}>
         <Board
           id={`ai-${gameKey}`}
+          animationMs={moves.at(-1)?.color === aiColor ? BOT_ANIMATION_MS : 200}
           fen={fen}
           orientation={color === "w" ? "white" : "black"}
           movable={!thinking && !ended && engineState === "ready" ? userColor : null}
           lastMove={moves.at(-1) ? moves.at(-1)!.from + moves.at(-1)!.to : null}
           onMove={onMove}
         />
+        </div>
         <PlayerBar
           name="You"
           level={level}
@@ -245,9 +267,13 @@ export default function ComputerGame() {
         )}
       </div>
 
-      <div className="lg:sticky lg:top-6 lg:self-start">
-        <LearningPanel cards={cards} focus={focus} />
-      </div>
+      {wide ? (
+        <div className="lg:sticky lg:top-6 lg:self-start">
+          <LearningPanel cards={cards} focus={focus} />
+        </div>
+      ) : (
+        <LearningPopup cards={cards} focus={focus} collapse={collapse} avoid={boardBox} />
+      )}
 
       <Confirm open={confirmResign} onClose={() => setConfirmResign(false)} title="Resign this game?" body="It's a practice game — your rating won't change." confirmLabel="Resign" danger onConfirm={() => finish(moves, "resign")} />
     </div>

@@ -19,10 +19,12 @@ type Props = {
   onMove?: (from: string, to: string, promotion?: string) => void;
   arrows?: { from: string; to: string; color?: string }[];
   id: string;
+  /** How long pieces glide between squares (slower for the opponent's moves so they're easy to follow). */
+  animationMs?: number;
 };
 
 /** The shared chessboard: drag or tap to move, legal-move hints, check and last-move highlights, promotion picker. */
-export function Board({ fen, orientation, movable, lastMove, onMove, arrows, id }: Props) {
+export function Board({ fen, orientation, movable, lastMove, onMove, arrows, id, animationMs = 160 }: Props) {
   const theme = BOARD_THEMES[pref<BoardTheme>("boardTheme", "green")] ?? BOARD_THEMES.green;
   const chess = useMemo(() => new Chess(fen), [fen]);
   const [selected, setSelected] = useState<string | null>(null);
@@ -100,7 +102,7 @@ export function Board({ fen, orientation, movable, lastMove, onMove, arrows, id 
           lightSquareNotationStyle: { color: theme.dark, fontWeight: 600, fontSize: 11 },
           darkSquareNotationStyle: { color: theme.light, fontWeight: 600, fontSize: 11 },
           dropSquareStyle: { boxShadow: "inset 0 0 0 3px rgba(63,191,127,0.9)" },
-          animationDurationInMs: 160,
+          animationDurationInMs: animationMs,
           allowDrawingArrows: true,
           arrows: arrows?.map((a) => ({ startSquare: a.from, endSquare: a.to, color: a.color ?? "rgba(63,191,127,0.85)" })),
         }}

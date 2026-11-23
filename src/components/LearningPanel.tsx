@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { BookOpen, Check, ChevronDown, ChevronUp, GraduationCap, Lightbulb, X } from "lucide-react";
 import type { MoveCard, Phrase } from "../lib/movePhrases";
 import type { Intensity, Line } from "../lib/types";
@@ -53,10 +53,10 @@ export function LearningPanel({ cards, focus, onIntensity }: { cards: { ply: num
       </div>
       {!open ? (
         latest && (
-          <button className="flex w-full items-center gap-3 px-4 py-3 text-left" onClick={() => setOpen(true)}>
-            <span className="ru min-w-0 flex-1 truncate text-lg">{latest.card.phrase.ru}</span>
-            <span onClick={(e) => e.stopPropagation()}><AudioButtons text={latest.card.phrase.ru} compact /></span>
-          </button>
+          <div className="flex items-center gap-3 px-4 py-3">
+            <button className="ru min-w-0 flex-1 truncate text-left text-lg" onClick={() => setOpen(true)}>{latest.card.phrase.ru}</button>
+            <AudioButtons text={latest.card.phrase.ru} compact />
+          </div>
         )
       ) : !latest ? (
         <div className="px-4 py-6 text-sm text-mist">
@@ -90,6 +90,110 @@ export function LearningPanel({ cards, focus, onIntensity }: { cards: { ply: num
         </div>
       )}
     </section>
+  );
+}
+
+/**
+ * Phones: the lesson for each move pops up over the bottom of the screen right
+ * after the move, so nobody has to scroll below the board to see it. It shrinks
+ * to a slim bar when the learner goes back to the board (`collapse` changes),
+ * and pops up again with the next move. It sizes itself to the space under the
+ * board (`avoid`), so it never covers squares the learner needs to play on.
+ */
+export function LearningPopup({ cards, focus, collapse, avoid }: { cards: { ply: number; card: MoveCard }[]; focus?: FocusWord[]; collapse?: number; avoid?: RefObject<HTMLElement | null> }) {
+  const { profile, saveProfile } = useSession();
+  const ent = useEntitlements();
+  const intensity: Intensity = profile?.learning_intensity === "deep" && !ent.deep_learning ? "standard" : profile?.learning_intensity ?? "standard";
+  const latest = cards.at(-1);
+  const prev = cards.length > 1 ? cards.at(-2)! : null;
+  const [open, setOpen] = useState(true);
+  const [maxH, setMaxH] = useState<number | null>(null);
+
+  useEffect(() => {
+    const openedAt = window.scrollY;
+    const measure = () => {
+      const el = avoid?.current;
+      if (!el) return setMaxH(null);
+      const below = window.innerHeight - el.getBoundingClientRect().bottom - 10;
+      setMaxH(Math.round(Math.min(window.innerHeight * 0.6, Math.max(170, below))));
+    };
+    const onScroll = () => {
+      // scrolling down to the chat or the buttons below means "get out of the way"
+      if (open && Math.abs(window.scrollY - openedAt) > 48) setOpen(false);
+      measure();
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [avoid, open, latest?.ply]);
+
+  // order matters: a new move (below) must win over a tap on the board in the same commit
+  useEffect(() => {
+    if (collapse) setOpen(false);
+  }, [collapse]);
+  useEffect(() => {
+    if (latest) setOpen(true);
+  }, [latest?.ply, latest?.card.key]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  if (!latest) return null;
+  const standard = intensity !== "quick";
+
+  return (
+    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 px-2 pb-[max(8px,env(safe-area-inset-bottom))] lg:hidden" data-learning-popup={open ? "open" : "min"}>
+      <section
+        key={open ? `o${latest.ply}` : "min"}
+        style={open && maxH ? { maxHeight: maxH } : undefined}
+        className="pointer-events-auto mx-auto flex max-h-[60dvh] max-w-[600px] animate-sheet-in flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink-900/95 shadow-[0_-16px_48px_-12px_rgba(0,0,0,0.85)] backdrop-blur"
+        aria-label="Russian for this move"
+        aria-live="polite"
+      >
+        {open ? (
+          <>
+            <div className="flex shrink-0 items-center gap-2 border-b border-white/[0.06] py-1 pl-3 pr-1.5">
+              <GraduationCap className="size-[18px] shrink-0 text-accent" />
+              <Segmented
+                size="sm"
+                value={intensity}
+                onChange={(i: Intensity) => saveProfile({ learning_intensity: i }).catch(() => {})}
+                options={INTENSITY.filter((x) => x.v !== "deep" || ent.deep_learning).map((x) => ({ v: x.v, l: x.l }))}
+              />
+              <div className="flex-1" />
+              <button className="grid size-9 place-items-center rounded-lg text-mist hover:bg-white/5" onClick={() => setOpen(false)} aria-label="Minimize">
+                <ChevronDown className="size-5" />
+              </button>
+            </div>
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-3">
+              <CardView key={latest.ply} ply={latest.ply} card={latest.card} intensity={intensity} focus={focus} />
+              {prev && (
+                <div className="mt-4 flex items-start gap-2 rounded-xl bg-white/[0.03] px-3 py-2">
+                  <span className="w-16 shrink-0 pt-0.5 text-[11px] font-semibold uppercase tracking-wider text-faint">Before · {WHO[prev.card.speaker]}</span>
+                  <div className="min-w-0 flex-1">
+                    <div className="ru text-[15px]">{prev.card.phrase.ru}</div>
+                    {standard && <div className="text-xs text-mist">{prev.card.phrase.en}</div>}
+                  </div>
+                  <AudioButtons text={prev.card.phrase.ru} compact />
+                </div>
+              )}
+            </div>
+          </>
+        ) : (
+          <div className="flex items-center gap-2 py-1.5 pl-4 pr-1.5">
+            <button className="flex min-w-0 flex-1 items-center gap-3 py-1 text-left" onClick={() => setOpen(true)}>
+              <GraduationCap className="size-4 shrink-0 text-accent" />
+              <span className="ru min-w-0 flex-1 truncate text-base">{latest.card.phrase.ru}</span>
+            </button>
+            <AudioButtons text={latest.card.phrase.ru} compact />
+            <button className="grid size-9 shrink-0 place-items-center rounded-lg text-mist hover:bg-white/5" onClick={() => setOpen(true)} aria-label="Show the Russian for this move">
+              <ChevronUp className="size-5" />
+            </button>
+          </div>
+        )}
+      </section>
+    </div>
   );
 }
 

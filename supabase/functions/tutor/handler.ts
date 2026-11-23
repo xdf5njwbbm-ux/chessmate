@@ -59,7 +59,7 @@ function systemPrompt(p: { level: string; forms: string; scenario?: { title: str
     "- If the learner writes in English, reply in Russian and put the Russian version of their message in correction.natural with a short explanation.",
     "- If a pronunciation note is included with the learner's message, briefly and kindly mention the word(s) to practise in your explanation.",
     "- reply_en: an accurate English translation of reply_ru.",
-    "- new_words: up to 3 words from your reply the learner may not know, with the stressed vowel marked with an acute accent (e.g. «пое́здка»), and an English gloss.",
+    "- new_words: up to 3 words from your reply the learner may not know, with the stressed vowel marked with an acute accent (e.g. «пое\u0301здка»), and an English gloss.",
     'Answer with JSON only: {"reply_ru": "...", "reply_en": "...", "correction": null or {"corrected": "...", "explanation": "...", "natural": "..."}, "new_words": [{"ru": "...", "en": "..."}]}',
   ].filter(Boolean).join("\n");
 }

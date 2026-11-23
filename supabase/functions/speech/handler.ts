@@ -40,7 +40,7 @@ function limited(userId: string, kind: string, max: number, windowMs: number): b
 }
 
 async function tts(userId: string, body: Record<string, unknown>): Promise<Response> {
-  const text = String(body.text ?? "").replace(/́/g, "").trim();
+  const text = String(body.text ?? "").replace(/\u0301/g, "").trim();
   const voice = VOICES[String(body.voice)] ?? VOICES.female;
   const rate = RATES[String(body.rate ?? "1")] ?? "0%";
   if (!text || text.length > 400) return json({ error: "Text must be 1–400 characters." }, 400);
@@ -114,7 +114,7 @@ export function parseAssessment(az: Record<string, unknown>) {
 }
 
 async function assess(userId: string, body: Record<string, unknown>): Promise<Response> {
-  const text = String(body.text ?? "").replace(/́/g, "").trim();
+  const text = String(body.text ?? "").replace(/\u0301/g, "").trim();
   const audioB64 = String(body.audio ?? "");
   if (!text || text.length > 400) return json({ error: "Text must be 1–400 characters." }, 400);
   if (!audioB64 || audioB64.length > 4_000_000) return json({ error: "Recordings can be up to about 60 seconds." }, 400);

@@ -12,7 +12,8 @@ import { useSession } from "../state/session";
 import { useLive } from "../state/live";
 import { useToast } from "../state/toast";
 import { Board, capturedPieces } from "../components/Board";
-import { LearningPanel } from "../components/LearningPanel";
+import { LearningPanel, LearningPopup } from "../components/LearningPanel";
+import { useWide } from "../lib/useMedia";
 import { MoveList, PlayerBar } from "../components/GameParts";
 import { AudioButtons } from "../components/Audio";
 import { BackButton, Button, Confirm, EmptyState, FullScreenLoader, Segmented, Sheet, Spinner, Toggle } from "../components/ui";
@@ -36,6 +37,9 @@ export default function OnlineGame() {
   const [menu, setMenu] = useState(false);
   const [report, setReport] = useState(false);
   const [tab, setTab] = useState<"learn" | "chat">("learn");
+  const wide = useWide();
+  const [collapse, setCollapse] = useState(0);
+  const boardBox = useRef<HTMLDivElement>(null);
   const [live, setLive] = useState(false);
   const gameRef = useRef<Game | null>(null);
   const flagFor = useRef(-1);
@@ -200,7 +204,7 @@ export default function OnlineGame() {
   const ratingSub = (p: Mini | null | undefined) => (p ? (p.rating != null ? ratingText(p.rating, p.rating_status) : `Unrated${p.placement_left ? ` · ${p.placement_left} placement left` : ""}`) : "");
 
   return (
-    <div className="grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-[minmax(0,1fr)_380px] xl:grid-cols-[minmax(0,1fr)_420px]">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-5 pb-20 lg:grid-cols-[minmax(0,1fr)_380px] lg:pb-0 xl:grid-cols-[minmax(0,1fr)_420px]">
       <div className="mx-auto w-full max-w-[600px]">
         <div className="mb-1 flex items-center gap-2">
           <BackButton to="/play" />
@@ -225,14 +229,17 @@ export default function OnlineGame() {
           perMove={game.per_move}
           note={oppOfferedDraw && isActive ? "offers a draw" : null}
         />
+        <div ref={boardBox} onPointerDown={() => !wide && setCollapse((n) => n + 1)}>
         <Board
           id={`game-${game.id}`}
+          animationMs={display.moves.length && ((display.moves.length - 1) % 2 === 0 ? "w" : "b") !== myColor ? 500 : 200}
           fen={display.fen}
           orientation={myColor === "b" ? "black" : "white"}
           movable={myTurn ? myColor : null}
           lastMove={display.moves.at(-1) ?? null}
           onMove={sendMove}
         />
+        </div>
         <PlayerBar
           name={me?.display_name ?? "You"}
           sub={ratingSub(me)}
@@ -280,12 +287,22 @@ export default function OnlineGame() {
         )}
       </div>
 
-      <div className="lg:sticky lg:top-6 lg:self-start">
-        <div className="mb-3">
-          <Segmented value={tab} onChange={setTab} options={[{ v: "learn", l: "Russian" }, { v: "chat", l: <span className="inline-flex items-center gap-1.5"><MessageSquare className="size-3.5" /> Chat</span> }]} />
+      {wide ? (
+        <div className="lg:sticky lg:top-6 lg:self-start">
+          <div className="mb-3">
+            <Segmented value={tab} onChange={setTab} options={[{ v: "learn", l: "Russian" }, { v: "chat", l: <span className="inline-flex items-center gap-1.5"><MessageSquare className="size-3.5" /> Chat</span> }]} />
+          </div>
+          {tab === "learn" ? <LearningPanel cards={cards} /> : <ChatPanel game={game} players={players} level={level} />}
         </div>
-        {tab === "learn" ? <LearningPanel cards={cards} /> : <ChatPanel game={game} players={players} level={level} />}
-      </div>
+      ) : (
+        <>
+          {/* phones: the Russian for each move pops up over the screen; chat sits under the board */}
+          <div onPointerDown={() => setCollapse((n) => n + 1)} onFocusCapture={() => setCollapse((n) => n + 1)}>
+            <ChatPanel game={game} players={players} level={level} />
+          </div>
+          {isActive && <LearningPopup cards={cards} collapse={collapse} avoid={boardBox} />}
+        </>
+      )}
 
       <Confirm open={confirmResign} onClose={() => setConfirmResign(false)} title="Resign this game?"
         body={`${opp?.display_name ?? "Your opponent"} will win.${game.rated ? " Your rating will update." : ""}`} confirmLabel="Resign" danger onConfirm={() => act("resign")} />
