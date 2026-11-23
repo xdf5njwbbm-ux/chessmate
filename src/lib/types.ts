@@ -160,7 +160,8 @@ export type Line = { ru: string; ruF?: string; en: string; words: Word[]; note?:
 export type LessonSection =
   | { type: "lines"; kind: "dialogue" | "phrases"; title: string; lines: Line[] }
   | { type: "grammar"; title: string; paragraphs: string[]; examples: { ru: string; en: string }[] };
-export type Drill = { q: string; answer: string; options: string[]; en: string };
+/** `why`: a note for each wrong option, shown when the learner picks it. */
+export type Drill = { q: string; answer: string; options: string[]; en: string; why?: Record<string, string> };
 export type VocabEntry = { id: string; ru: string; stressed: string; en: string; pos: string; note: string };
 
 export type LessonMeta = {

@@ -22,9 +22,21 @@ ex: Он до сих пор не ответил. = He still hasn't replied.
 
 ## drills
 ? Я не ожидал, что всё ___ именно так. | сложится | сложилось, складывается, сложить | I didn't expect everything to turn out this way.
+  > сложилось: Сложилось is past. When reporting an expectation, Russian keeps the future of the original thought: всё сложится.
+  > складывается: Складывается is present ("is turning out"). The expectation was about what would happen: сложится.
+  > сложить: Сложить means "to fold, to put together" and needs an object. "To turn out" is the -ся verb: сложится.
 ? Я не жалею о ___, что случилось. | том | то, тем, тому | I don't regret what happened.
+  > то: О ("about") takes the prepositional: о том, что…
+  > тем: Тем is the instrumental. О needs том.
+  > тому: Тому is the dative. О needs том.
 ? Я до сих ___ не могу прийти в себя. | пор | пора, порой, поры | I still can't get over it.
+  > пора: The fixed phrase is до сих пор ("still, until now"). Пора means "it's time".
+  > порой: Порой means "at times". The fixed phrase is до сих пор.
+  > поры: The fixed phrase is до сих пор, with пор.
 ? Это стало для меня полной ___. | неожиданностью | неожиданность, неожиданности, неожиданный | It came as a complete surprise.
+  > неожиданность: Стать ("to become") takes the instrumental: стало неожиданностью (see полной).
+  > неожиданности: Неожиданности is the genitive or dative. After стать: неожиданностью.
+  > неожиданный: Неожиданный is an adjective. The sentence needs the noun in the instrumental: неожиданностью.
 
 ## vocab
 сложИться | to turn out, to work out | verb
@@ -61,9 +73,21 @@ ex: Время дороже денег. = Time is more precious than money.
 
 ## drills
 ? ___ больше я отдыхаю, тем лучше работаю. | Чем | Тем, Что, Как | The more I rest, the better I work.
+  > Тем: Тем goes in the second half. "The more…, the better…" is Чем больше…, тем лучше.
+  > Что: The pattern is Чем…, тем… Что doesn't fit.
+  > Как: The pattern is Чем…, тем… Как doesn't fit.
 ? Подумай о том, ___ ты действительно хочешь. | чего | что, чем, чему | Think about what you really want.
+  > что: Что is common in speech, but хотеть with something abstract traditionally takes the genitive: чего ты хочешь.
+  > чем: Чем is the instrumental. Хотеть takes чего.
+  > чему: Чему is the dative. Хотеть takes чего.
 ? Я стараюсь найти баланс между работой и личной ___. | жизнью | жизнь, жизни, жизнях | I'm trying to balance work and personal life.
+  > жизнь: Между takes the instrumental: между работой и жизнью.
+  > жизни: Жизни is the genitive or dative. Между needs жизнью.
+  > жизнях: Жизнях is the prepositional plural. Между needs жизнью.
 ? Здоровье дороже ___. | денег | деньги, деньгами, деньгам | Health matters more than money.
+  > деньги: A comparative without чем takes the genitive: дороже денег.
+  > деньгами: Деньгами is the instrumental. After дороже: денег.
+  > деньгам: Деньгам is the dative. After дороже: денег.
 
 ## vocab
 старАться | to try | verb
@@ -106,9 +130,21 @@ ex: Я подожду, пока ты не закончишь. = I'll wait until 
 
 ## drills
 ? Не хочу делать поспешных ___. | выводов | выводы, вывод, выводами | I don't want to jump to conclusions.
+  > выводы: With a negated verb, the object often goes into the genitive: поспешных выводов (see поспешных).
+  > вывод: Вывод is singular. Поспешных is genitive plural, so: выводов.
+  > выводами: Выводами is the instrumental. To match поспешных: выводов.
 ? Давай сначала ___, что произошло. | выясним | выясняем, выяснили, выяснять | Let's first find out what happened.
+  > выясняем: Выясняем is present. "Let's…" is давай + the мы future: давай выясним.
+  > выяснили: Выяснили is past. "Let's find out" is давай выясним.
+  > выяснять: Давай выяснять means "let's keep looking into it". For one clear result: давай выясним.
 ? Судя по ___, это недоразумение. | всему | всё, всем, всего | By all accounts, it's a misunderstanding.
+  > всё: The fixed phrase is судя по всему, with по + dative.
+  > всем: Всем is the dative plural or instrumental. The fixed phrase is судя по всему.
+  > всего: Всего is the genitive. The fixed phrase is судя по всему.
 ? Я бы не ___ спешить. | стал | стану, стать, становлюсь | I wouldn't rush.
+  > стану: Стану is future. After бы, use the past form: я бы не стал.
+  > стать: Стать is the infinitive. After бы, use the past form: стал.
+  > становлюсь: Становлюсь is present ("I become"). After бы, use the past form: стал.
 
 ## vocab
 поспЕшный | hasty | adjective
@@ -147,9 +183,21 @@ ex: Перезвони мне. → Будьте добры, перезвонит
 
 ## drills
 ? Не ___ бы вы прислать мне отчёт? | могли | можете, мог, могут | Could you send me the report?
+  > можете: Можете is present ("can you"). With бы, use the past form: могли бы.
+  > мог: Мог is singular. Вы takes the plural: могли.
+  > могут: Могут is "they can". With вы and бы: могли.
 ? Прошу прощения за ___. | задержку | задержка, задержки, задержкой | I apologise for the delay.
+  > задержка: За ("for") takes the accusative: за задержку.
+  > задержки: Задержки is the genitive. За needs задержку.
+  > задержкой: Задержкой is the instrumental. За ("for") needs задержку.
 ? К ___, мы вынуждены отказаться. | сожалению | сожаление, сожаления, сожалением | Unfortunately, we have to decline.
+  > сожаление: К takes the dative: к сожалению.
+  > сожаления: Сожаления is the genitive. К needs сожалению.
+  > сожалением: С сожалением means "with regret". "Unfortunately" is к сожалению.
 ? Давайте перенесём встречу на ___. | четверг | четверга, четвергом, четверге | Let's move the meeting to Thursday.
+  > четверга: Четверга is the genitive (до четверга). Перенести на takes the accusative: на четверг.
+  > четвергом: Четвергом is the instrumental. Moving it to Thursday: на четверг.
+  > четверге: Четверге is the prepositional (о четверге). Moving it to Thursday: на четверг.
 
 ## vocab
 прислАть | to send | verb
@@ -196,9 +244,21 @@ ex: Ведь мы договорились! = But we agreed!
 
 ## drills
 ? Ну ты ___! (Wow, you're something!) | даёшь | даю, дал, давать | Wow, you're something else!
+  > даю: Даю is the я form. The idiom with ты is Ну ты даёшь!
+  > дал: Дал is past. The idiom is in the present: Ну ты даёшь!
+  > давать: Давать is the infinitive. The idiom is Ну ты даёшь!
 ? Ничего ___! | себе | себя, собой, сам | Wow!
+  > себя: The fixed exclamation is Ничего себе! (with the dative).
+  > собой: Собой is the instrumental. The exclamation is Ничего себе!
+  > сам: Сам means "oneself" (for emphasis). The exclamation is Ничего себе!
 ? Я ___ тебе говорил! | же | ведь, бы, ли | I told you so!
+  > ведь: Ведь also adds emphasis, but it goes earlier (я ведь тебе говорил). The set phrase here is я же тебе говорил.
+  > бы: Бы makes "would" ("I would have told you"). For "I told you so!", use же.
+  > ли: Ли turns a sentence into a yes/no question. For emphasis, use же.
 ? Да нет, ___. | наверное | конечно, точно, обязательно | Probably not.
+  > конечно: Конечно is "of course" — too certain. "Probably not" is да нет, наверное.
+  > точно: Точно is "definitely, exactly". "Probably not" is да нет, наверное.
+  > обязательно: Обязательно is "definitely, without fail". "Probably not" is да нет, наверное.
 
 ## vocab
 давАть | to give | verb | Ну ты даёшь! = Wow!
@@ -234,9 +294,21 @@ ex: Я бросила пить кофе месяц назад. = I quit coffee a
 
 ## drills
 ? У меня аллергия ___ орехи. | на | от, к, с | I'm allergic to nuts.
+  > от: Аллергия takes на + accusative: аллергия на орехи.
+  > к: Аллергия takes на, not к: аллергия на орехи.
+  > с: С means "with". Аллергия takes на: аллергия на орехи.
 ? Я бросил ___ три года назад. | курить | курю, курил, покурить | I quit smoking three years ago.
+  > курю: Бросить ("to quit") takes an infinitive: бросил курить.
+  > курил: Курил is past. After бросил, use the infinitive: курить.
+  > покурить: Покурить is "to have a smoke" (once). Quitting the habit is бросить курить.
 ? Мне ___ антибиотики. | выписали | выписал, выписать, выписывают | I was prescribed antibiotics.
+  > выписал: Выписал is "he prescribed" and needs a subject. With no subject ("they prescribed", meaning "I was prescribed"): выписали.
+  > выписать: Выписать is the infinitive. "I was prescribed" is мне выписали.
+  > выписывают: Выписывают is present ("they prescribe"). It already happened: выписали.
 ? Береги ___! | себя | себе, собой, сам | Take care of yourself!
+  > себе: Себе is the dative. Беречь takes the accusative: береги себя.
+  > собой: Собой is the instrumental. Беречь needs себя.
+  > сам: Сам is the emphatic "yourself". As the object: береги себя.
 
 ## vocab
 здорОвый | healthy | adjective
@@ -278,9 +350,21 @@ ex: Дорого, зато удобно. = It's expensive, but convenient.
 
 ## drills
 ? Мой рейс ___ на три часа. | задержали | задержал, задержать, задерживают | My flight was delayed by three hours.
+  > задержал: Задержал is "he delayed" and needs a subject. With no subject ("they delayed"): задержали.
+  > задержать: Задержать is the infinitive. "Was delayed" is задержали.
+  > задерживают: Задерживают is present ("they are delaying"). It already happened: задержали.
 ? Куда мне ___? | обратиться | обращаюсь, обратился, обращение | Who should I speak to?
+  > обращаюсь: Обращаюсь is the я form. Мне + infinitive asks "where should I…": куда мне обратиться?
+  > обратился: Обратился is past. Мне + infinitive asks "where should I…": обратиться.
+  > обращение: Обращение is the noun "an appeal". The question needs the verb: обратиться.
 ? Гостиница ___ совсем не такой. | оказалась | оказался, оказаться, окажется | The hotel turned out to be nothing like that.
+  > оказался: Оказался is masculine. Гостиница is feminine: оказалась.
+  > оказаться: Оказаться is the infinitive. Гостиница needs the feminine past: оказалась.
+  > окажется: Окажется is future ("will turn out"). It already did: оказалась.
 ? Дорого, ___ удобно. | зато | потому, поэтому, хотя | Expensive, but convenient.
+  > потому: Потому means "because" (потому что). "But on the other hand" is зато.
+  > поэтому: Поэтому means "therefore". "But on the plus side" is зато.
+  > хотя: Хотя means "although", which flips the sense. "Expensive, but convenient" is дорого, зато удобно.
 
 ## vocab
 рейс | flight | noun, m.
@@ -322,9 +406,21 @@ ex: Закончив работу, он пошёл домой. = Having finished
 
 ## drills
 ? ___ пешку, он открыл линию. (having taken) | Взяв | Беря, Взял, Взять | Having taken the pawn, he opened the file.
+  > Беря: Беря means "while taking" (ongoing). He took the pawn first, then opened the file: Взяв.
+  > Взял: Взял is a full verb, so the sentence would need и. "Having taken" is Взяв.
+  > Взять: Взять is the infinitive. "Having taken" is Взяв.
 ? ___ книгу, я заснул. (while reading) | Читая | Прочитав, Читал, Читать | I fell asleep while reading the book.
+  > Прочитав: Прочитав means "having finished reading". "While reading" is Читая.
+  > Читал: Читал is a full verb, so the sentence would need и. "While reading" is Читая.
+  > Читать: Читать is the infinitive. "While reading" is Читая.
 ? ___ домой, она легла спать. | Вернувшись | Возвращаясь, Вернулась, Вернуться | When she got home, she went to bed.
+  > Возвращаясь: Возвращаясь means "while coming back". She got home first, then went to bed: Вернувшись.
+  > Вернулась: Вернулась is a full verb, so the sentence would need и. "Having come back" is Вернувшись.
+  > Вернуться: Вернуться is the infinitive. "Having come back" is Вернувшись.
 ? Не зная ___, трудно играть. | правил | правила, правилам, правилами | It's hard to play without knowing the rules.
+  > правила: After a negated verb, Russian prefers the genitive: не зная правил.
+  > правилам: Правилам is the dative. After не зная: правил.
+  > правилами: Правилами is the instrumental. After не зная: правил.
 
 ## vocab
 деепричАстие | verbal adverb | noun, n.
@@ -364,9 +460,21 @@ ex: Открытая линия — путь для ладьи. = An open file i
 
 ## drills
 ? Пешка, ___ на d5, очень сильная. | стоящая | стоящий, стоявший, стоящее | The pawn standing on d5 is very strong.
+  > стоящий: Стоящий is masculine. It must agree with пешка (feminine): стоящая.
+  > стоявший: Стоявший is past ("that stood") and masculine. Now, feminine: стоящая.
+  > стоящее: Стоящее is neuter. Пешка is feminine: стоящая.
 ? Это книга, ___ гроссмейстером. | написанная | написанный, написавшая, пишущая | This book was written by a grandmaster.
+  > написанный: Написанный is masculine. Книга is feminine: написанная.
+  > написавшая: Написавшая means "that wrote" (active). The book was written: написанная.
+  > пишущая: Пишущая means "that is writing" (active). The book was written: написанная.
 ? Все ___ гости пришли. | приглашённые | приглашённый, приглашающие, пригласившие | All the invited guests came.
+  > приглашённый: Приглашённый is singular. Гости is plural: приглашённые.
+  > приглашающие: Приглашающие means "who are inviting". The guests were invited: приглашённые.
+  > пригласившие: Пригласившие means "who invited". The guests were invited: приглашённые.
 ? ___ ферзь погиб. (abandoned) | Оставленный | Оставивший, Оставляющий, Оставлен | The abandoned queen was lost.
+  > Оставивший: Оставивший means "that left (something)". The queen was left: Оставленный.
+  > Оставляющий: Оставляющий means "that is leaving". The queen was left: Оставленный.
+  > Оставлен: Оставлен is a short form ("is left"), used after the noun, not before it. Before a noun: Оставленный.
 
 ## vocab
 причАстие | participle | noun, n.
@@ -406,9 +514,21 @@ ex: Несмотря на усталость, она выиграла. = Despite
 
 ## drills
 ? Несмотря на ___, мы пошли гулять. | дождь | дождя, дождём, дождю | Despite the rain, we went for a walk.
+  > дождя: Несмотря на takes the accusative: несмотря на дождь.
+  > дождём: Дождём is the instrumental. Несмотря на needs дождь.
+  > дождю: Дождю is the dative. Несмотря на needs дождь.
 ? Благодаря ___ я стал играть лучше. | тренеру | тренер, тренера, тренером | Thanks to my coach, I play better.
+  > тренер: Благодаря takes the dative: благодаря тренеру.
+  > тренера: Тренера is the genitive or accusative. Благодаря needs тренеру.
+  > тренером: Тренером is the instrumental. Благодаря needs тренеру.
 ? Вместо того ___ жаловаться, давай действовать. | чтобы | что, как, если | Instead of complaining, let's act.
+  > что: Before an infinitive, the phrase is вместо того чтобы.
+  > как: The phrase is вместо того чтобы, before an infinitive.
+  > если: Если means "if". The phrase is вместо того чтобы.
 ? Тем не ___, партия была интересной. | менее | более, меньше, мало | Nevertheless, the game was interesting.
+  > более: Тем более means "all the more". "Nevertheless" is тем не менее.
+  > меньше: Меньше means "less" (an amount). The fixed phrase is тем не менее.
+  > мало: Мало means "little, not much". The fixed phrase is тем не менее.
 
 ## vocab
 поскОльку | since, because | conjunction
@@ -448,9 +568,21 @@ ex: Главное сейчас — реализация преимуществ�
 
 ## drills
 ? Твоя позиция выглядит довольно ___. | уязвимой | уязвимая, уязвимую, уязвимый | Your position looks rather vulnerable.
+  > уязвимая: Выглядеть takes the instrumental: выглядит уязвимой.
+  > уязвимую: Уязвимую is the accusative. Выглядеть needs уязвимой.
+  > уязвимый: Уязвимый is masculine. Позиция is feminine, and выглядеть needs the instrumental: уязвимой.
 ? Несмотря на материальное ___, позиция опасна. | преимущество | преимущества, преимуществом, преимуществу | Despite the material advantage, the position is dangerous.
+  > преимущества: Несмотря на takes the accusative: на материальное преимущество.
+  > преимуществом: Преимуществом is the instrumental. Несмотря на needs преимущество.
+  > преимуществу: Преимуществу is the dative. Несмотря на needs преимущество.
 ? Твои фигуры не ___. | взаимодействуют | взаимодействует, взаимодействие, взаимодействовать | Your pieces don't coordinate.
+  > взаимодействует: Взаимодействует is singular. Фигуры is plural: взаимодействуют.
+  > взаимодействие: Взаимодействие is the noun "coordination". The sentence needs the verb: взаимодействуют.
+  > взаимодействовать: Взаимодействовать is the infinitive. With фигуры: взаимодействуют.
 ? Соперник начал создавать непосредственные ___. | угрозы | угроза, угрозу, угрозой | The opponent has started creating immediate threats.
+  > угроза: Угроза is singular. Непосредственные is plural: угрозы.
+  > угрозу: Угрозу is accusative singular. Непосредственные is plural: угрозы.
+  > угрозой: Угрозой is the instrumental. The object of создавать is угрозы.
 
 ## vocab
 материАльный | material | adjective
@@ -494,9 +626,21 @@ ex: Это была красивая жертва ферзя. = It was a beautif
 
 ## drills
 ? Это классическая ___. (fork) | вилка | вилку, вилки, вилкой | That's a classic fork.
+  > вилку: Вилку is the accusative (an object). After это, the noun is the subject: вилка.
+  > вилки: Вилки is the genitive or plural. As the subject: вилка.
+  > вилкой: Вилкой is the instrumental. With классическая: вилка.
 ? Он пожертвовал ___ ради атаки. | ладьёй | ладья, ладью, ладьи | He sacrificed a rook for the attack.
+  > ладья: Пожертвовать takes the instrumental: пожертвовал ладьёй.
+  > ладью: Ладью is the accusative. Пожертвовать needs ладьёй.
+  > ладьи: Ладьи is the genitive or plural. Пожертвовать needs ладьёй.
 ? Чёрные попали в ___. | цугцванг | цугцванга, цугцвангом, цугцванге | Black is in zugzwang.
+  > цугцванга: Цугцванга is the genitive. Getting into something is в + accusative: в цугцванг.
+  > цугцвангом: Цугцвангом is the instrumental. Getting into it: в цугцванг.
+  > цугцванге: В цугцванге means being in zugzwang. Falling into it is попасть в цугцванг.
 ? В эндшпиле король становится активной ___. | фигурой | фигура, фигуру, фигуры | In the endgame the king becomes an active piece.
+  > фигура: Становиться ("to become") takes the instrumental: становится фигурой.
+  > фигуру: Фигуру is the accusative. Становиться needs фигурой.
+  > фигуры: Фигуры is the genitive or plural. Становиться needs фигурой.
 
 ## vocab
 вИлка | fork | noun, f.
@@ -538,9 +682,21 @@ ex: Он ушёл, не сказав ни слова. = He left without saying a
 
 ## drills
 ? Твоя стратегия была слишком ___. | агрессивной | агрессивная, агрессивный, агрессивную | Your strategy was too aggressive.
+  > агрессивная: Агрессивная is heard in speech, but after была the standard form is the instrumental: агрессивной.
+  > агрессивный: Агрессивный is masculine. Стратегия is feminine: агрессивной.
+  > агрессивную: Агрессивную is the accusative. After была: агрессивной.
 ? Именно ___ ты потерял преимущество. | поэтому | потому, почему, что | That's exactly why you lost the advantage.
+  > потому: Потому needs что ("because"). "That's why" is поэтому.
+  > почему: Почему is "why?", a question word. "That's why" is поэтому.
+  > что: Что is "that, what". "That's why" is поэтому.
 ? Ты пожертвовал пешкой, не просчитав ___. | последствий | последствия, последствиям, последствиями | You sacrificed a pawn without calculating the consequences.
+  > последствия: After a negated verb (не просчитав), Russian prefers the genitive: последствий.
+  > последствиям: Последствиям is the dative. After не просчитав: последствий.
+  > последствиями: Последствиями is the instrumental. After не просчитав: последствий.
 ? Тебе стоит поработать над ___. | эндшпилем | эндшпиль, эндшпиля, эндшпилю | You should work on your endgame.
+  > эндшпиль: Над takes the instrumental: над эндшпилем.
+  > эндшпиля: Эндшпиля is the genitive. Над needs эндшпилем.
+  > эндшпилю: Эндшпилю is the dative. Над needs эндшпилем.
 
 ## vocab
 агрессИвный | aggressive | adjective
@@ -579,9 +735,21 @@ ex: Выбирать тебе. = It's your choice.
 
 ## drills
 ? Дело не в деньгах, а в ___. | принципе | принцип, принципа, принципом | It's not about the money; it's the principle.
+  > принцип: Like в деньгах, this в takes the prepositional: в принципе.
+  > принципа: Принципа is the genitive. Here в needs принципе.
+  > принципом: Принципом is the instrumental. Here в needs принципе.
 ? Ты упускаешь из ___ одну деталь. | виду | вид, вида, видом | You're overlooking one detail.
+  > вид: The fixed phrase is упускать из виду ("to overlook").
+  > вида: Из вида is also heard, but the classic idiom is упускать из виду.
+  > видом: Видом is the instrumental. The idiom is упускать из виду.
 ? Это палка о двух ___. | концах | концы, концов, концами | It cuts both ways.
+  > концы: О takes the prepositional: о двух концах.
+  > концов: Концов is the genitive. О needs концах.
+  > концами: Концами is the instrumental. О needs концах.
 ? В конечном счёте решать ___. | тебе | ты, тебя, тобой | In the end, it's your call.
+  > ты: "It's yours to decide" uses the dative: решать тебе.
+  > тебя: Тебя is the genitive or accusative. "Up to you" is решать тебе.
+  > тобой: Тобой is the instrumental. "Up to you" is решать тебе.
 
 ## vocab
 согласИться | to agree | verb

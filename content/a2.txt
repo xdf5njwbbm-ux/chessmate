@@ -22,9 +22,21 @@ ex: После обеда я работаю до шести. = After lunch I wor
 
 ## drills
 ? После ___ я пойду домой. | работы | работа, работу, работой | After work I'll go home.
+  > работа: После takes the genitive: после работы.
+  > работу: Работу is the accusative (иду на работу). После needs работы.
+  > работой: Работой is the instrumental (с работой). После needs работы.
 ? Что ты обычно делаешь по ___? | выходным | выходные, выходных, выходными | What do you usually do on weekends?
+  > выходные: По meaning "on (regularly)" takes the dative: по выходным.
+  > выходных: Выходных is the genitive (после выходных). По needs выходным.
+  > выходными: Выходными is the instrumental (перед выходными). По needs выходным.
 ? Вчера я ___ в магазин. (I went — a man) | ходил | хожу, пойду, ходила | Yesterday I went to the store.
+  > хожу: Хожу is present ("I go"). Вчера needs the past: ходил.
+  > пойду: Пойду is future ("I'll go"). Вчера needs the past: ходил.
+  > ходила: Ходила is the past for a woman. A man says ходил.
 ? Я встаю ___ семь часов. | в | на, до, по | I get up at seven.
+  > на: Clock times take в: в семь часов.
+  > до: До means "until, before". "At seven" is в семь.
+  > по: По isn't used for clock times. "At seven" is в семь.
 
 ## vocab
 обЫчно | usually | adverb
@@ -67,9 +79,21 @@ ex: Я буду чай с лимоном. = I'll have tea with lemon.
 
 ## drills
 ? Я ___ хотела салат. | бы | буду, был, быть | I'd like a salad.
+  > буду: Буду makes the future. A polite "I'd like" is я бы хотела.
+  > был: Был is the past "was". The polite "would" is бы.
+  > быть: Быть is the infinitive "to be". The polite "would" is бы.
 ? Я буду ___. (рыба) | рыбу | рыба, рыбы, рыбой | I'll have the fish.
+  > рыба: When ordering, the dish is the object (accusative): Я буду рыбу.
+  > рыбы: Рыбы is the genitive (нет рыбы). Ordering it: рыбу.
+  > рыбой: Рыбой is the instrumental (с рыбой, "with fish"). Ordering it: рыбу.
 ? Мне очень ___ эта еда. | нравится | нравятся, люблю, нравлюсь | I really like this food.
+  > нравятся: Нравятся is plural. Еда is one thing: нравится.
+  > люблю: Люблю needs я as the subject (я люблю эту еду). With мне use нравится.
+  > нравлюсь: Нравлюсь means "I am liked". The food is what's liked: нравится.
 ? ___, пожалуйста. (the bill) | Счёт | Счёта, Счета, Счётом | The bill, please.
+  > Счёта: Счёта is the genitive. Asking for something like this uses the plain form: Счёт, пожалуйста.
+  > Счета: Счета is plural ("bills, accounts"). One bill: Счёт.
+  > Счётом: Счётом is the instrumental. Use the plain form: Счёт.
 
 ## vocab
 заказАть | to order | verb | Perfective of заказывать.
@@ -110,9 +134,21 @@ ex: У нас нет сахара. = We're out of sugar.
 
 ## drills
 ? Килограмм ___, пожалуйста. (яблоки) | яблок | яблоки, яблоко, яблоками | A kilo of apples, please.
+  > яблоки: Amounts take the genitive: килограмм яблок (genitive plural).
+  > яблоко: Яблоко is one apple. "A kilo of apples" is килограмм яблок.
+  > яблоками: Яблоками is the instrumental. After килограмм use яблок.
 ? У нас нет ___. (хлеб) | хлеба | хлеб, хлебу, хлебом | We're out of bread.
+  > хлеб: Нет ("there's no") takes the genitive: нет хлеба.
+  > хлебу: Хлебу is the dative. Нет needs хлеба.
+  > хлебом: Хлебом is the instrumental. Нет needs хлеба.
 ? Добавь немного ___. (соль) | соли | соль, солью, соле | Add a little salt.
+  > соль: Немного ("a little") takes the genitive: немного соли.
+  > солью: Солью is the instrumental (с солью). Немного needs соли.
+  > соле: Соле isn't a real form. Соль is feminine, so its genitive is соли.
 ? Ты ___ готовить? | умеешь | умею, умеет, уметь | Do you know how to cook?
+  > умею: Умею is the я form. With ты use умеешь.
+  > умеет: Умеет is the он/она form. With ты use умеешь.
+  > уметь: Уметь is the infinitive. With ты use умеешь.
 
 ## vocab
 продУкты | groceries | noun, plural
@@ -155,9 +191,21 @@ ex: Фильм начинается в восемь вечера. = The film sta
 
 ## drills
 ? Что ты делаешь в ___? (Saturday) | субботу | суббота, субботы, субботе | What are you doing on Saturday?
+  > суббота: "On (a day)" is в + accusative: в субботу.
+  > субботы: Субботы is the genitive (до субботы). "On Saturday" is в субботу.
+  > субботе: Субботе is the prepositional (о субботе). "On Saturday" is в субботу.
 ? ___ сколько? | Во | В, На, До | At what time?
+  > В: Before сколько, в becomes во to be easier to say: Во сколько?
+  > На: На isn't used for times. "At what time?" is Во сколько?
+  > До: До means "until" (до скольки — until what time). "At what time?" is Во сколько?
 ? Тебе ___? — Да, отлично. | подходит | подходишь, подходят, подойти | Does that work for you? — Yes, great.
+  > подходишь: Подходишь is "you suit". It's the plan or time that suits you: подходит.
+  > подходят: Подходят is plural. One plan or time: подходит.
+  > подойти: Подойти is the infinitive. The sentence needs the он/оно form: подходит.
 ? Извини, я не ___. | могу | может, можешь, мочь | Sorry, I can't.
+  > может: Может is the он/она form. With я use могу.
+  > можешь: Можешь is the ты form. With я use могу.
+  > мочь: Мочь is the infinitive. With я use могу.
 
 ## vocab
 суббОта | Saturday | noun, f.
@@ -197,9 +245,21 @@ ex: Я увлекаюсь шахматами с детства. = I've loved che
 
 ## drills
 ? Чем ты ___? | увлекаешься | увлекаюсь, увлекается, увлекаться | What are you into?
+  > увлекаюсь: Увлекаюсь is the я form. With ты use увлекаешься.
+  > увлекается: Увлекается is the он/она form. With ты use увлекаешься.
+  > увлекаться: Увлекаться is the infinitive. With ты use увлекаешься.
 ? Я увлекаюсь ___. (фотография) | фотографией | фотография, фотографию, фотографии | I'm into photography.
+  > фотография: Увлекаться takes the instrumental: увлекаюсь фотографией.
+  > фотографию: Фотографию is the accusative. Увлекаться needs фотографией.
+  > фотографии: Фотографии is the genitive or prepositional. Увлекаться needs фотографией.
 ? Нет, я переехала ___. | недавно | давно, долго, скоро | No, I moved recently.
+  > давно: Давно means "long ago". "Recently" is недавно.
+  > долго: Долго means "for a long time". "Recently" is недавно.
+  > скоро: Скоро means "soon" (future). With a past verb, "recently" is недавно.
 ? Было приятно ___! | познакомиться | знакомый, знакомство, знаю | Nice to meet you!
+  > знакомый: Знакомый means "an acquaintance". After приятно use a verb: познакомиться.
+  > знакомство: Знакомство is a noun ("getting to know"). After приятно use the verb: познакомиться.
+  > знаю: Знаю is "I know". "Nice to meet you" is Приятно познакомиться.
 
 ## vocab
 давнО | for a long time; long ago | adverb
@@ -238,9 +298,21 @@ ex: Я еду на работу на метро. = I take the metro to work.
 
 ## drills
 ? Как доехать до ___? (вокзал) | вокзала | вокзал, вокзалу, вокзале | How do I get to the station?
+  > вокзал: До takes the genitive: до вокзала.
+  > вокзалу: Вокзалу is the dative (к вокзалу). До needs вокзала.
+  > вокзале: Вокзале is the prepositional (на вокзале). До needs вокзала.
 ? Я ___ на такси. | еду | иду, хожу, ходил | I'm going by taxi.
+  > иду: Иду is going on foot. By vehicle (на такси) use ехать: еду.
+  > хожу: Хожу is walking, regularly. In a taxi, right now: еду.
+  > ходил: Ходил is past and on foot. Now, by taxi: еду.
 ? Нужно сделать ___. | пересадку | пересадка, пересадки, пересадкой | You need to change.
+  > пересадка: Сделать takes a direct object in the accusative: пересадку.
+  > пересадки: Пересадки is the genitive or plural. The object of сделать is пересадку.
+  > пересадкой: Пересадкой is the instrumental. The object of сделать is пересадку.
 ? ___ станция — «Арбатская». | Следующая | Следующий, Следующее, Следующие | Next station: Arbatskaya.
+  > Следующий: Следующий is masculine. Станция is feminine: Следующая.
+  > Следующее: Следующее is neuter. Станция is feminine: Следующая.
+  > Следующие: Следующие is plural. One станция: Следующая.
 
 ## vocab
 доЕхать | to get to (by vehicle) | verb
@@ -283,9 +355,21 @@ ex: Мой номер на пятом этаже. = My room is on the fifth floo
 
 ## drills
 ? Номер на третьем ___. | этаже | этаж, этажа, этажом | The room is on the third floor.
+  > этаж: На for location ("on") takes the prepositional: на этаже.
+  > этажа: Этажа is the genitive. Location with на needs этаже.
+  > этажом: Этажом is the instrumental (под этажом). "On the floor" is на этаже.
 ? Завтрак с семи до ___. | десяти | десять, десятью, десятый | Breakfast is from seven to ten.
+  > десять: До takes the genitive: до десяти.
+  > десятью: Десятью is the instrumental. До needs десяти.
+  > десятый: Десятый is "tenth". "Until ten" is до десяти.
 ? На сколько ___? | ночей | ночь, ночи, ночью | For how many nights?
+  > ночь: After сколько use the genitive plural: сколько ночей.
+  > ночи: Ночи follows 2–4 (две ночи). After сколько: ночей.
+  > ночью: Ночью means "at night". After сколько: ночей.
 ? У меня ___ номер. | забронирован | забронировать, бронь, забронирую | I have a room booked.
+  > забронировать: Забронировать is the infinitive "to book". "Is booked" is the short form: забронирован.
+  > бронь: Бронь is the noun "a booking". "A room is booked" is номер забронирован.
+  > забронирую: Забронирую is "I will book". Already booked: забронирован.
 
 ## vocab
 гостИница | hotel | noun, f.
@@ -328,9 +412,21 @@ ex: Она занимается бегом. = She runs (does running).
 
 ## drills
 ? Я хожу в спортзал три ___ в неделю. | раза | раз, разу, разом | I go to the gym three times a week.
+  > раз: Раз follows 1 and 5 and up (пять раз). After три: раза.
+  > разу: Разу is the dative (ни разу — not once). After три: раза.
+  > разом: Разом means "all at once". After три: раза.
 ? Ты занимаешься ___? | спортом | спорт, спорта, спорте | Do you do any sports?
+  > спорт: Заниматься takes the instrumental: заниматься спортом.
+  > спорта: Спорта is the genitive. Заниматься needs спортом.
+  > спорте: Спорте is the prepositional (о спорте). Заниматься needs спортом.
 ? У меня ___ ноги. | болят | болит, болеть, болела | My legs hurt.
+  > болит: Болит is for one thing (болит голова). Ноги is plural: болят.
+  > болеть: Болеть is the infinitive. A plural subject needs болят.
+  > болела: Болела is past and feminine singular. Present, plural: болят.
 ? Я ___. (I'm tired — a woman) | устала | устал, устаю, устать | I'm tired.
+  > устал: Устал is what a man says. A woman says устала.
+  > устаю: Устаю is "I get tired" (usually). "I'm tired" right now is устала.
+  > устать: Устать is the infinitive. A woman says устала.
 
 ## vocab
 спортзАл | gym | noun, m.
@@ -373,9 +469,21 @@ ex: Я записалась к врачу на завтра. = I've booked a doc
 
 ## drills
 ? У меня ___ голова. | болит | болят, болею, больно | I have a headache.
+  > болят: Болят is plural. Голова is one thing: болит.
+  > болею: Болею is "I'm ill". With голова as the subject: болит.
+  > больно: Больно is "it hurts" (мне больно). With голова as the subject: болит.
 ? У меня ___ глаза. | болят | болит, болеет, болел | My eyes hurt.
+  > болит: Болит is singular. Глаза is plural: болят.
+  > болеет: Болеет is "is ill" (about a person). Body parts hurt: болят.
+  > болел: Болел is past and masculine singular. Present, plural: болят.
 ? Мне нужно записаться к ___. | врачу | врач, врача, врачом | I need to see a doctor.
+  > врач: К ("to someone") takes the dative: к врачу.
+  > врача: Врача is the genitive or accusative. К needs врачу.
+  > врачом: Врачом is the instrumental (с врачом). К needs врачу.
 ? Мне уже ___. | лучше | хорошо, лучший, хороший | I feel better already.
+  > хорошо: Хорошо is "good, fine". Уже ("already") points to a change: лучше, "better".
+  > лучший: Лучший is the adjective "the best". With мне use the adverb: лучше.
+  > хороший: Хороший is an adjective. With мне use лучше.
 
 ## vocab
 записАться | to sign up, to book | verb
@@ -415,9 +523,21 @@ ex: Мамы нет дома. = Mom isn't home.
 
 ## drills
 ? Позвони ___ вечером. | мне | меня, я, мной | Call me in the evening.
+  > меня: Звонить takes the dative ("to me"): позвони мне.
+  > я: Я is "I" (the subject). "Call me" is позвони мне.
+  > мной: Мной is the instrumental (со мной). Звонить needs мне.
 ? Её сейчас ___. | нет | не, нету, ни | She's not here right now.
+  > не: Не negates a verb or word. "Isn't here" is нет: её нет.
+  > нету: Нету is very colloquial. Standard Russian says её нет.
+  > ни: Ни means "not even, neither". "She isn't here" is её нет.
 ? Вас плохо ___. | слышно | слышу, слышать, слышный | I can't hear you well.
+  > слышу: Слышу needs я (я вас плохо слышу). With no subject, use слышно.
+  > слышать: Слышать is the infinitive. The impersonal "can be heard" is слышно.
+  > слышный: Слышный is an adjective. The impersonal form is слышно.
 ? Я тебе ___. | перезвоню | перезвонишь, перезвонит, перезвонить | I'll call you back.
+  > перезвонишь: Перезвонишь is the ты form. With я use перезвоню.
+  > перезвонит: Перезвонит is the он/она form. With я use перезвоню.
+  > перезвонить: Перезвонить is the infinitive. With я use перезвоню.
 
 ## vocab
 аллО | hello (on the phone) | interjection
@@ -452,9 +572,21 @@ ex: Ты была дома? = Were you at home? (to a woman)
 
 ## drills
 ? Вчера она ___ в шахматы. | играла | играл, играли, играло | Yesterday she played chess.
+  > играл: Играл is the past for он. With она use играла.
+  > играли: Играли is the plural past (мы, они). With она use играла.
+  > играло: Играло is the neuter past (оно). With она use играла.
 ? Мы ___ весь вечер. | играли | играл, играла, играем | We played all evening.
+  > играл: Играл is the past for он. Мы takes the plural: играли.
+  > играла: Играла is the past for она. Мы takes the plural: играли.
+  > играем: Играем is present ("we play"). This sentence is about the past: играли.
 ? Где ты ___? (to a man) | был | была, было, были | Where were you?
+  > была: Была is the past for a woman. To a man: был.
+  > было: Было is the neuter past (оно). To a man: был.
+  > были: Были is plural (or polite вы). To a man, with ты: был.
 ? Это ___ интересно! | было | был, была, были | That was interesting!
+  > был: Был is masculine. Это … интересно is impersonal, so use the neuter: было.
+  > была: Была is feminine. The impersonal form is было.
+  > были: Были is plural. The impersonal form is было.
 
 ## vocab
 вЫиграть | to win | verb
@@ -490,9 +622,21 @@ ex: Я напишу письмо и пойду спать. = I'll write the lett
 
 ## drills
 ? Завтра я ___ работать. | буду | будешь, будет, был | Tomorrow I'll be working.
+  > будешь: Будешь is the ты form. With я use буду.
+  > будет: Будет is the он/она form. With я use буду.
+  > был: Был is past. Завтра (tomorrow) needs the future: буду.
 ? Я обязательно ___! (win) | выиграю | выигрываю, выиграл, выиграть | I'll definitely win!
+  > выигрываю: Выигрываю is present ("I'm winning, I usually win"). One future win is выиграю.
+  > выиграл: Выиграл is past ("I won"). "I'll win" is выиграю.
+  > выиграть: Выиграть is the infinitive. With я use выиграю.
 ? Летом мы ___ на море. | поедем | едем, ездили, поехали | In summer we'll go to the seaside.
+  > едем: Едем is present ("we're on our way"). "We'll go in summer" is поедем.
+  > ездили: Ездили is past ("we went and came back"). For the future: поедем.
+  > поехали: Поехали is past (or "let's go!"). For the future: поедем.
 ? Я ___ тебе завтра. | позвоню | звоню, позвонил, звонил | I'll call you tomorrow.
+  > звоню: Звоню is present ("I'm calling"). Завтра needs the future: позвоню.
+  > позвонил: Позвонил is past ("I called"). For the future: позвоню.
+  > звонил: Звонил is past. For the future: позвоню.
 
 ## vocab
 зАвтра | tomorrow | adverb
@@ -532,9 +676,21 @@ ex: Она защищает свою пешку. = She's protecting her pawn.
 
 ## drills
 ? Я хочу защитить своего ___. | короля | король, королю, королём | I want to protect my king.
+  > король: Защитить takes the accusative. Король is animate, so its accusative is короля (see своего).
+  > королю: Королю is the dative ("to the king"). The object of защитить is короля.
+  > королём: Королём is the instrumental. The object of защитить is короля.
 ? Почему ты сделал этот ___? | ход | хода, ходом, ходе | Why did you make that move?
+  > хода: Хода is the genitive. Сделать takes the accusative, which for ход is just ход.
+  > ходом: Ходом is the instrumental. The object of сделать is ход.
+  > ходе: Ходе is the prepositional. The object of сделать is ход.
 ? Я беру твоего ___. (ферзь) | ферзя | ферзь, ферзём, ферзю | I'm taking your queen.
+  > ферзь: Брать takes the accusative. Pieces count as animate, so it's ферзя (see твоего).
+  > ферзём: Ферзём is the instrumental (ходить ферзём). Taking it: ферзя.
+  > ферзю: Ферзю is the dative. Taking it: ферзя.
 ? Мне ___, это ошибка. | кажется | кажусь, казался, казаться | I think that's a mistake.
+  > кажусь: Кажусь is "I seem". "It seems to me" is мне кажется.
+  > казался: Казался is past and masculine ("seemed"). Present, impersonal: кажется.
+  > казаться: Казаться is the infinitive. The phrase is мне кажется.
 
 ## vocab
 почемУ | why | adverb
@@ -575,9 +731,21 @@ ex: Этот слон бьёт всю диагональ. = This bishop controls
 
 ## drills
 ? Я ___ твоего слона. (am taking) | беру | брал, взять, берёшь | I'm taking your bishop.
+  > брал: Брал is past ("I was taking"). Right now: беру.
+  > взять: Взять is an infinitive. "I'm taking" is беру.
+  > берёшь: Берёшь is the ты form. With я use беру.
 ? Он ___ мою пешку. (took) | взял | брать, возьму, берёт | He took my pawn.
+  > брать: Брать is the infinitive. "He took" (done) is взял.
+  > возьму: Возьму is "I'll take" (future, я). "He took" is взял.
+  > берёт: Берёт is present ("he takes"). Already done: взял.
 ? Слон ходит по ___. | диагонали | диагональ, диагональю, диагоналей | The bishop moves diagonally.
+  > диагональ: По ("along") takes the dative: по диагонали.
+  > диагональю: Диагональю is the instrumental. По needs диагонали.
+  > диагоналей: Диагоналей is the genitive plural. Along one diagonal: по диагонали.
 ? Я сделал ___. | рокировку | рокировка, рокировки, рокировкой | I castled.
+  > рокировка: Сделать takes the accusative: сделал рокировку.
+  > рокировки: Рокировки is the genitive or plural. The object is рокировку.
+  > рокировкой: Рокировкой is the instrumental. The object is рокировку.
 
 ## vocab
 брать | to take | verb | я беру, ты берёшь

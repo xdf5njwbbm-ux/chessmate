@@ -201,9 +201,6 @@ export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards
               <button className="btn btn-primary h-12 w-full text-base" onClick={close} autoFocus>
                 <Check className="size-5" /> Continue — your move
               </button>
-              <button className="mt-1.5 w-full py-1 text-xs text-faint hover:text-mist" onClick={() => { toggleAuto(); close(); }}>
-                Don't pop up automatically (tap the bar at the bottom to open it)
-              </button>
             </div>
           </section>
         </div>

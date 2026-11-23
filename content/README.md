@@ -21,6 +21,9 @@ ex: Я играю. = I play.
 
 ## drills
 ? Я ___ в шахматы. | играю | играешь, играет, играют | I play chess.
+  > играешь: Играешь is the ты form. With я use играю.
+  > играет: Играет is the он/она form. With я use играю.
+  > играют: Играют is the они form. With я use играю.
 
 ## vocab
 привЕт | hi | interjection | optional note
@@ -31,6 +34,8 @@ ex: Я играю. = I play.
 * `хотел{хотела}|wanted` gives the masculine and feminine forms of a word. The app shows the form the
   learner chose in Settings and lets them reveal the other.
 * `@formal`, `@informal` and `@spoken` mark register.
+* Every wrong drill option needs a `> option: why` line. It's shown when a learner picks that option
+  (in lessons and in the quick questions during games). The build fails if one is missing.
 * In vocab, the stressed vowel is written in capitals (`пЕшка` → пе́шка). `^` capitalises the word.
 
 ## Other files

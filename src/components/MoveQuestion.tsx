@@ -6,6 +6,7 @@ import { nextQuestion, type MoveQuestion, type QuestionPool } from "../lib/moveQ
 import { useSession } from "../state/session";
 import { useLive } from "../state/live";
 import { SpeakPractice, useSay } from "./Audio";
+import { WhyWrong } from "./WhyWrong";
 
 /** One pool of lesson material per game screen; `questionFor(slot)` gives each move its own, never-repeated question. */
 export function useMoveQuestions() {
@@ -123,6 +124,7 @@ export function MoveQuestionCard({ q }: { q: MoveQuestion }) {
           )}
         </div>
       )}
+      {picked != null && !right && <WhyWrong picked={picked} note={q.why?.[picked]} ru={q.ruOptions} />}
       {done && practiseBelow && (
         // Every other question type: once answered, listen to the Russian and say it yourself.
         <div ref={practiceRow} className="mt-2.5">

@@ -10,6 +10,7 @@ import { useLive } from "../state/live";
 import { useToast } from "../state/toast";
 import { RussianLine, WordSheet, stressMapFrom } from "../components/RussianText";
 import { AudioButtons, SpeakPractice, useSay } from "../components/Audio";
+import { WhyWrong } from "../components/WhyWrong";
 import { BackButton, Button, EmptyState, PageLoader, PremiumLock, Progress, Ring } from "../components/ui";
 
 /** Where you are in a lesson, kept on this device: your place in the exercises and how far you'd read. */
@@ -319,6 +320,7 @@ function Practice({ lesson, resume, onProgress, onDone, onExit }: {
             {ex.kind === "listen" && <span className="ml-auto font-normal text-mist">{ex.ru}</span>}
           </div>
         )}
+        {answered && !correct && ex.kind === "gap" && picked && <WhyWrong picked={picked} note={ex.why?.[picked]} ru />}
       </div>
       <div className="mt-5 flex justify-end">
         <Button disabled={!answered && ex.kind !== "speak"} loading={busy} onClick={next}>

@@ -156,6 +156,16 @@ function parseLessons(file, level) {
           else section.examples.push({ ru, en });
         } else section.paragraphs.push(line);
       } else if (mode === "drills") {
+        if (line.startsWith(">")) {
+          // "> wrong option: why it doesn't fit" — shown when a learner picks that option
+          const d = lesson.content.drills.at(-1);
+          const m = line.slice(1).trim().match(/^(.+?):\s+(.+)$/);
+          if (!d) fail(where, "drill note before any drill");
+          else if (!m) fail(where, `bad drill note (use "> option: why"): ${line}`);
+          else if (m[1] === d.answer || !d.options.includes(m[1])) fail(where, `drill note for "${m[1]}", which isn't a wrong option of: ${d.q}`);
+          else (d.why ??= {})[m[1]] = m[2];
+          continue;
+        }
         if (!line.startsWith("?")) { fail(where, `bad drill: ${line}`); continue; }
         const parts = line.slice(1).split("|").map((x) => x.trim());
         if (parts.length !== 4) { fail(where, `drill needs 4 parts: ${line}`); continue; }
@@ -186,6 +196,9 @@ function parseLessons(file, level) {
     if (!lesson.summary) fail(where, "missing summary");
     if (!lesson.content.sections.some((s) => s.type === "lines")) fail(where, "no sentences");
     if (lesson.content.drills.length < 2) fail(where, "needs at least 2 drills");
+    for (const d of lesson.content.drills)
+      for (const o of d.options)
+        if (o !== d.answer && !d.why?.[o]) fail(where, `drill "${d.q}" needs a "> ${o}: why" note`);
     lessons.push(lesson);
   }
 }

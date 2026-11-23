@@ -2,7 +2,7 @@ import type { Forms, Lesson, Line } from "./types";
 import { bare } from "./russian";
 
 export type Exercise =
-  | { kind: "gap"; prompt: string; q: string; answer: string; options: string[]; en: string }
+  | { kind: "gap"; prompt: string; q: string; answer: string; options: string[]; en: string; why?: Record<string, string> }
   | { kind: "ru-en"; prompt: string; ru: string; answer: string; options: string[] }
   | { kind: "en-ru"; prompt: string; en: string; answer: string; options: string[] }
   | { kind: "listen"; prompt: string; ru: string; en: string; answer: string; options: string[] }
@@ -34,7 +34,7 @@ export function buildExercises(lesson: Lesson, forms: Forms): Exercise[] {
   const out: Exercise[] = [];
 
   for (const d of pick(lesson.content.drills, 3)) {
-    out.push({ kind: "gap", prompt: "Choose the word that fits", q: d.q, answer: d.answer, options: shuffle(d.options), en: d.en });
+    out.push({ kind: "gap", prompt: "Choose the word that fits", q: d.q, answer: d.answer, options: shuffle(d.options), en: d.en, why: d.why });
   }
   const chosen = pick(usable, Math.min(8, usable.length));
   chosen.forEach((l, i) => {

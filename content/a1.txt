@@ -30,9 +30,21 @@ ex: Давай на ты! = Let's use "ты" with each other!
 
 ## drills
 ? Здравствуйте! Как у ___ дела? | вас | тебя, ты, вы | Hello! How are you? (formal)
+  > тебя: У тебя is the informal ты version. Здравствуйте is formal, so match it with у вас.
+  > ты: After у you need the genitive: у вас (formal) or у тебя — never у ты.
+  > вы: After у you need the genitive: у вас, not у вы.
 ? Привет! Как ___? | дела | дело, делать, день | Hi! How are you?
+  > дело: Дело is singular ("a matter"). The greeting uses the plural: Как дела?
+  > делать: Делать means "to do". "How are you?" is the set phrase Как дела?
+  > день: День means "day". The everyday greeting is Как дела? — literally "how are things".
 ? Доброе ___! | утро | вечер, день, ночь | Good morning!
+  > вечер: Вечер is masculine, so it's Добрый вечер. Доброе needs a neuter word: утро.
+  > день: День is masculine: Добрый день. Доброе goes with утро.
+  > ночь: Ночь is feminine and isn't a greeting (good night is Спокойной ночи). Доброе goes with утро.
 ? До ___! | свидания | свидание, пока, привет | Goodbye!
+  > свидание: До takes the genitive: до свидания. On its own, свидание means "a date".
+  > пока: Пока already means "bye" by itself — no до in front.
+  > привет: Привет means "hi", not "goodbye". The phrase is До свидания!
 
 ## vocab
 привЕт | hi | interjection
@@ -81,9 +93,21 @@ ex: Лондон → Я из Лондона. = I'm from London.
 
 ## drills
 ? Меня ___ Анна. | зовут | зовёт, звать, зову | My name is Anna.
+  > зовёт: Зовёт is "he/she calls". The set phrase uses "they call (me)": меня зовут.
+  > звать: Звать is the infinitive "to call". The phrase needs the conjugated form: меня зовут.
+  > зову: Зову is "I call", which clashes with меня ("me"). The phrase is меня зовут.
 ? Я из ___. (Москва) | Москвы | Москва, Москве, Москву | I'm from Moscow.
+  > Москва: Из takes the genitive: из Москвы. Москва is the dictionary form.
+  > Москве: Москве is the prepositional (в Москве, "in Moscow"). Из needs the genitive: Москвы.
+  > Москву: Москву is the accusative (в Москву, "to Moscow"). Из needs Москвы.
 ? Очень ___! | приятно | приятный, приятная, хорошо | Nice to meet you!
+  > приятный: Приятный is an adjective ("a pleasant …"). The set phrase uses the adverb: Очень приятно!
+  > приятная: Приятная is a feminine adjective. The phrase uses приятно: Очень приятно!
+  > хорошо: Очень хорошо means "very good". "Nice to meet you" is Очень приятно.
 ? ___ вы? — Я из Канады. | Откуда | Где, Куда, Как | Where are you from? — I'm from Canada.
+  > Где: Где asks where something is. The answer "из Канады" means "from", so ask Откуда — "where from".
+  > Куда: Куда is "where to". Asking where someone is from is Откуда.
+  > Как: Как is "how". To get the answer "Я из…", ask Откуда вы?
 
 ## vocab
 зовУт | (they) call | verb | Меня зовут… = My name is…
@@ -124,9 +148,21 @@ ex: Говори медленнее! → Говорите медленнее! = 
 
 ## drills
 ? Я не ___. | понимаю | понимаешь, понимает, понимать | I don't understand.
+  > понимаешь: Понимаешь is the ты form. With я use понимаю.
+  > понимает: Понимает is the он/она form. With я use понимаю.
+  > понимать: Понимать is the infinitive. With я you need the я form: понимаю.
 ? Говорите медленнее, ___. | пожалуйста | спасибо, привет, извините | Please speak more slowly.
+  > спасибо: Спасибо is "thank you". A request takes пожалуйста — "please".
+  > привет: Привет is "hi". A polite request ends with пожалуйста.
+  > извините: Извините means "excuse me" and usually starts a request. At the end, say пожалуйста.
 ? Как сказать «queen» ___? | по-русски | русский, Россия, русская | How do you say "queen" in Russian?
+  > русский: Русский is an adjective (or "the Russian language"). "In Russian", for saying something, is по-русски.
+  > Россия: Россия is the country. "In Russian" is по-русски.
+  > русская: Русская is a feminine adjective ("a Russian woman"). "In Russian" is по-русски.
 ? Ты ___ по-английски? | говоришь | говорю, говорит, говорить | Do you speak English?
+  > говорю: Говорю is the я form. With ты use говоришь.
+  > говорит: Говорит is the он/она form. With ты use говоришь.
+  > говорить: Говорить is the infinitive. With ты use говоришь.
 
 ## vocab
 понимАть | to understand | verb
@@ -171,9 +207,21 @@ ex: Вы играете в шахматы? = Do you play chess?
 
 ## drills
 ? Что ты ___? | делаешь | делаю, делает, делаем | What are you doing?
+  > делаю: Делаю is the я form. With ты use делаешь.
+  > делает: Делает is the он/она form. With ты use делаешь.
+  > делаем: Делаем is the мы form. With ты use делаешь.
 ? Мы ___ в шахматы. | играем | играю, играешь, играют | We play chess.
+  > играю: Играю is the я form. With мы use играем.
+  > играешь: Играешь is the ты form. With мы use играем.
+  > играют: Играют is the они form. With мы use играем.
 ? Она ___ дома. | работает | работаю, работаешь, работают | She works from home.
+  > работаю: Работаю is the я form. With она use работает.
+  > работаешь: Работаешь is the ты form. With она use работает.
+  > работают: Работают is the они form. With она use работает.
 ? Я хочу ___. (I'm thirsty) | пить | есть, спать, читать | I'm thirsty.
+  > есть: Есть means "to eat" — that's hunger. Thirsty is хочу пить, "I want to drink".
+  > спать: Спать is "to sleep" — that's being tired. Thirsty is хочу пить.
+  > читать: Читать is "to read". Thirsty is хочу пить.
 
 ## vocab
 дЕлать | to do, to make | verb
@@ -216,9 +264,21 @@ ex: Кофе без сахара. = Coffee without sugar.
 
 ## drills
 ? Кофе с ___, пожалуйста. (молоко) | молоком | молоко, молока, молоке | Coffee with milk, please.
+  > молоко: С meaning "with" takes the instrumental: с молоком.
+  > молока: Молока is the genitive (без молока, "without milk"). "With" needs молоком.
+  > молоке: Молоке is the prepositional (о молоке, "about milk"). "With" needs молоком.
 ? Чай без ___. (сахар) | сахара | сахар, сахаром, сахаре | Tea without sugar.
+  > сахар: Без takes the genitive: без сахара.
+  > сахаром: Сахаром is the instrumental — с сахаром, "with sugar". Без needs сахара.
+  > сахаре: Сахаре is the prepositional. Без needs the genitive: сахара.
 ? ___ это стоит? | Сколько | Что, Как, Где | How much is it?
+  > Что: Что is "what". Price questions use Сколько — "how much".
+  > Как: Как is "how" (in what way). "How much" is Сколько.
+  > Где: Где is "where". "How much is it?" is Сколько это стоит?
 ? Что-нибудь ___? | ещё | уже, тоже, очень | Anything else?
+  > уже: Уже means "already". "Anything else?" is Что-нибудь ещё?
+  > тоже: Тоже means "also, too" (я тоже — me too). "Else" here is ещё.
+  > очень: Очень means "very" and needs a word to describe. "Else" is ещё.
 
 ## vocab
 кОфе | coffee | noun, m. | Masculine despite the -е.
@@ -262,9 +322,21 @@ ex: Это мои родители. = These are my parents.
 
 ## drills
 ? Это ___ сестра. | моя | мой, моё, мои | This is my sister.
+  > мой: Мой is masculine. Сестра is feminine, so моя.
+  > моё: Моё is neuter. Сестра is feminine, so моя.
+  > мои: Мои is plural. One sister: моя.
 ? Это ___ папа. | мой | моя, моё, мои | This is my dad.
+  > моя: Папа ends in -а but means a man, so it's masculine: мой папа.
+  > моё: Моё is neuter. Папа is masculine: мой.
+  > мои: Мои is plural. One dad: мой.
 ? У меня ___ брат. | есть | нет, был, это | I have a brother.
+  > нет: Нет means "there isn't" (and would need брата). "I have" is у меня есть.
+  > был: Был is past ("I had"). The sentence is present: есть.
+  > это: Это means "this, it". "Have" in у меня… is есть.
 ? Как ___ зовут? (her) | её | его, она, ей | What's her name?
+  > его: Его is "him". "Her" is её: Как её зовут?
+  > она: Она is "she" (the subject). Зовут needs "her" as the object: её.
+  > ей: Ей is "to her" (ей нравится). With зовут use её.
 
 ## vocab
 семьЯ | family | noun, f.
@@ -307,9 +379,21 @@ ex: Мне двадцать один год. = I'm twenty-one.
 
 ## drills
 ? Сейчас два ___. | часа | час, часов, часы | It's two o'clock.
+  > час: Час goes with один or alone (Сейчас час). After 2, 3, 4 use часа.
+  > часов: Часов follows 5 and up (пять часов). After два use часа.
+  > часы: Часы means "a clock, a watch". After два use часа.
 ? У меня десять ___. | минут | минута, минуты, минуту | I have ten minutes.
+  > минута: Минута goes with одна. From 5 up, use the genitive plural: десять минут.
+  > минуты: Минуты follows 2, 3, 4 (две минуты). After десять: минут.
+  > минуту: Минуту is the accusative singular (через минуту). After десять: минут.
 ? Мне тридцать ___. | лет | год, года, годы | I'm thirty years old.
+  > год: Год follows numbers ending in 1 (двадцать один год). After тридцать: лет.
+  > года: Года follows 2–4 (два года). After тридцать: лет.
+  > годы: Годы means "years" as in an era (90-е годы). Ages from 5 up use лет.
 ? ___ сейчас времени? | Сколько | Какой, Что, Где | What time is it?
+  > Какой: Какой is "which". The time question is Сколько времени? — literally "how much time".
+  > Что: Что is "what". To ask the time, say Сколько сейчас времени?
+  > Где: Где is "where". To ask the time: Сколько времени?
 
 ## vocab
 одИн | one | number
@@ -354,9 +438,21 @@ ex: Тебе не холодно? = Aren't you cold?
 
 ## drills
 ? ___ снег. | Идёт | Иду, Идёшь, Идут | It's snowing.
+  > Иду: Иду is "I go". Snow is "it", so Идёт снег.
+  > Идёшь: Идёшь is the ты form. Снег takes the он form: идёт.
+  > Идут: Идут is plural ("they go"). Снег is singular: идёт.
 ? Мне ___. (I'm cold) | холодно | холодный, холодная, холод | I'm cold.
+  > холодный: Холодный is an adjective ("a cold …"). Feelings with мне use the -о form: мне холодно.
+  > холодная: Холодная is a feminine adjective. With мне use холодно.
+  > холод: Холод is the noun "the cold". "I'm cold" is Мне холодно.
 ? ___ очень жарко. (in summer) | Летом | Лето, Лета, Лете | It's very hot in summer.
+  > Лето: Лето is the noun "summer". "In summer" is one word: летом.
+  > Лета: Лета is the genitive. "In summer" is летом, with no preposition.
+  > Лете: Лете is the prepositional (о лете, "about summer"). "In summer" is летом.
 ? Какая сегодня ___? | погода | погоду, погоды, погоде | What's the weather like today?
+  > погоду: Погоду is the accusative (an object). Here погода is the subject: Какая погода?
+  > погоды: Погоды is the genitive. The subject stays in the plain form: погода.
+  > погоде: Погоде is the prepositional (о погоде, "about the weather"). The subject is погода.
 
 ## vocab
 погОда | weather | noun, f.
@@ -398,9 +494,21 @@ ex: Мне нужно работать. = I need to work.
 
 ## drills
 ? Мне ___ пакет. | нужен | нужна, нужно, нужны | I need a bag.
+  > нужна: Нужна is for feminine nouns (нужна вода). Пакет is masculine: нужен.
+  > нужно: Нужно is for neuter nouns or before a verb (нужно идти). Пакет takes нужен.
+  > нужны: Нужны is plural. One пакет: нужен.
 ? Мне ___ вода. | нужна | нужен, нужно, нужны | I need water.
+  > нужен: Нужен is for masculine nouns (нужен пакет). Вода is feminine: нужна.
+  > нужно: Нужно is for neuter nouns or before a verb. Вода takes нужна.
+  > нужны: Нужны is plural. Вода is singular: нужна.
 ? Можно заплатить ___? (by card) | картой | карта, карту, карты | Can I pay by card?
+  > карта: "By means of" uses the instrumental, with no preposition: картой.
+  > карту: Карту is the accusative (дайте карту, "give me the card"). "By card" is картой.
+  > карты: Карты is the genitive or plural. "By card" is картой.
 ? Это ___. Слишком дорого! | дорого | дёшево, далеко, хорошо | That's expensive. Too expensive!
+  > дёшево: Дёшево means "cheap" — the opposite of слишком дорого.
+  > далеко: Далеко means "far". The next sentence is about price: дорого.
+  > хорошо: Хорошо means "good". "Too expensive!" calls for дорого.
 
 ## vocab
 магазИн | store, shop | noun, m.
@@ -442,9 +550,21 @@ ex: Поверните налево. = Turn left.
 
 ## drills
 ? Идите ___, потом направо. (straight) | прямо | право, правая, прямой | Go straight, then right.
+  > право: Право means "a right" (legal). "Straight ahead" is прямо.
+  > правая: Правая is "right-hand", an adjective. "Straight" is прямо.
+  > прямой: Прямой is an adjective ("a straight line"). With идите you need the adverb: прямо.
 ? Это ___? Нет, близко. | далеко | долго, дорого, далёкий | Is it far? No, it's close.
+  > долго: Долго is "for a long time". The answer близко (close) shows the question was about distance: далеко.
+  > дорого: Дорого is "expensive". Близко answers далеко, "far".
+  > далёкий: Далёкий is an adjective ("a distant …"). After это use the adverb: далеко.
 ? Музей рядом с ___. | парком | парк, парка, парке | The museum is next to the park.
+  > парк: Рядом с takes the instrumental: рядом с парком.
+  > парка: Парка is the genitive. Рядом с needs парком.
+  > парке: Парке is the prepositional (в парке, "in the park"). Рядом с needs парком.
 ? Поверните ___. (to the left) | налево | слева, левый, лево | Turn left.
+  > слева: Слева means "on the left" (where something is). A direction to turn is налево.
+  > левый: Левый is an adjective ("left-hand"). The direction is налево.
+  > лево: Лево isn't used on its own. "To the left" is налево.
 
 ## vocab
 метрО | metro, subway | noun, n.
@@ -486,9 +606,21 @@ ex: Это моя ладья. = This is my rook.
 
 ## drills
 ? Ферзь — ___ фигура. | сильная | сильный, сильное, сильные | The queen is a strong piece.
+  > сильный: Сильный is masculine. The adjective agrees with фигура (feminine), not ферзь: сильная.
+  > сильное: Сильное is neuter. Фигура is feminine: сильная.
+  > сильные: Сильные is plural. One фигура: сильная.
 ? Это мой ___. (knight) | конь | пешка, ладья, доска | This is my knight.
+  > пешка: Пешка is a pawn (and feminine — it would be моя). Knight is конь.
+  > ладья: Ладья is a rook. Knight is конь.
+  > доска: Доска is the board. Knight is конь.
 ? У меня восемь ___. (pawns) | пешек | пешка, пешки, пешку | I have eight pawns.
+  > пешка: Пешка goes with одна. From 5 up, use the genitive plural: восемь пешек.
+  > пешки: Пешки follows 2–4 (три пешки). After восемь: пешек.
+  > пешку: Пешку is the accusative singular (беру пешку). After восемь: пешек.
 ? Это моя ___. (rook) | ладья | конь, слон, король | This is my rook.
+  > конь: Конь is a knight (and masculine — it would be мой). Rook is ладья.
+  > слон: Слон is a bishop. Rook is ладья.
+  > король: Король is the king. Rook is ладья.
 
 ## vocab
 шАхматы | chess | noun, plural
@@ -533,9 +665,21 @@ ex: Я хожу конём. = I'm moving my knight.
 
 ## drills
 ? Ты играешь ___? (white) | белыми | белые, белый, белая | Are you playing white?
+  > белые: Белые is "White" as a subject (белые выиграли). Playing a colour uses the instrumental: играть белыми.
+  > белый: Белый is the masculine adjective "white". Playing a colour: белыми.
+  > белая: Белая is the feminine adjective. Playing a colour: белыми.
 ? Твой ___. | ход | ходить, хожу, ходы | Your move.
+  > ходить: Ходить is the verb "to move, to walk". "Your move" needs the noun: ход.
+  > хожу: Хожу is "I move". The noun is ход: Твой ход.
+  > ходы: Ходы is plural ("moves") and would need твои. One move: ход.
 ? Я хожу ___. (конь) | конём | конь, коня, коню | I'm moving my knight.
+  > конь: Moving a piece uses the instrumental: ходить конём.
+  > коня: Коня is the accusative (беру коня, "I take the knight"). Moving it: конём.
+  > коню: Коню is the dative ("to the knight"). Moving it: конём.
 ? Спасибо за ___! | игру | игра, игры, игре | Thanks for the game!
+  > игра: За meaning "for" takes the accusative: спасибо за игру.
+  > игры: Игры is the genitive or plural. За needs игру.
+  > игре: Игре is the prepositional (об игре). За needs игру.
 
 ## vocab
 игрАть | to play | verb
@@ -578,9 +722,21 @@ ex: Мне нравятся эти книги. = I like these books.
 
 ## drills
 ? Я играю ___ шахматы. | в | на, с, о | I play chess.
+  > на: Играть на is for musical instruments (на гитаре). Games take в: играть в шахматы.
+  > с: С means "with". Games take в: играть в шахматы.
+  > о: О means "about". Games take в: играть в шахматы.
 ? Я играю ___ пианино. | на | в, с, о | I play the piano.
+  > в: Играть в is for games and sports (в шахматы). Instruments take на: играть на пианино.
+  > с: С means "with". Instruments take на: играть на пианино.
+  > о: О means "about". Instruments take на: играть на пианино.
 ? Мне ___ фильмы. | нравятся | нравится, нравлюсь, нравишься | I like movies.
+  > нравится: Нравится is for one thing. Фильмы is plural: нравятся.
+  > нравлюсь: Нравлюсь means "I am liked" (я нравлюсь). The films are what's liked: нравятся.
+  > нравишься: Нравишься is "you are liked" (ты мне нравишься — I like you). Films take нравятся.
 ? Что ты ___ делать? | любишь | люблю, любит, любить | What do you like to do?
+  > люблю: Люблю is the я form. With ты use любишь.
+  > любит: Любит is the он/она form. With ты use любишь.
+  > любить: Любить is the infinitive. With ты use любишь.
 
 ## vocab
 любИть | to love, to like | verb | я люблю, ты любишь
@@ -618,9 +774,21 @@ ex: Где мой конь? Вот он. = Where's my knight? Here it is.
 
 ## drills
 ? Где окно? Вот ___. | оно | он, она, они | Where's the window? Here it is.
+  > он: Он replaces masculine nouns. Окно is neuter (ends in -о): оно.
+  > она: Она replaces feminine nouns. Окно is neuter: оно.
+  > они: Они is plural. One окно: оно.
 ? Где книга? Вот ___. | она | он, оно, они | Where's the book? Here it is.
+  > он: Он replaces masculine nouns. Книга is feminine (ends in -а): она.
+  > оно: Оно replaces neuter nouns. Книга is feminine: она.
+  > они: Они is plural. One книга: она.
 ? Они ___ в шахматы. | играют | играет, играем, играешь | They play chess.
+  > играет: Играет is the он/она form. With они use играют.
+  > играем: Играем is the мы form. With они use играют.
+  > играешь: Играешь is the ты form. With они use играют.
 ? Это ___ друзья. | мои | мой, моя, моё | These are my friends.
+  > мой: Мой is masculine singular. Друзья is plural: мои.
+  > моя: Моя is feminine singular. Друзья is plural: мои.
+  > моё: Моё is neuter singular. Друзья is plural: мои.
 
 ## vocab
 я | I | pronoun

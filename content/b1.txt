@@ -27,9 +27,21 @@ ex: Мы рады вас видеть! = We're happy to see you!
 
 ## drills
 ? Как ___ твой день? | прошёл | прошла, прошло, пройти | How was your day?
+  > прошла: Прошла is feminine. День is masculine: прошёл.
+  > прошло: Прошло is neuter. День is masculine: прошёл.
+  > пройти: Пройти is the infinitive. День needs the masculine past: прошёл.
 ? Что ___? | нового | новое, новый, новости | What's new?
+  > новое: The set phrase uses the genitive: Что нового?
+  > новый: Новый is the masculine adjective. The phrase is Что нового?
+  > новости: Новости means "the news". "What's new?" is Что нового?
 ? Ну, ладно, мне ___. | пора | надо, нужно, время | Well, okay, I'd better go.
+  > надо: Надо ("need to") needs a verb after it (мне надо идти). On its own, "I'd better go" is мне пора.
+  > нужно: Like надо, нужно needs a verb after it. On its own: мне пора.
+  > время: Время is the noun "time" — мне время isn't idiomatic. Say мне пора.
 ? Я так ___ тебя видеть! (a woman) | рада | рад, рады, радость | I'm so glad to see you!
+  > рад: Рад is what a man says. A woman says рада.
+  > рады: Рады is plural (мы рады). One woman: рада.
+  > радость: Радость is the noun "joy". "I'm glad" is рада.
 
 ## vocab
 пройтИ | to go by, to pass | verb | Как прошёл день? = How was the day?
@@ -67,9 +79,21 @@ ex: Тебе стоит отдохнуть. = You should get some rest.
 
 ## drills
 ? Я не совсем ___ с тобой. (a man) | согласен | согласна, согласие, согласиться | I don't completely agree with you.
+  > согласна: Согласна is what a woman says. A man says согласен.
+  > согласие: Согласие is the noun "agreement". "I agree" is я согласен.
+  > согласиться: Согласиться is the infinitive "to agree". "I agree" is я согласен.
 ? Нам ___ попробовать что-нибудь новое. | стоит | стоить, стоят, стоял | We should try something new.
+  > стоить: Стоить is the infinitive. "We should" is нам стоит.
+  > стоят: Стоят is plural ("they cost"). The impersonal "it's worth" is стоит.
+  > стоял: Стоял is past ("stood"). The phrase is нам стоит.
 ? Я понимаю твою точку ___. | зрения | зрение, зрением, зрению | I understand your point of view.
+  > зрение: The phrase is точка зрения ("point of view"), with зрения in the genitive.
+  > зрением: Зрением is the instrumental. The fixed phrase is точка зрения.
+  > зрению: Зрению is the dative. The fixed phrase is точка зрения.
 ? Это зависит от ___. | ситуации | ситуация, ситуацию, ситуацией | It depends on the situation.
+  > ситуация: От takes the genitive: от ситуации.
+  > ситуацию: Ситуацию is the accusative. От needs ситуации.
+  > ситуацией: Ситуацией is the instrumental. От needs ситуации.
 
 ## vocab
 дУмать | to think | verb
@@ -113,9 +137,21 @@ ex: Никто ничего не сказал. = Nobody said anything.
 
 ## drills
 ? Я никогда ___ был в России. | не | ни, нет, нету | I've never been to Russia.
+  > ни: Ни is for "neither…nor" or "not even". To negate the verb, use не: никогда не был.
+  > нет: Нет stands alone ("no", "there isn't"). Before a verb, use не.
+  > нету: Нету is colloquial for "there isn't". Before a verb, use не.
 ? Ты когда-___ был в Москве? | нибудь | то, либо, ни | Have you ever been to Moscow?
+  > то: Когда-то means "once, at some point". In a question, "ever" is когда-нибудь.
+  > либо: Когда-либо is formal and bookish. In conversation, "ever" is когда-нибудь.
+  > ни: Ни doesn't attach with a hyphen. "Ever" is когда-нибудь.
 ? ___ не знал. (Nobody) | Никто | Ничего, Никогда, Нигде | Nobody knew.
+  > Ничего: Ничего is "nothing". "Nobody" is никто.
+  > Никогда: Никогда is "never". "Nobody" is никто.
+  > Нигде: Нигде is "nowhere". "Nobody" is никто.
 ? Я ___ не понял. (anything) | ничего | никто, никогда, нигде | I didn't understand anything.
+  > никто: Никто is "nobody". "Anything" in a negative sentence is ничего.
+  > никогда: Никогда is "never". "Anything" here is ничего.
+  > нигде: Нигде is "nowhere". "Anything" here is ничего.
 
 ## vocab
 когдА-нибудь | ever | adverb
@@ -157,9 +193,21 @@ ex: Не злись на меня! = Don't be angry with me!
 
 ## drills
 ? Мне ___. (I'm bored) | скучно | скучный, скучать, скука | I'm bored.
+  > скучный: Скучный is an adjective ("a boring film"). Feelings with мне use the -о form: мне скучно.
+  > скучать: Скучать is a verb (я скучаю — I miss, I'm bored). With мне use скучно.
+  > скука: Скука is the noun "boredom". "I'm bored" is мне скучно.
 ? Я волнуюсь из-за ___. | экзамена | экзамен, экзаменом, экзамену | I'm nervous about the exam.
+  > экзамен: Из-за takes the genitive: из-за экзамена.
+  > экзаменом: Экзаменом is the instrumental (перед экзаменом). Из-за needs экзамена.
+  > экзамену: Экзамену is the dative. Из-за needs экзамена.
 ? Не ___, всё будет хорошо. | волнуйся | волнуюсь, волнуется, волноваться | Don't worry, everything will be fine.
+  > волнуюсь: Волнуюсь is "I worry". A command to ты is волнуйся.
+  > волнуется: Волнуется is "he/she worries". A command to ты is волнуйся.
+  > волноваться: Волноваться is the infinitive. A command to ты is волнуйся.
 ? Что ___? | случилось | случился, случай, случаться | What happened?
+  > случился: Случился is masculine. With что, use the neuter: случилось.
+  > случай: Случай is the noun "case, incident". "What happened?" is Что случилось?
+  > случаться: Случаться is the infinitive. "What happened?" is Что случилось?
 
 ## vocab
 грУстно | sad | adverb | мне грустно = I'm sad
@@ -200,9 +248,21 @@ ex: Нам сказали, что совещание перенесли. = We we
 
 ## drills
 ? ___ ты работаешь? | Кем | Кто, Как, Где | What do you do for a living?
+  > Кто: A job after работать is in the instrumental (работать кем?), so the question is Кем.
+  > Как: Как is "how". To ask about someone's job: Кем ты работаешь?
+  > Где: Где is "where" — the answer would be a place. For a job title: Кем.
 ? Я работаю ___. (менеджер) | менеджером | менеджер, менеджера, менеджеру | I work as a manager.
+  > менеджер: Работать (as a job) takes the instrumental: работаю менеджером.
+  > менеджера: Менеджера is the genitive or accusative. Работать needs менеджером.
+  > менеджеру: Менеджеру is the dative. Работать needs менеджером.
 ? Мне ___ новую должность. | предложили | предложил, предлагаю, предложить | I've been offered a new position.
+  > предложил: Предложил is "he offered" and needs a subject. With no subject ("they offered", meaning "I was offered"): предложили.
+  > предлагаю: Предлагаю is "I offer" (present). "I was offered" is мне предложили.
+  > предложить: Предложить is the infinitive. "I was offered" is мне предложили.
 ? Мне нужно закончить проект до ___. | пятницы | пятница, пятницу, пятницей | I need to finish the project by Friday.
+  > пятница: До takes the genitive: до пятницы.
+  > пятницу: Пятницу is the accusative (в пятницу, "on Friday"). До needs пятницы.
+  > пятницей: Пятницей is the instrumental (перед пятницей). До needs пятницы.
 
 ## vocab
 кем | as what, as whom | pronoun | Кем ты работаешь?
@@ -250,9 +310,21 @@ ex: Я скучаю по родителям. = I miss my parents.
 
 ## drills
 ? Ты мне ___. | нравишься | нравлюсь, нравится, нравятся | I like you.
+  > нравлюсь: Нравлюсь is "I am liked" and goes with я (я тебе нравлюсь). With ты: нравишься.
+  > нравится: Нравится is the он/она/оно form. With ты: нравишься.
+  > нравятся: Нравятся is plural. With ты: нравишься.
 ? Я скучаю по ___. | тебе | тебя, ты, тобой | I miss you.
+  > тебя: Тебя is the genitive or accusative. Скучать по takes the dative: по тебе.
+  > ты: Ты is the subject form. Скучать по needs тебе.
+  > тобой: Тобой is the instrumental (с тобой). Скучать по needs тебе.
 ? Можно пригласить тебя на ___? | ужин | ужина, ужине, ужином | May I invite you to dinner?
+  > ужина: Ужина is the genitive. Inviting to an event is на + accusative: на ужин.
+  > ужине: На ужине means "at dinner". Inviting someone to dinner is на ужин.
+  > ужином: Ужином is the instrumental (за ужином, "over dinner"). Inviting is на ужин.
 ? Спасибо за ___ вечер! | чудесный | чудесного, чудесным, чудесная | Thank you for a wonderful evening!
+  > чудесного: Чудесного is genitive (or for living things). Вечер isn't alive, so after за it keeps the plain form: чудесный.
+  > чудесным: Чудесным is the instrumental. За ("for") takes the accusative: чудесный.
+  > чудесная: Чудесная is feminine. Вечер is masculine: чудесный.
 
 ## vocab
 свидАние | date (romantic) | noun, n.
@@ -288,9 +360,21 @@ ex: Нам очень понравился спектакль. = We really enjoy
 
 ## drills
 ? Мне не ___ конец. | понравился | понравилась, понравилось, понравились | I didn't like the ending.
+  > понравилась: Понравилась is feminine. Конец is masculine: понравился.
+  > понравилось: Понравилось is neuter. Конец is masculine: понравился.
+  > понравились: Понравились is plural. One конец: понравился.
 ? Тебе ___ книга? | понравилась | понравился, понравилось, понравились | Did you like the book?
+  > понравился: Понравился is masculine. Книга is feminine: понравилась.
+  > понравилось: Понравилось is neuter. Книга is feminine: понравилась.
+  > понравились: Понравились is plural. One книга: понравилась.
 ? Фильм основан на реальных ___. | событиях | события, событий, событиями | The film is based on true events.
+  > события: Основан на takes the prepositional: на реальных событиях.
+  > событий: Событий is the genitive plural. Основан на needs событиях.
+  > событиями: Событиями is the instrumental. Основан на needs событиях.
 ? Кто играет главную ___? | роль | роли, ролью, ролей | Who plays the lead?
+  > роли: Роли is the genitive or plural. Играть takes the accusative, which for роль is just роль.
+  > ролью: Ролью is the instrumental. The object of играть is роль.
+  > ролей: Ролей is the genitive plural. One role: роль.
 
 ## vocab
 комЕдия | comedy | noun, f.
@@ -331,9 +415,21 @@ ex: Я заплачу картой. = I'll pay by card.
 
 ## drills
 ? Я коплю на ___. | отпуск | отпуска, отпуском, отпуске | I'm saving for a vacation.
+  > отпуска: Отпуска is the genitive. Saving for something is копить на + accusative: на отпуск.
+  > отпуском: Отпуском is the instrumental. Saving for it: на отпуск.
+  > отпуске: В отпуске means "on vacation". Saving for one is копить на отпуск.
 ? Это мне не по ___. | карману | карман, кармана, карманом | I can't afford it.
+  > карман: The idiom is не по карману ("not for my pocket"), with по + dative.
+  > кармана: Кармана is the genitive. The idiom is не по карману.
+  > карманом: Карманом is the instrumental. The idiom is не по карману.
 ? Можно заплатить ___? (in cash) | наличными | наличные, наличных, наличным | Can I pay in cash?
+  > наличные: Paying with something uses the instrumental: платить наличными.
+  > наличных: Наличных is the genitive. Paying with it: наличными.
+  > наличным: Наличным is the dative. Paying with it: наличными.
 ? Я слежу за своими ___. | расходами | расходы, расходов, расходам | I keep track of my spending.
+  > расходы: Следить за takes the instrumental: за своими расходами.
+  > расходов: Расходов is the genitive. Следить за needs расходами.
+  > расходам: Расходам is the dative. Следить за needs расходами.
 
 ## vocab
 дЕньги | money | noun, plural
@@ -375,9 +471,21 @@ ex: Давай не будем об этом. = Let's not talk about that.
 
 ## drills
 ? Давай не будем ___. | ссориться | поссоримся, ссорились, ссора | Let's not argue.
+  > поссоримся: Поссоримся is "we'll fall out". After не будем, use an infinitive: ссориться.
+  > ссорились: Ссорились is past. After не будем, use an infinitive: ссориться.
+  > ссора: Ссора is the noun "a quarrel". After не будем, use the verb: ссориться.
 ? Я имел в ___ другое. | виду | вид, виде, видом | I meant something else.
+  > вид: The fixed phrase is иметь в виду ("to mean").
+  > виде: В виде means "in the form of". "I meant" is имел в виду.
+  > видом: Видом is the instrumental. The fixed phrase is иметь в виду.
 ? Это не моя ___. | вина | вину, вины, виной | It's not my fault.
+  > вину: Вину is the accusative (an object). Here вина is the subject: моя вина.
+  > вины: Вины is the genitive. As the subject: вина.
+  > виной: Виной is the instrumental. With моя, use вина.
 ? Ты меня не так ___. | понял | понимаю, понять, понятно | You misunderstood me.
+  > понимаю: Понимаю is "I understand" (я, present). "You understood" to a man is понял.
+  > понять: Понять is the infinitive. "You understood" is ты понял.
+  > понятно: Понятно means "it's clear". "You understood" is ты понял.
 
 ## vocab
 ссОриться | to quarrel | verb
@@ -412,9 +520,21 @@ ex: Я бы на твоём месте отдохнул. = If I were you, I'd ge
 
 ## drills
 ? Если ___ у меня было время, я бы поехал. | бы | будет, был, будь | If I had time, I'd go.
+  > будет: Будет is "will be" — a real future condition. This one is imaginary (я бы поехал), so: если бы.
+  > был: Был is "was". An imaginary condition needs бы.
+  > будь: Будь is the command "be!". An imaginary condition needs бы.
 ? Если будет дождь, мы ___ дома. | останемся | остались, остаёмся, оставались | If it rains, we'll stay home.
+  > остались: Остались is past. A real future condition (если будет) needs the future: останемся.
+  > остаёмся: Остаёмся is present. The result of a future condition is future: останемся.
+  > оставались: Оставались is past. The result here is future: останемся.
 ? На твоём ___ я бы не торопился. | месте | место, места, местом | If I were you, I wouldn't rush.
+  > место: The fixed phrase is на твоём месте ("in your place"), with the prepositional.
+  > места: Места is the genitive. The phrase is на твоём месте.
+  > местом: Местом is the instrumental. The phrase is на твоём месте.
 ? Если бы ты взял пешку, ты бы ___. | выиграл | выиграешь, выигрываешь, выиграть | If you'd taken the pawn, you'd have won.
+  > выиграешь: Выиграешь is future. After бы, use the past form: ты бы выиграл.
+  > выигрываешь: Выигрываешь is present. After бы, use the past form: выиграл.
+  > выиграть: Выиграть is the infinitive. After бы, use the past form: выиграл.
 
 ## vocab
 Если | if | conjunction
@@ -446,9 +566,21 @@ ex: Я хожу в театр каждый месяц. = I go to the theater eve
 
 ## drills
 ? Сейчас я ___ в магазин. | иду | хожу, ходил, ездить | I'm walking to the store right now.
+  > хожу: Хожу is for repeated trips (I go regularly). Right now, in one direction: иду.
+  > ходил: Ходил is past. Сейчас (now) needs иду.
+  > ездить: Ездить is an infinitive, and means going by vehicle. On foot, right now: иду.
 ? Каждое лето мы ___ на море. | ездим | едем, поедем, ехали | Every summer we go to the seaside.
+  > едем: Едем is one trip under way ("we're on our way"). Every summer is a habit: ездим.
+  > поедем: Поедем is one future trip. A repeated habit: ездим.
+  > ехали: Ехали is past, one trip. A habit in the present: ездим.
 ? Она ___ домой поздно. (arrived) | пришла | ушла, вышла, перешла | She came home late.
+  > ушла: У- means leaving ("she left"). Arriving is при-: пришла.
+  > вышла: Вы- means going out. Arriving is при-: пришла.
+  > перешла: Пере- means crossing over. Arriving is при-: пришла.
 ? Он ___ из дома в восемь. (went out) | вышел | вошёл, пришёл, подошёл | He left the house at eight.
+  > вошёл: Во- means going in. Going out of somewhere is вы-: вышел.
+  > пришёл: При- means arriving. Going out is вы-: вышел.
+  > подошёл: Под- means coming up to someone. Going out is вы-: вышел.
 
 ## vocab
 чАсто | often | adverb
@@ -494,9 +626,21 @@ ex: На десятом ходу ты ошибся. = You made a mistake on move
 
 ## drills
 ? Ты оставил ферзя без ___. | защиты | защита, защиту, защитой | You left your queen undefended.
+  > защита: Без takes the genitive: без защиты.
+  > защиту: Защиту is the accusative. Без needs защиты.
+  > защитой: Защитой is the instrumental. Без needs защиты.
 ? Это была грубая ___. | ошибка | ошибку, ошибки, ошибкой | That was a blunder.
+  > ошибку: Ошибку is the accusative (an object). Here ошибка is the subject: грубая ошибка.
+  > ошибки: Ошибки is the genitive or plural. With грубая: ошибка.
+  > ошибкой: Ошибкой would need грубой too (это было грубой ошибкой). With грубая: ошибка.
 ? Где я упустил ___? | преимущество | преимущества, преимуществом, преимуществе | Where did I let the advantage slip?
+  > преимущества: Преимущества is the genitive or plural. Упустить takes the accusative: преимущество.
+  > преимуществом: Преимуществом is the instrumental. The object of упустить is преимущество.
+  > преимуществе: Преимуществе is the prepositional. The object of упустить is преимущество.
 ? Давай ___ эту партию. | разберём | разбираем, разобрали, разобрать | Let's go through this game.
+  > разбираем: Разбираем is present. "Let's…" is давай + the мы future: давай разберём.
+  > разобрали: Разобрали is past. "Let's…" is давай разберём.
+  > разобрать: Давай doesn't take this infinitive. Use the мы form: давай разберём.
 
 ## vocab
 замЕтить | to notice | verb
@@ -539,9 +683,21 @@ ex: Белые атакуют на ферзевом фланге. = White is att
 
 ## drills
 ? У ___ есть преимущество. (White) | белых | белые, белым, белыми | White has the advantage.
+  > белые: У takes the genitive: у белых.
+  > белым: Белым is the dative. У needs белых.
+  > белыми: Белыми is the instrumental (играть белыми). У needs белых.
 ? Это ___ пешка. | слабая | слабый, слабое, слабые | That's a weak pawn.
+  > слабый: Слабый is masculine. Пешка is feminine: слабая.
+  > слабое: Слабое is neuter. Пешка is feminine: слабая.
+  > слабые: Слабые is plural. One пешка: слабая.
 ? Я перехватил ___. | инициативу | инициатива, инициативы, инициативой | I've seized the initiative.
+  > инициатива: Перехватить takes the accusative: инициативу.
+  > инициативы: Инициативы is the genitive. The object is инициативу.
+  > инициативой: Инициативой is the instrumental. The object is инициативу.
 ? Король в ___. | безопасности | безопасность, безопасный, безопасно | The king is safe.
+  > безопасность: В for location takes the prepositional: в безопасности.
+  > безопасный: Безопасный is the adjective "safe". "In safety" is в безопасности.
+  > безопасно: Безопасно is the adverb "safely". "The king is safe" is король в безопасности.
 
 ## vocab
 стратЕгия | strategy | noun, f.
@@ -583,9 +739,21 @@ ex: Они часто звонят друг другу. = They often call each o
 
 ## drills
 ? Мы с ___ очень близки. (брат) | братом | брат, брата, брату | My brother and I are very close.
+  > брат: "Мы с X" ("X and I") takes the instrumental: мы с братом.
+  > брата: Брата is the genitive or accusative. With с: братом.
+  > брату: Брату is the dative. With с: братом.
 ? Мы любим друг ___. | друга | другу, другом, друг | We love each other.
+  > другу: Другу is the dative, for verbs that take "to" (помогаем друг другу). Любить takes the accusative: друг друга.
+  > другом: Другом is the instrumental (друг с другом — with each other). Любить takes друг друга.
+  > друг: The second part always changes case. "Each other" as an object is друг друга.
 ? Я похож на ___. | отца | отец, отцом, отцу | I look like my father.
+  > отец: Похож на takes the accusative. Отец is a person, so it's отца.
+  > отцом: Отцом is the instrumental. Похож на needs отца.
+  > отцу: Отцу is the dative. Похож на needs отца.
 ? У сестры ___ детей. | двое | два, две, двух | My sister has two children.
+  > два: Дети is counted with collective numbers: двое детей.
+  > две: Две is the feminine "two" (две сестры). For children: двое.
+  > двух: Двух is the genitive (у двух детей). Counting children: двое.
 
 ## vocab
 блИзкий | close | adjective | близки (short form)
