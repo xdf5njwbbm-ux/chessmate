@@ -4,7 +4,7 @@ import { api } from "../lib/api";
 import { EXPERIENCE, INTENTIONS } from "../lib/constants";
 import type { Card, Experience, Filters, Intentions } from "../lib/types";
 import { useSession } from "../state/session";
-import { Button, Chip, EmptyState, Logo, Sheet } from "../components/ui";
+import { Button, Chip, EmptyState, Logo, RangeSlider, Sheet } from "../components/ui";
 import { ProfileCard, ProfileCardSkeleton } from "../components/ProfileCard";
 import { ChallengeSheet } from "../components/ChallengeSheet";
 
@@ -198,8 +198,8 @@ function FilterSheet({
       <div className="grid gap-6">
         <div>
           <div className="mb-2 flex justify-between text-sm">
-            <span className="font-semibold text-fog">Distance</span>
-            <span className="text-mist">{distMi >= 12000 ? "Anywhere" : `Within ${distMi} mi`}</span>
+            <span className="font-bold text-white">Distance</span>
+            <span className="font-semibold text-white">{distMi >= 12000 ? "Anywhere" : `Within ${distMi} mi`}</span>
           </div>
           <input
             className="range"
@@ -213,27 +213,24 @@ function FilterSheet({
         </div>
 
         <div>
-          <div className="mb-2 flex justify-between text-sm">
-            <span className="font-semibold text-fog">Age</span>
-            <span className="text-mist">
+          <div className="mb-3 flex justify-between text-sm">
+            <span className="font-bold text-white">Age</span>
+            <span className="font-semibold text-white">
               {ageMin} – {ageMax >= 80 ? "80+" : ageMax}
             </span>
           </div>
-          <div className="grid gap-4">
-            <input className="range" type="range" min={18} max={80} value={ageMin} onChange={(e) => setF({ ...f, age_min: Math.min(+e.target.value, ageMax) })} />
-            <input
-              className="range"
-              type="range"
-              min={18}
-              max={80}
-              value={ageMax}
-              onChange={(e) => setF({ ...f, age_max: +e.target.value >= 80 ? 99 : Math.max(+e.target.value, ageMin) })}
-            />
-          </div>
+          <RangeSlider
+            label="Age"
+            min={18}
+            max={80}
+            low={ageMin}
+            high={ageMax}
+            onChange={(lo, hi) => setF({ ...f, age_min: lo, age_max: hi >= 80 ? 99 : hi })}
+          />
         </div>
 
         <div>
-          <div className="mb-2 text-sm font-semibold text-fog">Elo rating</div>
+          <div className="mb-2 text-sm font-bold text-white">Elo rating</div>
           <div className="flex flex-wrap gap-2">
             <Chip on={eloPreset === "any"} onClick={() => setF({ ...f, elo_min: null, elo_max: null })}>
               Any
@@ -251,11 +248,11 @@ function FilterSheet({
               <input className="field" inputMode="numeric" placeholder="Max" value={f.elo_max ?? ""} onChange={(e) => setF({ ...f, elo_max: e.target.value ? +e.target.value.replace(/\D/g, "") : null })} />
             </div>
           )}
-          <p className="mt-2 text-xs text-mist">Elo only helps find good opponents. It never changes compatibility scores.</p>
+          <p className="mt-2 text-xs font-medium text-white">Elo only helps find good opponents. It never changes compatibility scores.</p>
         </div>
 
         <div>
-          <div className="mb-2 text-sm font-semibold text-fog">Chess experience</div>
+          <div className="mb-2 text-sm font-bold text-white">Chess experience</div>
           <div className="flex flex-wrap gap-2">
             {EXPERIENCE.map((e) => (
               <Chip key={e.v} on={f.experience?.includes(e.v)} onClick={() => setF({ ...f, experience: toggle<Experience>(f.experience, e.v) })}>
@@ -266,7 +263,7 @@ function FilterSheet({
         </div>
 
         <div>
-          <div className="mb-2 text-sm font-semibold text-fog">Looking for</div>
+          <div className="mb-2 text-sm font-bold text-white">Looking for</div>
           <div className="flex flex-wrap gap-2">
             {INTENTIONS.map((i) => (
               <Chip key={i.v} on={f.intentions?.includes(i.v)} onClick={() => setF({ ...f, intentions: toggle<Intentions>(f.intentions, i.v) })}>
@@ -278,8 +275,8 @@ function FilterSheet({
 
         <div>
           <div className="mb-2 flex justify-between text-sm">
-            <span className="font-semibold text-fog">Minimum compatibility</span>
-            <span className="text-mist">{f.min_compat ? `${f.min_compat}%+` : "Any"}</span>
+            <span className="font-bold text-white">Minimum compatibility</span>
+            <span className="font-semibold text-white">{f.min_compat ? `${f.min_compat}%+` : "Any"}</span>
           </div>
           <input className="range" type="range" min={0} max={90} step={5} value={f.min_compat ?? 0} onChange={(e) => setF({ ...f, min_compat: +e.target.value })} />
         </div>

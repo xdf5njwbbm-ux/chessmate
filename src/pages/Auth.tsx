@@ -152,7 +152,7 @@ export default function AuthPage() {
         )}
         {mode === "signup" && (
           <label className="mt-1 flex items-start gap-3 text-sm text-fog">
-            <input type="checkbox" checked={adult} onChange={(e) => setAdult(e.target.checked)} className="mt-0.5 size-5 accent-[#e3b964]" />
+            <input type="checkbox" checked={adult} onChange={(e) => setAdult(e.target.checked)} className="mt-0.5 size-5 accent-[#ffc61a]" />
             <span>I'm 18 or older and I'll treat other members with respect.</span>
           </label>
         )}

@@ -5,12 +5,12 @@
       <stop offset="1" stop-color="#070b16"/>
     </linearGradient>
     <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#f6d796"/>
-      <stop offset="1" stop-color="#c99a44"/>
+      <stop offset="0" stop-color="#ffe066"/>
+      <stop offset="1" stop-color="#e5a400"/>
     </linearGradient>
   </defs>
   <rect width="512" height="512" rx="112" fill="url(#bg)"/>
-  <rect x="10" y="10" width="492" height="492" rx="104" fill="none" stroke="#e3b964" stroke-opacity=".35" stroke-width="4"/>
+  <rect x="10" y="10" width="492" height="492" rx="104" fill="none" stroke="#ffc61a" stroke-opacity=".35" stroke-width="4"/>
   <!-- knight -->
   <path fill="url(#gold)" d="M176 392h176c8 0 14-6 14-14v-6c0-8-6-14-14-14h-10c-6-30-2-58 10-86 14-32 18-64 6-96-14-38-48-62-90-66l-14-22c-3-5-10-5-13 0l-10 18c-30 8-54 30-70 58l-34 58c-6 10-4 22 4 30l10 10c8 8 21 8 30 1l26-20c8 6 18 8 28 6-18 26-36 58-38 94v14h-10c-8 0-14 6-14 14v6c0 8 6 14 14 14z"/>
   <circle cx="248" cy="166" r="11" fill="#0b1222"/>

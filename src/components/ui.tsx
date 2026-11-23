@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, LoaderCircle, X } from "lucide-react";
@@ -93,7 +93,7 @@ export function Sheet({
             <div className="mx-auto mb-3 h-1 w-10 rounded-full bg-white/15" />
             <div className="flex items-center justify-between gap-3">
               <div className="font-display text-xl font-semibold">{title}</div>
-              <button aria-label="Close" onClick={onClose} className="grid size-9 place-items-center rounded-full bg-white/5 text-fog">
+              <button aria-label="Close" onClick={onClose} className="grid size-9 place-items-center rounded-full bg-white/5 text-white">
                 <X className="size-5" />
               </button>
             </div>
@@ -129,6 +129,53 @@ export function Chip({ on, onClick, children }: { on?: boolean; onClick?: () => 
     <button type="button" onClick={onClick} data-on={!!on} className="chip">
       {children}
     </button>
+  );
+}
+
+/** One track, two thumbs. Calls onChange(low, high) with low <= high. */
+export function RangeSlider({
+  min,
+  max,
+  step = 1,
+  low,
+  high,
+  onChange,
+  label,
+}: {
+  min: number;
+  max: number;
+  step?: number;
+  low: number;
+  high: number;
+  onChange: (low: number, high: number) => void;
+  label: string;
+}) {
+  const frac = (v: number) => (Math.min(Math.max(v, min), max) - min) / (max - min);
+  // When both thumbs sit on the upper half, keep the low thumb on top so it can still be dragged left.
+  const lowOnTop = low > min + (max - min) / 2;
+  return (
+    <div className="range-dual" style={{ "--lo": frac(low), "--hi": frac(high) } as CSSProperties}>
+      <input
+        type="range"
+        min={min}
+        max={max}
+        step={step}
+        value={low}
+        aria-label={`${label} minimum`}
+        style={{ zIndex: lowOnTop ? 3 : 2 }}
+        onChange={(e) => onChange(Math.min(+e.target.value, high), high)}
+      />
+      <input
+        type="range"
+        min={min}
+        max={max}
+        step={step}
+        value={high}
+        aria-label={`${label} maximum`}
+        style={{ zIndex: lowOnTop ? 2 : 3 }}
+        onChange={(e) => onChange(low, Math.max(+e.target.value, low))}
+      />
+    </div>
   );
 }
 
@@ -193,8 +240,8 @@ export function CompatRing({ value, size = 56, stroke = 5, label = true }: { val
       <svg width={size} height={size} className="-rotate-90">
         <defs>
           <linearGradient id="cm-gold" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#f6d796" />
-            <stop offset="1" stopColor="#c99a44" />
+            <stop offset="0" stopColor="#ffe066" />
+            <stop offset="1" stopColor="#e5a400" />
           </linearGradient>
         </defs>
         <circle cx={size / 2} cy={size / 2} r={r} stroke="rgb(255 255 255 / 0.12)" strokeWidth={stroke} fill="rgb(7 11 22 / 0.55)" />

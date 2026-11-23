@@ -7,7 +7,7 @@ import { EXPERIENCE, GENDERS, INTENTIONS, INTERESTS, TIME_CONTROLS } from "../li
 import { ageFrom, maxBirthdate } from "../lib/format";
 import type { Experience, Gender, Intentions, Profile, TimeControl } from "../lib/types";
 import { useSession } from "../state/session";
-import { Button, Chip, Photo, Spinner, Toggle } from "./ui";
+import { Button, Chip, Photo, RangeSlider, Spinner, Toggle } from "./ui";
 
 export type StepProps = { cta: string; onDone: () => void };
 
@@ -157,15 +157,18 @@ export function StepLookingFor({ cta, onDone }: StepProps) {
       </div>
 
       <Label aside={`${ageMin} – ${ageMax >= 80 ? "80+" : ageMax}`}>Age range</Label>
-      <div className="card grid gap-5 px-4 py-5">
-        <div>
-          <div className="mb-2 text-xs text-mist">Youngest</div>
-          <input className="range" type="range" min={18} max={80} value={ageMin} onChange={(e) => setAgeMin(Math.min(+e.target.value, ageMax))} />
-        </div>
-        <div>
-          <div className="mb-2 text-xs text-mist">Oldest</div>
-          <input className="range" type="range" min={18} max={80} value={ageMax} onChange={(e) => setAgeMax(Math.max(+e.target.value, ageMin))} />
-        </div>
+      <div className="card px-4 py-5">
+        <RangeSlider
+          label="Age"
+          min={18}
+          max={80}
+          low={ageMin}
+          high={ageMax}
+          onChange={(lo, hi) => {
+            setAgeMin(lo);
+            setAgeMax(hi);
+          }}
+        />
       </div>
 
       <Label aside={anywhere ? "Anywhere" : `Within ${miles} mi`}>Distance</Label>
