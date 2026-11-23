@@ -272,7 +272,7 @@ export default function ComputerGame() {
           <LearningPanel cards={cards} focus={focus} />
         </div>
       ) : (
-        <LearningPopup cards={cards} focus={focus} collapse={collapse} avoid={boardBox} />
+        <LearningPopup cards={cards} focus={focus} collapse={collapse} avoid={boardBox} paused={!!ended} />
       )}
 
       <Confirm open={confirmResign} onClose={() => setConfirmResign(false)} title="Resign this game?" body="It's a practice game — your rating won't change." confirmLabel="Resign" danger onConfirm={() => finish(moves, "resign")} />

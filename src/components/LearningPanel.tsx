@@ -5,6 +5,7 @@ import type { Intensity, Line } from "../lib/types";
 import { api } from "../lib/api";
 import { bare, plain } from "../lib/russian";
 import { INTENSITY } from "../lib/constants";
+import { pref, setPref } from "../lib/format";
 import { useEntitlements, useSession } from "../state/session";
 import { useLive } from "../state/live";
 import { useToast } from "../state/toast";
@@ -94,65 +95,68 @@ export function LearningPanel({ cards, focus, onIntensity }: { cards: { ply: num
 }
 
 /**
- * Phones: the lesson for each move pops up over the bottom of the screen right
- * after the move, so nobody has to scroll below the board to see it. It shrinks
- * to a slim bar when the learner goes back to the board (`collapse` changes),
- * and pops up again with the next move. It sizes itself to the space under the
- * board (`avoid`), so it never covers squares the learner needs to play on.
+ * Phones: after your opponent (or Stockfish) replies, the lesson pops up in
+ * front of the board — once per turn, with both moves on one card. Tap
+ * Continue (or anywhere outside the card) and the board is all yours. A slim
+ * bar at the bottom brings it back whenever you want it.
  */
-export function LearningPopup({ cards, focus, collapse, avoid }: { cards: { ply: number; card: MoveCard }[]; focus?: FocusWord[]; collapse?: number; avoid?: RefObject<HTMLElement | null> }) {
+export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards: { ply: number; card: MoveCard }[]; focus?: FocusWord[]; collapse?: number; avoid?: RefObject<HTMLElement | null>; paused?: boolean }) {
   const { profile, saveProfile } = useSession();
   const ent = useEntitlements();
   const intensity: Intensity = profile?.learning_intensity === "deep" && !ent.deep_learning ? "standard" : profile?.learning_intensity ?? "standard";
   const latest = cards.at(-1);
   const prev = cards.length > 1 ? cards.at(-2)! : null;
-  const [open, setOpen] = useState(true);
-  const [maxH, setMaxH] = useState<number | null>(null);
+  const [open, setOpen] = useState(false);
+  const [auto, setAuto] = useState<boolean>(() => pref("lessonPopup", true));
+  const [top, setTop] = useState(12);
 
-  useEffect(() => {
-    const openedAt = window.scrollY;
-    const measure = () => {
-      const el = avoid?.current;
-      if (!el) return setMaxH(null);
-      const below = window.innerHeight - el.getBoundingClientRect().bottom - 10;
-      setMaxH(Math.round(Math.min(window.innerHeight * 0.6, Math.max(170, below))));
-    };
-    const onScroll = () => {
-      // scrolling down to the chat or the buttons below means "get out of the way"
-      if (open && Math.abs(window.scrollY - openedAt) > 48) setOpen(false);
-      measure();
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("resize", measure);
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, [avoid, open, latest?.ply]);
-
-  // order matters: a new move (below) must win over a tap on the board in the same commit
   useEffect(() => {
     if (collapse) setOpen(false);
   }, [collapse]);
+
+  // pop up once the opponent has replied (after its piece has finished moving)
   useEffect(() => {
-    if (latest) setOpen(true);
-  }, [latest?.ply, latest?.card.key]); // eslint-disable-line react-hooks/exhaustive-deps
+    setOpen(false);
+    if (!latest || latest.card.speaker === "me" || !auto || paused) return;
+    const t = setTimeout(() => setOpen(true), 750);
+    return () => clearTimeout(t);
+  }, [latest?.ply, latest?.card.key, paused]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // sit on top of the board
+  useEffect(() => {
+    if (!open) return;
+    const place = () => {
+      const r = avoid?.current?.getBoundingClientRect();
+      setTop(Math.round(Math.min(Math.max(8, r ? r.top : 12), window.innerHeight * 0.3)));
+    };
+    place();
+    window.addEventListener("resize", place);
+    window.addEventListener("scroll", place, { passive: true });
+    return () => {
+      window.removeEventListener("resize", place);
+      window.removeEventListener("scroll", place);
+    };
+  }, [open, avoid]);
 
   if (!latest) return null;
   const standard = intensity !== "quick";
+  const close = () => setOpen(false);
+  const toggleAuto = () => {
+    setAuto(!auto);
+    setPref("lessonPopup", !auto);
+  };
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 px-2 pb-[max(8px,env(safe-area-inset-bottom))] lg:hidden" data-learning-popup={open ? "open" : "min"}>
-      <section
-        key={open ? `o${latest.ply}` : "min"}
-        style={open && maxH ? { maxHeight: maxH } : undefined}
-        className="pointer-events-auto mx-auto flex max-h-[60dvh] max-w-[600px] animate-sheet-in flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink-900/95 shadow-[0_-16px_48px_-12px_rgba(0,0,0,0.85)] backdrop-blur"
-        aria-label="Russian for this move"
-        aria-live="polite"
-      >
-        {open ? (
-          <>
+    <>
+      {open ? (
+        <div className="fixed inset-0 z-50 animate-fade-in bg-ink-950/60 px-3 lg:hidden" onClick={close} data-learning-popup="open">
+          <section
+            onClick={(e) => e.stopPropagation()}
+            style={{ marginTop: top, maxHeight: `calc(100dvh - ${top + 12}px)` }}
+            className="mx-auto flex max-w-[560px] animate-pop flex-col overflow-hidden rounded-2xl border border-white/10 bg-ink-900 shadow-[0_24px_64px_-12px_rgba(0,0,0,0.9)]"
+            role="dialog"
+            aria-label="Russian for this move"
+          >
             <div className="flex shrink-0 items-center gap-2 border-b border-white/[0.06] py-1 pl-3 pr-1.5">
               <GraduationCap className="size-[18px] shrink-0 text-accent" />
               <Segmented
@@ -162,15 +166,14 @@ export function LearningPopup({ cards, focus, collapse, avoid }: { cards: { ply:
                 options={INTENSITY.filter((x) => x.v !== "deep" || ent.deep_learning).map((x) => ({ v: x.v, l: x.l }))}
               />
               <div className="flex-1" />
-              <button className="grid size-9 place-items-center rounded-lg text-mist hover:bg-white/5" onClick={() => setOpen(false)} aria-label="Minimize">
-                <ChevronDown className="size-5" />
+              <button className="grid size-9 place-items-center rounded-lg text-mist hover:bg-white/5" onClick={close} aria-label="Close">
+                <X className="size-5" />
               </button>
             </div>
             <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-3">
-              <CardView key={latest.ply} ply={latest.ply} card={latest.card} intensity={intensity} focus={focus} />
-              {prev && (
-                <div className="mt-4 flex items-start gap-2 rounded-xl bg-white/[0.03] px-3 py-2">
-                  <span className="w-16 shrink-0 pt-0.5 text-[11px] font-semibold uppercase tracking-wider text-faint">Before · {WHO[prev.card.speaker]}</span>
+              {prev && prev.card.speaker === "me" && (
+                <div className="mb-3 flex items-start gap-2 rounded-xl bg-white/[0.03] px-3 py-2">
+                  <span className="w-16 shrink-0 pt-0.5 text-[11px] font-semibold uppercase tracking-wider text-faint">Your move</span>
                   <div className="min-w-0 flex-1">
                     <div className="ru text-[15px]">{prev.card.phrase.ru}</div>
                     {standard && <div className="text-xs text-mist">{prev.card.phrase.en}</div>}
@@ -178,10 +181,21 @@ export function LearningPopup({ cards, focus, collapse, avoid }: { cards: { ply:
                   <AudioButtons text={prev.card.phrase.ru} compact />
                 </div>
               )}
+              <CardView key={latest.ply} ply={latest.ply} card={latest.card} intensity={intensity} focus={focus} />
             </div>
-          </>
-        ) : (
-          <div className="flex items-center gap-2 py-1.5 pl-4 pr-1.5">
+            <div className="shrink-0 border-t border-white/[0.06] p-3">
+              <button className="btn btn-primary h-12 w-full text-base" onClick={close} autoFocus>
+                <Check className="size-5" /> Continue — your move
+              </button>
+              <button className="mt-1.5 w-full py-1 text-xs text-faint hover:text-mist" onClick={() => { toggleAuto(); close(); }}>
+                Don't pop up automatically (tap the bar at the bottom to open it)
+              </button>
+            </div>
+          </section>
+        </div>
+      ) : (
+        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 px-2 pb-[max(8px,env(safe-area-inset-bottom))] lg:hidden" data-learning-popup="min">
+          <div className="pointer-events-auto mx-auto flex max-w-[600px] items-center gap-2 rounded-2xl border border-white/10 bg-ink-900/95 py-1.5 pl-4 pr-1.5 shadow-[0_-16px_48px_-12px_rgba(0,0,0,0.85)] backdrop-blur">
             <button className="flex min-w-0 flex-1 items-center gap-3 py-1 text-left" onClick={() => setOpen(true)}>
               <GraduationCap className="size-4 shrink-0 text-accent" />
               <span className="ru min-w-0 flex-1 truncate text-base">{latest.card.phrase.ru}</span>
@@ -190,10 +204,13 @@ export function LearningPopup({ cards, focus, collapse, avoid }: { cards: { ply:
             <button className="grid size-9 shrink-0 place-items-center rounded-lg text-mist hover:bg-white/5" onClick={() => setOpen(true)} aria-label="Show the Russian for this move">
               <ChevronUp className="size-5" />
             </button>
+            {!auto && (
+              <button className="shrink-0 rounded-lg px-2 py-1 text-[11px] font-semibold text-accent-soft" onClick={toggleAuto}>Auto</button>
+            )}
           </div>
-        )}
-      </section>
-    </div>
+        </div>
+      )}
+    </>
   );
 }
 
