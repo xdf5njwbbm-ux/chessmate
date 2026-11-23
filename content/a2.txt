@@ -1,0 +1,594 @@
+# lesson a2-01 | routines | My day | Мой день
+summary: Describe your daily routine, what you did yesterday and what you'll do after work.
+intro: Now your sentences get longer. You'll connect them with time words: обычно, потом, после работы, вчера.
+
+## phrases: A normal day
+Обычно|usually я|I встаю|get_up в|at семь|seven часов.|o'clock = I usually get up at seven.
+Утром|in_the_morning я|I завтракаю|have_breakfast дома.|at_home = I have breakfast at home in the morning.
+Потом|then я|I еду|go на|to работу.|work = Then I go to work.
+Сегодня|today я|I работаю|work до|until вечера.|evening = Today I'm working until the evening.
+После|after работы|work я|I пойду|will_go домой.|home = After work, I'll go home.
+Вечером|in_the_evening я|I смотрю|watch сериалы.|series = In the evening I watch TV series.
+Я|I ложусь|go_to_bed спать|sleep в|at одиннадцать.|eleven = I go to bed at eleven.
+Что|what ты|you обычно|usually делаешь|do по|on выходным?|weekends = What do you usually do on weekends?
+Вчера|yesterday я|I ходил{ходила}|went в|to магазин.|store = Yesterday I went to the store.
+  > Past tense agrees with the speaker: a man says ходил, a woman says ходила.
+
+## grammar: Time expressions
+**В** + time: в семь часов, в одиннадцать. **До** + genitive ("until"): до вечера, до обеда. **После** + genitive ("after"): после работы, после обеда.
+**По** + dative plural means "on (every)…": по выходным, по утрам, по вечерам.
+ex: По утрам я бегаю. = I run in the mornings.
+ex: После обеда я работаю до шести. = After lunch I work until six.
+
+## drills
+? После ___ я пойду домой. | работы | работа, работу, работой | After work I'll go home.
+? Что ты обычно делаешь по ___? | выходным | выходные, выходных, выходными | What do you usually do on weekends?
+? Вчера я ___ в магазин. (I went — a man) | ходил | хожу, пойду, ходила | Yesterday I went to the store.
+? Я встаю ___ семь часов. | в | на, до, по | I get up at seven.
+
+## vocab
+обЫчно | usually | adverb
+вставАть | to get up | verb | я встаю, ты встаёшь
+зАвтракать | to have breakfast | verb
+дОма | at home | adverb
+домОй | (to) home | adverb | Direction: идти домой.
+рабОта | work, job | noun, f.
+пОсле | after | preposition | Takes the genitive.
+смотрЕть | to watch, to look | verb
+сериАл | TV series | noun, m.
+ложИться спать | to go to bed | phrase
+вчерА | yesterday | adverb
+Ужинать | to have dinner | verb
+
+# lesson a2-02 | restaurants | At a restaurant | В ресторане
+summary: Order a full meal, ask for recommendations, and say you like the food.
+intro: «Я бы хотел» is the polite way to say "I would like". It uses the past tense, so a woman says «я бы хотела».
+
+## dialogue: Dinner out
+Официантка: Добрый|good вечер!|evening Вы|you готовы|ready заказать?|to_order = Good evening! Are you ready to order?
+Максим: Что|what ты|you хочешь|want заказать?|to_order = What do you want to order?
+Анна: Я|I бы|would хотела|like борщ|borscht и|and салат.|salad = I'd like borscht and a salad.
+Максим: А|and я|I буду|will_have рыбу.|fish Что|what вы|you посоветуете?|recommend = And I'll have the fish. What do you recommend?
+Официантка: Попробуйте|try пельмени.|pelmeni Они|they очень|very вкусные.|tasty = Try the pelmeni. They're very good.
+
+## phrases: Useful at the table
+Я|I бы|would хотел{хотела}|like кофе|coffee без|without сахара.|sugar = I'd like coffee without sugar.
+Можно|may_I меню?|menu = May I see the menu?
+Сколько|how_much это|this стоит?|costs = How much does this cost?
+Мне|to_me очень|really нравится|is_pleasing эта|this еда.|food = I really like this food.
+Это|this было|was очень|very вкусно!|tasty = That was delicious!
+Счёт,|the_bill пожалуйста.|please = The bill, please.
+
+## grammar: Polite ordering
+**Я бы хотел / хотела** + noun or verb = "I would like". **Бы** makes the sentence conditional and polite.
+**Я буду** + noun (accusative) = "I'll have…": я буду суп, я буду рыбу.
+ex: Я бы хотел заказать. = I'd like to order.
+ex: Я буду чай с лимоном. = I'll have tea with lemon.
+
+## drills
+? Я ___ хотела салат. | бы | буду, был, быть | I'd like a salad.
+? Я буду ___. (рыба) | рыбу | рыба, рыбы, рыбой | I'll have the fish.
+? Мне очень ___ эта еда. | нравится | нравятся, люблю, нравлюсь | I really like this food.
+? ___, пожалуйста. (the bill) | Счёт | Счёта, Счета, Счётом | The bill, please.
+
+## vocab
+заказАть | to order | verb | Perfective of заказывать.
+менЮ | menu | noun, n. | Never changes form.
+суп | soup | noun, m.
+рЫба | fish | noun, f.
+мЯсо | meat | noun, n.
+салАт | salad | noun, m.
+счёт | bill, check; score | noun, m.
+вкУсно | tasty, delicious | adverb
+едА | food | noun, f.
+посовЕтовать | to recommend, to advise | verb
+бы | would | particle
+попрОбовать | to try, to taste | verb
+
+# lesson a2-03 | cooking | Groceries and cooking | Продукты и готовка
+summary: Write a shopping list, ask about prices by the kilo, and cook together.
+intro: Quantities use the genitive: a kilo *of* apples, a bottle *of* milk, a little *(of)* salt.
+
+## phrases: In the kitchen
+Нам|to_us нужно|need купить|to_buy молоко|milk и|and яйца.|eggs = We need to buy milk and eggs.
+Что|what у|by нас|us есть|there_is в|in холодильнике?|fridge = What do we have in the fridge?
+У|by нас|us нет|no хлеба.|bread = We're out of bread.
+Сколько|how_much стоит|costs килограмм|kilo яблок?|of_apples = How much is a kilo of apples?
+Я|I готовлю|am_making ужин.|dinner = I'm making dinner.
+Порежь,|chop пожалуйста,|please лук.|onion = Chop the onion, please.
+Добавь|add немного|a_little соли.|salt = Add a little salt.
+Суп|soup готов!|ready = The soup is ready!
+Ты|you умеешь|know_how готовить|to_make пельмени?|pelmeni = Do you know how to make pelmeni?
+Меня|me научила|taught бабушка.|grandma = My grandma taught me.
+
+## grammar: Genitive of quantity
+Words of amount take the genitive: килограмм **яблок**, бутылка **молока**, немного **соли**, много **воды**.
+**Нет** + genitive = "there isn't any": нет хлеба, нет сахара.
+**Уметь** = "to know how to": я умею готовить.
+ex: Купи, пожалуйста, литр молока. = Please buy a liter of milk.
+ex: У нас нет сахара. = We're out of sugar.
+
+## drills
+? Килограмм ___, пожалуйста. (яблоки) | яблок | яблоки, яблоко, яблоками | A kilo of apples, please.
+? У нас нет ___. (хлеб) | хлеба | хлеб, хлебу, хлебом | We're out of bread.
+? Добавь немного ___. (соль) | соли | соль, солью, соле | Add a little salt.
+? Ты ___ готовить? | умеешь | умею, умеет, уметь | Do you know how to cook?
+
+## vocab
+продУкты | groceries | noun, plural
+купИть | to buy | verb
+яйцО | egg | noun, n. | Plural: яйца.
+холодИльник | fridge | noun, m.
+Яблоко | apple | noun, n.
+килогрАмм | kilogram | noun, m.
+лук | onion | noun, m.
+соль | salt | noun, f.
+гОтов | ready | short adjective | готова, готово
+умЕть | to know how to | verb
+пельмЕни | pelmeni (dumplings) | noun, plural
+бАбушка | grandmother | noun, f.
+
+# lesson a2-04 | plans | Making plans | Планы на выходные
+summary: Suggest a meeting, agree on a time and place, or politely say no.
+intro: Days of the week take в + accusative: в субботу, в воскресенье. «Тебе подходит?» — "Does that suit you?" — is the key planning question.
+
+## dialogue: Weekend plans
+Максим: Что|what ты|you делаешь|are_doing в|on субботу?|Saturday = What are you doing on Saturday?
+Анна: Пока|yet не|not знаю.|know А|and что?|what = I don't know yet. Why?
+Максим: Давай|let's встретимся|meet и|and сходим|go в|to кино.|the_movies = Let's meet up and go to the movies.
+Анна: С|with удовольствием!|pleasure Во|at сколько?|what_time = I'd love to! What time?
+Максим: В|at семь|seven вечера.|in_the_evening Тебе|to_you подходит?|suits = At seven in the evening. Does that work for you?
+Анна: Да,|yes подходит.|suits Где|where встретимся?|(shall_we)_meet = Yes, that works. Where shall we meet?
+Максим: У|at входа|the_entrance в|to кинотеатр.|cinema = At the cinema entrance.
+
+## phrases: Saying yes or no
+Извини,|sorry я|I не|not могу,|can у|by меня|me дела.|things_to_do = Sorry, I can't, I have things to do.
+Может|maybe быть,|be в|on воскресенье?|Sunday = Maybe on Sunday?
+Договорились!|agreed = It's a deal!
+До|until встречи!|meeting = See you then!
+
+## grammar: Days and times
+Days: в понедельник, во вторник, в среду, в четверг, в пятницу, в субботу, в воскресенье.
+Times: в семь утра, в три часа дня, в восемь вечера. **Во сколько?** = "At what time?"
+ex: Давай встретимся в пятницу. = Let's meet on Friday.
+ex: Фильм начинается в восемь вечера. = The film starts at 8 p.m.
+
+## drills
+? Что ты делаешь в ___? (Saturday) | субботу | суббота, субботы, субботе | What are you doing on Saturday?
+? ___ сколько? | Во | В, На, До | At what time?
+? Тебе ___? — Да, отлично. | подходит | подходишь, подходят, подойти | Does that work for you? — Yes, great.
+? Извини, я не ___. | могу | может, можешь, мочь | Sorry, I can't.
+
+## vocab
+суббОта | Saturday | noun, f.
+воскресЕнье | Sunday | noun, n.
+встрЕтиться | to meet (up) | verb | давай встретимся = let's meet
+кинО | cinema, movies | noun, n.
+удовОльствие | pleasure | noun, n. | с удовольствием = gladly
+подходИть | to suit, to work for | verb
+мочь | to be able to | verb | я могу, ты можешь
+договорИлись | agreed, deal | phrase
+вход | entrance | noun, m.
+мОжет быть | maybe | phrase
+встрЕча | meeting | noun, f.
+
+# lesson a2-05 | friends | Making friends | Новые друзья
+summary: Get to know someone new, find common interests and swap contacts.
+intro: «Чем ты увлекаешься?» — "What are you into?" — opens up any friendly conversation. The answer takes the instrumental: увлекаюсь фотографией.
+
+## phrases: New friends
+Ты|you давно|long живёшь|live здесь?|here = Have you lived here long?
+Нет,|no я|I переехал{переехала}|moved недавно.|recently = No, I moved recently.
+  > Russian uses the present tense for "have been doing": давно живёшь = "have lived for a long time".
+Хочешь|want пойти|to_go с|with нами|us в|to бар?|bar = Want to come to a bar with us?
+Конечно,|of_course с|with радостью!|joy = Sure, gladly!
+Чем|with_what ты|you увлекаешься?|are_into = What are you into?
+Я|I увлекаюсь|am_into фотографией.|photography = I'm into photography.
+У|by нас|us много|much общего!|in_common = We have a lot in common!
+Давай|let's обменяемся|exchange номерами.|numbers = Let's swap numbers.
+Напиши|write мне|to_me в|in Телеграм.|Telegram = Message me on Telegram.
+Было|it_was приятно|nice познакомиться!|to_meet = It was nice to meet you!
+
+## grammar: Увлекаться + instrumental
+Verbs ending in **-ся** often mean "to be into / to be busy with". **Увлекаться** and **заниматься** both take the instrumental:
+увлекаюсь музык**ой**, фотографи**ей**, шахмат**ами** · занимаюсь спорт**ом**.
+ex: Он увлекается историей. = He's into history.
+ex: Я увлекаюсь шахматами с детства. = I've loved chess since childhood.
+
+## drills
+? Чем ты ___? | увлекаешься | увлекаюсь, увлекается, увлекаться | What are you into?
+? Я увлекаюсь ___. (фотография) | фотографией | фотография, фотографию, фотографии | I'm into photography.
+? Нет, я переехала ___. | недавно | давно, долго, скоро | No, I moved recently.
+? Было приятно ___! | познакомиться | знакомый, знакомство, знаю | Nice to meet you!
+
+## vocab
+давнО | for a long time; long ago | adverb
+переЕхать | to move (house) | verb
+недАвно | recently | adverb
+увлекАться | to be into, to be keen on | verb
+фотогрАфия | photography; photo | noun, f.
+Общий | common, shared | adjective | много общего = a lot in common
+нОмер | number; hotel room | noun, m.
+познакОмиться | to get acquainted | verb
+с рАдостью | gladly | phrase
+написАть | to write | verb
+
+# lesson a2-06 | travel | Getting around | Транспорт
+summary: Buy tickets, find the right bus or train, and understand announcements.
+intro: Russian separates going on foot (идти) from going by vehicle (ехать). You'll hear «Следующая станция…» on every metro ride.
+
+## phrases: On the move
+Как|how доехать|to_get до|to вокзала?|the_station = How do I get to the train station?
+@formal Садитесь|get на|on автобус|bus номер|number пять.|five = Take bus number five.
+Где|where можно|can_one купить|buy билет?|ticket = Where can I buy a ticket?
+Сколько|how_much стоит|costs билет|ticket до|to Петербурга?|Petersburg = How much is a ticket to St Petersburg?
+Поезд|train отправляется|departs в|at девять|nine утра.|in_the_morning = The train leaves at 9 a.m.
+Нужно|(you)_need сделать|to_make пересадку.|transfer = You need to change.
+На|at какой|which станции|station выходить?|to_get_off = Which station do I get off at?
+Я|I еду|am_going на|by такси.|taxi = I'm going by taxi.
+Я|I опоздал{опоздала}|was_late на|for поезд.|train = I missed my train.
+Следующая|next станция|station —|(is) «Театральная».|Teatralnaya = Next station: Teatralnaya.
+  > You'll hear this announcement in the Moscow metro.
+
+## grammar: Идти or ехать?
+**Идти** = to go on foot; **ехать** = to go by vehicle. Transport takes **на** + prepositional: на автобусе, на поезде, на метро, на такси.
+**До** + genitive = "as far as / to": до вокзала, до центра.
+ex: Я иду на работу пешком. = I walk to work.
+ex: Я еду на работу на метро. = I take the metro to work.
+
+## drills
+? Как доехать до ___? (вокзал) | вокзала | вокзал, вокзалу, вокзале | How do I get to the station?
+? Я ___ на такси. | еду | иду, хожу, ходил | I'm going by taxi.
+? Нужно сделать ___. | пересадку | пересадка, пересадки, пересадкой | You need to change.
+? ___ станция — «Арбатская». | Следующая | Следующий, Следующее, Следующие | Next station: Arbatskaya.
+
+## vocab
+доЕхать | to get to (by vehicle) | verb
+вокзАл | train station | noun, m.
+автОбус | bus | noun, m.
+билЕт | ticket | noun, m.
+пОезд | train | noun, m.
+отправлЯться | to depart | verb
+пересАдка | transfer, change | noun, f.
+стАнция | station | noun, f.
+выходИть | to get off, to go out | verb
+таксИ | taxi | noun, n.
+опоздАть | to be late, to miss | verb
+слЕдующий | next | adjective
+Ехать | to go (by vehicle) | verb | я еду, ты едешь
+идтИ | to go (on foot) | verb | я иду, ты идёшь
+
+# lesson a2-07 | hotels | At the hotel | В гостинице
+summary: Check in, ask about breakfast and report a problem with your room.
+intro: Hotel Russian is formal — you'll use вы throughout. «Номер» means both "room" and "number".
+
+## phrases: Check-in and stay
+@formal Здравствуйте,|hello у|by меня|me забронирован|booked номер.|room = Hello, I have a room booked.
+@formal Ваша|your фамилия?|surname = Your last name?
+На|for сколько|how_many ночей?|nights = For how many nights?
+На|for три|three ночи.|nights = For three nights.
+Завтрак|breakfast включён?|included = Is breakfast included?
+Да,|yes завтрак|breakfast с|from семи|seven до|until десяти.|ten = Yes, breakfast is from seven to ten.
+@formal Вот|here_is ваш|your ключ.|key = Here's your key.
+Номер|room на|on третьем|third этаже.|floor = The room is on the third floor.
+В|in номере|the_room не|not работает|works кондиционер.|air_conditioner = The air conditioning in my room isn't working.
+Во|at сколько|what_time нужно|(one)_must освободить|vacate номер?|the_room = What time is check-out?
+Можно|may_I оставить|leave вещи?|things = Can I leave my bags?
+
+## grammar: On the third floor
+"On the … floor" uses **на** + prepositional of the ordinal number: на перв**ом**, втор**ом**, трет**ьем**, пят**ом** этаже.
+**С … до …** + genitive gives a time range: с семи до десяти, с девяти до шести.
+ex: Ресторан работает с восьми до одиннадцати. = The restaurant is open from eight to eleven.
+ex: Мой номер на пятом этаже. = My room is on the fifth floor.
+
+## drills
+? Номер на третьем ___. | этаже | этаж, этажа, этажом | The room is on the third floor.
+? Завтрак с семи до ___. | десяти | десять, десятью, десятый | Breakfast is from seven to ten.
+? На сколько ___? | ночей | ночь, ночи, ночью | For how many nights?
+? У меня ___ номер. | забронирован | забронировать, бронь, забронирую | I have a room booked.
+
+## vocab
+гостИница | hotel | noun, f.
+забронИровать | to book, to reserve | verb
+фамИлия | surname | noun, f.
+ночь | night | noun, f.
+зАвтрак | breakfast | noun, m.
+включЁн | included; switched on | short adjective
+ключ | key | noun, m.
+этАж | floor, storey | noun, m.
+кондиционЕр | air conditioner | noun, m.
+освободИть | to free, to vacate | verb
+остАвить | to leave | verb
+вЕщи | things, belongings | noun, plural
+
+# lesson a2-08 | fitness | At the gym | В спортзале
+summary: Talk about exercise, your workout and how you feel afterwards.
+intro: «Заниматься» + instrumental means "to do (a sport)". And Russians say «я устал» — "I got tired" — to mean "I'm tired".
+
+## phrases: Working out
+Я|I хожу|go в|to спортзал|the_gym три|three раза|times в|a неделю.|week = I go to the gym three times a week.
+Я|I бегаю|run по|in утрам.|the_mornings = I run in the mornings.
+Сколько|how_many подходов?|sets = How many sets?
+Три|three по|of десять.|ten = Three sets of ten.
+Мне|to_me нужно|need размяться.|to_warm_up = I need to warm up.
+У|by меня|me болят|ache ноги|legs после|after тренировки.|the_workout = My legs hurt after the workout.
+Ты|you занимаешься|do спортом?|sport = Do you do any sports?
+Я|I занимаюсь|do йогой.|yoga = I do yoga.
+Давай|let's тренироваться|train вместе!|together = Let's train together!
+Я|I устал{устала}.|got_tired = I'm tired.
+  > The past tense here describes your state now.
+Ещё|another один|one раз!|time = One more time!
+
+## grammar: How often?
+**Раз в неделю / в месяц** = "once a week / a month"; два, три, четыре **раза**; пять **раз**.
+**По утрам / по вечерам** = "in the mornings / evenings" (habitually).
+**Заниматься** + instrumental: спорт**ом**, йог**ой**, плавани**ем**.
+ex: Я плаваю два раза в неделю. = I swim twice a week.
+ex: Она занимается бегом. = She runs (does running).
+
+## drills
+? Я хожу в спортзал три ___ в неделю. | раза | раз, разу, разом | I go to the gym three times a week.
+? Ты занимаешься ___? | спортом | спорт, спорта, спорте | Do you do any sports?
+? У меня ___ ноги. | болят | болит, болеть, болела | My legs hurt.
+? Я ___. (I'm tired — a woman) | устала | устал, устаю, устать | I'm tired.
+
+## vocab
+спортзАл | gym | noun, m.
+бЕгать | to run | verb
+раз | time, occasion | noun, m. | раз в неделю = once a week
+недЕля | week | noun, f.
+подхОд | set (exercise); approach | noun, m.
+размЯться | to warm up | verb
+болЕть | to hurt, to ache | verb | болит / болят
+ногА | leg, foot | noun, f.
+тренирОвка | workout, training | noun, f.
+занимАться | to do, to practice | verb | Takes the instrumental.
+вмЕсте | together | adverb
+устАть | to get tired | verb
+
+# lesson a2-09 | health | At the doctor's | У врача
+summary: Make an appointment, describe symptoms and understand the doctor's advice.
+intro: Pain is something that "hurts at you": «у меня болит голова». The verb agrees with what hurts.
+
+## dialogue: An appointment
+Анна: Мне|to_me нужно|need записаться|to_book к|to врачу.|the_doctor = I need to make a doctor's appointment.
+Врач: Что|what вас|you беспокоит?|is_bothering = What seems to be the problem?
+Анна: У|by меня|me болит|aches голова.|head = I have a headache.
+Анна: И|and ещё|also температура|temperature и|and кашель.|cough = And I have a fever and a cough.
+Врач: Как|how давно?|long = For how long?
+Анна: Со|since вчерашнего|yesterday's дня.|day = Since yesterday.
+Врач: Принимайте|take это|this лекарство|medicine три|three раза|times в|a день.|day = Take this medicine three times a day.
+
+## phrases: Afterwards
+Где|where ближайшая|nearest аптека?|pharmacy = Where's the nearest pharmacy?
+Мне|to_me уже|already лучше.|better = I feel better already.
+У|by меня|me болит|aches горло.|throat = I have a sore throat.
+Выздоравливай!|get_well = Get well soon!
+
+## grammar: What hurts?
+**У меня болит** + one thing: голова, горло, живот. **У меня болят** + several: ноги, глаза, зубы.
+**Записаться к** + dative = "to make an appointment with": к врачу, к стоматологу.
+ex: У него болит спина. = His back hurts.
+ex: Я записалась к врачу на завтра. = I've booked a doctor's appointment for tomorrow.
+
+## drills
+? У меня ___ голова. | болит | болят, болею, больно | I have a headache.
+? У меня ___ глаза. | болят | болит, болеет, болел | My eyes hurt.
+? Мне нужно записаться к ___. | врачу | врач, врача, врачом | I need to see a doctor.
+? Мне уже ___. | лучше | хорошо, лучший, хороший | I feel better already.
+
+## vocab
+записАться | to sign up, to book | verb
+беспокОить | to bother, to worry | verb
+головА | head | noun, f.
+гОрло | throat | noun, n.
+температУра | temperature, fever | noun, f.
+кАшель | cough | noun, m.
+лекАрство | medicine | noun, n.
+аптЕка | pharmacy | noun, f.
+лУчше | better | adverb
+выздорАвливать | to get well | verb
+принимАть | to take (medicine) | verb
+
+# lesson a2-10 | phone | On the phone | По телефону
+summary: Answer the phone, ask for someone, leave a message and handle a bad line.
+intro: Russians answer with «Алло!». Calling someone takes the dative: звонить кому? — мне, тебе, Анне.
+
+## phrases: Phone calls
+Алло!|hello = Hello? (answering the phone)
+@formal Здравствуйте,|hello можно|may_I Анну?|Anna = Hello, may I speak to Anna?
+Её|her сейчас|now нет.|isn't_here = She's not in right now.
+Что-нибудь|anything передать?|to_pass_on = Can I take a message?
+@formal Перезвоните,|call_back пожалуйста,|please позже.|later = Please call back later.
+Вас|you плохо|badly слышно.|audible = I can't hear you well.
+Я|I тебе|to_you перезвоню.|will_call_back = I'll call you back.
+Кто|who это?|this = Who's this?
+@formal Вы|you ошиблись|made_a_mistake номером.|number = You've got the wrong number.
+Я|I не|not могу|can сейчас|now говорить.|talk = I can't talk right now.
+Позвони|call мне|me вечером.|in_the_evening = Call me tonight.
+
+## grammar: Calling someone
+**Звонить / позвонить** take the dative: позвони **мне**, я позвоню **тебе**, позвоните **Анне**.
+**Её нет / его нет** = "she / he isn't here" (нет + genitive).
+ex: Я позвоню тебе завтра. = I'll call you tomorrow.
+ex: Мамы нет дома. = Mom isn't home.
+
+## drills
+? Позвони ___ вечером. | мне | меня, я, мной | Call me in the evening.
+? Её сейчас ___. | нет | не, нету, ни | She's not here right now.
+? Вас плохо ___. | слышно | слышу, слышать, слышный | I can't hear you well.
+? Я тебе ___. | перезвоню | перезвонишь, перезвонит, перезвонить | I'll call you back.
+
+## vocab
+аллО | hello (on the phone) | interjection
+передАть | to pass on | verb
+перезвонИть | to call back | verb
+пОзже | later | adverb
+слЫшно | audible | adverb | Вас плохо слышно = I can't hear you well.
+плОхо | badly | adverb
+ошибИться | to make a mistake | verb
+звонИть | to call, to ring | verb | Takes the dative.
+
+# lesson a2-11 | grammar | The past tense | Прошедшее время
+summary: Talk about what happened — and choose the masculine or feminine form.
+intro: The Russian past tense is simple: one form per gender. It agrees with who did the action, so a man and a woman say "I played" differently.
+
+## phrases: What happened
+Вчера|yesterday я|I играл{играла}|played в|(at) шахматы.|chess = Yesterday I played chess.
+Он|he выиграл,|won а|and она|she проиграла.|lost = He won, and she lost.
+Мы|we играли|played весь|the_whole вечер.|evening = We played all evening.
+Где|where ты|you был{была}?|were = Where were you?
+Я|I был{была}|was в|in Москве.|Moscow = I was in Moscow.
+Было|it_was интересно!|interesting = It was interesting!
+Партия|the_game была|was длинной.|long = The game was long.
+Кто|who выиграл?|won = Who won?
+Я|I не|not видел{видела}|saw этот|this фильм.|film = I haven't seen this film.
+
+## grammar: -л, -ла, -ло, -ли
+Remove **-ть** and add **-л** (masculine), **-ла** (feminine), **-ло** (neuter) or **-ли** (plural). The ending shows the gender of the subject, not the person: я играл (a man), я играла (a woman), ты играла (to a woman).
+"To be" in the past: был, была, было, были. Note the stress: была́, but бы́ло, бы́ли.
+ex: Он читал. Она читала. Они читали. = He read. She read. They read.
+ex: Ты была дома? = Were you at home? (to a woman)
+
+## drills
+? Вчера она ___ в шахматы. | играла | играл, играли, играло | Yesterday she played chess.
+? Мы ___ весь вечер. | играли | играл, играла, играем | We played all evening.
+? Где ты ___? (to a man) | был | была, было, были | Where were you?
+? Это ___ интересно! | было | был, была, были | That was interesting!
+
+## vocab
+вЫиграть | to win | verb
+проигрАть | to lose (a game) | verb
+весь | all, the whole | pronoun | вся, всё, все
+был | was | verb | была, было, были
+интерЕсно | interesting | adverb
+длИнный | long | adjective
+вИдеть | to see | verb
+позавчерА | the day before yesterday | adverb
+
+# lesson a2-12 | grammar | The future | Будущее время
+summary: Say what you will do — and meet verb aspect, the heart of Russian grammar.
+intro: Russian has two futures. «Я буду играть» describes the activity; «я сыграю» promises a single completed game.
+
+## phrases: Plans and promises
+Завтра|tomorrow я|I буду|will работать.|work = Tomorrow I'll be working.
+Что|what ты|you будешь|will делать|do вечером?|tonight = What will you do tonight?
+Я|I буду|will смотреть|watch фильм.|a_film = I'll watch a movie.
+Я|I обязательно|definitely выиграю!|will_win = I'll definitely win!
+Мы|we сыграем|will_play завтра.|tomorrow = We'll play tomorrow.
+После|after работы|work я|I пойду|will_go домой.|home = After work I'll go home.
+Летом|in_summer мы|we поедем|will_go на|to_the море.|sea = In summer we'll go to the seaside.
+Я|I позвоню|will_call тебе|you завтра.|tomorrow = I'll call you tomorrow.
+Скоро|soon будет|will_be дождь.|rain = It's going to rain soon.
+
+## grammar: Two futures
+**Imperfective** verbs (process, repetition) form the future with **буду** + infinitive: я буду играть, ты будешь читать.
+**Perfective** verbs (one complete result) simply conjugate: я сыграю, я выиграю, я позвоню, я сделаю.
+Most verbs come in pairs: играть / сыграть, делать / сделать, звонить / позвонить, писать / написать.
+ex: Я буду писать письмо весь вечер. = I'll be writing the letter all evening.
+ex: Я напишу письмо и пойду спать. = I'll write the letter and go to bed.
+
+## drills
+? Завтра я ___ работать. | буду | будешь, будет, был | Tomorrow I'll be working.
+? Я обязательно ___! (win) | выиграю | выигрываю, выиграл, выиграть | I'll definitely win!
+? Летом мы ___ на море. | поедем | едем, ездили, поехали | In summer we'll go to the seaside.
+? Я ___ тебе завтра. | позвоню | звоню, позвонил, звонил | I'll call you tomorrow.
+
+## vocab
+зАвтра | tomorrow | adverb
+бУду | (I) will | verb | будешь, будет, будем, будете, будут
+обязАтельно | definitely, without fail | adverb
+пойтИ | to go (set off on foot) | verb | я пойду
+поЕхать | to go (set off by vehicle) | verb | я поеду
+мОре | sea | noun, n.
+скОро | soon | adverb
+сдЕлать | to do, to make (perfective) | verb
+позвонИть | to call (perfective) | verb
+
+# lesson a2-13 | chess_talk | Why that move? | Почему ты так сыграл?
+summary: Ask about a move, explain your plan and react to your opponent's ideas.
+intro: In chess Russian, the pieces are treated as living things: you protect "короля" and attack "ферзя". You'll also meet свой — "one's own".
+
+## dialogue: After the game
+Анна: Почему|why ты|you сделал|made этот|this ход?|move = Why did you make that move?
+Максим: Я|I хочу|want защитить|to_protect своего|my_own короля.|king = I want to protect my king.
+Анна: А|and почему|why не|not конём?|with_the_knight = And why not with the knight?
+Максим: Конь|the_knight нужен|is_needed для|for атаки.|the_attack = I need the knight for the attack.
+Анна: Ты|you хочешь|want напасть|to_attack на|on мою|my ладью?|rook = Do you want to attack my rook?
+Максим: Да,|yes а|and потом|then поставить|to_give мат!|mate = Yes, and then give checkmate!
+Анна: Посмотрим!|we'll_see = We'll see!
+
+## phrases: Talking strategy
+Мне|to_me кажется,|it_seems это|this ошибка.|mistake = I think that's a mistake.
+Какой|what твой|your план?|plan = What's your plan?
+Я|I не|not видел{видела}|saw этот|this ход.|move = I didn't see that move.
+Хороший|good ход!|move Я|I не|not ожидал{ожидала}.|expected = Good move! I didn't expect that.
+
+## grammar: Свой and "living" pieces
+**Свой** ("one's own") refers back to the subject: я защищаю **своего** короля, она защищает **свою** ладью.
+Masculine piece names take the animate accusative (like people): король → корол**я**, конь → кон**я**, слон → слон**а**, ферзь → ферз**я**. Feminine pieces change normally: пешк**у**, ладь**ю**.
+ex: Я беру твоего ферзя. = I'm taking your queen.
+ex: Она защищает свою пешку. = She's protecting her pawn.
+
+## drills
+? Я хочу защитить своего ___. | короля | король, королю, королём | I want to protect my king.
+? Почему ты сделал этот ___? | ход | хода, ходом, ходе | Why did you make that move?
+? Я беру твоего ___. (ферзь) | ферзя | ферзь, ферзём, ферзю | I'm taking your queen.
+? Мне ___, это ошибка. | кажется | кажусь, казался, казаться | I think that's a mistake.
+
+## vocab
+почемУ | why | adverb
+защитИть | to protect, to defend | verb
+свой | one's own | pronoun
+атАка | attack | noun, f.
+напАсть | to attack | verb | напасть на + accusative
+постАвить мат | to checkmate | phrase
+посмОтрим | we'll see | phrase
+кАжется | it seems | verb | мне кажется = I think
+ошИбка | mistake | noun, f.
+план | plan | noun, m.
+ожидАть | to expect | verb
+
+# lesson a2-14 | chess_vocab | Moves and captures | Ходы и взятия
+summary: Describe how pieces move and capture, including castling and en passant.
+intro: Russian chess vocabulary is precise: брать and бить both mean "to capture", and the knight moves "like the letter Г".
+
+## phrases: How pieces move
+Конь|the_knight ходит|moves буквой|(like_the)_letter «Г».|G = The knight moves in an L-shape.
+  > Russians describe the knight's move as the letter Г.
+Слон|the_bishop ходит|moves по|along диагонали.|the_diagonal = The bishop moves diagonally.
+Ладья|the_rook ходит|moves по|along вертикали|files и|and горизонтали.|ranks = The rook moves along files and ranks.
+Пешка|a_pawn бьёт|captures наискосок.|diagonally = A pawn captures diagonally.
+Я|I беру|am_taking твоего|your слона.|bishop = I'm taking your bishop.
+Он|he взял|took мою|my пешку.|pawn = He took my pawn.
+Я|I сделал{сделала}|made рокировку.|castling = I castled.
+Ты|you поставил{поставила}|gave мне|me шах.|check = You put me in check.
+Король|the_king не|not может|can ходить|move под|into шах.|check = The king can't move into check.
+Пешка|the_pawn превратилась|turned в|into ферзя.|a_queen = The pawn became a queen.
+Это|this взятие|capture на|in проходе.|passing = That's en passant.
+
+## grammar: Брать, взять, бить
+**Брать** (to take, imperfective): я беру, ты берёшь. **Взять** (perfective): я возьму; past взял, взяла.
+**Бить** describes what a piece attacks or captures: пешка бьёт наискосок, слон бьёт по диагонали.
+ex: Я возьму твою ладью. = I'll take your rook.
+ex: Этот слон бьёт всю диагональ. = This bishop controls the whole diagonal.
+
+## drills
+? Я ___ твоего слона. (am taking) | беру | брал, взять, берёшь | I'm taking your bishop.
+? Он ___ мою пешку. (took) | взял | брать, возьму, берёт | He took my pawn.
+? Слон ходит по ___. | диагонали | диагональ, диагональю, диагоналей | The bishop moves diagonally.
+? Я сделал ___. | рокировку | рокировка, рокировки, рокировкой | I castled.
+
+## vocab
+брать | to take | verb | я беру, ты берёшь
+взять | to take (perfective) | verb | я возьму; взял, взяла
+бить | to capture, to strike | verb | бьёт
+вертикАль | file (chess) | noun, f.
+горизонтАль | rank (chess) | noun, f.
+диагонАль | diagonal | noun, f.
+рокирОвка | castling | noun, f.
+взЯтие | capture | noun, n.
+взЯтие на прохОде | en passant | phrase
+превратИться | to turn into | verb
+бУква | letter | noun, f.
+наискосОк | diagonally | adverb

@@ -1,0 +1,117 @@
+# milestone a1-vowels | A1 | The ten vowels | 6 | а, о, у, э, ы, я, ё, ю, е, и
+summary: Russian has five vowel sounds written with ten letters. The "soft" letters я, ё, ю, е add a y-sound at the start of a word and soften the consonant before them.
+- да = yes ~ Open, clear «а», like "ah".
+- нет = no ~ The е softens the н: put the middle of your tongue up toward the roof of your mouth.
+- мама = mom ~ Both syllables are clear «а»; stress the first.
+- суп = soup ~ «у» is rounded and tight, like "oo" in "food".
+- это = this ~ «э» at the start of a word is like "e" in "met".
+- мы = we ~ «ы» has no English twin: say "ee" while pulling your tongue back.
+- ёлка = fir tree ~ «ё» = "yo", and it is always stressed.
+- юг = south ~ «ю» = "yu", like "you".
+- яблоко = apple ~ «я» = "ya"; only the first syllable is stressed.
+
+# milestone a1-hard-soft | A1 | Hard and soft consonants | 5 | ь, palatalization
+summary: Almost every Russian consonant has a hard and a soft version. The soft sign ь and the vowels я, ё, ю, е, и make the consonant before them soft.
+- брат = brother ~ Hard т at the end: tongue tip behind the teeth.
+- брать = to take ~ Soft ть: press the middle of your tongue up, as if about to say "y".
+- мат = checkmate ~ Hard т.
+- мать = mother ~ Soft ть — the only difference from мат.
+- конь = knight ~ Soft нь at the end.
+- день = day ~ Soft д and soft нь.
+- угол = corner ~ Hard л: the back of the tongue is raised (a "dark" l).
+- уголь = coal ~ Soft ль: like the "l" in "million".
+
+# milestone a1-hissing | A1 | Ж, Ш, Щ, Ц, Ч | 5 | ж, ш, щ, ц, ч
+summary: Ж, ш and ц are always hard; ч and щ are always soft. These five sounds are the heart of a Russian accent.
+- шах = check ~ «ш» is a hard, deep "sh" with the tongue pulled back.
+- жена = wife ~ «ж» is a hard, buzzing "zh" — like "s" in "pleasure", but deeper.
+- шахматы = chess ~ Hard «ш»; stress the first syllable.
+- щи = cabbage soup ~ «щ» is a long, soft "shsh", like "fresh sheet" said quickly.
+- ещё = more, still ~ Soft, long «щ» followed by stressed «ё».
+- цена = price ~ «ц» = "ts", always hard.
+- чай = tea ~ «ч» = soft "ch", lighter than in English.
+- часы = clock ~ Soft «ч», then the «ы» sound in the stressed syllable.
+
+# milestone a1-phrases | A1 | Your first phrases | 5 | rhythm, stress
+summary: Say whole greetings smoothly, with one strong stressed syllable in each word.
+- Привет! = Hi! ~ Stress the second syllable: при-ВЕТ.
+- Спасибо! = Thank you! ~ спа-СИ-бо; the о at the end is reduced and short.
+- Как дела? = How are you? ~ The stress falls on the last syllable: де-ЛА.
+- Здравствуйте! = Hello! ~ The first в is silent: [ЗДРА-стуй-те].
+- Очень приятно. = Nice to meet you. ~ О-чень при-ЯТ-но.
+- Меня зовут Анна. = My name is Anna. ~ ме-НЯ зо-ВУТ — two stresses, no pause.
+
+# milestone a2-stress | A2 | Stress and vowel reduction | 5 | о → а, е/я → и
+summary: Only the stressed vowel is pronounced fully. Unstressed «о» sounds like «а», and unstressed «е» and «я» sound close to «и».
+- молоко = milk ~ Stress the last syllable; the first two о sound like «а»: [ма-ла-КО].
+- хорошо = well ~ [ха-ра-ШО].
+- голова = head ~ [га-ла-ВА].
+- окно = window ~ [ак-НО].
+- сегодня = today ~ The г is pronounced «в»: [си-ВОД-ня].
+- теперь = now ~ The first е sounds like «и»: [ти-ПЕРЬ].
+- язык = language ~ The я sounds like «и»: [и-ЗЫК].
+
+# milestone a2-clusters | A2 | Consonant clusters | 5 | в, з, с clusters, silent letters
+summary: Russian piles up consonants. Glide through them without adding extra vowels.
+- вторник = Tuesday ~ «вт» together — don't insert a vowel.
+- вчера = yesterday ~ «в» before «ч» sounds like «ф»: [фчи-РА].
+- всегда = always ~ «вс» sounds like [фс]: [фсиг-ДА].
+- встреча = meeting ~ «вст» — three consonants in one breath.
+- здравствуйте = hello (formal) ~ «здр» then the cluster «вств» — the first в is silent.
+- взять = to take ~ «вз» — start with a voiced buzz.
+- страшно = scary ~ «стр» — keep the р rolled.
+
+# milestone a2-sentences | A2 | Everyday sentences | 5 | sentence stress
+summary: Join words together with one main stressed word in each phrase.
+- Сколько это стоит? = How much does it cost? ~ Main stress on СКОЛЬ-ко; the voice falls at the end.
+- Я хочу пить. = I'm thirsty. ~ Link «хочу пить» without a pause.
+- Где здесь метро? = Where's the metro here? ~ Stress мет-РО at the end.
+- Повторите, пожалуйста. = Please repeat that. ~ по-жа-луй-ста is often said quickly as [па-ЖАЛ-ста].
+- Я бы хотел кофе без сахара. = I'd like coffee without sugar. ~ «без сахара» runs together: [биз-СА-ха-ра].
+- Мне очень нравится эта еда. = I really like this food. ~ Stress НРА-вит-ся.
+
+# milestone b1-softness | B1 | Softness in connected speech | 4 | soft consonants, ть, нь, ль
+summary: In longer sentences, keep soft consonants soft even when you speak faster.
+- Мне нужно отдохнуть. = I need to rest. ~ Soft «ть» at the very end — don't drop it.
+- Я тебя люблю. = I love you. ~ Soft т in тебя, soft л in люблю.
+- Сегодня очень тепло. = It's very warm today. ~ Soft «ч» and soft «т» in тепло.
+- Учитель объяснил правило. = The teacher explained the rule. ~ The ъ in объяснил separates: [аб-йис-НИЛ].
+- Конь на краю доски. = A knight on the edge of the board. ~ Soft нь, then soft «ю».
+
+# milestone b1-devoicing | B1 | Final devoicing and assimilation | 4 | б→п, д→т, г→к, в→ф, з→с, ж→ш
+summary: Voiced consonants become voiceless at the end of a word and before voiceless consonants.
+- хлеб = bread ~ Final б sounds like п: [хлеп].
+- друг = friend ~ Final г sounds like к: [друк].
+- снег = snow ~ Final г sounds like к: [снек].
+- город = city ~ [го-рат]: final т, unstressed о → а.
+- лёгкий = light, easy ~ «гк» sounds like «хк»: [ЛЁХ-кий].
+- сказка = fairy tale ~ «зк» sounds like «ск»: [СКАС-ка].
+- Это мой последний ход. = This is my last move. ~ ход ends in [т]: [хот].
+
+# milestone b1-rhythm | B1 | Rhythm in long sentences | 3 | rhythm, phrasing
+summary: Split long sentences into meaningful groups with a small pause between them.
+- Я давно хотел с тобой поговорить. = I've wanted to talk to you for a long time. ~ Two groups: «Я давно хотел» | «с тобой поговорить».
+- Как прошёл твой день? = How was your day? ~ The question rises on the stressed «день».
+- Я думаю, что нам стоит попробовать что-нибудь новое. = I think we should try something new. ~ Pause after «думаю»; что is pronounced [што].
+- Я не совсем согласен с тобой, но понимаю твою точку зрения. = I don't fully agree with you, but I understand your point of view. ~ Lift your voice slightly before «но».
+
+# milestone b2-intonation | B2 | Intonation | 4 | questions, exclamations
+summary: Russian yes/no questions have no word order change — only a sharp rise on the key word. Exclamations fall strongly.
+- Ты играешь? = Are you playing? ~ Sharp rise on иг-РА-ешь, then fall.
+- Ты играешь. = You're playing. ~ Same words, falling tone: a statement.
+- Да ладно? = Really? ~ Surprised rise on ЛАД-но.
+- Ничего себе! = Wow! ~ Strong fall on се-БЕ.
+- Кто бы мог подумать! = Who would have thought! ~ Emphasis on КТО, then a gentle fall.
+
+# milestone b2-natural | B2 | Natural conversational speed | 3 | connected speech, reductions
+summary: Say complex B2 sentences at a natural pace, with reductions native speakers use.
+- Если честно, я не ожидал, что всё сложится именно так. = Honestly, I didn't expect everything to turn out like this. ~ «честно» is [ЧЕС-на]: the т is silent.
+- Не хочу делать поспешных выводов, пока не узнаю всей ситуации. = I don't want to jump to conclusions until I know the whole situation. ~ Keep «поспешных выводов» as one rhythmic group.
+- Несмотря на материальное преимущество, твоя позиция выглядит довольно уязвимой. = Despite the material advantage, your position looks rather vulnerable. ~ Pause after «преимущество».
+- Я считаю, что твоя стратегия была слишком агрессивной. = I believe your strategy was too aggressive. ~ «считаю» starts with [щ]: [щи-ТА-ю].
+
+# milestone b2-tongue | B2 | Tongue twisters | 2 | ш/с, р/л, к/г
+summary: Classic Russian скороговорки. Start slowly, then speed up.
+- Шла Саша по шоссе и сосала сушку. = Sasha walked along the highway sucking on a sushka. ~ Keep «ш» deep and «с» sharp.
+- Карл у Клары украл кораллы. = Karl stole corals from Klara. ~ Roll every р; keep л hard.
+- Ехал Грека через реку. = Greka was crossing a river. ~ Soft р in «реку», hard г.

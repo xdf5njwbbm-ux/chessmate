@@ -1,110 +1,83 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Heart, Sparkles, Swords } from "lucide-react";
-import { Button, Logo } from "../components/ui";
+import { AudioLines, BookOpen, Crown, Mic, Swords, Trophy } from "lucide-react";
+import { Button, Logo, Segmented } from "../components/ui";
 
-const steps = [
-  { Icon: Sparkles, title: "Match on personality", body: "Answer playful questions. We score compatibility, not chess skill." },
-  { Icon: Swords, title: "Play a game", body: "Your first date is a match: blitz, rapid or a slow daily game." },
-  { Icon: Heart, title: "Like each other", body: "After the final move, a mutual like makes it a match." },
+const SAME_MOVE = {
+  A1: { ru: "Я защищаю короля.", en: "I protect the king." },
+  A2: { ru: "Я хочу защитить своего короля.", en: "I want to protect my king." },
+  B1: { ru: "Я решил защитить короля, потому что он находится под угрозой.", en: "I decided to protect the king because he is under threat." },
+  B2: { ru: "Я предпочёл укрепить позицию короля, поскольку соперник начал создавать непосредственные угрозы.", en: "I preferred to strengthen the king's position because my opponent started creating immediate threats." },
+} as const;
+
+const FEATURES = [
+  { Icon: Swords, title: "Russian on every move", body: "Each move you play becomes a short phrase, its vocabulary and grammar — at your level, in a panel beside the board." },
+  { Icon: BookOpen, title: "A full A1–B2 course", body: "56 lessons across 25 everyday topics plus chess talk, with word-by-word breakdowns, grammar and level tests." },
+  { Icon: Mic, title: "Listen and speak", body: "Hear every sentence at full or slow speed, record yourself, and see which words came through clearly." },
+  { Icon: Trophy, title: "A real Elo ladder", body: "Placement games, provisional ratings, separate pools for each time control and leaderboards. Server-checked moves." },
+  { Icon: AudioLines, title: "Conversation practice", body: "Order coffee, meet a friend, review a game with a coach — guided scenarios from A1 to B2." },
+  { Icon: Crown, title: "Two progressions, never mixed", body: "Your Russian level and your chess rating grow separately. Neither one ever inflates the other." },
 ];
-
-function HeroBoard() {
-  // a tilted 6×6 board fragment with two floating player cards
-  const squares = Array.from({ length: 36 }, (_, i) => ((Math.floor(i / 6) + (i % 6)) % 2 === 0));
-  const pieces: Record<number, string> = { 8: "♞", 15: "♛", 21: "♝", 26: "♜", 29: "♚" };
-  return (
-    <div className="relative mx-auto mt-8 h-[300px] w-full max-w-[340px]">
-      <div
-        className="absolute left-1/2 top-6 grid w-[230px] grid-cols-6 overflow-hidden rounded-2xl shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] ring-1 ring-white/10"
-        style={{ transform: "translateX(-50%) perspective(700px) rotateX(28deg) rotateZ(-8deg)" }}
-      >
-        {squares.map((light, i) => (
-          <div
-            key={i}
-            className="grid aspect-square place-items-center text-2xl"
-            style={{
-              background: light ? "#dfe5f0" : "#5a6a8c",
-              color: i === 15 || i === 29 ? "#0b1222" : "#fff",
-              textShadow: i === 15 || i === 29 ? "none" : "0 1px 2px rgba(0,0,0,.5)",
-              boxShadow: i === 8 || i === 21 ? "inset 0 0 0 100px rgba(227,185,100,.35)" : undefined,
-            }}
-          >
-            {pieces[i] ? <span style={{ fontFamily: "serif" }}>{pieces[i]}&#xFE0E;</span> : null}
-          </div>
-        ))}
-      </div>
-
-      <div className="glass absolute left-0 top-0 flex animate-rise items-center gap-3 rounded-2xl border border-white/10 py-2.5 pl-2.5 pr-4 shadow-xl" style={{ animationDelay: "150ms" }}>
-        <div className="grid size-10 place-items-center rounded-full bg-gradient-to-br from-rose/80 to-gold/80 font-display text-lg font-semibold">S</div>
-        <div>
-          <div className="text-sm font-semibold">Sofia, 28</div>
-          <div className="text-xs text-mist">1480 Elo · Rapid</div>
-        </div>
-        <div className="ml-1 rounded-full bg-gold/15 px-2 py-1 text-xs font-bold text-gold">94%</div>
-      </div>
-
-      <div className="glass absolute bottom-2 right-0 flex animate-rise items-center gap-3 rounded-2xl border border-white/10 py-2.5 pl-3 pr-4 shadow-xl" style={{ animationDelay: "320ms" }}>
-        <div className="grid size-9 place-items-center rounded-full bg-rose">
-          <Heart className="size-4 fill-white text-white" />
-        </div>
-        <div>
-          <div className="text-sm font-semibold">Good game!</div>
-          <div className="text-xs text-mist">Sofia liked you back</div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function Landing() {
   const navigate = useNavigate();
+  const [lvl, setLvl] = useState<keyof typeof SAME_MOVE>("A1");
   return (
-    <div className="safe-top safe-bottom mx-auto flex min-h-dvh max-w-md flex-col px-6">
-      <header className="flex h-16 items-center justify-between">
-        <Logo />
-        <button className="text-sm font-medium text-fog hover:text-white" onClick={() => navigate("/auth?mode=signin")}>
-          Sign in
-        </button>
+    <div className="min-h-dvh">
+      <header className="safe-top mx-auto flex max-w-6xl items-center justify-between px-5 py-5 md:px-8">
+        <Logo size={34} />
+        <div className="flex gap-2">
+          <Button variant="ghost" size="sm" onClick={() => navigate("/auth?mode=signin")}>Sign in</Button>
+          <Button size="sm" onClick={() => navigate("/auth")}>Get started</Button>
+        </div>
       </header>
 
-      <HeroBoard />
-
-      <h1 className="mt-6 animate-rise font-display text-[44px] font-semibold leading-[1.02] tracking-tight">
-        Play first.
-        <br />
-        <span className="gold-text">Fall later.</span>
-      </h1>
-      <p className="mt-4 animate-rise text-[17px] leading-relaxed text-fog" style={{ animationDelay: "80ms" }}>
-        Chessmate matches you on personality, then lets you meet over a game of chess. You'll see their humor,
-        nerve and sportsmanship before you ever say hello.
-      </p>
-
-      <div className="mt-8 grid animate-rise gap-3" style={{ animationDelay: "140ms" }}>
-        <Button size="lg" onClick={() => navigate("/auth?mode=signup")}>
-          Create your profile
-        </Button>
-        <Button size="lg" variant="secondary" onClick={() => navigate("/auth?mode=signin")}>
-          I already have an account
-        </Button>
-      </div>
-
-      <div className="mt-12 grid gap-3">
-        {steps.map(({ Icon, title, body }, i) => (
-          <div key={title} className="card flex animate-rise items-start gap-4 p-4" style={{ animationDelay: `${200 + i * 70}ms` }}>
-            <div className="grid size-11 shrink-0 place-items-center rounded-2xl bg-gold/10 text-gold">
-              <Icon className="size-5" />
-            </div>
-            <div>
-              <div className="font-semibold">{title}</div>
-              <div className="mt-0.5 text-sm text-mist">{body}</div>
+      <main className="mx-auto max-w-6xl px-5 md:px-8">
+        <section className="grid grid-cols-1 items-center gap-10 py-10 md:py-20 lg:grid-cols-[1.1fr_1fr]">
+          <div className="animate-rise">
+            <div className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">Русский · Шахматы</div>
+            <h1 className="mt-4 font-display text-5xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+              Learn Russian.<br />Think in Russian.<br /><span className="text-accent">Play chess.</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-fog">
+              A serious Russian course built around real chess games. Go from your first «Привет!» to natural B2 conversation while you become a stronger player.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button size="lg" onClick={() => navigate("/auth")}>Start learning — free</Button>
+              <Button size="lg" variant="secondary" onClick={() => navigate("/auth?mode=signin")}>I have an account</Button>
             </div>
           </div>
-        ))}
-      </div>
 
-      <p className="mb-6 mt-10 text-center text-xs text-mist">
-        Chessmate is for adults 18+. Be kind, play fair, and report anyone who doesn't.
-      </p>
+          <div className="card animate-rise p-6" style={{ animationDelay: "120ms" }}>
+            <div className="flex items-center justify-between gap-3">
+              <div className="text-sm font-semibold text-mist">The same move at every level</div>
+              <Segmented size="sm" value={lvl} onChange={setLvl} options={(["A1", "A2", "B1", "B2"] as const).map((v) => ({ v, l: v }))} />
+            </div>
+            <div key={lvl} className="mt-6 min-h-[150px] animate-fade-in">
+              <div className="ru text-2xl leading-snug md:text-[28px]">{SAME_MOVE[lvl].ru}</div>
+              <div className="mt-3 text-mist">{SAME_MOVE[lvl].en}</div>
+            </div>
+            <div className="mt-6 grid grid-cols-3 gap-3 border-t border-white/[0.06] pt-5 text-center">
+              <div><div className="text-2xl font-semibold">A1–B2</div><div className="text-xs text-mist">Russian levels</div></div>
+              <div><div className="text-2xl font-semibold">100–2500+</div><div className="text-xs text-mist">Elo brackets</div></div>
+              <div><div className="text-2xl font-semibold">552</div><div className="text-xs text-mist">glossed sentences</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="grid grid-cols-1 gap-4 pb-20 md:grid-cols-2 lg:grid-cols-3">
+          {FEATURES.map(({ Icon, title, body }) => (
+            <div key={title} className="card p-6">
+              <Icon className="size-6 text-accent" />
+              <h3 className="mt-4 font-display text-xl font-semibold">{title}</h3>
+              <p className="mt-2 text-mist">{body}</p>
+            </div>
+          ))}
+        </section>
+      </main>
+      <footer className="border-t border-white/[0.06] py-8 text-center text-xs text-faint">
+        Russian Chess Academy · Chess engine: Stockfish (GPLv3)
+      </footer>
     </div>
   );
 }

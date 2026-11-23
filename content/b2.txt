@@ -1,0 +1,597 @@
+# lesson b2-01 | emotions | It didn't turn out as planned | Всё сложилось иначе
+summary: React to surprises and setbacks with natural, nuanced phrasing.
+intro: At B2 you express not just what happened but how you feel about it — surprise, relief, regret — with idiomatic Russian.
+
+## phrases: When things change
+Если|if честно,|honestly я|I не|not ожидал{ожидала},|expected что|that всё|everything сложится|would_turn_out именно|exactly так.|this_way = Honestly, I didn't expect everything to turn out this way.
+Всё|everything пошло|went не|not по|according_to плану.|plan = Nothing went according to plan.
+Я|I до|— сих|— пор|until_now не|not могу|can прийти|come в|to себя.|myself = I still can't get over it.
+Кто|who бы|— мог|could подумать!|have_thought = Who would have thought!
+Это|it стало|became для|for меня|me полной|a_complete неожиданностью.|surprise = It came as a complete surprise to me.
+Как|as бы|— то|it ни|— было,|may_be мы|we справились.|coped = Be that as it may, we managed.
+Хорошо,|it's_good что|that всё|everything обошлось.|turned_out_fine = Thank goodness it all worked out.
+Я|I не|not жалею|regret о|about том,|it что|that случилось.|happened = I don't regret what happened.
+Нет|there's_no худа|bad без|without добра.|good = Every cloud has a silver lining.
+  > A proverb: literally "there's no bad without some good".
+
+## grammar: О том, что… and set phrases
+When a verb needs a preposition and is followed by a whole clause, Russian inserts **то**: жалеть **о том, что**…, думать **о том, что**…, речь идёт **о том, что**….
+Fixed expressions to learn whole: **до сих пор** (still, until now), **прийти в себя** (to recover), **как бы то ни было** (be that as it may).
+ex: Я думаю о том, что ты сказал. = I'm thinking about what you said.
+ex: Он до сих пор не ответил. = He still hasn't replied.
+
+## drills
+? Я не ожидал, что всё ___ именно так. | сложится | сложилось, складывается, сложить | I didn't expect everything to turn out this way.
+? Я не жалею о ___, что случилось. | том | то, тем, тому | I don't regret what happened.
+? Я до сих ___ не могу прийти в себя. | пор | пора, порой, поры | I still can't get over it.
+? Это стало для меня полной ___. | неожиданностью | неожиданность, неожиданности, неожиданный | It came as a complete surprise.
+
+## vocab
+сложИться | to turn out, to work out | verb
+Именно | exactly, precisely | particle
+до сих пор | still, until now | phrase
+прийтИ в себЯ | to recover, to come round | phrase
+неожИданность | surprise | noun, f.
+спрАвиться | to cope, to manage | verb
+обойтИсь | to turn out all right | verb | всё обошлось
+жалЕть | to regret; to feel sorry | verb
+пОлный | full, complete | adjective
+
+# lesson b2-02 | opinions | Finding a balance | Найти баланс
+summary: Reflect on priorities and life choices in long, connected sentences.
+intro: This lesson builds the kind of sentence you'd use in a real heart-to-heart: several ideas linked smoothly together.
+
+## phrases: Priorities
+Я|I стараюсь|try найти|to_find баланс|a_balance между|between работой,|work личной|personal жизнью|life и|and собственными|my_own интересами.|interests = I'm trying to find a balance between work, my personal life and my own interests.
+Мне|to_me кажется,|it_seems иногда|sometimes важно|it's_important просто|just остановиться|to_stop и|and подумать|think о|about том,|that чего|what ты|you действительно|really хочешь.|want = I think sometimes it's important to just stop and think about what you really want.
+  > Abstract "what you want" takes the genitive: чего ты хочешь.
+Работа|work занимает|takes_up у|by меня|me почти|almost всё|all время.|the_time = Work takes up almost all of my time.
+Я|I научился{научилась}|learned говорить|to_say «нет».|no = I've learned to say "no".
+Важно|it's_important не|not только|only работать,|to_work но|but и|also отдыхать.|to_rest = It's important not just to work but to rest as well.
+Чем|the больше|more я|I отдыхаю,|rest тем|the лучше|better работаю.|I_work = The more I rest, the better I work.
+Я|I стал{стала}|began больше|more времени|time проводить|to_spend с|with семьёй.|family = I've started spending more time with my family.
+Здоровье|health дороже|is_dearer денег.|than_money = Health matters more than money.
+
+## grammar: Чем…, тем…; comparatives
+**Чем** + comparative, **тем** + comparative = "the more…, the more…": чем раньше, тем лучше.
+A comparative can take the genitive instead of **чем**: дороже денег = дороже, чем деньги.
+**Стать** + infinitive = "to start doing (regularly)": я стал больше читать.
+ex: Чем больше практики, тем увереннее речь. = The more practice, the more confident your speech.
+ex: Время дороже денег. = Time is more precious than money.
+
+## drills
+? ___ больше я отдыхаю, тем лучше работаю. | Чем | Тем, Что, Как | The more I rest, the better I work.
+? Подумай о том, ___ ты действительно хочешь. | чего | что, чем, чему | Think about what you really want.
+? Я стараюсь найти баланс между работой и личной ___. | жизнью | жизнь, жизни, жизнях | I'm trying to balance work and personal life.
+? Здоровье дороже ___. | денег | деньги, деньгами, деньгам | Health matters more than money.
+
+## vocab
+старАться | to try | verb
+балАнс | balance | noun, m.
+мЕжду | between | preposition | Takes the instrumental.
+лИчная жизнь | personal life | phrase
+сОбственный | own | adjective
+остановИться | to stop | verb
+действИтельно | really, truly | adverb
+занимАть | to take up, to occupy | verb
+почтИ | almost | adverb
+научИться | to learn (how to) | verb
+проводИть врЕмя | to spend time | phrase
+здорОвье | health | noun, n.
+дорОже | more expensive, dearer | comparative
+
+# lesson b2-03 | problems | Not jumping to conclusions | Без поспешных выводов
+summary: Stay measured in a tense situation: gather facts, consider both sides, reserve judgement.
+intro: You'll meet the "genitive of negation" — after a negated verb, the object often switches to the genitive: не делать поспешных выводов.
+
+## phrases: Weighing a situation
+Не|not хочу|want делать|to_make поспешных|hasty выводов,|conclusions пока|until не|— узнаю|learn всей|the_whole ситуации.|situation = I don't want to jump to conclusions before I know the whole situation.
+  > пока не + perfective = "until": пока не узнаю.
+Давай|let's сначала|first выясним,|find_out что|what произошло.|happened = Let's first find out what happened.
+Не|not всё|everything так|so однозначно.|clear-cut = It's not all that clear-cut.
+Я|I бы|would не|not стал{стала}|— спешить|rush с|with выводами.|conclusions = I wouldn't rush to conclusions.
+У|by каждой|every истории|story есть|there_are две|two стороны.|sides = There are two sides to every story.
+Судя|judging по|by всему,|everything это|it's недоразумение.|a_misunderstanding = By all accounts, it's a misunderstanding.
+Вполне|quite возможно,|possible что|that он|he прав.|is_right = It's quite possible that he's right.
+Я|I предпочитаю|prefer не|not вмешиваться.|to_interfere = I'd rather not get involved.
+Поживём|we'll_live — увидим.|we'll_see = Time will tell.
+  > Literally "we'll live — we'll see".
+
+## grammar: Genitive of negation; пока не
+After a negated verb, a direct object that is abstract or indefinite usually goes into the genitive: не делать **выводов**, не имеет **смысла**, не вижу **разницы**.
+**Пока не** + perfective verb = "until": подожди, пока я не вернусь.
+**Я бы не стал** + infinitive = a polite "I wouldn't…".
+ex: Это не имеет никакого значения. = It makes no difference at all.
+ex: Я подожду, пока ты не закончишь. = I'll wait until you finish.
+
+## drills
+? Не хочу делать поспешных ___. | выводов | выводы, вывод, выводами | I don't want to jump to conclusions.
+? Давай сначала ___, что произошло. | выясним | выясняем, выяснили, выяснять | Let's first find out what happened.
+? Судя по ___, это недоразумение. | всему | всё, всем, всего | By all accounts, it's a misunderstanding.
+? Я бы не ___ спешить. | стал | стану, стать, становлюсь | I wouldn't rush.
+
+## vocab
+поспЕшный | hasty | adjective
+вЫвод | conclusion | noun, m.
+вЫяснить | to find out, to clarify | verb
+произойтИ | to happen | verb
+однознАчно | unambiguously, clear-cut | adverb
+спешИть | to hurry, to rush | verb
+судЯ по | judging by | phrase | Takes the dative.
+недоразумЕние | misunderstanding | noun, n.
+вполнЕ | quite, entirely | adverb
+возмОжно | possibly | adverb
+предпочитАть | to prefer | verb
+вмЕшиваться | to interfere | verb
+
+# lesson b2-04 | work | Business communication | Деловое общение
+summary: Make requests, apologise and decline in polished, professional Russian.
+intro: Formal Russian has fixed polite formulas. Compare «Пришли отчёт» with «Не могли бы вы прислать отчёт?» — same request, very different tone.
+
+## phrases: Professional formulas
+@formal Не|not могли|could бы|— вы|you прислать|send мне|me отчёт?|the_report = Could you send me the report?
+@formal Я|I хотел{хотела}|wanted бы|would обсудить|to_discuss условия|the_terms договора.|of_the_contract = I'd like to discuss the terms of the contract.
+@formal Прошу|I_ask прощения|forgiveness за|for задержку.|the_delay = I apologise for the delay.
+@formal Позвольте|allow_me представить|to_introduce моего|my коллегу.|colleague = Allow me to introduce my colleague.
+@formal Буду|I'll_be признателен{признательна}|grateful за|for ответ.|a_reply = I'd appreciate a reply.
+@formal К|to сожалению,|regret мы|we вынуждены|are_forced отказаться.|to_decline = Unfortunately, we have to decline.
+@formal Давайте|let's перенесём|move встречу|the_meeting на|to четверг.|Thursday = Let's move the meeting to Thursday.
+@formal Это|it выходит|goes за|beyond рамки|the_bounds моих|of_my полномочий.|authority = That's beyond my authority.
+@formal В|in связи|connection с|with этим|this предлагаю|I_propose следующее.|the_following = In light of this, I propose the following.
+
+## grammar: Softening a request
+Russian softens requests with the conditional and negation: **Не могли бы вы…?** ("Couldn't you…?") is more polite than **Можете…?**
+Other formulas: **Я хотел бы / хотела бы…**, **Позвольте…**, **Буду признателен / признательна…**, **К сожалению,…**.
+ex: Пришли отчёт. → Не могли бы вы прислать отчёт? = Send the report. → Could you send the report?
+ex: Перезвони мне. → Будьте добры, перезвоните мне. = Call me back. → Would you kindly call me back?
+
+## drills
+? Не ___ бы вы прислать мне отчёт? | могли | можете, мог, могут | Could you send me the report?
+? Прошу прощения за ___. | задержку | задержка, задержки, задержкой | I apologise for the delay.
+? К ___, мы вынуждены отказаться. | сожалению | сожаление, сожаления, сожалением | Unfortunately, we have to decline.
+? Давайте перенесём встречу на ___. | четверг | четверга, четвергом, четверге | Let's move the meeting to Thursday.
+
+## vocab
+прислАть | to send | verb
+отчёт | report | noun, m.
+услОвие | condition, term | noun, n.
+договОр | contract | noun, m.
+просИть прощЕния | to apologise | phrase
+задЕржка | delay | noun, f.
+позвОлить | to allow | verb
+предстАвить | to introduce, to present | verb
+признАтелен | grateful | short adjective | признательна
+к сожалЕнию | unfortunately | phrase
+вЫнужден | forced, obliged | short participle
+отказАться | to decline, to refuse | verb
+перенестИ | to move, to postpone | verb
+полномОчия | authority, powers | noun, plural
+в свЯзи с | in connection with | phrase
+
+# lesson b2-05 | smalltalk | Real spoken Russian | Живая разговорная речь
+summary: Understand Russian as it's actually spoken — fast, clipped and full of particles.
+intro: Native speakers swallow sounds and use expressions you won't find in textbooks. Learn to recognise them; use them with friends, never in formal settings.
+
+## phrases: Overheard in Moscow
+@spoken Ну|well ты|you даёшь!|give = Wow, you're something else!
+@spoken Ничего|nothing себе!|to_oneself = Wow! / No way!
+@spoken Да|yes ладно?|okay = Really? / You're kidding!
+@spoken Слушай,|listen а|and давай|let's завтра?|tomorrow = Listen, how about tomorrow?
+@spoken Щас|now приду.|I'll_come = Be right there.
+  > Щас is how сейчас sounds in fast speech. You'll hear it constantly; write сейчас.
+@spoken Чё|what ты|you говоришь?|are_saying = What are you saying?
+  > Чё is a very casual spoken form of что. Understand it; don't use it at work.
+@spoken Короче,|in_short всё|everything нормально.|is_fine = Long story short, everything's fine.
+@spoken Без|without проблем!|problems = No problem!
+@spoken Да|yes нет,|no наверное.|probably = Probably not.
+  > In «да нет» the last word wins: it means "no". «Нет, да» means "yes".
+@spoken Как|how бы|— тебе|to_you сказать…|say = How should I put it…
+@spoken Это|it вообще|totally не|not моё.|mine = That's really not my thing.
+
+## grammar: How words shrink
+In fast speech: сейчас → [щас], что → [што] or [чё], тысяча → [тыща], здравствуйте → [здрасьте], только → [токо], говорит → [грит], человек → [чек].
+Particles add attitude: **же** (emphasis: Я же говорил!), **ведь** (after all: Ведь ты знаешь), **вообще** (at all / totally).
+ex: Я же тебе говорил! = I told you so!
+ex: Ведь мы договорились! = But we agreed!
+
+## drills
+? Ну ты ___! (Wow, you're something!) | даёшь | даю, дал, давать | Wow, you're something else!
+? Ничего ___! | себе | себя, собой, сам | Wow!
+? Я ___ тебе говорил! | же | ведь, бы, ли | I told you so!
+? Да нет, ___. | наверное | конечно, точно, обязательно | Probably not.
+
+## vocab
+давАть | to give | verb | Ну ты даёшь! = Wow!
+ничегО себЕ | wow, no way | phrase
+да лАдно | really?, come on | phrase
+корОче | in short | adverb | Colloquial.
+навЕрное | probably | adverb
+вообщЕ | in general; at all; totally | adverb
+без проблЕм | no problem | phrase
+ведь | after all, you know | particle
+же | emphatic particle | particle
+
+# lesson b2-06 | health | Health and lifestyle | Здоровье и образ жизни
+summary: Discuss lifestyle, prescriptions, allergies and looking after yourself.
+intro: Medical Russian is full of impersonal constructions: «мне выписали лекарство» — "they prescribed me medicine".
+
+## phrases: Taking care of yourself
+Я|I стараюсь|try вести|to_lead здоровый|a_healthy образ|way жизни.|of_life = I try to lead a healthy lifestyle.
+Врач|the_doctor посоветовал|advised мне|me меньше|less нервничать.|to_stress = The doctor advised me to stress less.
+У|by меня|me аллергия|an_allergy на|to орехи.|nuts = I'm allergic to nuts.
+Мне|to_me выписали|(they)_prescribed антибиотики.|antibiotics = I was prescribed antibiotics.
+Я|I бросил{бросила}|quit курить|smoking три|three года|years назад.|ago = I quit smoking three years ago.
+Недосып|lack_of_sleep сказывается|tells на|on всём.|everything = Lack of sleep affects everything.
+Мне|to_me нужно|need пройти|to_undergo обследование.|a_checkup = I need to get a checkup.
+Береги|look_after себя!|yourself = Take care of yourself!
+Главное|the_main_thing — не|not перегружать|overload себя.|yourself = The main thing is not to overload yourself.
+
+## grammar: Useful patterns
+**Аллергия на** + accusative: на орехи, на кошек. **Бросить** + imperfective infinitive = "to quit doing": бросить курить.
+**… назад** = "ago": три года назад. **Сказываться на** + prepositional = "to affect".
+ex: Стресс сказывается на здоровье. = Stress affects your health.
+ex: Я бросила пить кофе месяц назад. = I quit coffee a month ago.
+
+## drills
+? У меня аллергия ___ орехи. | на | от, к, с | I'm allergic to nuts.
+? Я бросил ___ три года назад. | курить | курю, курил, покурить | I quit smoking three years ago.
+? Мне ___ антибиотики. | выписали | выписал, выписать, выписывают | I was prescribed antibiotics.
+? Береги ___! | себя | себе, собой, сам | Take care of yourself!
+
+## vocab
+здорОвый | healthy | adjective
+Образ жИзни | lifestyle | phrase
+нЕрвничать | to be nervous, to stress | verb
+аллЕргия | allergy | noun, f.
+орЕх | nut | noun, m.
+вЫписать | to prescribe; to write out | verb
+брОсить | to quit; to throw | verb
+курИть | to smoke | verb
+назАд | ago; back | adverb
+недосЫп | lack of sleep | noun, m.
+скАзываться | to affect, to tell on | verb
+обслЕдование | medical checkup | noun, n.
+берЕчь | to look after, to protect | verb
+глАвное | the main thing | noun, n.
+
+# lesson b2-07 | travel | When travel goes wrong | Когда всё идёт не так
+summary: Handle delays, lost luggage and complaints — and tell the story afterwards.
+intro: Things go wrong on every trip. Here's the Russian to solve problems calmly and to describe the adventure later.
+
+## phrases: Travel trouble
+Мой|my рейс|flight задержали|(they)_delayed на|by три|three часа.|hours = My flight was delayed by three hours.
+Мой|my багаж|luggage потерялся.|got_lost = My luggage got lost.
+Я|I пропустил{пропустила}|missed стыковочный|connecting рейс.|flight = I missed my connecting flight.
+Куда|where мне|to_me обратиться?|to_turn = Who should I speak to about this?
+Мне|to_me положена|is_due компенсация?|compensation = Am I entitled to compensation?
+Гостиница|the_hotel оказалась|turned_out совсем|quite не|not такой,|such как|as на|in фотографиях.|the_photos = The hotel was nothing like the photos.
+Я|I хотел{хотела}|wanted бы|would подать|to_file жалобу.|a_complaint = I'd like to make a complaint.
+В|in итоге|the_end всё|everything закончилось|ended благополучно.|well = In the end, everything turned out fine.
+Зато|but_then мы|we увидели|saw то,|what чего|— нет|isn't в|in путеводителях.|guidebooks = But we saw things you won't find in any guidebook.
+
+## grammar: Turning out and being owed
+**Оказаться** + instrumental = "to turn out to be": гостиница оказалась маленькой.
+**Положен / положена / положено** + dative = "is due / entitled to": мне положена компенсация.
+**Зато** = "but on the other hand (a compensating plus)".
+ex: Экзамен оказался лёгким. = The exam turned out to be easy.
+ex: Дорого, зато удобно. = It's expensive, but convenient.
+
+## drills
+? Мой рейс ___ на три часа. | задержали | задержал, задержать, задерживают | My flight was delayed by three hours.
+? Куда мне ___? | обратиться | обращаюсь, обратился, обращение | Who should I speak to?
+? Гостиница ___ совсем не такой. | оказалась | оказался, оказаться, окажется | The hotel turned out to be nothing like that.
+? Дорого, ___ удобно. | зато | потому, поэтому, хотя | Expensive, but convenient.
+
+## vocab
+рейс | flight | noun, m.
+задержАть | to delay | verb
+багАж | luggage | noun, m.
+потерЯться | to get lost | verb
+пропустИть | to miss | verb
+стыкОвочный рейс | connecting flight | phrase
+обратИться | to turn to, to contact | verb
+полОжено | is due, entitled | short participle
+компенсАция | compensation | noun, f.
+оказАться | to turn out (to be) | verb
+подАть жАлобу | to make a complaint | phrase
+в итОге | in the end | phrase
+благополУчно | safely, well | adverb
+затО | but then, on the other hand | conjunction
+путеводИтель | guidebook | noun, m.
+
+# lesson b2-08 | grammar | Verbal adverbs | Деепричастия
+summary: Combine two actions in one sentence with -я and -в forms, like a commentator.
+intro: Деепричастия ("developing…", "having taken…") make your Russian compact and elegant. Chess annotations use them constantly.
+
+## phrases: Two actions at once
+Развивая|developing фигуры,|the_pieces я|I готовлюсь|prepare к|for рокировке.|castling = While developing my pieces, I'm preparing to castle.
+Взяв|having_taken пешку,|the_pawn он|he открыл|opened линию.|the_file = Having taken the pawn, he opened the file.
+Подумав,|having_thought я|I решил{решила}|decided отказаться.|to_decline = After thinking it over, I decided to decline.
+Читая|reading книгу,|the_book я|I заснул{заснула}.|fell_asleep = I fell asleep while reading the book.
+Не|not зная|knowing правил,|the_rules трудно|it's_hard играть.|to_play = It's hard to play if you don't know the rules.
+Вернувшись|having_returned домой,|home она|she сразу|straight_away легла|went_to_bed спать.|to_sleep = When she got home, she went straight to bed.
+Он|he говорил,|spoke улыбаясь.|smiling = He spoke with a smile.
+Сделав|having_made ход,|the_move она|she нажала|pressed на|— часы.|the_clock = After making her move, she pressed the clock.
+
+## grammar: -я and -в
+**Imperfective** verbal adverbs (-я, -а): делая, читая, улыбаясь — an action happening at the same time.
+**Perfective** verbal adverbs (-в, -вшись): сделав, взяв, вернувшись — an action completed before the main one.
+The verbal adverb always shares the subject of the main verb. With a negation, the object goes into the genitive: не зная прав**ил**.
+ex: Слушая музыку, я работаю. = I work while listening to music.
+ex: Закончив работу, он пошёл домой. = Having finished work, he went home.
+
+## drills
+? ___ пешку, он открыл линию. (having taken) | Взяв | Беря, Взял, Взять | Having taken the pawn, he opened the file.
+? ___ книгу, я заснул. (while reading) | Читая | Прочитав, Читал, Читать | I fell asleep while reading the book.
+? ___ домой, она легла спать. | Вернувшись | Возвращаясь, Вернулась, Вернуться | When she got home, she went to bed.
+? Не зная ___, трудно играть. | правил | правила, правилам, правилами | It's hard to play without knowing the rules.
+
+## vocab
+деепричАстие | verbal adverb | noun, n.
+готОвиться | to prepare | verb
+открЫть | to open | verb
+решИть | to decide; to solve | verb
+заснУть | to fall asleep | verb
+прАвило | rule | noun, n.
+трУдно | difficult | adverb
+вернУться | to return | verb
+срАзу | immediately | adverb
+лечь | to lie down | verb | лечь спать = to go to bed
+улыбАться | to smile | verb
+нажАть | to press | verb
+
+# lesson b2-09 | grammar | Participles | Причастия
+summary: Describe things with verb-adjectives: the abandoned queen, the pawn standing on d5.
+intro: Participles let you pack a whole clause into one word. They're common in writing, news and chess commentary.
+
+## phrases: Participles in action
+Оставленный|the_abandoned ферзь|queen погиб.|was_lost = The abandoned queen was lost.
+Пешка,|the_pawn стоящая|standing на|on d5,|d5 очень|very сильная.|strong = The pawn standing on d5 is very strong.
+Это|this_is книга,|a_book написанная|written известным|by_a_famous гроссмейстером.|grandmaster = This is a book written by a famous grandmaster.
+Человек,|the_person играющий|playing белыми,|White ходит|moves первым.|first = The player with White moves first.
+Сыгранная|the_played партия|game вошла|went в|into историю.|history = The game went down in history.
+Защищённый|a_protected король|king — спокойный|(is)_a_calm король.|king = A protected king is a calm king.
+Все|all приглашённые|the_invited гости|guests пришли.|came = All the invited guests came.
+Это|this_is решение,|a_decision принятое|made вчера.|yesterday = It's a decision made yesterday.
+
+## grammar: Four participles
+**Active present** -ущий / -ющий / -ащий / -ящий: играющий (who is playing), стоящий (standing).
+**Active past** -вший: игравший (who played). **Passive present** -емый / -имый: уважаемый (respected).
+**Passive past** -нный / -тый: написанный, оставленный, открытый, принятый.
+They decline like adjectives and replace a **который** clause: пешка, которая стоит на d5 = пешка, стоящая на d5.
+ex: Студент, сдавший экзамен, улыбался. = The student who passed the exam was smiling.
+ex: Открытая линия — путь для ладьи. = An open file is a road for the rook.
+
+## drills
+? Пешка, ___ на d5, очень сильная. | стоящая | стоящий, стоявший, стоящее | The pawn standing on d5 is very strong.
+? Это книга, ___ гроссмейстером. | написанная | написанный, написавшая, пишущая | This book was written by a grandmaster.
+? Все ___ гости пришли. | приглашённые | приглашённый, приглашающие, пригласившие | All the invited guests came.
+? ___ ферзь погиб. (abandoned) | Оставленный | Оставивший, Оставляющий, Оставлен | The abandoned queen was lost.
+
+## vocab
+причАстие | participle | noun, n.
+погИбнуть | to perish, to be lost | verb
+стоЯщий | standing | participle
+напИсанный | written | participle
+извЕстный | famous, well-known | adjective
+гроссмЕйстер | grandmaster | noun, m.
+войтИ в истОрию | to go down in history | phrase
+защищённый | protected | participle
+приглашённый | invited | participle
+гость | guest | noun, m.
+решЕние | decision; solution | noun, n.
+прИнятый | accepted, adopted | participle
+
+# lesson b2-10 | grammar | Linking ideas | Сложные союзы
+summary: Connect arguments with since, nevertheless, despite, thanks to, instead of.
+intro: These connectors are the backbone of B2 speech and writing. Each one requires a specific case after it — learn them together.
+
+## phrases: Connected reasoning
+Поскольку|since я|I устал{устала},|got_tired я|I пойду|will_go домой.|home = Since I'm tired, I'm going home.
+Тем|— не|not менее,|less партия|the_game была|was интересной.|interesting = Nevertheless, the game was interesting.
+Несмотря|despite на|— дождь,|the_rain мы|we пошли|went гулять.|for_a_walk = Despite the rain, we went for a walk.
+В|in то|that время|time как|as белые|White атаковали,|attacked чёрные|Black защищались.|defended = While White was attacking, Black was defending.
+Именно|precisely поэтому|therefore я|I не|not согласен{согласна}.|agree = That's exactly why I disagree.
+Благодаря|thanks_to тренеру|my_coach я|I стал{стала}|began играть|to_play лучше.|better = Thanks to my coach, I've started playing better.
+Вместо|instead того|of_that чтобы|to жаловаться,|complain давай|let's действовать.|act = Instead of complaining, let's do something.
+Хотя|although он|he и|— устал,|was_tired он|he продолжил|continued игру.|the_game = Even though he was tired, he kept playing.
+Чтобы|in_order выиграть,|to_win нужно|you_need терпение.|patience = To win, you need patience.
+
+## grammar: Connectors and their cases
+**Несмотря на** + accusative (despite) · **благодаря** + dative (thanks to) · **вместо** + genitive (instead of) · **из-за** + genitive (because of, negative).
+**Поскольку / так как** = "since, because". **Тем не менее** = "nevertheless". **В то время как** = "while (contrast)".
+**Чтобы** + infinitive = "in order to"; **вместо того чтобы** + infinitive = "instead of doing".
+ex: Благодаря тебе я понял правила. = Thanks to you, I understood the rules.
+ex: Несмотря на усталость, она выиграла. = Despite being tired, she won.
+
+## drills
+? Несмотря на ___, мы пошли гулять. | дождь | дождя, дождём, дождю | Despite the rain, we went for a walk.
+? Благодаря ___ я стал играть лучше. | тренеру | тренер, тренера, тренером | Thanks to my coach, I play better.
+? Вместо того ___ жаловаться, давай действовать. | чтобы | что, как, если | Instead of complaining, let's act.
+? Тем не ___, партия была интересной. | менее | более, меньше, мало | Nevertheless, the game was interesting.
+
+## vocab
+поскОльку | since, because | conjunction
+тем не мЕнее | nevertheless | phrase
+несмотрЯ на | despite | preposition | Takes the accusative.
+в то врЕмя как | while, whereas | conjunction
+Именно поэтОму | that's exactly why | phrase
+благодарЯ | thanks to | preposition | Takes the dative.
+вмЕсто | instead of | preposition | Takes the genitive.
+жАловаться | to complain | verb
+дЕйствовать | to act | verb
+хотЯ | although | conjunction
+продОлжить | to continue | verb
+чтОбы | in order to | conjunction
+терпЕние | patience | noun, n.
+
+# lesson b2-11 | chess_talk | Evaluating a position | Оценка позиции
+summary: Discuss a complex position with a coach — material, safety and the right plan.
+intro: Real chess commentary weighs factors against each other: material against activity, attack against defence. This dialogue is how a Russian coach talks.
+
+## dialogue: With the coach
+Тренер: Несмотря|despite на|— материальное|your_material преимущество,|advantage твоя|your позиция|position выглядит|looks довольно|rather уязвимой.|vulnerable = Despite your material advantage, your position looks rather vulnerable.
+Анна: Почему?|why У|by меня|me же|after_all лишний|an_extra конь.|knight = Why? I'm a knight up, after all.
+Тренер: Зато|but у|by чёрных|Black сильная|a_strong атака|attack на|on короля.|the_king = But Black has a strong attack on the king.
+Тренер: Твои|your фигуры|pieces разбросаны|are_scattered и|and не|not взаимодействуют.|work_together = Your pieces are scattered and don't coordinate.
+Анна: Что|what бы|would вы|you посоветовали?|advise = What would you advise?
+Тренер: Я|I бы|would предпочёл|prefer укрепить|to_strengthen позицию|the_position короля,|of_the_king поскольку|since соперник|the_opponent начал|has_begun создавать|creating непосредственные|immediate угрозы.|threats = I'd prefer to shore up the king's position, since your opponent has started creating immediate threats.
+Анна: Значит,|so сначала|first защита,|defence а|and потом|then реализация|converting преимущества?|the_advantage = So defend first, then convert the advantage?
+Тренер: Именно.|exactly = Exactly.
+
+## grammar: Commentary style
+**Выглядеть** + instrumental: позиция выглядит уязвим**ой**, игра выглядит интересн**ой**.
+The particle **же** adds "after all / but surely": У меня же лишний конь!
+Chess commentary loves nouns: **реализация преимущества** (converting the advantage), **создание угроз**, **укрепление позиции**.
+ex: Позиция выглядит опасной. = The position looks dangerous.
+ex: Главное сейчас — реализация преимущества. = The key now is converting the advantage.
+
+## drills
+? Твоя позиция выглядит довольно ___. | уязвимой | уязвимая, уязвимую, уязвимый | Your position looks rather vulnerable.
+? Несмотря на материальное ___, позиция опасна. | преимущество | преимущества, преимуществом, преимуществу | Despite the material advantage, the position is dangerous.
+? Твои фигуры не ___. | взаимодействуют | взаимодействует, взаимодействие, взаимодействовать | Your pieces don't coordinate.
+? Соперник начал создавать непосредственные ___. | угрозы | угроза, угрозу, угрозой | The opponent has started creating immediate threats.
+
+## vocab
+материАльный | material | adjective
+уязвИмый | vulnerable | adjective
+довОльно | rather, quite | adverb
+разбрОсанный | scattered | participle
+взаимодЕйствовать | to interact, to coordinate | verb
+укрепИть | to strengthen | verb
+сопЕрник | opponent | noun, m.
+создавАть | to create | verb
+непосрЕдственный | immediate, direct | adjective
+угрОза | threat | noun, f.
+реализАция | realisation, converting | noun, f.
+трЕнер | coach | noun, m.
+оцЕнка | evaluation | noun, f.
+
+# lesson b2-12 | chess_vocab | Tactics and the endgame | Тактика и эндшпиль
+summary: Name forks, pins, sacrifices, zugzwang and the key endgame ideas.
+intro: Many advanced chess terms in Russian are borrowed from German — эндшпиль, цугцванг, миттельшпиль — while tactical ones are pure Russian: вилка ("fork"), связка ("pin").
+
+## phrases: Tactical vocabulary
+Это|that's классическая|a_classic вилка.|fork = That's a classic fork.
+Конь|the_knight нападает|attacks одновременно|at_once на|on короля|the_king и|and ферзя.|the_queen = The knight attacks the king and queen at the same time.
+Слон|the_bishop связал|has_pinned коня.|the_knight = The bishop has pinned the knight.
+Он|he пожертвовал|sacrificed ладьёй|a_rook ради|for_the_sake_of атаки.|the_attack = He sacrificed a rook for the attack.
+  > Жертвовать takes the instrumental; in casual chess talk you'll also hear «пожертвовал ладью».
+Чёрные|Black попали|have_fallen в|into цугцванг.|zugzwang = Black is in zugzwang.
+  > Цугцванг: every possible move makes your position worse.
+В|in эндшпиле|the_endgame король|the_king становится|becomes активной|an_active фигурой.|piece = In the endgame the king becomes an active piece.
+Проходная|the_passed пешка|pawn решает|decides исход|the_outcome партии.|of_the_game = The passed pawn decides the game.
+Это|it's теоретическая|a_theoretical ничья.|draw = It's a theoretical draw.
+Он|he нашёл|found красивую|a_beautiful комбинацию.|combination = He found a beautiful combination.
+Ладейные|rook эндшпили|endgames —|are самые|the_most частые.|common = Rook endgames are the most common.
+
+## grammar: Borrowed and native terms
+German loanwords: **эндшпиль** (endgame), **миттельшпиль** (middlegame), **цугцванг**, **гроссмейстер**, **цейтнот** (time trouble).
+Native tactical words: **вилка** (fork, literally "table fork"), **связка** (pin, "bundle"), **жертва** (sacrifice), **комбинация**.
+**Становиться** + instrumental = "to become": король становится активной фигурой.
+ex: Я попал в цейтнот. = I got into time trouble.
+ex: Это была красивая жертва ферзя. = It was a beautiful queen sacrifice.
+
+## drills
+? Это классическая ___. (fork) | вилка | вилку, вилки, вилкой | That's a classic fork.
+? Он пожертвовал ___ ради атаки. | ладьёй | ладья, ладью, ладьи | He sacrificed a rook for the attack.
+? Чёрные попали в ___. | цугцванг | цугцванга, цугцвангом, цугцванге | Black is in zugzwang.
+? В эндшпиле король становится активной ___. | фигурой | фигура, фигуру, фигуры | In the endgame the king becomes an active piece.
+
+## vocab
+вИлка | fork | noun, f.
+одноврЕменно | simultaneously | adverb
+связАть | to pin; to tie | verb
+свЯзка | pin; bundle | noun, f.
+пожЕртвовать | to sacrifice | verb | Takes the instrumental.
+жЕртва | sacrifice; victim | noun, f.
+рАди | for the sake of | preposition | Takes the genitive.
+цугцвАнг | zugzwang | noun, m.
+эндшпИль | endgame | noun, m.
+проходнАя пЕшка | passed pawn | phrase
+Исход | outcome | noun, m.
+ничьЯ | draw | noun, f.
+комбинАция | combination | noun, f.
+тАктика | tactics | noun, f.
+цейтнОт | time trouble | noun, m.
+
+# lesson b2-13 | chess_talk | Review with a coach | Разбор с тренером
+summary: Take honest criticism of your play and plan your improvement — in fluent, complex Russian.
+intro: This is the B2 goal in action: a long, natural sentence that a coach might say after your game. By now you can understand every part of it.
+
+## dialogue: After a tough loss
+Тренер: Я|I считаю,|believe что|that твоя|your стратегия|strategy была|was слишком|too агрессивной,|aggressive и|and именно|precisely поэтому|that's_why ты|you потерял|lost преимущество|the_advantage в|in эндшпиле.|the_endgame = I believe your strategy was too aggressive, and that's exactly why you lost your advantage in the endgame.
+Максим: Но|but ведь|after_all атака|the_attack почти|almost удалась!|succeeded = But the attack almost worked!
+Тренер: «Почти»|almost не|doesn't считается.|count = "Almost" doesn't count.
+Тренер: Ты|you пожертвовал|sacrificed пешкой,|a_pawn не|not просчитав|having_calculated последствий.|the_consequences = You sacrificed a pawn without calculating the consequences.
+Максим: Согласен,|agreed я|I переоценил|overestimated свои|my шансы.|chances = Fair enough, I overestimated my chances.
+Тренер: Тебе|for_you стоит|it's_worth поработать|working над|on эндшпилем.|the_endgame = You should work on your endgame.
+Максим: С|with чего|what мне|for_me начать?|to_start = Where should I start?
+Тренер: С|with ладейных|rook окончаний.|endings = With rook endings.
+
+## grammar: Building a long sentence
+Break the coach's sentence into blocks: **Я считаю,** | **что** твоя стратегия была слишком агрессивной, | **и именно поэтому** ты потерял преимущество | **в эндшпиле**.
+Opinion verb + **что**-clause, then a result linked with **и именно поэтому**. **Быть** + instrumental in the past: была агрессивн**ой**.
+A negated verbal adverb takes the genitive: не просчитав последстви**й**.
+ex: Я думаю, что план был хорошим, но именно поэтому соперник его предвидел. = I think the plan was good, but that's exactly why the opponent saw it coming.
+ex: Он ушёл, не сказав ни слова. = He left without saying a word.
+
+## drills
+? Твоя стратегия была слишком ___. | агрессивной | агрессивная, агрессивный, агрессивную | Your strategy was too aggressive.
+? Именно ___ ты потерял преимущество. | поэтому | потому, почему, что | That's exactly why you lost the advantage.
+? Ты пожертвовал пешкой, не просчитав ___. | последствий | последствия, последствиям, последствиями | You sacrificed a pawn without calculating the consequences.
+? Тебе стоит поработать над ___. | эндшпилем | эндшпиль, эндшпиля, эндшпилю | You should work on your endgame.
+
+## vocab
+агрессИвный | aggressive | adjective
+удАться | to succeed, to work out | verb
+считАться | to count, to be considered | verb
+просчитАть | to calculate | verb
+послЕдствие | consequence | noun, n.
+переоценИть | to overestimate | verb
+шанс | chance | noun, m.
+порабОтать над | to work on | phrase | Takes the instrumental.
+окончАние | ending | noun, n.
+потерЯть | to lose | verb
+
+# lesson b2-14 | opinions | A real debate | Настоящая дискуссия
+summary: Debate ideas with idioms and discourse markers that sound genuinely fluent.
+intro: Fluency isn't just grammar — it's having the right phrase at the right moment. These are the expressions educated Russians use in a lively discussion.
+
+## phrases: Debating
+Позволь|allow_me с|with тобой|you не|not согласиться.|to_agree = Allow me to disagree with you.
+Ты|you упускаешь|are_letting_slip из|from виду|view одну|one важную|important деталь.|detail = You're overlooking one important detail.
+С|with этим|this трудно|it's_hard спорить.|to_argue = That's hard to argue with.
+Это|this_is палка|a_stick о|with двух|two концах.|ends = It cuts both ways.
+  > Literally "a stick with two ends".
+Давай|let's посмотрим|look на|at это|it с|from другой|another стороны.|side = Let's look at it from a different angle.
+Я|I не|not отрицаю,|deny что|that в|in этом|this есть|there_is смысл.|sense = I don't deny that it makes some sense.
+Дело|the_point не|not в|in деньгах,|money а|but в|in принципе.|principle = It's not about the money; it's the principle.
+Одно|one_thing другому|the_other не|not мешает.|hinders = The two aren't mutually exclusive.
+В|in конечном|the_final счёте|reckoning решать|to_decide тебе.|is_yours = In the end, it's your call.
+
+## grammar: Discourse markers
+**Дело не в… , а в…** = "it's not about X, it's about Y" (prepositional after в).
+**Упускать из виду** = "to overlook". **В конечном счёте** = "ultimately". **Одно другому не мешает** = "one doesn't exclude the other".
+Dative + infinitive expresses whose decision or duty it is: **решать тебе**, **тебе выбирать**.
+ex: Дело не во времени, а в желании. = It's not a matter of time, it's a matter of will.
+ex: Выбирать тебе. = It's your choice.
+
+## drills
+? Дело не в деньгах, а в ___. | принципе | принцип, принципа, принципом | It's not about the money; it's the principle.
+? Ты упускаешь из ___ одну деталь. | виду | вид, вида, видом | You're overlooking one detail.
+? Это палка о двух ___. | концах | концы, концов, концами | It cuts both ways.
+? В конечном счёте решать ___. | тебе | ты, тебя, тобой | In the end, it's your call.
+
+## vocab
+согласИться | to agree | verb
+упускАть из вИду | to overlook | phrase
+детАль | detail | noun, f.
+пАлка о двух концАх | it cuts both ways | phrase
+отрицАть | to deny | verb
+смысл | sense, meaning | noun, m.
+дЕло в том, что | the thing is that | phrase
+прИнцип | principle | noun, m.
+мешАть | to hinder, to bother | verb
+в конЕчном счёте | ultimately | phrase
+решАть | to decide | verb

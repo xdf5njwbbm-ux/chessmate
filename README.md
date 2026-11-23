@@ -1,73 +1,71 @@
-# Chessmate ♞♥
+# Russian Chess Academy
 
-**Play first. Fall later.** A dating app where people match on personality, then meet over a game of chess. After the final move, a mutual like makes it a match.
+Learn Russian from A1 to B2 while playing real chess. Every move you make comes with a short Russian phrase pitched at your level, and there's a full course alongside the games: lessons, spaced review, listening, pronunciation and conversation practice.
 
 Live site: https://xdf5njwbbm-ux.github.io/chessmate/
 
-## What's built (phases 1–3)
+## What's in it
 
-| Area | Included |
-| --- | --- |
-| **Accounts** | Email + password sign-up and sign-in, email confirmation, password reset, 18+ age gate enforced in the database, account deletion |
-| **Onboarding** | 10 guided steps: name, birthday and gender · who you want to meet (gender, age range, distance) · location (GPS, rounded to ~1 km, or city) · 3–6 photos · bio and dating intentions · chess experience, Elo (optional), favorite formats · interests · 22-question chess, fun and dating questionnaire |
-| **Compatibility** | Server-side score (0–99%) from personality answers (40%), shared interests (20%), dating intentions (20%), communication style (10%) and chess playing style (10%). **Elo is never an input**: a 900 can be a 96% match with a 1500. |
-| **Discover** | Feed sorted by compatibility, by similar Elo or by who's online, with filters for distance, age, Elo, experience, intentions and minimum compatibility. Only mutually compatible people appear (both sides' gender and age preferences). |
-| **Profiles** | Photo carousel, compatibility ring, "why you match" (shared interests and answers), bio, intentions, personality tags, chess card (self-reported Elo, Chessmate rating, W–L–D, style, opening, formats), highlighted answers |
-| **Challenges** | Choose 3 or 5 min blitz, 10 or 15 min rapid, or correspondence (3 days per move), casual or competitive. Real-time notifications when you're challenged, accepted or declined. Challenges expire after 24 hours and are rate-limited. |
-| **Live chess** | Server-authoritative moves (every move is validated by chess.js on the server), drag or tap to move, legal-move hints, check highlighting, castling, en passant, promotion picker, check/checkmate/stalemate/insufficient material/threefold/50-move detection, server-side clocks (each side's first move is untimed), timeout claims, abort, resign, draw offers, move list, material count, real-time sync with polling fallback |
-| **After the game** | Result screen with rating change, private like/pass (they only find out if it's mutual), "It's a match" celebration, rematch offers with colors swapped |
-| **Matches** | Grid of mutual matches, unmatch |
-| **Safety & privacy** | Block (cancels challenges, ends games, hides both ways), report with reasons, hide from Discover, hide online status, hide distance. Birthdates and coordinates never leave the database. |
-
-Coming next (phase 4): messaging, push notifications and optional in-game voice chat (WebRTC).
+- **Chess.** Full rules (chess.js), clocks, draw offers, resignations, rematches, friend challenges, invite links, Elo matchmaking and leaderboards. There's a separate rating for each time-control pool (bullet, blitz, rapid, daily).
+- **Stockfish bot.** Stockfish 18 runs in the browser. You can pick its strength from 100 to 3000. Bot games are practice and never change your rating. Undo and analysis are available.
+- **Russian on every move.** A learning panel next to the board, with three intensities (Quick, Standard, Deep). Each card has audio at 1×, 0.75× and 0.5×, a transliteration, an English translation, the vocabulary, a grammar note and a mini exercise.
+- **Course.** 56 lessons across 25 everyday topics plus chess talk, A1–B2. Every sentence has a word-by-word gloss, stress marks, masculine and feminine forms, and the ты/вы register. There's a placement test, level tests, SM‑2 spaced review, vocabulary, a listening drill and daily objectives.
+- **Speaking.** Neural Russian voices and pronunciation scoring through Azure Speech when it's configured. Otherwise the device's own voices and speech recognition are used, and they're labelled honestly: no invented scores.
+- **Conversation partner.** An AI tutor (Claude) that holds conversations in 25 scenarios and corrects you gently. Without an API key it falls back to scripted, guided conversations.
+- **Two progressions, never mixed.** Your Russian level and your chess rating are stored and shown separately.
 
 ## Stack
 
-- **Frontend:** React 19, TypeScript, Vite, Tailwind CSS v4, react-chessboard, chess.js, self-hosted Inter and Fraunces fonts. Mobile-first, installable to the home screen.
-- **Backend:** Supabase (Postgres, Auth, Storage, Realtime, Edge Functions).
-- **Hosting:** GitHub Pages, deployed by GitHub Actions on every push to `main`.
+React 19 + Vite + TypeScript + Tailwind v4, react-chessboard, chess.js, Stockfish 18 (WASM, GPLv3; see `public/engine/`). The backend is Supabase: Postgres with row level security, SQL functions and three Deno edge functions.
+
+```
+src/                    app (pages, components, lib, state)
+content/                course source text (A1–B2 lessons, tests, scenarios, pronunciation)
+scripts/build-content.mjs  validates content and generates the seed migration
+supabase/migrations/    schema, functions, config, generated curriculum seed
+supabase/functions/     game (server-validated moves, AI game records), speech (TTS + assessment), tutor (AI partner)
+supabase/tests/         SQL tests for ratings, matchmaking and learning
+```
+
+## How ratings work
+
+- Only rated games between people change Elo. Stockfish games are recorded as unrated, whatever the result.
+- The first 5 rated games in a pool are placement games. The rating is a performance rating, with one virtual draw against 1200 so a single result can't swing it wildly. It's shown after the fifth game.
+- After placement: K=40 while provisional (under 20 games, shown as `1534?`), then K=20, and K=10 from 2400. Floor of 100. The peak rating is tracked after placement.
+- Every move in an online game is validated on the server by the `game` edge function. A rating is applied exactly once, when the game finishes.
 
 ## Security model
 
-- **Row level security everywhere.** You can only read your own profile, answers, likes and blocks directly. Everything about other people comes from `SECURITY DEFINER` functions that return safe, derived fields: age (not birthdate), rounded distance (not coordinates), and compatibility.
-- **Column-level grants.** You can't write your rating, games played, onboarding status or birthdate (after sign-up).
-- **Server-authoritative games.** Clients can't write to `games`. Every action goes through the `game` edge function, which replays the game with chess.js, checks turn order, legality and clocks, and saves with an optimistic version check so simultaneous requests can't both apply.
-- **Ratings** change only when a competitive game finishes on the server (Elo, K=40 for your first 20 rated games, then K=20). The self-reported Elo is a separate field.
-- **Photos** live in a private bucket. Members see them through short-lived signed URLs and can only write to their own folder. Uploads are resized and re-encoded in the browser, which strips EXIF and GPS data.
-- **Anonymous sessions** are rejected by every policy and function (`app_uid()`).
+- Clients can only read their own private rows. Everything else goes through `security definer` SQL functions that check the caller (`require_uid()`), validate input and enforce plan limits.
+- Profiles have column-level grants, so the Russian level, streaks and plan can't be written directly.
+- Edge functions use the service role only on the server. Secrets never reach the browser.
 
-## Project layout
+## Plans
 
-```
-src/
-  pages/          Landing, Auth, Onboarding, Discover, ProfileView, Games, Game, Matches, Me, EditProfile, Settings
-  components/     UI kit, profile steps, challenge/report sheets, cards, match celebration
-  state/          session (auth + profile), live (realtime + inbox), toasts
-  lib/            supabase client, API wrappers, photo upload/signing, types, constants
-supabase/
-  migrations/     schema, questionnaire seed, server functions, storage
-  functions/game/ edge function + pure game logic + tests
-.github/workflows/deploy.yml
-```
+The Free and Premium plans live in the `plans` table, and their features are JSON (levels, daily reviews, saved phrases, AI tutor, scoring and so on). Prices aren't hard-coded. While `app_config.paywall_enabled` is `false`, everyone gets Premium ("early access"). To turn billing on, set prices in `plans` and flip that flag.
 
-## Develop
+## Configuration
+
+Add these in Supabase → Edge Functions → Secrets:
+
+| Secret | Purpose |
+| --- | --- |
+| `AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION` | Neural voices and pronunciation scoring (optional) |
+| `ANTHROPIC_API_KEY` | AI conversation partner (optional) |
+| `TUTOR_MODEL` | Override the tutor model (optional) |
+
+Without them, the app uses device voices, recognition-based feedback and guided conversations.
+
+## Development
 
 ```bash
-npm install
-npm run dev          # http://localhost:5173/chessmate/
-npm run test:chess   # 23 chess-rule and clock tests for the game server
+npm ci
+npm run dev           # app on http://localhost:5173
+npm test              # content check, chess rule tests, phrase tests
+npm run content       # rebuild supabase/migrations/*_curriculum_seed.sql from content/
 npm run build
 ```
 
-Deploy the edge function after changing `supabase/functions/game`:
+The SQL tests in `supabase/tests/` run against a database with the migrations applied (`psql -f supabase/tests/chess.test.sql`).
 
-```bash
-supabase functions deploy game --project-ref dmynmniiapfrpzfxgqwn
-```
-
-## One-time setup checklist
-
-1. **GitHub Pages:** Settings → Pages → Build and deployment → Source: **GitHub Actions**.
-2. **Supabase Auth → URL Configuration:** set Site URL to `https://xdf5njwbbm-ux.github.io/chessmate/` and add it to Redirect URLs (confirmation and reset links land there).
-3. **Supabase Auth → Emails → SMTP:** add a custom SMTP provider (e.g. Resend). The built-in sender is heavily rate-limited and not meant for real users.
-4. **Supabase Auth → Providers:** turn **off** anonymous sign-ins (leftover from the old flashcard app) and turn **on** leaked password protection.
+Every push to `main` runs the tests, builds the app and deploys it to GitHub Pages.

@@ -1,5 +1,6 @@
-// Chessmate — authoritative game logic (pure, no I/O).
+// Russian Chess Academy — authoritative game logic (pure, no I/O).
 // Used by the `game` edge function; also runs under Node for tests.
+// Elo is applied in the database (apply_game_ratings) once a rated game ends.
 import { Chess } from "chess.js";
 
 export type Game = {
@@ -7,7 +8,8 @@ export type Game = {
   white_id: string | null;
   black_id: string | null;
   time_control: string;
-  mode: "casual" | "competitive";
+  opponent_kind: "human" | "ai";
+  rated: boolean;
   initial_ms: number;
   increment_ms: number;
   per_move: boolean;
@@ -189,18 +191,51 @@ export function applyAction(game: Game, userId: string, action: ActionType, uci:
   return fail(400, "unknown_action", "Unknown action.");
 }
 
-/** Elo update. K = 40 for a player's first 20 rated games, 20 afterwards. */
-export function ratingDeltas(
-  white: { app_rating: number; rated_games: number },
-  black: { app_rating: number; rated_games: number },
-  result: "1-0" | "0-1" | "1/2-1/2",
-): { white: number; black: number } {
-  const sw = result === "1-0" ? 1 : result === "0-1" ? 0 : 0.5;
-  const ew = 1 / (1 + Math.pow(10, (black.app_rating - white.app_rating) / 400));
-  const kw = white.rated_games < 20 ? 40 : 20;
-  const kb = black.rated_games < 20 ? 40 : 20;
-  return {
-    white: Math.round(kw * (sw - ew)),
-    black: Math.round(kb * ((1 - sw) - (1 - ew))),
-  };
+export type AiRecord = {
+  moves: string[];
+  color: "w" | "b";
+  ai_elo: number;
+  claim: "over" | "resign";
+  undo_count: number;
+};
+
+export type AiOutcome =
+  | { ok: true; fen: string; sans: string[]; moves: string[]; result: "1-0" | "0-1" | "1/2-1/2"; termination: string }
+  | { ok: false; error: string };
+
+/**
+ * Validates a finished game against the engine before it is saved to the
+ * player's history. Every move is replayed with chess.js; a result is only
+ * accepted when the final position (or the player's resignation) supports it.
+ * Games against the engine are never rated.
+ */
+export function validateAiGame(r: AiRecord): AiOutcome {
+  if (!Array.isArray(r.moves) || r.moves.length < 2 || r.moves.length > 800) return { ok: false, error: "Nothing to save yet." };
+  if (r.color !== "w" && r.color !== "b") return { ok: false, error: "Bad request." };
+  if (!Number.isInteger(r.ai_elo) || r.ai_elo < 100 || r.ai_elo > 3200) return { ok: false, error: "Bad request." };
+  const chess = new Chess();
+  const moves: string[] = [];
+  const sans: string[] = [];
+  for (const u of r.moves) {
+    if (typeof u !== "string" || !UCI_RE.test(u)) return { ok: false, error: "That game contains an invalid move." };
+    try {
+      const mv = chess.move({ from: u.slice(0, 2), to: u.slice(2, 4), promotion: u[4] || undefined });
+      moves.push(mv.from + mv.to + (mv.promotion ?? ""));
+      sans.push(mv.san);
+    } catch {
+      return { ok: false, error: "That game contains an illegal move." };
+    }
+    if (chess.isGameOver() && moves.length < r.moves.length) return { ok: false, error: "Moves continue after the game ended." };
+  }
+  const winFor = (c: "w" | "b") => (c === "w" ? "1-0" : "0-1") as "1-0" | "0-1";
+  if (r.claim === "resign") {
+    if (chess.isGameOver()) return { ok: false, error: "The game was already over." };
+    return { ok: true, fen: chess.fen(), sans, moves, result: winFor(r.color === "w" ? "b" : "w"), termination: "resign" };
+  }
+  if (chess.isCheckmate()) return { ok: true, fen: chess.fen(), sans, moves, result: winFor(chess.turn() === "w" ? "b" : "w"), termination: "checkmate" };
+  if (chess.isStalemate()) return { ok: true, fen: chess.fen(), sans, moves, result: "1/2-1/2", termination: "stalemate" };
+  if (chess.isInsufficientMaterial()) return { ok: true, fen: chess.fen(), sans, moves, result: "1/2-1/2", termination: "insufficient" };
+  if (chess.isThreefoldRepetition()) return { ok: true, fen: chess.fen(), sans, moves, result: "1/2-1/2", termination: "threefold" };
+  if (chess.isDrawByFiftyMoves()) return { ok: true, fen: chess.fen(), sans, moves, result: "1/2-1/2", termination: "fifty_move" };
+  return { ok: false, error: "The game isn't over yet." };
 }

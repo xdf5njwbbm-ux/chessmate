@@ -1,0 +1,638 @@
+# lesson a1-01 | greetings | Hello! | Привет!
+summary: Say hello and goodbye, ask how someone is, and meet ты and вы.
+intro: Russian has two ways to say "you". Ты is for friends, family and children; вы is for strangers, older people, colleagues and groups. Greetings change with it.
+
+## dialogue: Two friends meet
+Анна: Привет!|hi = Hi!
+Максим: Привет!|hi Как|how дела?|(are)_things = Hi! How are you?
+Анна: Хорошо,|well спасибо.|thanks А|and у|by тебя?|you = Fine, thanks. And you?
+  > А у тебя? is the natural way to return the question to a friend.
+Максим: Тоже|also хорошо.|well = Good too.
+
+## phrases: Formal and everyday greetings
+@formal Здравствуйте!|hello = Hello! (formal)
+  > The first в is silent: [здра́ствуйте] → [здра́стуйте].
+@formal Как|how у|by вас|you дела?|things = How are you? (formal)
+Доброе|good утро!|morning = Good morning!
+Добрый|good день!|day = Good afternoon!
+Добрый|good вечер!|evening = Good evening!
+Нормально.|okay = Not bad. / Okay.
+Отлично!|excellent = Great!
+@informal Пока!|bye = Bye!
+@formal До|until свидания!|meeting = Goodbye!
+
+## grammar: Ты or вы?
+Use **ты** with one person you know well: a friend, a family member, a child. Use **вы** with someone you don't know, someone older or senior, and with any group of people.
+The words around "you" change too: у тебя → у вас, твой → ваш. When in doubt, start with вы. A Russian speaker who wants to switch will say «Давай на ты» — "let's use ты".
+ex: Как у тебя дела? = How are you? (to a friend)
+ex: Как у вас дела? = How are you? (formal, or to several people)
+ex: Давай на ты! = Let's use "ты" with each other!
+
+## drills
+? Здравствуйте! Как у ___ дела? | вас | тебя, ты, вы | Hello! How are you? (formal)
+? Привет! Как ___? | дела | дело, делать, день | Hi! How are you?
+? Доброе ___! | утро | вечер, день, ночь | Good morning!
+? До ___! | свидания | свидание, пока, привет | Goodbye!
+
+## vocab
+привЕт | hi | interjection
+здрАвствуйте | hello (formal) | interjection | The first в is silent.
+как | how | adverb
+делА | things, affairs | noun, plural | Как дела? = How are things?
+хорошО | well, fine | adverb
+спасИбо | thank you | interjection
+тОже | also, too | adverb
+Утро | morning | noun, n.
+день | day | noun, m.
+вЕчер | evening | noun, m.
+отлИчно | excellent, great | adverb
+нормАльно | okay, not bad | adverb
+покА | bye | interjection | Informal.
+до свидАния | goodbye | phrase | Formal or neutral.
+
+# lesson a1-02 | meeting | Nice to meet you | Знакомство
+summary: Introduce yourself, ask someone's name, and say where you're from.
+intro: Russians don't say "my name is". They say «Меня зовут…» — literally "they call me…". You'll also learn to say where you're from with из.
+
+## dialogue: Meeting at a chess club
+Анна: Как|what тебя|you зовут?|(they)_call = What's your name?
+Максим: Меня|me зовут|(they)_call Максим.|Maksim А|and тебя?|you = My name is Maksim. And yours?
+Анна: Меня|me зовут|(they)_call Анна.|Anna Очень|very приятно!|pleasant = I'm Anna. Nice to meet you!
+Максим: Мне|to_me тоже.|too Откуда|where_from ты?|you = Likewise. Where are you from?
+Анна: Я|I из|from Америки.|America А|and ты?|you = I'm from America. And you?
+Максим: Я|I из|from Москвы.|Moscow = I'm from Moscow.
+
+## phrases: More about you
+@formal Как|what вас|you зовут?|(they)_call = What's your name? (formal)
+@formal Откуда|where_from вы?|you = Where are you from? (formal)
+Я|I живу|live в|in Нью-Йорке.|New_York = I live in New York.
+Кто|who ты|you по|by профессии?|profession = What do you do for a living?
+Я|I программист.|programmer = I'm a programmer.
+  > Russian drops "am / is / are" in the present tense: literally "I programmer".
+Я|I студент{студентка}.|student = I'm a student.
+  > Many job and status words have a feminine form: студент → студентка.
+
+## grammar: "From" takes the genitive
+After **из** ("from"), the place name changes its ending. Feminine names in -а become -ы (or -и after к, г, х, ж, ш, ч, щ); names in -я become -и; masculine names add -а.
+ex: Москва → Я из Москвы. = I'm from Moscow.
+ex: Америка → Я из Америки. = I'm from America.
+ex: Россия → Я из России. = I'm from Russia.
+ex: Лондон → Я из Лондона. = I'm from London.
+
+## drills
+? Меня ___ Анна. | зовут | зовёт, звать, зову | My name is Anna.
+? Я из ___. (Москва) | Москвы | Москва, Москве, Москву | I'm from Moscow.
+? Очень ___! | приятно | приятный, приятная, хорошо | Nice to meet you!
+? ___ вы? — Я из Канады. | Откуда | Где, Куда, Как | Where are you from? — I'm from Canada.
+
+## vocab
+зовУт | (they) call | verb | Меня зовут… = My name is…
+Очень | very | adverb
+приЯтно | pleasant | adverb | Очень приятно = Nice to meet you.
+откУда | where from | adverb
+из | from | preposition | Takes the genitive.
+живУ | (I) live | verb | From жить.
+профЕссия | profession | noun, f.
+программИст | programmer | noun, m.
+студЕнт | student | noun, m. | Feminine: студентка.
+^амЕрика | America | proper noun
+^москвА | Moscow | proper noun
+^россИя | Russia | proper noun
+
+# lesson a1-03 | essentials | I don't understand | Я не понимаю
+summary: The phrases that keep a conversation going when you're lost.
+intro: You'll use these every day while you learn. Notice how the ты form becomes the вы form by adding -те.
+
+## phrases: Survival phrases
+Я|I не|not понимаю.|understand = I don't understand.
+Повтори,|repeat пожалуйста.|please = Repeat, please.
+@formal Повторите,|repeat пожалуйста.|please = Could you repeat that, please?
+Говори|speak немного|a_little медленнее.|more_slowly = Speak a little slower.
+@formal Говорите|speak медленнее,|more_slowly пожалуйста.|please = Please speak more slowly.
+Как|how сказать|to_say «checkmate»|checkmate по-русски?|in_Russian = How do you say "checkmate" in Russian?
+«Мат».|checkmate = "Мат."
+Что|what это|this значит?|means = What does this mean?
+Я|I немного|a_little говорю|speak по-русски.|in_Russian = I speak a little Russian.
+Ты|you говоришь|speak по-английски?|in_English = Do you speak English?
+@formal Извините,|excuse_me я|I не|not знаю.|know = Sorry, I don't know.
+
+## grammar: Asking politely
+To ask someone to do something, Russian uses the imperative. For **ты**, it often ends in -и; for **вы**, add **-те**. Add пожалуйста to be polite.
+**Не** goes directly before the verb it negates: я не понимаю, я не знаю.
+ex: Повтори! → Повторите! = Repeat!
+ex: Говори медленнее! → Говорите медленнее! = Speak more slowly!
+
+## drills
+? Я не ___. | понимаю | понимаешь, понимает, понимать | I don't understand.
+? Говорите медленнее, ___. | пожалуйста | спасибо, привет, извините | Please speak more slowly.
+? Как сказать «queen» ___? | по-русски | русский, Россия, русская | How do you say "queen" in Russian?
+? Ты ___ по-английски? | говоришь | говорю, говорит, говорить | Do you speak English?
+
+## vocab
+понимАть | to understand | verb
+повторИть | to repeat | verb | Повтори / повторите.
+пожАлуйста | please; you're welcome | adverb
+говорИть | to speak, to say | verb
+немнОго | a little | adverb
+мЕдленнее | more slowly | adverb
+по-рУсски | in Russian | adverb
+по-англИйски | in English | adverb
+знать | to know | verb
+извинИте | excuse me, sorry | verb | Formal; informal: извини.
+знАчит | (it) means | verb
+
+# lesson a1-04 | routines | What are you doing? | Что ты делаешь?
+summary: Talk about what you're doing now, and say you're hungry or thirsty.
+intro: Most Russian verbs you'll meet first follow one pattern. Learn it with работать and играть, and you can use dozens of verbs.
+
+## dialogue: A phone call
+Максим: Что|what ты|you делаешь?|are_doing = What are you doing?
+Анна: Я|I работаю.|am_working А|and ты?|you = I'm working. And you?
+Максим: Я|I учусь.|am_studying = I'm studying.
+Анна: Что|what ты|you учишь?|are_learning = What are you learning?
+Максим: Я|I учу|am_learning русский|Russian язык.|language = I'm learning Russian.
+
+## phrases: My day
+Сейчас|now я|I отдыхаю.|am_resting = I'm relaxing right now.
+Я|I читаю|am_reading книгу.|book = I'm reading a book.
+Утром|in_the_morning я|I пью|drink кофе.|coffee = In the morning I drink coffee.
+Вечером|in_the_evening мы|we играем|play в|(in) шахматы.|chess = In the evening we play chess.
+Я|I хочу|want есть.|to_eat = I'm hungry.
+  > Literally "I want to eat".
+Я|I хочу|want пить.|to_drink = I'm thirsty.
+Я|I хочу|want спать.|to_sleep = I'm sleepy.
+
+## grammar: The -ю / -ешь pattern
+Verbs like **работать, делать, играть, читать** drop -ть and add these endings:
+я работа**ю**, ты работа**ешь**, он / она работа**ет**, мы работа**ем**, вы работа**ете**, они работа**ют**.
+**Учиться** means "to be studying / to be a student"; **учить** means "to learn something": учу русский язык.
+ex: Она работает дома. = She works from home.
+ex: Вы играете в шахматы? = Do you play chess?
+
+## drills
+? Что ты ___? | делаешь | делаю, делает, делаем | What are you doing?
+? Мы ___ в шахматы. | играем | играю, играешь, играют | We play chess.
+? Она ___ дома. | работает | работаю, работаешь, работают | She works from home.
+? Я хочу ___. (I'm thirsty) | пить | есть, спать, читать | I'm thirsty.
+
+## vocab
+дЕлать | to do, to make | verb
+рабОтать | to work | verb
+учИться | to study, to be a student | verb
+учИть | to learn (something) | verb
+сейчАс | now | adverb
+отдыхАть | to rest, to relax | verb
+читАть | to read | verb
+кнИга | book | noun, f.
+Утром | in the morning | adverb
+вЕчером | in the evening | adverb
+хотЕть | to want | verb | я хочу, ты хочешь
+есть | to eat | verb
+пить | to drink | verb
+спать | to sleep | verb
+язЫк | language; tongue | noun, m.
+
+# lesson a1-05 | restaurants | At the café | В кафе
+summary: Order a drink, ask for milk or sugar, and ask how much it costs.
+intro: Two little words do a lot of work at a café: с ("with") and без ("without"). Each changes the noun after it.
+
+## dialogue: Ordering
+Официант: Здравствуйте!|hello Что|what будете|(you)_will заказывать?|order = Hello! What would you like to order?
+Анна: Кофе,|coffee пожалуйста.|please = A coffee, please.
+Официант: С|with молоком?|milk = With milk?
+Анна: Нет,|no без|without молока.|milk И|and ещё|also воду,|water пожалуйста.|please = No, without milk. And some water, please.
+  > вода → воду: the thing you ask for takes the accusative.
+Максим: А|and мне|for_me чай|tea с|with лимоном.|lemon = And tea with lemon for me.
+Официант: Что-нибудь|anything ещё?|else = Anything else?
+Максим: Нет,|no спасибо.|thanks Сколько|how_much это|this стоит?|costs = No, thanks. How much is it?
+Официант: Триста|three_hundred рублей.|rubles = Three hundred rubles.
+
+## grammar: С and без
+**С** ("with") takes the instrumental: молоко → с молок**ом**, лимон → с лимон**ом**, сахар → с сахар**ом**.
+**Без** ("without") takes the genitive: молоко → без молок**а**, сахар → без сахар**а**.
+Note: **кофе** is masculine even though it ends in -е: мой кофе, чёрный кофе.
+ex: Чай с сахаром. = Tea with sugar.
+ex: Кофе без сахара. = Coffee without sugar.
+
+## drills
+? Кофе с ___, пожалуйста. (молоко) | молоком | молоко, молока, молоке | Coffee with milk, please.
+? Чай без ___. (сахар) | сахара | сахар, сахаром, сахаре | Tea without sugar.
+? ___ это стоит? | Сколько | Что, Как, Где | How much is it?
+? Что-нибудь ___? | ещё | уже, тоже, очень | Anything else?
+
+## vocab
+кОфе | coffee | noun, m. | Masculine despite the -е.
+чай | tea | noun, m.
+водА | water | noun, f.
+молокО | milk | noun, n.
+сАхар | sugar | noun, m.
+лимОн | lemon | noun, m.
+с | with | preposition | Takes the instrumental.
+без | without | preposition | Takes the genitive.
+скОлько | how much, how many | adverb
+стОит | (it) costs | verb
+ещё | more, else, still | adverb
+рубль | ruble | noun, m.
+официАнт | waiter | noun, m.
+закАзывать | to order | verb
+
+# lesson a1-06 | family | My family | Моя семья
+summary: Introduce your family and say what you have with «у меня есть».
+intro: Russian has no verb "to have" in everyday speech. Instead you say «у меня есть» — "by me there is".
+
+## phrases: Family photos
+Это|this_is моя|my семья.|family = This is my family.
+Это|this_is моя|my мама,|mom а|and это|this_is мой|my папа.|dad = This is my mom, and this is my dad.
+У|by меня|me есть|there_is брат|brother и|and сестра.|sister = I have a brother and a sister.
+Как|what его|him зовут?|(they)_call = What's his name?
+Его|him зовут|(they)_call Иван.|Ivan = His name is Ivan.
+Как|what её|her зовут?|(they)_call = What's her name?
+Её|her зовут|(they)_call Ольга.|Olga Она|she врач.|doctor = Her name is Olga. She's a doctor.
+У|by тебя|you есть|there_is дети?|children = Do you have children?
+Да,|yes у|by меня|me есть|there_is сын.|son = Yes, I have a son.
+Нет,|no у|by меня|me нет|there_is_no детей.|children = No, I don't have children.
+  > For "I don't have", use нет and put the thing in the genitive: дети → детей.
+
+## grammar: Мой, моя, моё, мои
+"My" agrees with the noun it describes. Masculine nouns usually end in a consonant, feminine nouns in -а / -я, neuter nouns in -о / -е.
+мой брат, **моя** сестра, **моё** фото, **мои** родители. **Папа** is masculine (he's a man), so it's мой папа.
+ex: Это мой брат. = This is my brother.
+ex: Это моя сестра. = This is my sister.
+ex: Это мои родители. = These are my parents.
+
+## drills
+? Это ___ сестра. | моя | мой, моё, мои | This is my sister.
+? Это ___ папа. | мой | моя, моё, мои | This is my dad.
+? У меня ___ брат. | есть | нет, был, это | I have a brother.
+? Как ___ зовут? (her) | её | его, она, ей | What's her name?
+
+## vocab
+семьЯ | family | noun, f.
+мАма | mom | noun, f.
+пАпа | dad | noun, m.
+брат | brother | noun, m.
+сестрА | sister | noun, f.
+сын | son | noun, m.
+дочь | daughter | noun, f.
+дЕти | children | noun, plural
+родИтели | parents | noun, plural
+мой | my | pronoun | моя, моё, мои
+врач | doctor | noun, m.
+у менЯ есть | I have | phrase | Literally "by me there is".
+
+# lesson a1-07 | numbers | Numbers and time | Числа и время
+summary: Count to twenty, tell the time, and say your age.
+intro: After a number, Russian nouns change form: one form after 1, another after 2–4, and a third after 5–20.
+
+## phrases: Counting and time
+Один,|one два,|two три,|three четыре,|four пять.|five = One, two, three, four, five.
+Шесть,|six семь,|seven восемь,|eight девять,|nine десять.|ten = Six, seven, eight, nine, ten.
+Сколько|how_much сейчас|now времени?|time = What time is it?
+Сейчас|now три|three часа.|hours = It's three o'clock.
+  > After 2, 3 and 4 the word is часа; after 5–20 it's часов.
+Сейчас|now пять|five часов.|hours = It's five o'clock.
+У|by меня|me пять|five минут.|minutes = I have five minutes.
+Партия|game на|for десять|ten минут.|minutes = A ten-minute game.
+Мне|to_me двадцать|twenty лет.|years = I'm twenty years old.
+  > Age uses the dative: мне, тебе, ему, ей + the number of years.
+Какой|what сегодня|today день?|day = What day is it today?
+Сегодня|today понедельник.|Monday = Today is Monday.
+
+## grammar: 1, 2–4, 5+
+Nouns after numbers follow a pattern:
+**1** час, минута, год · **2–4** часа, минуты, года · **5–20** часов, минут, лет.
+Numbers that end in 1 (21, 31) behave like 1; numbers ending in 2–4 (22, 33) like 2–4.
+ex: одна минута, две минуты, пять минут = one minute, two minutes, five minutes
+ex: Мне двадцать один год. = I'm twenty-one.
+
+## drills
+? Сейчас два ___. | часа | час, часов, часы | It's two o'clock.
+? У меня десять ___. | минут | минута, минуты, минуту | I have ten minutes.
+? Мне тридцать ___. | лет | год, года, годы | I'm thirty years old.
+? ___ сейчас времени? | Сколько | Какой, Что, Где | What time is it?
+
+## vocab
+одИн | one | number
+два | two | number
+три | three | number
+четЫре | four | number
+пять | five | number
+шесть | six | number
+семь | seven | number
+вОсемь | eight | number
+дЕвять | nine | number
+дЕсять | ten | number
+двАдцать | twenty | number
+час | hour, o'clock | noun, m.
+минУта | minute | noun, f.
+врЕмя | time | noun, n.
+сегОдня | today | adverb | The г is pronounced like в.
+понедЕльник | Monday | noun, m.
+
+# lesson a1-08 | weather | What's the weather like? | Какая погода?
+summary: Describe the weather and the seasons, and say you're hot or cold.
+intro: Russian weather sentences have no "it": just «Холодно» — "(it's) cold". Rain and snow "go": идёт дождь.
+
+## phrases: Weather talk
+Какая|what_kind_of сегодня|today погода?|weather = What's the weather like today?
+Сегодня|today холодно.|cold = It's cold today.
+Сегодня|today тепло|warm и|and солнечно.|sunny = It's warm and sunny today.
+Идёт|goes дождь.|rain = It's raining.
+Идёт|goes снег.|snow = It's snowing.
+На|on улице|street минус|minus десять.|ten = It's minus ten outside.
+Мне|to_me холодно.|cold = I'm cold.
+  > The person who feels cold is in the dative: мне, тебе, ему, ей холодно.
+Мне|to_me жарко.|hot = I'm hot.
+Я|I люблю|love лето.|summer = I love summer.
+Зимой|in_winter в|in Москве|Moscow очень|very холодно.|cold = In winter it's very cold in Moscow.
+
+## grammar: Seasons and "I'm cold"
+"In winter / spring / summer / autumn" is one word in Russian: **зимой, весной, летом, осенью**.
+To say how *you* feel, use the dative: **мне** холодно, **тебе** жарко? Without мне, it describes the weather.
+ex: Летом жарко. = It's hot in summer.
+ex: Тебе не холодно? = Aren't you cold?
+
+## drills
+? ___ снег. | Идёт | Иду, Идёшь, Идут | It's snowing.
+? Мне ___. (I'm cold) | холодно | холодный, холодная, холод | I'm cold.
+? ___ очень жарко. (in summer) | Летом | Лето, Лета, Лете | It's very hot in summer.
+? Какая сегодня ___? | погода | погоду, погоды, погоде | What's the weather like today?
+
+## vocab
+погОда | weather | noun, f.
+хОлодно | (it's) cold | adverb
+теплО | (it's) warm | adverb
+жАрко | (it's) hot | adverb
+сОлнечно | (it's) sunny | adverb
+дождь | rain | noun, m.
+снег | snow | noun, m.
+зимА | winter | noun, f.
+веснА | spring | noun, f.
+лЕто | summer | noun, n.
+Осень | autumn | noun, f.
+Улица | street | noun, f. | на улице = outside
+
+# lesson a1-09 | shopping | At the store | В магазине
+summary: Find things in a shop, ask the price and pay.
+intro: «Мне нужен…» means "I need…". Like мой, the word нужен agrees with the thing you need.
+
+## phrases: Shopping
+Извините,|excuse_me где|where хлеб?|bread = Excuse me, where is the bread?
+Хлеб|bread там,|there справа.|on_the_right = The bread is over there, on the right.
+Дайте,|give пожалуйста,|please бутылку|bottle воды.|of_water = A bottle of water, please.
+  > бутылка → бутылку (the thing you ask for); вода → воды ("of water").
+Сколько|how_much стоит|costs эта|this футболка?|T-shirt = How much is this T-shirt?
+Тысяча|thousand рублей.|rubles = A thousand rubles.
+Это|this дорого.|expensive = That's expensive.
+Это|this недорого.|inexpensive = That's not expensive.
+Можно|may_I заплатить|pay картой?|by_card = Can I pay by card?
+Да,|yes конечно.|of_course = Yes, of course.
+  > конечно is pronounced [коне́шно].
+Мне|to_me нужен|needed пакет.|bag = I need a bag.
+
+## grammar: Нужен, нужна, нужно
+**Нужен** agrees with what's needed: мне нужен пакет (m), мне нужн**а** сумка (f), мне нужн**о** молоко (n), мне нужн**ы** ключи (pl).
+With a verb, always use нужно: мне нужно идти — "I need to go".
+ex: Мне нужна вода. = I need water.
+ex: Мне нужно работать. = I need to work.
+
+## drills
+? Мне ___ пакет. | нужен | нужна, нужно, нужны | I need a bag.
+? Мне ___ вода. | нужна | нужен, нужно, нужны | I need water.
+? Можно заплатить ___? (by card) | картой | карта, карту, карты | Can I pay by card?
+? Это ___. Слишком дорого! | дорого | дёшево, далеко, хорошо | That's expensive. Too expensive!
+
+## vocab
+магазИн | store, shop | noun, m.
+хлеб | bread | noun, m.
+где | where | adverb
+там | there | adverb
+спрАва | on the right | adverb
+слЕва | on the left | adverb
+бутЫлка | bottle | noun, f.
+дОрого | expensive | adverb
+дёшево | cheap | adverb
+заплатИть | to pay | verb
+кАрта | card; map | noun, f.
+конЕчно | of course | adverb | Pronounced [коне́шно].
+нУжен | needed | short adjective | нужна, нужно, нужны
+пакЕт | bag (plastic) | noun, m.
+
+# lesson a1-10 | directions | Where is the metro? | Где метро?
+summary: Ask for directions and understand the answer.
+intro: Listen for налево ("to the left") and направо ("to the right"). Compare them with слева and справа ("on the left / right").
+
+## phrases: On the street
+@formal Извините,|excuse_me где|where метро?|metro = Excuse me, where's the metro?
+@formal Идите|go прямо,|straight потом|then налево.|to_the_left = Go straight, then left.
+Это|this далеко?|far = Is it far?
+Нет,|no это|this близко.|close = No, it's close.
+Пять|five минут|minutes пешком.|on_foot = Five minutes on foot.
+Где|where здесь|here туалет?|restroom = Where's the restroom here?
+@formal Поверните|turn направо.|to_the_right = Turn right.
+Музей|museum рядом|next с|to парком.|park = The museum is next to the park.
+Я|I не|not знаю,|know где|where это.|this = I don't know where that is.
+@formal Покажите|show на|on карте,|map пожалуйста.|please = Please show me on the map.
+
+## grammar: Where to vs where
+**Налево / направо** answer "which way?": поверните налево. **Слева / справа** answer "where?": магазин слева.
+Formal requests end in **-ите**: идите, поверните, покажите.
+ex: Аптека справа. = The pharmacy is on the right.
+ex: Поверните налево. = Turn left.
+
+## drills
+? Идите ___, потом направо. (straight) | прямо | право, правая, прямой | Go straight, then right.
+? Это ___? Нет, близко. | далеко | долго, дорого, далёкий | Is it far? No, it's close.
+? Музей рядом с ___. | парком | парк, парка, парке | The museum is next to the park.
+? Поверните ___. (to the left) | налево | слева, левый, лево | Turn left.
+
+## vocab
+метрО | metro, subway | noun, n.
+прЯмо | straight ahead | adverb
+налЕво | to the left | adverb
+напрАво | to the right | adverb
+далекО | far | adverb
+блИзко | close, near | adverb
+пешкОм | on foot | adverb
+здесь | here | adverb
+туалЕт | restroom | noun, m.
+музЕй | museum | noun, m.
+парк | park | noun, m.
+рЯдом | nearby, next to | adverb
+потОм | then, later | adverb
+
+# lesson a1-11 | chess_vocab | The pieces | Фигуры на доске
+summary: Name every chess piece and the board in Russian.
+intro: Some Russian piece names are surprising: the knight is a "horse", the bishop is an "elephant", and the queen is ферзь, a word that came from Persian.
+
+## phrases: Around the board
+Это|this_is шахматная|chess доска.|board = This is a chessboard.
+Это|this_is пешка.|pawn = This is a pawn.
+Это|this_is конь,|knight а|and это|this_is слон.|bishop = This is a knight, and this is a bishop.
+  > Конь literally means "horse" and слон means "elephant".
+Ладья|rook стоит|stands в|in углу.|corner = The rook stands in the corner.
+Ферзь|queen —|(is) сильная|strong фигура.|piece = The queen is a strong piece.
+Где|where король?|king = Where's the king?
+Король|king здесь.|here = The king is here.
+Белые|white фигуры|pieces и|and чёрные|black фигуры.|pieces = White pieces and black pieces.
+У|by меня|me белые.|white = I have white.
+Сколько|how_many пешек?|pawns Восемь.|eight = How many pawns? Eight.
+
+## grammar: Pieces have gender
+**Пешка** and **ладья** are feminine; **конь, слон, ферзь, король** are masculine. Adjectives agree: сильн**ая** пешка, сильн**ый** конь.
+**Фигура** ("piece") is feminine, so: Ферзь — сильная фигура. Chess players never call the queen королева; it's always **ферзь**.
+ex: Это мой конь. = This is my knight.
+ex: Это моя ладья. = This is my rook.
+
+## drills
+? Ферзь — ___ фигура. | сильная | сильный, сильное, сильные | The queen is a strong piece.
+? Это мой ___. (knight) | конь | пешка, ладья, доска | This is my knight.
+? У меня восемь ___. (pawns) | пешек | пешка, пешки, пешку | I have eight pawns.
+? Это моя ___. (rook) | ладья | конь, слон, король | This is my rook.
+
+## vocab
+шАхматы | chess | noun, plural
+доскА | board | noun, f.
+фигУра | piece | noun, f.
+пЕшка | pawn | noun, f.
+конь | knight | noun, m. | Literally "horse".
+слон | bishop | noun, m. | Literally "elephant".
+ладьЯ | rook | noun, f.
+ферзь | queen (chess) | noun, m.
+корОль | king | noun, m.
+бЕлые | white (pieces) | adjective, plural
+чёрные | black (pieces) | adjective, plural
+сИльный | strong | adjective
+Угол | corner | noun, m. | в углу = in the corner
+
+# lesson a1-12 | chess_talk | Let's play! | Давай сыграем!
+summary: Start a game, choose colours and talk about whose move it is.
+intro: In Russian you play "with white": играть белыми. That form — the instrumental — also appears in «хожу конём», "I move my knight".
+
+## dialogue: A friendly game
+Максим: Давай|let's сыграем|play в|(at) шахматы!|chess = Let's play chess!
+Анна: Давай!|let's Ты|you играешь|play белыми|(with)_white или|or чёрными?|(with)_black = Sure! Are you playing white or black?
+Максим: Белыми.|(with)_white = White.
+Анна: Хорошо.|good Твой|your ход.|move = Okay. Your move.
+Максим: Я|I хожу|move пешкой.|(with)_a_pawn = I'm moving a pawn.
+Анна: Теперь|now мой|my ход.|move = Now it's my move.
+Максим: Шах!|check = Check!
+Анна: Ой!|oh Хороший|good ход!|move = Oh! Good move!
+
+## phrases: At the end
+@formal Ваш|your ход.|move = Your move. (formal)
+Хорошая|good партия!|game = Good game!
+Спасибо|thanks за|for игру!|the_game = Thanks for the game!
+Сыграем|(shall_we)_play ещё?|again = Shall we play again?
+
+## grammar: Playing "with" a piece
+After **играть** (colours) and **ходить** (pieces), Russian uses the instrumental case:
+играть бел**ыми** / чёрн**ыми** · ходить пешк**ой**, кон**ём**, слон**ом**, ладь**ёй**, ферз**ём**, корол**ём**.
+ex: Я играю чёрными. = I'm playing black.
+ex: Я хожу конём. = I'm moving my knight.
+
+## drills
+? Ты играешь ___? (white) | белыми | белые, белый, белая | Are you playing white?
+? Твой ___. | ход | ходить, хожу, ходы | Your move.
+? Я хожу ___. (конь) | конём | конь, коня, коню | I'm moving my knight.
+? Спасибо за ___! | игру | игра, игры, игре | Thanks for the game!
+
+## vocab
+игрАть | to play | verb
+сыгрАть | to play (a game) | verb | Perfective of играть.
+ход | move, turn | noun, m.
+твой | your (ты) | pronoun
+ваш | your (вы) | pronoun
+шах | check | noun, m.
+мат | checkmate | noun, m.
+пАртия | game (of chess) | noun, f.
+игрА | game | noun, f.
+ходИть | to move (a piece); to walk | verb | я хожу, ты ходишь
+давАй | let's | particle
+тепЕрь | now | adverb
+
+# lesson a1-13 | hobbies | Hobbies | Хобби
+summary: Say what you like doing — and learn the difference between играть в and играть на.
+intro: Two common ways to say "I like": я люблю (I love, I like doing) and мне нравится (it pleases me).
+
+## phrases: Free time
+Что|what ты|you любишь|like делать?|to_do = What do you like to do?
+Я|I люблю|like музыку|music и|and спорт.|sport = I love music and sports.
+Я|I играю|play в|(at) шахматы|chess и|and в|(at) футбол.|football = I play chess and soccer.
+  > Games and sports: играть в + the game.
+Я|I играю|play на|on гитаре.|guitar = I play the guitar.
+  > Instruments: играть на + the instrument.
+Мне|to_me нравится|is_pleasing читать.|to_read = I like reading.
+Мне|to_me нравятся|are_pleasing фильмы.|films = I like movies.
+  > нравится for one thing or an activity; нравятся for several things.
+Ты|you любишь|like готовить?|to_cook = Do you like cooking?
+Не|not очень.|very = Not really.
+По|on выходным|weekends я|I гуляю|stroll в|in парке.|park = On weekends I go for walks in the park.
+
+## grammar: В or на?
+**Играть в** + game or sport: в шахматы, в футбол, в теннис.
+**Играть на** + musical instrument: на гитаре, на пианино.
+**Мне нравится** + one thing or a verb; **мне нравятся** + several things.
+ex: Мне нравится этот город. = I like this city.
+ex: Мне нравятся эти книги. = I like these books.
+
+## drills
+? Я играю ___ шахматы. | в | на, с, о | I play chess.
+? Я играю ___ пианино. | на | в, с, о | I play the piano.
+? Мне ___ фильмы. | нравятся | нравится, нравлюсь, нравишься | I like movies.
+? Что ты ___ делать? | любишь | люблю, любит, любить | What do you like to do?
+
+## vocab
+любИть | to love, to like | verb | я люблю, ты любишь
+мУзыка | music | noun, f.
+спорт | sport | noun, m.
+футбОл | soccer, football | noun, m.
+гитАра | guitar | noun, f.
+нрАвиться | to be pleasing | verb | мне нравится = I like
+фильм | film, movie | noun, m.
+готОвить | to cook; to prepare | verb
+гулЯть | to stroll, to walk | verb
+выходнЫе | weekend | noun, plural
+
+# lesson a1-14 | grammar | He, she, it: gender | Он, она, оно
+summary: Every Russian noun has a gender. Learn to spot it and use the right pronoun.
+intro: Things are "he", "she" or "it" in Russian depending on the word's ending, not on what they are.
+
+## phrases: Who and what
+Я|I играю,|play ты|you играешь.|play = I play, you play.
+Он|he играет,|plays она|she играет.|plays = He plays, she plays.
+Мы|we играем,|play вы|you играете,|play они|they играют.|play = We play, you play, they play.
+Это|this_is мой|my стол.|table = This is my table.
+Это|this_is моя|my книга.|book = This is my book.
+Это|this_is моё|my окно.|window = This is my window.
+Это|this_is мои|my друзья.|friends = These are my friends.
+Где|where телефон?|phone Вот|here_is он.|it = Where's the phone? Here it is.
+  > Телефон is masculine, so "it" is он.
+Где|where книга?|book Вот|here_is она.|it = Where's the book? Here it is.
+
+## grammar: Three genders
+**Masculine:** ends in a consonant or -й (стол, музей), sometimes -ь (конь). **Feminine:** ends in -а / -я (книга, неделя), sometimes -ь (ночь, дверь). **Neuter:** ends in -о / -е (окно, море).
+For a word ending in -ь, check the dictionary. The pronoun matches the noun: стол → он, книга → она, окно → оно.
+ex: Где окно? Вот оно. = Where's the window? Here it is.
+ex: Где мой конь? Вот он. = Where's my knight? Here it is.
+
+## drills
+? Где окно? Вот ___. | оно | он, она, они | Where's the window? Here it is.
+? Где книга? Вот ___. | она | он, оно, они | Where's the book? Here it is.
+? Они ___ в шахматы. | играют | играет, играем, играешь | They play chess.
+? Это ___ друзья. | мои | мой, моя, моё | These are my friends.
+
+## vocab
+я | I | pronoun
+ты | you (informal) | pronoun
+он | he, it | pronoun
+онА | she, it | pronoun
+онО | it | pronoun
+мы | we | pronoun
+вы | you (formal, plural) | pronoun
+онИ | they | pronoun
+стол | table | noun, m.
+окнО | window | noun, n.
+друг | friend | noun, m. | Plural: друзья.
+телефОн | phone | noun, m.
+вот | here is | particle

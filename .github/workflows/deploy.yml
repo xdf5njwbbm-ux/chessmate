@@ -1,6 +1,6 @@
 name: Deploy to GitHub Pages
 
-# Every push to main runs the chess rule tests, builds the app and publishes it.
+# Every push to main runs the content, chess-rule and phrase tests, builds the app and publishes it.
 on:
   push:
     branches: [main]
@@ -25,8 +25,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Chess rule tests
-        run: npm run test:chess
+      - name: Tests
+        run: npm test
       - name: Build
         run: npm run build
       - uses: actions/upload-pages-artifact@v3

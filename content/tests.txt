@@ -1,0 +1,73 @@
+# test placement | Placement test | Sixteen quick questions from A1 to B2. We'll start you at the first level you haven't mastered yet. | 70
+? A1 | vocab | What does «спасибо» mean? | | thank you* | please | goodbye | sorry
+? A1 | listening | Listen. What does it mean? | Как тебя зовут? | What's your name?* | How are you? | Where are you from? | How old are you?
+? A1 | grammar | Choose the right word: «Это ___ сестра.» | | моя* | мой | моё | мои
+? A1 | reading | What does this mean? | Я из Америки. | I'm from America.* | I live in America. | I'm going to America. | I love America.
+? A2 | grammar | Choose the right word: «Вчера она ___ в магазин.» | | ходила* | ходил | ходит | пойдёт
+? A2 | listening | Listen. What would the speaker like? | Я бы хотел кофе без сахара. | Coffee without sugar* | Coffee with sugar | Tea without sugar | Sugar without coffee
+? A2 | grammar | Choose the right word: «Я хожу в спортзал три ___ в неделю.» | | раза* | раз | разу | разом
+? A2 | reading | What does this mean? | После работы я пойду домой. | After work I'll go home.* | I'm walking home from work now. | I went home after work. | I work from home.
+? B1 | grammar | Choose the right word: «Если ___ у меня было время, я бы поехал в Россию.» | | бы* | будет | был | буду
+? B1 | reading | What does this mean? | Я не совсем согласен с тобой, но понимаю твою точку зрения. | I don't fully agree with you, but I see your point.* | I completely agree with your point of view. | I don't understand your point of view at all. | I agree with you, but not with them.
+? B1 | grammar | Choose the right word: «Каждое лето мы ___ на море.» | | ездим* | едем | поедем | ехали
+? B1 | listening | Listen. What does it mean? | Я заметил, что ты оставил ферзя без защиты. | I noticed you left your queen undefended.* | I noticed you protected your queen. | You noticed that I left my queen. | I'm leaving my queen to defend.
+? B2 | grammar | Choose the right word: «___ пешку, он открыл линию.» | | Взяв* | Беря | Взял | Взятый
+? B2 | reading | What does this mean? | Не хочу делать поспешных выводов, пока не узнаю всей ситуации. | I don't want to jump to conclusions until I know the whole situation.* | I don't want to find out about the situation. | I've already drawn conclusions about the situation. | I'll decide quickly once I know a little more.
+? B2 | grammar | Choose the right word: «Несмотря на ___, мы пошли гулять.» | | дождь* | дождя | дождём | дождю
+? B2 | listening | Listen. What does it mean? | Дело не в деньгах, а в принципе. | It's not about the money; it's the principle.* | The money is the main principle. | It's about the money, not principles. | There's no money in this business.
+
+# test A1 | A1 level test | Twelve questions on A1 vocabulary, grammar and listening. Pass with 80% to move up to A2. | 80
+? A1 | vocab | What does «пешка» mean? | | pawn* | knight | bishop | rook
+? A1 | vocab | What does «Очень приятно» mean? | | Nice to meet you* | Very good | Thank you very much | Very nice weather
+? A1 | grammar | Choose the right word: «Мы ___ в шахматы.» | | играем* | играю | играют | играешь
+? A1 | grammar | Choose the right word: «Кофе с ___, пожалуйста.» | | молоком* | молоко | молока | молоке
+? A1 | grammar | Choose the right word: «Мне двадцать ___.» | | лет* | год | года | годы
+? A1 | listening | Listen. What does it mean? | Повторите, пожалуйста. | Please repeat that.* | Please speak. | Please wait. | Please come in.
+? A1 | listening | Listen. What does it mean? | Извините, где метро? | Excuse me, where's the metro?* | Is the metro far? | When does the metro open? | I'm on the metro.
+? A1 | grammar | Choose the right word: «Я играю ___ гитаре.» | | на* | в | с | о
+? A1 | grammar | Choose the right word: «Это ___ окно.» | | моё* | мой | моя | мои
+? A1 | reading | What does this mean? | У меня есть брат. | I have a brother.* | My brother is here. | I am a brother. | I don't have a brother.
+? A1 | grammar | Choose the right word: «Ты играешь ___?» (white) | | белыми* | белые | белый | белых
+? A1 | listening | Listen. What does it mean? | Сегодня холодно. | It's cold today.* | It was cold yesterday. | It's hot today. | It's raining today.
+
+# test A2 | A2 level test | Twelve questions on A2 grammar, everyday situations and chess talk. Pass with 80% to move up to B1. | 80
+? A2 | grammar | A woman says: «Вчера я ___ в шахматы.» | | играла* | играл | играю | буду играть
+? A2 | grammar | A man says: «Я бы ___ суп.» | | хотел* | хочу | хотела | хотеть
+? A2 | grammar | Choose the right word: «У нас нет ___.» (хлеб) | | хлеба* | хлеб | хлебом | хлебу
+? A2 | grammar | Choose the right word: «Что ты делаешь в ___?» | | субботу* | суббота | субботы | субботой
+? A2 | grammar | Choose the right word: «Я хочу защитить своего ___.» | | короля* | король | королём | королю
+? A2 | grammar | Choose the right word: «Я увлекаюсь ___.» | | музыкой* | музыка | музыку | музыке
+? A2 | listening | Listen. What does it mean? | Мне нужно записаться к врачу. | I need to make a doctor's appointment.* | I need to call the doctor back. | The doctor needs to write to me. | I'm a doctor and I need to write.
+? A2 | listening | Listen. What does it mean? | Вас плохо слышно. | I can't hear you well.* | You don't listen well. | You speak badly. | You can't hear me.
+? A2 | reading | What does this mean? | Завтра я буду работать. | Tomorrow I'll be working.* | Yesterday I was working. | I worked tomorrow. | I won't work tomorrow.
+? A2 | reading | What does this mean? | Слон ходит по диагонали. | The bishop moves diagonally.* | The rook moves along the files. | The knight moves in an L-shape. | The king moves one square.
+? A2 | grammar | Choose the right word: «В следующем году мы ___ на море.» | | поедем* | ездили | поехали | ходили
+? A2 | listening | Listen. What does it mean? | Я опоздал на поезд. | I missed my train.* | The train is late. | I'm on the train. | I'll take the train.
+
+# test B1 | B1 level test | Twelve questions on conditionals, motion verbs, opinions and analysis. Pass with 80% to move up to B2. | 80
+? B1 | grammar | Choose the right word: «Если ___ у меня было время, я бы поехал.» | | бы* | будет | был | буду
+? B1 | grammar | Choose the right word: «Я никогда ___ был в России.» | | не* | ни | нет | нету
+? B1 | grammar | Choose the right word: «Мне не ___ конец фильма.» | | понравился* | понравилась | понравилось | понравились
+? B1 | grammar | Choose the right word: «Я скучаю по ___.» | | тебе* | тебя | ты | тобой
+? B1 | grammar | Choose the right word: «Мы с ___ очень близки.» | | братом* | брат | брата | брату
+? B1 | grammar | Choose the right word: «Каждое лето мы ___ на море.» | | ездим* | едем | поедем | ехать
+? B1 | reading | What does this mean? | Это мне не по карману. | I can't afford it.* | It's not in my pocket. | I don't have my wallet. | It doesn't fit me.
+? B1 | reading | What does this mean? | Давай не будем ссориться. | Let's not argue.* | Let's not meet up. | We won't argue anymore. | Let's not be late.
+? B1 | listening | Listen. What does it mean? | Честно говоря, я сомневаюсь. | To be honest, I have my doubts.* | Honestly, I'm sure of it. | Honestly, I agree. | Frankly, I'm surprised.
+? B1 | grammar | Choose the right word: «Я работаю ___.» (as a manager) | | менеджером* | менеджер | менеджера | менеджеру
+? B1 | listening | Listen. What does it mean? | У белых есть преимущество. | White has the advantage.* | Black has the advantage. | White has a weak pawn. | The position is equal.
+? B1 | listening | Listen. What does it mean? | Ты меня не так понял. | You misunderstood me.* | You don't understand me at all. | I didn't understand you. | You understood me correctly.
+
+# test B2 | B2 level test | Twelve questions on participles, verbal adverbs, connectors and natural speech. Pass with 80% to earn B2. | 80
+? B2 | grammar | Choose the right word: «___ домой, она сразу легла спать.» | | Вернувшись* | Возвращаясь | Вернулась | Вернуться
+? B2 | grammar | Choose the right word: «Пешка, ___ на d5, очень сильная.» | | стоящая* | стоящий | стоявший | стоять
+? B2 | grammar | Choose the right word: «Благодаря ___ я стал играть лучше.» | | тренеру* | тренер | тренера | тренером
+? B2 | grammar | Choose the right word: «Не хочу делать поспешных ___.» | | выводов* | выводы | вывод | выводами
+? B2 | grammar | Choose the right word: «Твоя позиция выглядит довольно ___.» | | уязвимой* | уязвимая | уязвимый | уязвимую
+? B2 | reading | What does this mean? | Если честно, я не ожидал, что всё сложится именно так. | Honestly, I didn't expect things to turn out like this.* | Honestly, this is exactly what I expected. | I hoped things would turn out like this. | To be fair, everything was planned.
+? B2 | reading | What does this mean? | Одно другому не мешает. | The two aren't mutually exclusive.* | One thing gets in the way of the other. | One is better than the other. | Nobody bothers anyone.
+? B2 | listening | Listen. What does it mean? | Я стараюсь найти баланс между работой и личной жизнью. | I'm trying to balance work and my personal life.* | I'm trying to find a job I like. | My personal life matters more than work. | I'm trying to balance my work budget.
+? B2 | reading | What does this mean? | Ну ты даёшь! | Wow, you're something else!* | Well, hand it over! | You give too much. | Come on, give it to me.
+? B2 | grammar | Choose the right word: «Несмотря на ___, она выиграла.» | | усталость* | усталости | усталостью | усталый
+? B2 | listening | Listen. What does it mean? | Не могли бы вы прислать мне отчёт? | Could you send me the report?* | Could you write the report? | You couldn't send me the report. | I can't send you the report.
+? B2 | listening | Listen. What does it mean? | Я считаю, что твоя стратегия была слишком агрессивной. | I believe your strategy was too aggressive.* | I think your strategy was too cautious. | I count on an aggressive strategy. | Your aggressive strategy worked well.

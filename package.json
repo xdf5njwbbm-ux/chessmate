@@ -1,18 +1,22 @@
 {
-  "name": "chessmate",
+  "name": "russian-chess-academy",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "test:chess": "node --experimental-strip-types supabase/functions/game/logic.test.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "content": "node scripts/build-content.mjs",
+    "content:check": "node scripts/build-content.mjs --check",
+    "test:chess": "node --experimental-strip-types --no-warnings supabase/functions/game/logic.test.ts",
+    "test:phrases": "node --experimental-strip-types --no-warnings src/lib/movePhrases.test.ts",
+    "test": "npm run content:check && npm run test:chess && npm run test:phrases"
   },
   "dependencies": {
-    "@fontsource-variable/fraunces": "^5.3.0",
     "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/source-serif-4": "^5.3.1",
     "@supabase/supabase-js": "^2.119.2",
     "chess.js": "^1.4.0",
     "lucide-react": "^1.77.0",

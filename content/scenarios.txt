@@ -1,0 +1,178 @@
+# scenario a1-cafe | A1 | restaurants | At the café | В кафе | a friendly barista in a Moscow café
+desc: Order a drink, choose milk or no milk, and pay.
+T: Здравствуйте! Что будете заказывать? = Hello! What would you like to order?
+U: Order a coffee or a tea. = Кофе, пожалуйста. | Чай, пожалуйста. | Мне кофе, пожалуйста. | Я хочу кофе. | Я хочу чай.
+T: С молоком или без молока? = With milk or without?
+U: Say with or without milk. = Без молока, пожалуйста. | С молоком, пожалуйста. | Без молока. | С молоком.
+T: Что-нибудь ещё? = Anything else?
+U: Say no, thanks, and ask how much it costs. = Нет, спасибо. Сколько это стоит? | Нет, спасибо. Сколько стоит? | Сколько стоит?
+T: Двести рублей. Можно картой. = Two hundred rubles. You can pay by card.
+U: Thank them and say goodbye. = Спасибо! До свидания! | Спасибо, до свидания! | Спасибо!
+T: Хорошего дня! = Have a nice day!
+
+# scenario a1-meet | A1 | meeting | Meeting someone new | Знакомство | Lena, a friendly student you meet at a chess club
+desc: Introduce yourself, say where you're from and what you do.
+T: Привет! Меня зовут Лена. А тебя? = Hi! My name is Lena. And yours?
+U: Tell her your name. = Меня зовут Алекс. | Привет! Меня зовут Алекс. | Я Алекс.
+T: Очень приятно! Откуда ты? = Nice to meet you! Where are you from?
+U: Say where you're from. = Я из Америки. | Я из Канады. | Я из Англии. | Очень приятно! Я из Америки.
+T: Здорово! А что ты делаешь? Работаешь или учишься? = Cool! What do you do? Do you work or study?
+U: Say whether you work or study. = Я работаю. | Я учусь. | Я работаю программистом. | Я студент.
+T: Ты играешь в шахматы? = Do you play chess?
+U: Say yes and suggest playing. = Да! Давай сыграем! | Да, играю. Давай сыграем! | Да, давай сыграем.
+T: Давай! Ты играешь белыми. = Let's! You're playing white.
+
+# scenario a1-directions | A1 | directions | Asking the way | Где метро? | a passer-by on a Moscow street
+desc: Ask how to get to the metro and check if it's far.
+T: Да? Вы что-то ищете? = Yes? Are you looking for something?
+U: Politely ask where the metro is. = Извините, где метро? | Извините, где здесь метро? | Где метро?
+T: Идите прямо, потом налево. = Go straight, then turn left.
+U: Ask if it's far. = Это далеко? | Это далеко отсюда?
+T: Нет, это близко. Пять минут пешком. = No, it's close. Five minutes on foot.
+U: Thank them. = Спасибо большое! | Спасибо! | Большое спасибо!
+T: Пожалуйста! = You're welcome!
+
+# scenario a1-game | A1 | chess_talk | A friendly game | Давай сыграем | Misha, a chess club member
+desc: Start a game, choose a colour and react to moves.
+T: Привет! Давай сыграем в шахматы? = Hi! Shall we play chess?
+U: Agree to play. = Давай! | Да, давай сыграем! | Давай сыграем!
+T: Ты хочешь играть белыми или чёрными? = Do you want to play white or black?
+U: Choose a colour. = Белыми. | Чёрными. | Я хочу играть белыми. | Я играю чёрными.
+T: Хорошо. Твой ход! = Okay. Your move!
+U: Say you're moving a pawn. = Я хожу пешкой. | Я двигаю пешку. | Пешка на e4.
+T: Хороший ход! Шах! = Good move! Check!
+U: React: say "oh!" and that it's a good move. = Ой! Хороший ход! | Ой, хороший ход! | Ой!
+T: Спасибо за игру! = Thanks for the game!
+
+# scenario a2-dinner | A2 | restaurants | Dinner at a restaurant | В ресторане | a waiter in a traditional Russian restaurant
+desc: Ask for the menu, order a meal politely and ask for the bill.
+T: Добрый вечер! Вы готовы заказать? = Good evening! Are you ready to order?
+U: Ask for the menu. = Можно меню, пожалуйста? | Можно меню? | Дайте, пожалуйста, меню.
+T: Конечно, вот меню. Что будете? = Of course, here's the menu. What will you have?
+U: Politely order soup or borscht. = Я бы хотел борщ. | Я бы хотела борщ. | Я буду суп. | Я бы хотел суп, пожалуйста.
+T: Отличный выбор. Что-нибудь пить? = Great choice. Anything to drink?
+U: Order a drink without sugar. = Чай без сахара, пожалуйста. | Кофе без сахара, пожалуйста. | Я бы хотел чай без сахара.
+T: Как вам еда? = How is the food?
+U: Say you really like it. = Мне очень нравится. | Очень вкусно! | Мне очень нравится эта еда.
+T: Спасибо! Что-нибудь ещё? = Thank you! Anything else?
+U: Ask for the bill. = Счёт, пожалуйста. | Нет, спасибо. Счёт, пожалуйста.
+
+# scenario a2-plans | A2 | plans | Weekend plans | Планы на выходные | Dima, a friend calling about the weekend
+desc: Agree on a plan, a time and a place to meet.
+T: Привет! Что ты делаешь в субботу? = Hi! What are you doing on Saturday?
+U: Say you don't know yet and ask why. = Пока не знаю. А что? | Ещё не знаю. А что? | Не знаю. А что?
+T: Давай сходим в кино! = Let's go to the movies!
+U: Accept and ask what time. = С удовольствием! Во сколько? | Давай! Во сколько? | Хорошо! Во сколько?
+T: В семь вечера. Тебе подходит? = At seven in the evening. Does that work?
+U: Say it works and ask where to meet. = Да, подходит. Где встретимся? | Подходит. Где встретимся?
+T: У входа в кинотеатр. = At the cinema entrance.
+U: Confirm the plan. = Договорились! | Договорились! До встречи! | Хорошо, до встречи!
+T: До субботы! = See you Saturday!
+
+# scenario a2-doctor | A2 | health | At the doctor's | У врача | a calm, kind doctor at a clinic
+desc: Describe your symptoms and understand the doctor's advice.
+T: Здравствуйте! Что вас беспокоит? = Hello! What seems to be the problem?
+U: Say you have a headache. = У меня болит голова. | Здравствуйте! У меня болит голова.
+T: Как давно? = For how long?
+U: Say since yesterday. = Со вчерашнего дня. | С вчерашнего дня. | Со вчера.
+T: Температура есть? = Do you have a temperature?
+U: Answer yes or no. = Да, у меня температура. | Нет, температуры нет. | Да, есть. | Нет.
+T: Принимайте это лекарство три раза в день. = Take this medicine three times a day.
+U: Ask where the nearest pharmacy is. = Где ближайшая аптека? | Спасибо. Где ближайшая аптека?
+T: Аптека рядом, на первом этаже. Выздоравливайте! = The pharmacy is right here on the ground floor. Get well soon!
+
+# scenario a2-hotel | A2 | hotels | Checking in | В гостинице | a receptionist at a St Petersburg hotel
+desc: Check in, ask about breakfast and report a problem.
+T: Добрый день! Чем могу помочь? = Good afternoon! How can I help?
+U: Say you have a booking. = У меня забронирован номер. | Здравствуйте, у меня забронирован номер.
+T: Ваша фамилия? = Your last name?
+U: Give your last name. = Смит. | Моя фамилия Смит. | Джонсон.
+T: Да, вижу. На три ночи. Вот ваш ключ. = Yes, I see it. Three nights. Here is your key.
+U: Ask if breakfast is included. = Завтрак включён? | Спасибо. Завтрак включён?
+T: Да, завтрак с семи до десяти. = Yes, breakfast is from seven to ten.
+U: Say the air conditioning doesn't work. = В номере не работает кондиционер. | Кондиционер не работает.
+T: Извините, мы сейчас всё исправим. = Sorry, we'll fix it right away.
+
+# scenario b1-day | B1 | smalltalk | How was your day? | Как прошёл день? | Katya, a close friend you meet after work
+desc: Talk about your day, share an opinion and make a suggestion.
+T: Привет! Как прошёл твой день? = Hi! How was your day?
+U: Say it was fine but tiring. = Неплохо, но я очень устал. | Нормально, но я устала. | Неплохо, но очень устала.
+T: Понимаю. Что случилось? = I get it. What happened?
+U: Say you had a long meeting at work. = У меня было длинное совещание. | На работе было длинное совещание.
+T: Ой, сочувствую. Слушай, может, сходим куда-нибудь вечером? = Oh, I feel for you. Listen, shall we go out tonight?
+U: Give your opinion: you think it's a good idea to try something new. = Я думаю, что нам стоит попробовать что-нибудь новое. | По-моему, это отличная идея!
+T: Отлично! Есть новый грузинский ресторан. = Great! There's a new Georgian restaurant.
+U: Agree and suggest a time. = Давай! В восемь? | Давай встретимся в восемь. | С удовольствием, давай в восемь.
+T: Договорились! = It's a deal!
+
+# scenario b1-coworker | B1 | work | Talking to a coworker | Разговор с коллегой | Andrey, a colleague at your office
+desc: Discuss a project deadline and ask for help.
+T: Привет! Как дела с проектом? = Hi! How's the project going?
+U: Say you need to finish it by Friday. = Мне нужно закончить его до пятницы. | Нужно закончить проект до пятницы.
+T: Успеешь? = Will you make it?
+U: Say you're not sure and ask for help. = Не уверен. Можешь мне помочь? | Я не уверена. Ты можешь помочь? | Честно говоря, сомневаюсь. Поможешь?
+T: Конечно. Что нужно сделать? = Of course. What needs doing?
+U: Ask him to check the report. = Проверь, пожалуйста, отчёт. | Можешь проверить отчёт?
+T: Без проблем. Кстати, ты слышал, что начальник уходит? = No problem. By the way, did you hear the boss is leaving?
+U: React with surprise. = Да ладно! Не может быть! | Правда? Я не знал! | Ничего себе!
+T: Да, сам удивился. = Yeah, I was surprised too.
+
+# scenario b1-disagree | B1 | problems | A disagreement | Спор с другом | Pasha, a friend who's upset with you
+desc: Clear up a misunderstanding and make peace.
+T: Ты вчера не пришёл. Я тебя ждал целый час! = You didn't come yesterday. I waited for you a whole hour!
+U: Apologise and say you didn't mean to upset him. = Извини, я не хотел тебя обидеть. | Прости, пожалуйста. Я не хотела тебя обидеть.
+T: Мог хотя бы позвонить. = You could at least have called.
+U: Say he misunderstood: you meant to meet today. = Ты меня не так понял. Я имел в виду сегодня. | Ты не так понял, я думал, что мы встречаемся сегодня.
+T: Правда? Ну ладно. = Really? Well, okay.
+U: Suggest not arguing and meeting tomorrow. = Давай не будем ссориться. Встретимся завтра? | Давай не будем ссориться. Может, завтра?
+T: Хорошо, проехали. = Fine, let's drop it.
+
+# scenario b1-analysis | B1 | chess_talk | Post-game analysis | Анализ партии | Ivan, the opponent you just played
+desc: Analyse the game you just played together.
+T: Хорошая партия! Давай разберём? = Good game! Shall we go over it?
+U: Agree and say where you think he made a mistake. = Давай! Я заметил, что ты оставил ферзя без защиты. | Давай. Мне кажется, ты ошибся на двадцатом ходу.
+T: Да, это была грубая ошибка. А что бы ты сделал на моём месте? = Yes, that was a blunder. What would you have done in my place?
+U: Say you would have played the bishop. = Я бы сыграл слоном. | На твоём месте я бы пошёл слоном. | Я бы защитил ферзя слоном.
+T: Интересно. А где ты упустил преимущество? = Interesting. And where did you let your advantage slip?
+U: Say you were rushing. = Я слишком торопился. | Я слишком торопилась. | Мне кажется, я торопился.
+T: Сыграем ещё одну? = Shall we play another?
+
+# scenario b2-negotiation | B2 | work | A formal request | Деловые переговоры | Ms Orlova, a manager at a partner company
+desc: Make formal requests, propose a change and stay polite.
+T: Добрый день. Чем могу быть полезна? = Good afternoon. How can I help you?
+U: Say you'd like to discuss the contract terms. = Я хотел бы обсудить условия договора. | Добрый день. Я хотела бы обсудить условия договора.
+T: Конечно. Что именно вас не устраивает? = Of course. What exactly doesn't suit you?
+U: Politely ask whether the deadline could be moved. = Не могли бы вы перенести срок? | Не могли бы мы перенести срок на месяц?
+T: Боюсь, это выходит за рамки моих полномочий. = I'm afraid that's beyond my authority.
+U: Ask her to pass the request to her manager; say you'd appreciate a reply. = Не могли бы вы передать просьбу руководству? Буду признателен за ответ. | Тогда не могли бы вы передать это руководству?
+T: Хорошо, я передам и сообщу вам результат. = All right, I'll pass it on and let you know.
+
+# scenario b2-travel | B2 | travel | A travel complaint | Жалоба в аэропорту | an airline service desk agent
+desc: Explain a missed connection and lost luggage, and ask about compensation.
+T: Слушаю вас. = How can I help?
+U: Explain your flight was delayed and you missed your connection. = Мой рейс задержали, и я пропустил стыковочный рейс. | Рейс задержали на три часа, и я пропустила стыковку.
+T: Понимаю. Мы можем посадить вас на следующий рейс. = I understand. We can put you on the next flight.
+U: Say your luggage also got lost and ask who to contact. = К тому же мой багаж потерялся. Куда мне обратиться? | И ещё мой багаж потерялся. Куда обратиться?
+T: Заполните, пожалуйста, эту форму. = Please fill in this form.
+U: Ask whether you're entitled to compensation. = Мне положена компенсация? | Скажите, а мне положена компенсация?
+T: Да, при задержке больше трёх часов. = Yes, for delays over three hours.
+
+# scenario b2-debate | B2 | opinions | A friendly debate | Дискуссия | Oleg, a friend who loves to argue about life
+desc: Debate whether work or personal life should come first.
+T: По-моему, в молодости нужно работать, а отдыхать будем потом. = In my view, you work hard while you're young and rest later.
+U: Politely disagree and mention balance. = Позволь с тобой не согласиться. Важно найти баланс между работой и личной жизнью. | Позволь не согласиться: мне кажется, важен баланс.
+T: Но без денег личная жизнь тоже не складывается. = But without money, your personal life doesn't work out either.
+U: Say you don't deny it but he's overlooking something. = Я не отрицаю, но ты упускаешь из виду одну деталь. | С этим трудно спорить, но ты упускаешь из виду здоровье.
+T: Какую? = Which one?
+U: Say health is worth more than money. = Здоровье дороже денег. | Дело не в деньгах, а в здоровье.
+T: Ну, одно другому не мешает. = Well, the two aren't mutually exclusive.
+
+# scenario b2-coach | B2 | chess_talk | Review with your coach | Разбор с тренером | Coach Sergey Petrovich, demanding but fair
+desc: Discuss your loss, accept criticism and plan your training.
+T: Ну что, давай разберём твою партию. = Well then, let's go over your game.
+U: Say honestly that you didn't expect to lose. = Если честно, я не ожидал, что проиграю. | Честно говоря, я не ожидала такого результата.
+T: Я считаю, что твоя стратегия была слишком агрессивной. = I believe your strategy was too aggressive.
+U: Admit you overestimated your chances. = Согласен, я переоценил свои шансы. | Согласна, я переоценила свои шансы.
+T: Именно поэтому ты потерял преимущество в эндшпиле. = That's exactly why you lost your advantage in the endgame.
+U: Ask where you should start working. = С чего мне начать? | Над чем мне стоит поработать?
+T: С ладейных окончаний. И меньше торопись. = With rook endings. And rush less.

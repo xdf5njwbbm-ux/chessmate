@@ -1,108 +1,115 @@
-export type Gender = "woman" | "man" | "nonbinary";
-export type Intentions = "serious" | "casual" | "friendship" | "unsure";
-export type Experience = "beginner" | "intermediate" | "advanced" | "competitive";
-export type TimeControl = "blitz3" | "blitz5" | "rapid10" | "rapid15" | "correspondence";
-export type GameMode = "casual" | "competitive";
+export type Level = "A1" | "A2" | "B1" | "B2";
+export type Forms = "m" | "f";
+export type Intensity = "quick" | "standard" | "deep";
+export type Pool = "bullet" | "blitz" | "rapid" | "daily";
+export type RatingStatus = "unrated" | "provisional" | "established";
+export type Voice = "female" | "male" | "female2";
 
 export type Profile = {
   id: string;
-  first_name: string;
-  birthdate: string;
-  gender: Gender;
-  interested_in: Gender[];
-  city: string | null;
-  lat: number | null;
-  lng: number | null;
-  max_distance_km: number;
-  age_min: number;
-  age_max: number;
-  bio: string;
-  intentions: Intentions | null;
-  elo: number | null;
-  experience: Experience | null;
-  formats: TimeControl[];
-  interests: string[];
-  photos: string[];
-  discoverable: boolean;
+  username: string;
+  display_name: string;
+  ru_level: Level;
+  ru_forms: Forms;
+  learning_intensity: Intensity;
+  show_translit: boolean;
+  speech_rate: number;
+  voice: Voice;
+  chess_experience: "new" | "casual" | "club" | "advanced";
+  russian_chat: boolean;
+  daily_goal_words: number;
+  timezone: string;
   show_online: boolean;
-  show_distance: boolean;
-  onboarding_complete: boolean;
-  app_rating: number;
-  rated_games: number;
-  last_seen: string;
+  streak_current: number;
+  streak_best: number;
+  last_active_day: string | null;
   created_at: string;
-  updated_at: string;
 };
 
-export type Question = {
+export type Entitlements = {
+  plan: "free" | "premium";
+  early_access: boolean;
+  levels: Level[];
+  daily_reviews: number | null;
+  saved_phrases: number | null;
+  deep_learning: boolean;
+  full_analysis: boolean;
+  ai_tutor: boolean;
+  neural_voices: boolean;
+  pronunciation_scoring: boolean;
+  advanced_stats: boolean;
+  personal_plan: boolean;
+};
+
+export type Plan = {
   id: string;
-  section: "chess" | "fun" | "dating";
-  prompt: string;
-  kind: "single" | "multi";
-  options: { v: string; l: string }[];
-  ordinal: boolean;
-  dimension: string;
-  weight: number;
-  max_select: number;
-  sort: number;
-};
-
-export type Card = {
-  id: string;
-  first_name: string;
-  age: number;
-  city: string | null;
-  distance_km: number | null;
-  photos: string[];
-  bio: string;
-  intentions: Intentions | null;
-  elo: number | null;
-  experience: Experience | null;
-  formats: TimeControl[];
-  interests: string[];
-  rating: number;
-  rated_games: number;
-  online: boolean;
-  play_style: string | null;
-  opening: string | null;
-  compat: number | null;
-  shared_interests: string[];
-};
-
-export type Relationship = {
-  matched: boolean;
-  incoming_challenge: string | null;
-  outgoing_challenge: string | null;
-  active_game: string | null;
-  games_played: number;
-  my_like: boolean | null;
-};
-
-export type FullProfile = Card & {
-  answers: Record<string, string[]>;
-  shared_answers: string[];
-  stats: { games: number; wins: number; losses: number; draws: number };
-  relationship: Relationship | null;
-  is_me: boolean;
+  name: string;
+  tagline: string;
+  features: Partial<Entitlements>;
+  price_cents: number | null;
+  currency: string | null;
+  billing_interval: string | null;
 };
 
 export type Mini = {
   id: string;
-  first_name: string;
-  age: number;
-  photo: string | null;
-  elo: number | null;
-  rating: number;
-  experience: Experience | null;
+  username: string;
+  display_name: string;
+  ru_level: Level;
   online: boolean;
+  rating: number | null;
+  rating_status: RatingStatus;
+  placement_left: number;
+};
+
+export type RatingRow = {
+  pool: Pool;
+  rating: number | null;
+  status: RatingStatus;
+  games: number;
+  wins: number;
+  losses: number;
+  draws: number;
+  peak: number | null;
+  placement_left: number;
+};
+
+export type GameSummary = {
+  id: string;
+  time_control: string;
+  pool: Pool | "untimed";
+  rated: boolean;
+  opponent_kind: "human" | "ai";
+  ai_elo: number | null;
+  status: "active" | "finished" | "aborted";
+  result: "1-0" | "0-1" | "1/2-1/2" | null;
+  termination: string | null;
+  my_color: "white" | "black";
+  turn: "w" | "b";
+  ply: number;
+  white_ms: number;
+  black_ms: number;
+  turn_started_at: string;
+  updated_at: string;
+  finished_at: string | null;
+  created_at: string;
+  my_delta: number | null;
+  my_rating: number | null;
+  my_status: RatingStatus | null;
+  opponent_rating: number | null;
+  opponent: Mini | null;
 };
 
 export type Game = {
   id: string;
   white_id: string | null;
   black_id: string | null;
-  time_control: TimeControl;
-  mode: GameMode;
+  opponent_kind: "human" | "ai";
+  ai_elo: number | null;
+  time_control: string;
+  pool: Pool | "untimed";
+  rated: boolean;
+  russian_chat: boolean;
   initial_ms: number;
   increment_ms: number;
   per_move: boolean;
@@ -117,68 +124,239 @@ export type Game = {
   turn_started_at: string;
   draw_offer_from: string | null;
   rematch_offer_from: string | null;
-  rematch_of: string | null;
   next_game_id: string | null;
   white_rating: number | null;
   black_rating: number | null;
   white_delta: number | null;
   black_delta: number | null;
+  white_status: RatingStatus | null;
+  black_status: RatingStatus | null;
+  undo_count: number;
   version: number;
   created_at: string;
-  updated_at: string;
   finished_at: string | null;
-};
-
-export type GameSummary = {
-  id: string;
-  time_control: TimeControl;
-  mode: GameMode;
-  status: Game["status"];
-  result: Game["result"];
-  termination: string | null;
-  my_color: "white" | "black";
-  turn: "w" | "b";
-  white_ms: number;
-  black_ms: number;
-  turn_started_at: string;
-  ply: number;
-  updated_at: string;
-  finished_at: string | null;
-  my_delta: number | null;
-  opponent: Mini | null;
 };
 
 export type ChallengeItem = {
   id: string;
-  time_control: TimeControl;
-  mode: GameMode;
+  time_control: string;
+  rated: boolean;
+  russian_chat: boolean;
+  color: "random" | "white" | "black";
   created_at: string;
+  invite_code?: string | null;
   user: Mini | null;
-  compat?: number | null;
 };
 
-export type Inbox = {
-  incoming: ChallengeItem[];
-  outgoing: ChallengeItem[];
-  active: GameSummary[];
-  recent: GameSummary[];
+export type Inbox = { incoming: ChallengeItem[]; outgoing: ChallengeItem[]; active: GameSummary[] };
+
+export type GameMessage = { id: number; game_id: string; user_id: string | null; body: string; created_at: string };
+
+export type Word = { ru: string; f?: string; en: string };
+export type Line = { ru: string; ruF?: string; en: string; words: Word[]; note?: string; speaker?: string; tag?: "formal" | "informal" | "spoken" };
+export type LessonSection =
+  | { type: "lines"; kind: "dialogue" | "phrases"; title: string; lines: Line[] }
+  | { type: "grammar"; title: string; paragraphs: string[]; examples: { ru: string; en: string }[] };
+export type Drill = { q: string; answer: string; options: string[]; en: string };
+export type VocabEntry = { id: string; ru: string; stressed: string; en: string; pos: string; note: string };
+
+export type LessonMeta = {
+  id: string;
+  title: string;
+  title_ru: string;
+  summary: string;
+  category_id: string;
+  sort: number;
+  line_count: number;
+  vocab_count: number;
+  completed: boolean;
+  best_score: number | null;
+  attempts: number;
 };
 
-export type MatchItem = {
-  user: Mini | null;
-  created_at: string;
-  game_id: string | null;
-  compat: number | null;
+export type Lesson = {
+  id: string;
+  level: Level;
+  category_id: string;
+  title: string;
+  title_ru: string;
+  summary: string;
+  content: { intro: string; sections: LessonSection[]; drills: Drill[] };
+  vocab: VocabEntry[];
+  progress: { attempts: number; best_score: number; completed_at: string | null } | null;
+  next_id: string | null;
 };
 
-export type Filters = {
-  max_distance_km?: number;
-  age_min?: number;
-  age_max?: number;
-  elo_min?: number | null;
-  elo_max?: number | null;
-  experience?: Experience[];
-  intentions?: Intentions[];
-  min_compat?: number;
-  sort?: "compat" | "elo" | "active";
+export type Category = { id: string; name: string; grp: "everyday" | "chess" | "grammar" | "pronunciation"; sort: number };
+
+export type Curriculum = {
+  current_level: Level;
+  entitlements: Entitlements;
+  categories: Category[];
+  levels: {
+    code: Level;
+    name: string;
+    description: string;
+    locked: boolean;
+    lessons: LessonMeta[];
+    test: { id: string; title: string; summary: string; pass_pct: number; passed: boolean; best_pct: number | null } | null;
+  }[];
+};
+
+export type TestItem = { id: string; level: Level; kind: "reading" | "listening" | "grammar" | "vocab"; prompt: string; ru: string | null; options: string[] };
+export type Test = { id: string; level: Level | null; title: string; summary: string; pass_pct: number; items: TestItem[] };
+export type TestResult = {
+  score: number;
+  total: number;
+  passed?: boolean;
+  pass_pct?: number;
+  recommended?: Level;
+  per_level?: Record<string, number>;
+  level_before?: Level;
+  level_after?: Level;
+  results: { id: string; answer: number; chosen: number | null; correct: boolean }[];
+  new_achievements?: string[];
+};
+
+export type ReviewItem = {
+  kind: "word" | "phrase";
+  item_id: string;
+  ru: string;
+  stressed: string;
+  en: string;
+  pos: string;
+  note: string;
+  reps: number;
+  lapses: number;
+};
+
+export type VocabWord = VocabEntry & {
+  level: Level;
+  lesson_id: string | null;
+  lesson_title: string | null;
+  tags: string[];
+  reps: number;
+  lapses: number;
+  correct: number;
+  incorrect: number;
+  interval_days: number;
+  due_at: string;
+  added_at: string;
+};
+export type SavedPhrase = { id: number; ru: string; en: string; source: string; created_at: string; reps: number | null; lapses: number | null; interval_days: number | null; due_at: string | null };
+
+export type Achievement = { id: string; name: string; description: string; tier: "bronze" | "silver" | "gold"; category?: string; earned_at?: string };
+
+export type Dashboard = {
+  profile: { display_name: string; username: string; ru_level: Level };
+  entitlements: Entitlements;
+  russian: {
+    level: Level;
+    level_lessons_total: number;
+    level_lessons_done: number;
+    level_test_passed: boolean;
+    level_progress: number;
+    overall_progress: number;
+    lessons_completed: number;
+    lessons_total: number;
+    words: number;
+    mastered: number;
+    phrases: number;
+    due_reviews: number;
+    streak: number;
+    streak_best: number;
+    active_today: boolean;
+    listening: { correct: number; total: number };
+    speaking: { attempts: number; passed: number; avg_score: number | null };
+    next_lesson: { id: string; title: string; title_ru: string; level: Level; category_id: string; summary: string } | null;
+    certified: Level[];
+  };
+  chess: {
+    ratings: RatingRow[];
+    totals: { games: number; wins: number; losses: number; draws: number; vs_ai: number };
+    recent: GameSummary[];
+    active: number;
+  };
+  objectives: { lesson: number; game: number; words: number; words_goal: number; sentences: number };
+  achievements: Achievement[];
+  achievement_count: number;
+};
+
+export type Scenario = {
+  id: string;
+  level: Level;
+  category_id: string;
+  title: string;
+  title_ru: string;
+  description: string;
+  tutor_role: string;
+  steps: number;
+  locked: boolean;
+};
+export type ScriptStep = { who: "tutor"; ru: string; en: string } | { who: "user"; hint: string; answers: string[] };
+export type TutorReply = {
+  reply_ru: string;
+  reply_en: string;
+  correction: { corrected: string; explanation: string; natural: string } | null;
+  new_words: { ru: string; en: string }[];
+};
+
+export type Milestone = {
+  id: string;
+  level: Level;
+  title: string;
+  summary: string;
+  focus: string[];
+  pass_count: number;
+  item_count: number;
+  items: { ru: string; en: string; tip: string }[];
+  passed_items: number[];
+  locked: boolean;
+};
+export type PronunciationOverview = {
+  milestones: Milestone[];
+  stats: { attempts: number; words_practiced: number; sentences_spoken: number; passed: number; speaking_seconds: number; avg_score: number | null; avg_score_7d: number | null; scored: number };
+  trend: { day: string; attempts: number; passed: number; avg_score: number | null }[];
+  difficult_words: { text: string; fails: number; tries: number }[];
+  difficult_sounds: { sound: string; fails: number }[];
+  listening: { correct: number; total: number };
+};
+
+export type Assessment = {
+  recognized: string;
+  pron: number | null;
+  accuracy: number | null;
+  fluency: number | null;
+  completeness: number | null;
+  prosody: number | null;
+  words: { word: string; accuracy: number | null; error: string; syllables: { s: string; accuracy: number | null }[]; phonemes: { p: string; accuracy: number | null }[] }[];
+};
+
+export type ChessStats = {
+  advanced: boolean;
+  pools: (RatingRow & { history: { t: string; r: number; status: RatingStatus; opp: number; s: number; game_id: string | null }[] })[];
+  totals: {
+    games: number; wins: number; losses: number; draws: number; rated: number; vs_ai: number; vs_ai_wins: number;
+    as_white: number; as_white_wins: number; as_black: number; as_black_wins: number;
+  };
+  terminations: Record<string, number> | null;
+  by_opponent: { band: number; games: number; score: number }[] | null;
+};
+
+export type LeaderRow = { rank: number; id: string; username: string; display_name: string; ru_level: Level; rating: number; peak: number | null; games: number; status: RatingStatus; online: boolean; me: boolean };
+
+export type PublicProfile = {
+  id: string;
+  username: string;
+  display_name: string;
+  ru_level: Level;
+  joined: string;
+  is_me: boolean;
+  online: boolean;
+  certified: Level[];
+  ratings: RatingRow[];
+  stats: { games: number; wins: number; losses: number; draws: number };
+  achievements: Achievement[];
+  lessons_completed: number;
+  active_game: string | null;
 };

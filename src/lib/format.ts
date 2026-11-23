@@ -1,9 +1,3 @@
-export function miles(km: number | null | undefined): string | null {
-  if (km == null) return null;
-  const mi = Math.max(1, Math.round(km * 0.621371));
-  return `${mi} mi away`;
-}
-
 export function clock(ms: number, perMove = false): string {
   const t = Math.max(0, ms);
   if (perMove || t >= 3_600_000) {
@@ -30,17 +24,39 @@ export function ago(iso: string | null | undefined): string {
   return new Date(iso).toLocaleDateString(undefined, { month: "short", day: "numeric" });
 }
 
-export function ageFrom(birthdate: string): number {
-  const b = new Date(birthdate + "T00:00:00");
-  const n = new Date();
-  let a = n.getFullYear() - b.getFullYear();
-  const m = n.getMonth() - b.getMonth();
-  if (m < 0 || (m === 0 && n.getDate() < b.getDate())) a--;
-  return a;
+export const pct = (a: number, b: number) => (b > 0 ? Math.round((100 * a) / b) : 0);
+
+/** "1534" for established, "1534?" for provisional, "Unrated" otherwise. */
+export function ratingText(rating: number | null | undefined, status: string | null | undefined): string {
+  if (rating == null || status === "unrated") return "Unrated";
+  return status === "provisional" ? `${rating}?` : String(rating);
 }
 
-export function maxBirthdate(): string {
-  const d = new Date();
-  d.setFullYear(d.getFullYear() - 18);
-  return d.toISOString().slice(0, 10);
+export function duration(seconds: number): string {
+  if (seconds < 60) return `${seconds}s`;
+  const m = Math.floor(seconds / 60);
+  if (m < 60) return `${m} min`;
+  return `${Math.floor(m / 60)}h ${m % 60}m`;
+}
+
+export function uuid(): string {
+  return crypto.randomUUID?.() ?? "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) =>
+    (+c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (+c / 4)))).toString(16));
+}
+
+/** Reads a small per-device preference (localStorage may be unavailable). */
+export function pref<T>(key: string, fallback: T): T {
+  try {
+    const v = localStorage.getItem("rca:" + key);
+    return v == null ? fallback : (JSON.parse(v) as T);
+  } catch {
+    return fallback;
+  }
+}
+export function setPref(key: string, value: unknown) {
+  try {
+    localStorage.setItem("rca:" + key, JSON.stringify(value));
+  } catch {
+    /* storage unavailable */
+  }
 }

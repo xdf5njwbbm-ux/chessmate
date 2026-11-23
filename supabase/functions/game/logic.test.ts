@@ -1,7 +1,7 @@
 // Run: npm run test:chess
 import assert from "node:assert/strict";
 import { Chess } from "chess.js";
-import { applyAction, cannotMate, ratingDeltas, replay, type Game } from "./logic.ts";
+import { applyAction, cannotMate, replay, validateAiGame, type Game } from "./logic.ts";
 
 const W = "white-user";
 const B = "black-user";
@@ -9,7 +9,7 @@ const START = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
 function newGame(over: Partial<Game> = {}): Game {
   return {
-    id: "g1", white_id: W, black_id: B, time_control: "blitz5", mode: "competitive",
+    id: "g1", white_id: W, black_id: B, time_control: "blitz5", opponent_kind: "human", rated: true,
     initial_ms: 300000, increment_ms: 0, per_move: false, status: "active", result: null,
     termination: null, fen: START, moves: [], sans: [], white_ms: 300000, black_ms: 300000,
     turn_started_at: new Date(0).toISOString(), draw_offer_from: null, version: 0, ...over,
@@ -207,11 +207,43 @@ test("no actions after the game is over", () => {
   assert.equal(out.ok, false);
 });
 
-test("rating deltas are zero-sum for equal K and favor the underdog", () => {
-  const d = ratingDeltas({ app_rating: 1200, rated_games: 30 }, { app_rating: 1200, rated_games: 30 }, "1-0");
-  assert.deepEqual(d, { white: 10, black: -10 });
-  const upset = ratingDeltas({ app_rating: 900, rated_games: 30 }, { app_rating: 1500, rated_games: 30 }, "1-0");
-  assert.ok(upset.white > 18 && upset.black < -18);
+test("increment is added after each timed move", () => {
+  let g = newGame({ increment_ms: 2000, white_ms: 180000, black_ms: 180000, initial_ms: 180000 });
+  ({ g } = play(g, ["e2e4", "e7e5"], 0, 1000));
+  const out = applyAction(g, W, "move", "g1f3", Date.parse(g.turn_started_at) + 5000);
+  assert.ok(out.ok);
+  if (out.ok) assert.equal(out.patch.white_ms, 180000 - 5000 + 2000);
+});
+
+test("AI game: checkmate is accepted with the right winner", () => {
+  const r = validateAiGame({ moves: ["f2f3", "e7e5", "g2g4", "d8h4"], color: "w", ai_elo: 1500, claim: "over", undo_count: 0 });
+  assert.ok(r.ok);
+  if (r.ok) {
+    assert.equal(r.result, "0-1");
+    assert.equal(r.termination, "checkmate");
+  }
+});
+
+test("AI game: resigning gives the engine the win", () => {
+  const r = validateAiGame({ moves: ["e2e4", "e7e5", "g1f3"], color: "b", ai_elo: 800, claim: "resign", undo_count: 2 });
+  assert.ok(r.ok);
+  if (r.ok) assert.equal(r.result, "1-0");
+});
+
+test("AI game: an unfinished game can't be claimed as over", () => {
+  const r = validateAiGame({ moves: ["e2e4", "e7e5"], color: "w", ai_elo: 1500, claim: "over", undo_count: 0 });
+  assert.equal(r.ok, false);
+});
+
+test("AI game: illegal or garbage moves are rejected", () => {
+  assert.equal(validateAiGame({ moves: ["e2e5", "e7e5"], color: "w", ai_elo: 1500, claim: "resign", undo_count: 0 }).ok, false);
+  assert.equal(validateAiGame({ moves: ["e2e4", "drop table"], color: "w", ai_elo: 1500, claim: "resign", undo_count: 0 }).ok, false);
+  assert.equal(validateAiGame({ moves: ["e2e4", "e7e5"], color: "w", ai_elo: 99999, claim: "resign", undo_count: 0 }).ok, false);
+});
+
+test("AI game: moves after mate are rejected", () => {
+  const r = validateAiGame({ moves: ["f2f3", "e7e5", "g2g4", "d8h4", "e1f2"], color: "w", ai_elo: 1500, claim: "over", undo_count: 0 });
+  assert.equal(r.ok, false);
 });
 
 console.log(`\n${passed} tests passed`);

@@ -1,0 +1,602 @@
+# lesson b1-01 | smalltalk | How was your day? | Как прошёл день?
+summary: Keep a casual conversation flowing with natural fillers and follow-up questions.
+intro: Real conversations are full of little words — слушай, кстати, ну, ладно — that give you time to think. Use them and you'll sound much more natural.
+
+## dialogue: Catching up
+Анна: Привет!|hi Как|how прошёл|went твой|your день?|day = Hi! How was your day?
+Максим: Неплохо,|not_bad но|but я|I очень|very устал.|got_tired = Not bad, but I'm really tired.
+Анна: Что|what нового?|new = What's new?
+Максим: Да|well ничего|nothing особенного.|special = Nothing special.
+Максим: Слушай,|listen я|I давно|for_a_long_time хотел|wanted с|with тобой|you поговорить.|to_talk = Listen, I've been wanting to talk to you for a while.
+Анна: О|about чём?|what = About what?
+
+## phrases: Small talk
+Как|how тебе|to_you новая|new работа?|job = How's the new job?
+Ты|you слышал{слышала}|heard новость?|the_news = Have you heard the news?
+Кстати,|by_the_way ты|you не|not знаешь,|know где|where Максим?|Maksim = By the way, do you know where Maksim is?
+Ну,|well ладно,|all_right мне|to_me пора.|it's_time = Well, okay, I'd better go.
+  > Мне пора — "it's time for me" — is the polite way to wrap up a chat.
+Рад{рада}|glad был{была}|was тебя|you видеть!|to_see = It was great to see you!
+
+## grammar: Fillers and "How do you like…?"
+**Слушай / слушайте** ("listen") introduces a new topic. **Кстати** = "by the way". **Ну** buys time. **Ладно** = "okay, fine".
+**Как тебе** + noun? = "How do you like…?": Как тебе фильм? Как тебе Москва?
+**Рад / рада / рады** agrees with the speaker: a man says рад, a woman says рада.
+ex: Как тебе новый город? = How do you like the new city?
+ex: Мы рады вас видеть! = We're happy to see you!
+
+## drills
+? Как ___ твой день? | прошёл | прошла, прошло, пройти | How was your day?
+? Что ___? | нового | новое, новый, новости | What's new?
+? Ну, ладно, мне ___. | пора | надо, нужно, время | Well, okay, I'd better go.
+? Я так ___ тебя видеть! (a woman) | рада | рад, рады, радость | I'm so glad to see you!
+
+## vocab
+пройтИ | to go by, to pass | verb | Как прошёл день? = How was the day?
+нЕплохо | not bad | adverb
+осОбенный | special | adjective | ничего особенного = nothing special
+поговорИть | to have a talk | verb
+нОвость | news | noun, f.
+кстАти | by the way | adverb
+лАдно | okay, all right | particle
+порА | it's time | adverb | мне пора = I have to go
+рад | glad | short adjective | рада, рады
+слЫшать | to hear | verb
+
+# lesson b1-02 | opinions | In my opinion | По-моему
+summary: Give your opinion, agree or disagree politely, and weigh both sides.
+intro: You'll learn to say "I think…" in several ways, and to disagree without sounding rude: «Я не совсем согласен с тобой, но…».
+
+## phrases: Saying what you think
+Я|I думаю,|think что|that нам|for_us стоит|it's_worth попробовать|trying что-нибудь|something новое.|new = I think we should try something new.
+По-моему,|in_my_view это|this отличная|excellent идея.|idea = In my opinion, it's a great idea.
+Я|I не|not совсем|entirely согласен{согласна}|agree с|with тобой,|you но|but понимаю|understand твою|your точку|point зрения.|of_view = I don't completely agree with you, but I understand your point of view.
+С|from одной|one стороны,|side это|it's дорого,|expensive с|from другой|the_other —|— удобно.|convenient = On the one hand it's expensive; on the other, it's convenient.
+А|and как|how ты|you считаешь?|think = And what do you think?
+Я|I уверен{уверена},|sure что|that всё|everything получится.|will_work_out = I'm sure everything will work out.
+Честно|honestly говоря,|speaking я|I сомневаюсь.|doubt = To be honest, I have my doubts.
+Ты|you прав{права}.|right = You're right.
+Это|it зависит|depends от|on ситуации.|the_situation = It depends on the situation.
+
+## grammar: Opinion frames
+**Я думаю / считаю, что…** · **По-моему,…** · **Мне кажется, что…** all introduce an opinion. Note the comma before **что**.
+**Стоит** + infinitive = "it's worth / we should": стоит попробовать.
+**Согласен / согласна с** + instrumental = "agree with": я согласна с тобой.
+ex: Мне кажется, что он прав. = I think he's right.
+ex: Тебе стоит отдохнуть. = You should get some rest.
+
+## drills
+? Я не совсем ___ с тобой. (a man) | согласен | согласна, согласие, согласиться | I don't completely agree with you.
+? Нам ___ попробовать что-нибудь новое. | стоит | стоить, стоят, стоял | We should try something new.
+? Я понимаю твою точку ___. | зрения | зрение, зрением, зрению | I understand your point of view.
+? Это зависит от ___. | ситуации | ситуация, ситуацию, ситуацией | It depends on the situation.
+
+## vocab
+дУмать | to think | verb
+считАть | to consider, to think; to count | verb
+стОит | it's worth, one should | verb | стоит + infinitive
+по-мОему | in my opinion | adverb
+идЕя | idea | noun, f.
+совсЕм | completely, quite | adverb
+соглАсен | agree(d) | short adjective | согласна, согласны
+тОчка зрЕния | point of view | phrase
+сторонА | side | noun, f. | с одной стороны = on the one hand
+удОбно | convenient | adverb
+увЕрен | sure, confident | short adjective | уверена
+получИться | to work out, to turn out | verb
+сомневАться | to doubt | verb
+прав | right | short adjective | права, правы
+завИсеть | to depend | verb | зависеть от + genitive
+
+# lesson b1-03 | hobbies | Honestly, I've never… | Честно говоря…
+summary: Talk about experiences — what you've done, never done and dream of doing.
+intro: Russian piles negatives together: «Я никогда ничего не делал» — literally "I never nothing didn't do". It's correct, and it's the only way to say it.
+
+## phrases: Experiences
+Ты|you когда-нибудь|ever был{была}|been в|in России?|Russia = Have you ever been to Russia?
+Нет,|no ни|not разу.|once = No, never.
+Честно|honestly говоря,|speaking я|I никогда|never раньше|before этого|this не|not делал{делала}.|did = Honestly, I've never done this before.
+  > Russian requires the double negative: никогда … не.
+Я|I ещё|yet ни|not разу|once не|not прыгал{прыгала}|jumped с|with парашютом.|a_parachute = I've never skydived yet.
+Это|it был|was мой|my первый|first раз.|time = It was my first time.
+Мне|to_me было|was немного|a_little страшно.|scary = I was a little scared.
+Ничего|nothing страшного!|terrible = It's no big deal!
+Я|I давно|for_a_long_time мечтаю|dream об|about этом.|this = I've dreamed of this for a long time.
+Никто|nobody не|not знал.|knew = Nobody knew.
+Я|I ничего|nothing не|not понял{поняла}.|understood = I didn't understand a thing.
+
+## grammar: Double negatives
+Negative words — **никогда** (never), **ничего** (nothing), **никто** (nobody), **нигде** (nowhere) — always come with **не** before the verb.
+**Ни разу** = "not once". **Когда-нибудь** = "ever" in questions.
+ex: Я нигде не был. = I haven't been anywhere.
+ex: Никто ничего не сказал. = Nobody said anything.
+
+## drills
+? Я никогда ___ был в России. | не | ни, нет, нету | I've never been to Russia.
+? Ты когда-___ был в Москве? | нибудь | то, либо, ни | Have you ever been to Moscow?
+? ___ не знал. (Nobody) | Никто | Ничего, Никогда, Нигде | Nobody knew.
+? Я ___ не понял. (anything) | ничего | никто, никогда, нигде | I didn't understand anything.
+
+## vocab
+когдА-нибудь | ever | adverb
+ни рАзу | not once, never | phrase
+чЕстно говорЯ | honestly speaking | phrase
+никогдА | never | adverb
+рАньше | before, earlier | adverb
+пЕрвый | first | adjective
+стрАшно | scary, frightening | adverb
+ничегО | nothing | pronoun | ничего страшного = no big deal
+мечтАть | to dream | verb
+никтО | nobody | pronoun
+понЯть | to understand (perfective) | verb
+нигдЕ | nowhere | adverb
+
+# lesson b1-04 | emotions | Feelings | Чувства
+summary: Say how you feel, ask what happened and comfort someone.
+intro: Russian expresses many feelings as "it is (sad) to me": мне грустно. Others use verbs ending in -ся: волноваться, злиться.
+
+## phrases: How do you feel?
+Я|I так|so рад{рада}|glad тебя|you видеть!|to_see = I'm so happy to see you!
+Мне|to_me грустно.|sad = I feel sad.
+Я|I волнуюсь|am_nervous из-за|because_of экзамена.|the_exam = I'm nervous about the exam.
+Не|don't волнуйся,|worry всё|everything будет|will_be хорошо.|fine = Don't worry, everything will be fine.
+Я|I злюсь|am_angry на|at себя.|myself = I'm angry at myself.
+Мне|to_me стыдно.|ashamed = I'm embarrassed.
+Я|I в|in восторге!|delight = I'm thrilled!
+Что|what случилось?|happened = What happened?
+Ты|you выглядишь|look расстроенным{расстроенной}.|upset = You look upset.
+  > Выглядеть takes the instrumental, so the adjective agrees: расстроенным (m), расстроенной (f).
+Я|I тебя|you понимаю.|understand = I understand how you feel.
+
+## grammar: Two ways to feel
+**Dative + adverb** for states: мне грустно, весело, скучно, стыдно, страшно, обидно.
+**Reflexive verbs** for emotions you experience: я волнуюсь, я злюсь, я радуюсь.
+**Из-за** + genitive gives a (usually negative) cause: из-за экзамена, из-за погоды.
+ex: Мне скучно. = I'm bored.
+ex: Не злись на меня! = Don't be angry with me!
+
+## drills
+? Мне ___. (I'm bored) | скучно | скучный, скучать, скука | I'm bored.
+? Я волнуюсь из-за ___. | экзамена | экзамен, экзаменом, экзамену | I'm nervous about the exam.
+? Не ___, всё будет хорошо. | волнуйся | волнуюсь, волнуется, волноваться | Don't worry, everything will be fine.
+? Что ___? | случилось | случился, случай, случаться | What happened?
+
+## vocab
+грУстно | sad | adverb | мне грустно = I'm sad
+волновАться | to worry, to be nervous | verb
+из-за | because of | preposition | Takes the genitive.
+экзАмен | exam | noun, m.
+злИться | to be angry | verb
+стЫдно | ashamed, embarrassing | adverb
+востОрг | delight | noun, m. | в восторге = thrilled
+случИться | to happen | verb
+вЫглядеть | to look, to appear | verb
+расстрОенный | upset | adjective
+скУчно | boring, bored | adverb
+вЕсело | fun, cheerful | adverb
+
+# lesson b1-05 | work | Work and careers | Работа и карьера
+summary: Talk about your job, meetings, deadlines and career plans.
+intro: To say what you do for a living, use работать + instrumental: работаю менеджером, учителем, врачом.
+
+## phrases: At work
+Кем|as_what ты|you работаешь?|work = What do you do for a living?
+Я|I работаю|work менеджером|as_a_manager в|in крупной|large компании.|company = I work as a manager at a large company.
+Мне|to_me предложили|(they)_offered новую|new должность.|position = I've been offered a new position.
+У|by меня|me завтра|tomorrow собеседование.|interview = I have a job interview tomorrow.
+У|by нас|us совещание|meeting в|at десять.|ten = We have a meeting at ten.
+Мне|to_me нужно|need закончить|to_finish проект|the_project до|by пятницы.|Friday = I need to finish the project by Friday.
+Мой|my начальник|boss очень|very строгий.|strict = My boss is very strict.
+Мне|to_me нравится|like моя|my работа,|job но|but я|I много|a_lot работаю.|work = I like my job, but I work a lot.
+Я|I хочу|want сменить|to_change работу.|jobs = I want to change jobs.
+Я|I работаю|work удалённо.|remotely = I work remotely.
+Коллеги|colleagues мне|me помогают.|help = My colleagues help me.
+
+## grammar: Профессия and "they"
+**Работать** + instrumental: работать программист**ом**, учител**ем**, медсестр**ой**. The question is **Кем ты работаешь?**
+Russian often uses an unnamed "they" instead of the passive: **мне предложили** = "I was offered", **мне сказали** = "I was told".
+ex: Она работает врачом. = She works as a doctor.
+ex: Нам сказали, что совещание перенесли. = We were told the meeting was moved.
+
+## drills
+? ___ ты работаешь? | Кем | Кто, Как, Где | What do you do for a living?
+? Я работаю ___. (менеджер) | менеджером | менеджер, менеджера, менеджеру | I work as a manager.
+? Мне ___ новую должность. | предложили | предложил, предлагаю, предложить | I've been offered a new position.
+? Мне нужно закончить проект до ___. | пятницы | пятница, пятницу, пятницей | I need to finish the project by Friday.
+
+## vocab
+кем | as what, as whom | pronoun | Кем ты работаешь?
+мЕнеджер | manager | noun, m.
+компАния | company | noun, f.
+предложИть | to offer, to suggest | verb
+дОлжность | position, post | noun, f.
+собесЕдование | job interview | noun, n.
+совещАние | meeting | noun, n.
+закОнчить | to finish | verb
+прОект | project | noun, m.
+начАльник | boss | noun, m.
+стрОгий | strict | adjective
+сменИть | to change | verb
+удалённо | remotely | adverb
+коллЕга | colleague | noun, m./f.
+помогАть | to help | verb | Takes the dative.
+карьЕра | career | noun, f.
+
+# lesson b1-06 | dating | Dating and communication | Свидания и общение
+summary: Invite someone out, say you like them and keep the conversation warm.
+intro: «Ты мне нравишься» — "you are pleasing to me" — is how Russians say "I like you" romantically. The roles are reversed compared with English.
+
+## phrases: Getting closer
+Можно|may_I пригласить|invite тебя|you на|to ужин?|dinner = May I take you out to dinner?
+С|with удовольствием.|pleasure Когда|when тебе|for_you удобно?|convenient = I'd love to. When works for you?
+Мне|to_me с|with тобой|you интересно.|interesting = I really enjoy talking with you.
+Ты|you мне|to_me нравишься.|are_pleasing = I like you.
+  > Literally "you are pleasing to me".
+Я|I тебе|to_you нравлюсь?|am_pleasing = Do you like me?
+Давай|let's ещё|again встретимся.|meet = Let's see each other again.
+Мне|to_me кажется,|it_seems нам|we нужно|need поговорить.|to_talk = I think we need to talk.
+Я|I скучаю|miss по|— тебе.|you = I miss you.
+  > Скучать по + dative: скучаю по тебе, по дому.
+Спасибо|thanks за|for чудесный|wonderful вечер!|evening = Thank you for a wonderful evening!
+Напиши,|text_me когда|when доедешь.|you_get_home = Text me when you get home.
+  > A caring Russian goodbye: let me know you got there safely.
+
+## grammar: Who likes whom
+With **нравиться**, the person who likes is in the dative and the person liked is the subject:
+**ты** мне нравишься (I like you) · **я** тебе нравлюсь? (do you like me?) · **она** ему нравится (he likes her).
+**Пригласить** + accusative + **на** + accusative: пригласить тебя на ужин, на свидание.
+ex: Он мне очень нравится. = I really like him.
+ex: Я скучаю по родителям. = I miss my parents.
+
+## drills
+? Ты мне ___. | нравишься | нравлюсь, нравится, нравятся | I like you.
+? Я скучаю по ___. | тебе | тебя, ты, тобой | I miss you.
+? Можно пригласить тебя на ___? | ужин | ужина, ужине, ужином | May I invite you to dinner?
+? Спасибо за ___ вечер! | чудесный | чудесного, чудесным, чудесная | Thank you for a wonderful evening!
+
+## vocab
+свидАние | date (romantic) | noun, n.
+пригласИть | to invite | verb
+удОбно | convenient | adverb
+обИдеть | to offend, to hurt | verb
+скучАть | to miss; to be bored | verb | скучать по + dative
+чудЕсный | wonderful | adjective
+общЕние | communication | noun, n.
+отношЕния | relationship | noun, plural
+нрАвиться | to be liked by | verb | ты мне нравишься = I like you
+
+# lesson b1-07 | movies | Movies and entertainment | Кино и развлечения
+summary: Discuss films and series — genres, plot, actors and what you thought.
+intro: In the past tense, понравиться agrees with the thing you liked: мне понравился фильм, мне понравилась книга.
+
+## phrases: Talking about films
+Какие|what_kind_of фильмы|films тебе|to_you нравятся?|appeal = What kind of movies do you like?
+Мне|to_me нравятся|appeal комедии|comedies и|and детективы.|crime_dramas = I like comedies and crime dramas.
+Этот|this фильм|film основан|is_based на|on реальных|real событиях.|events = This film is based on true events.
+Кто|who играет|plays главную|the_lead роль?|role = Who plays the lead?
+Сюжет|the_plot очень|very захватывающий.|gripping = The plot is really gripping.
+Мне|to_me не|not понравился|appealed конец.|the_ending = I didn't like the ending.
+Давай|let's посмотрим|watch что-нибудь|something на|on выходных.|the_weekend = Let's watch something this weekend.
+Ты|you смотрел{смотрела}|watched этот|this сериал?|series = Have you watched this series?
+Не|don't рассказывай,|tell я|I ещё|still не|not досмотрел{досмотрела}!|finished_watching = Don't tell me — I haven't finished it yet!
+
+## grammar: Понравился, понравилась…
+The past tense of **(по)нравиться** agrees with the thing liked, not with you:
+мне понравил**ся** фильм · мне понравил**ась** книга · мне понравил**ось** кино · мне понравил**ись** актёры.
+ex: Тебе понравилась музыка? = Did you like the music?
+ex: Нам очень понравился спектакль. = We really enjoyed the play.
+
+## drills
+? Мне не ___ конец. | понравился | понравилась, понравилось, понравились | I didn't like the ending.
+? Тебе ___ книга? | понравилась | понравился, понравилось, понравились | Did you like the book?
+? Фильм основан на реальных ___. | событиях | события, событий, событиями | The film is based on true events.
+? Кто играет главную ___? | роль | роли, ролью, ролей | Who plays the lead?
+
+## vocab
+комЕдия | comedy | noun, f.
+детектИв | detective story, crime drama | noun, m.
+оснОван | based | short participle | основан на + prepositional
+реАльный | real | adjective
+собЫтие | event | noun, n.
+глАвная роль | lead role | phrase
+сюжЕт | plot | noun, m.
+захвАтывающий | gripping, exciting | adjective
+конЕц | end | noun, m.
+понрАвиться | to like (perfective) | verb
+расскАзывать | to tell | verb
+досмотрЕть | to watch to the end | verb
+развлечЕние | entertainment | noun, n.
+
+# lesson b1-08 | money | Money | Деньги
+summary: Pay, borrow, save and talk about prices without awkwardness.
+intro: Russian has a lovely idiom for "I can't afford it": «Это мне не по карману» — "it doesn't fit my pocket".
+
+## phrases: Money talk
+Я|I коплю|am_saving на|for отпуск.|a_vacation = I'm saving up for a vacation.
+Это|this мне|to_me не|not по|within карману.|pocket = I can't afford it.
+Можно|may_I заплатить|pay наличными?|in_cash = Can I pay in cash?
+Сколько|how_much с|from меня?|me = How much do I owe?
+Я|I забыл{забыла}|forgot кошелёк|wallet дома.|at_home = I left my wallet at home.
+Одолжи|lend мне,|me пожалуйста,|please тысячу|a_thousand рублей.|rubles = Could you lend me a thousand rubles?
+Я|I верну|will_return завтра.|tomorrow = I'll pay you back tomorrow.
+Цены|prices выросли.|have_risen = Prices have gone up.
+Здесь|here есть|is_there банкомат?|an_ATM = Is there an ATM here?
+Я|I слежу|keep_track за|of своими|my_own расходами.|expenses = I keep track of my spending.
+
+## grammar: Useful money verbs
+**Копить на** + accusative = "save up for": копить на машину. **Платить / заплатить** + instrumental for the means: картой, наличными.
+**Следить за** + instrumental = "keep an eye on": следить за расходами, за ценами.
+ex: Мы копим на квартиру. = We're saving up for an apartment.
+ex: Я заплачу картой. = I'll pay by card.
+
+## drills
+? Я коплю на ___. | отпуск | отпуска, отпуском, отпуске | I'm saving for a vacation.
+? Это мне не по ___. | карману | карман, кармана, карманом | I can't afford it.
+? Можно заплатить ___? (in cash) | наличными | наличные, наличных, наличным | Can I pay in cash?
+? Я слежу за своими ___. | расходами | расходы, расходов, расходам | I keep track of my spending.
+
+## vocab
+дЕньги | money | noun, plural
+копИть | to save up | verb
+Отпуск | vacation, leave | noun, m.
+кармАн | pocket | noun, m.
+налИчные | cash | noun, plural
+кошелёк | wallet | noun, m.
+одолжИть | to lend, to borrow | verb
+вернУть | to return, to pay back | verb
+ценА | price | noun, f.
+вЫрасти | to grow, to rise | verb
+банкомАт | ATM | noun, m.
+следИть | to keep track of | verb | следить за + instrumental
+расхОды | expenses | noun, plural
+
+# lesson b1-09 | problems | Problems and disagreements | Проблемы и споры
+summary: Disagree, apologise, clear up a misunderstanding and make peace.
+intro: Arguments happen in every language. Here you'll learn to defend your view, admit a mistake and move on gracefully.
+
+## phrases: Working it out
+Мне|to_me кажется,|it_seems ты|you не|not прав{права}.|right = I think you're wrong.
+Давай|let's не|not будем|— ссориться.|quarrel = Let's not argue.
+Извини,|sorry я|I не|not хотел{хотела}|meant тебя|you обидеть.|to_offend = Sorry, I didn't mean to offend you.
+Ты|you меня|me не|not так|right понял{поняла}.|understood = You've misunderstood me.
+Я|I имел{имела}|had в|in виду|view другое.|something_else = I meant something else.
+Это|it's не|not моя|my вина.|fault = It's not my fault.
+Давай|let's найдём|find компромисс.|a_compromise = Let's find a compromise.
+Меня|me это|this раздражает.|irritates = That annoys me.
+Я|I готов{готова}|ready обсудить|to_discuss это|it спокойно.|calmly = I'm ready to talk about it calmly.
+Ладно,|okay проехали.|moving_on = Okay, let's drop it.
+  > Проехали — colloquial "let's move on", literally "we've driven past".
+
+## grammar: Clearing things up
+**Иметь в виду** = "to mean": я имел в виду другое. **Не так понять** = "to misunderstand".
+**Давай не будем** + imperfective infinitive = "let's not…": давай не будем спорить.
+ex: Что ты имеешь в виду? = What do you mean?
+ex: Давай не будем об этом. = Let's not talk about that.
+
+## drills
+? Давай не будем ___. | ссориться | поссоримся, ссорились, ссора | Let's not argue.
+? Я имел в ___ другое. | виду | вид, виде, видом | I meant something else.
+? Это не моя ___. | вина | вину, вины, виной | It's not my fault.
+? Ты меня не так ___. | понял | понимаю, понять, понятно | You misunderstood me.
+
+## vocab
+ссОриться | to quarrel | verb
+имЕть в видУ | to mean | phrase
+винА | fault, guilt | noun, f.
+компромИсс | compromise | noun, m.
+раздражАть | to irritate | verb
+обсудИть | to discuss | verb
+спокОйно | calmly | adverb
+спор | argument, dispute | noun, m.
+проЕхали | let's drop it | phrase | Colloquial.
+
+# lesson b1-10 | grammar | If… | Если бы…
+summary: Make real and hypothetical conditions — in life and at the board.
+intro: Russian uses one simple pattern for "if I had…" and "if I had had…": если бы + past tense, then бы + past tense.
+
+## phrases: Conditions
+Если|if ты|you пойдёшь|go конём,|with_the_knight я|I возьму|will_take ладью.|the_rook = If you move your knight, I'll take the rook.
+Если|if будет|it_will_be дождь,|rain мы|we останемся|will_stay дома.|at_home = If it rains, we'll stay home.
+Если|if бы|— у|by меня|me было|was время,|time я|I бы|would поехал{поехала}|go в|to Россию.|Russia = If I had time, I'd go to Russia.
+Если|if бы|— ты|you взял{взяла}|took пешку,|the_pawn ты|you бы|would выиграл{выиграла}.|have_won = If you'd taken the pawn, you would have won.
+На|in твоём|your месте|place я|I бы|would не|not торопился{торопилась}.|hurry = If I were you, I wouldn't rush.
+Что|what бы|would ты|you сделал{сделала}?|do = What would you do?
+Если|if хочешь,|you_want приходи.|come = Come over if you want.
+
+## grammar: Real and unreal
+**Real:** если + future → future. Если пойдёт дождь, мы останемся дома.
+**Unreal:** если **бы** + past → **бы** + past. The same form covers "if I had" and "if I had had": если бы я знал, я бы сказал = "if I knew, I'd tell" or "if I'd known, I'd have told".
+**На твоём месте** = "in your place / if I were you".
+ex: Если бы я знал, я бы позвонил. = If I'd known, I would have called.
+ex: Я бы на твоём месте отдохнул. = If I were you, I'd get some rest.
+
+## drills
+? Если ___ у меня было время, я бы поехал. | бы | будет, был, будь | If I had time, I'd go.
+? Если будет дождь, мы ___ дома. | останемся | остались, остаёмся, оставались | If it rains, we'll stay home.
+? На твоём ___ я бы не торопился. | месте | место, места, местом | If I were you, I wouldn't rush.
+? Если бы ты взял пешку, ты бы ___. | выиграл | выиграешь, выигрываешь, выиграть | If you'd taken the pawn, you'd have won.
+
+## vocab
+Если | if | conjunction
+остАться | to stay, to remain | verb
+мЕсто | place, seat | noun, n. | на твоём месте = if I were you
+торопИться | to hurry | verb
+приходИть | to come | verb | приходи = come over
+
+# lesson b1-11 | grammar | Verbs of motion | Глаголы движения
+summary: Choose between идти and ходить, ехать and ездить — and use prefixes to say exactly where.
+intro: Russian distinguishes one trip in one direction (идти, ехать) from repeated or round trips (ходить, ездить). Prefixes add the direction: in, out, across, up to.
+
+## phrases: Coming and going
+Я|I иду|am_walking в|to магазин.|the_store = I'm on my way to the store.
+Я|I часто|often хожу|go в|to этот|this клуб.|club = I often go to this club.
+Мы|we едем|are_driving на|to дачу.|the_dacha = We're driving to the dacha.
+Каждое|every лето|summer мы|we ездим|go на|to море.|the_sea = Every summer we go to the seaside.
+Он|he вышел|went_out из|of дома.|the_house = He left the house.
+Она|she пришла|came домой|home поздно.|late = She came home late.
+Заходи|drop_in в|as гости!|a_guest = Come over sometime!
+Конь|the_knight перешёл|went_across на|to другой|the_other фланг.|flank = The knight switched to the other flank.
+Мы|we подъезжаем|are_approaching к|to Москве.|Moscow = We're approaching Moscow.
+
+## grammar: One way or many
+**Идти / ехать** — one direction, right now or on a specific trip. **Ходить / ездить** — habitual, repeated or round trips.
+Prefixes (with the one-way verb for perfective forms): **в-** in (войти), **вы-** out (выйти), **при-** arrive (прийти), **у-** leave (уйти), **пере-** across (перейти), **под-** approach (подойти), **за-** drop by (зайти).
+ex: Завтра я иду в театр. = Tomorrow I'm going to the theater.
+ex: Я хожу в театр каждый месяц. = I go to the theater every month.
+
+## drills
+? Сейчас я ___ в магазин. | иду | хожу, ходил, ездить | I'm walking to the store right now.
+? Каждое лето мы ___ на море. | ездим | едем, поедем, ехали | Every summer we go to the seaside.
+? Она ___ домой поздно. (arrived) | пришла | ушла, вышла, перешла | She came home late.
+? Он ___ из дома в восемь. (went out) | вышел | вошёл, пришёл, подошёл | He left the house at eight.
+
+## vocab
+чАсто | often | adverb
+клуб | club | noun, m.
+дАча | dacha, country house | noun, f.
+кАждый | every | adjective
+Ездить | to go (by vehicle, regularly) | verb
+вЫйти | to go out | verb
+прийтИ | to arrive, to come | verb
+пОздно | late | adverb
+зайтИ | to drop by | verb
+в гОсти | as a guest, visiting | phrase
+перейтИ | to cross, to go over | verb
+флАнг | flank | noun, m.
+подъезжАть | to approach (by vehicle) | verb
+уйтИ | to leave | verb
+
+# lesson b1-12 | chess_talk | Analysing the game | Анализ партии
+summary: Go through a game together: spot mistakes, missed chances and the turning point.
+intro: Post-game analysis is a big part of Russian chess culture. You'll learn to point out a mistake tactfully and explain what would have happened.
+
+## dialogue: Going over the game
+Анна: Я|I заметила,|noticed что|that ты|you оставил|left ферзя|the_queen без|without защиты.|protection = I noticed that you left your queen undefended.
+Максим: Да,|yes это|it была|was грубая|gross ошибка.|mistake = Yes, that was a blunder.
+Анна: Если|if бы|— ты|you сыграл|played слоном|the_bishop на|to e3,|e3 позиция|the_position была|was бы|would равной.|equal = If you'd played your bishop to e3, the position would have been equal.
+Максим: Я|I слишком|too торопился.|was_rushing = I was rushing too much.
+Анна: В|in дебюте|the_opening ты|you играл|played хорошо.|well = You played well in the opening.
+Максим: А|and где|where я|I упустил|let_slip преимущество?|the_advantage = So where did I let the advantage slip?
+Анна: На|on двадцатом|the_twentieth ходу.|move = On move twenty.
+
+## phrases: Analysis phrases
+Давай|let's разберём|go_through эту|this партию.|game = Let's go through this game.
+Здесь|here был|was лучший|a_better ход.|move = There was a better move here.
+Это|this решающий|the_decisive момент.|moment = This is the turning point.
+Я|I заметил{заметила},|noticed что|that твой|your слон|bishop не|not участвует|takes_part в|in игре.|the_game = I noticed your bishop isn't involved in the game.
+
+## grammar: Reporting what you noticed
+**Заметить, что…** / **видеть, что…** introduce a clause; keep the comma before **что**.
+**Без** + genitive: без защиты ("undefended"), без плана, без шансов.
+"On move twenty": **на** + prepositional ordinal + **ходу**: на пятом ходу, на двадцатом ходу.
+ex: Я заметил, что у тебя слабая пешка. = I noticed you have a weak pawn.
+ex: На десятом ходу ты ошибся. = You made a mistake on move ten.
+
+## drills
+? Ты оставил ферзя без ___. | защиты | защита, защиту, защитой | You left your queen undefended.
+? Это была грубая ___. | ошибка | ошибку, ошибки, ошибкой | That was a blunder.
+? Где я упустил ___? | преимущество | преимущества, преимуществом, преимуществе | Where did I let the advantage slip?
+? Давай ___ эту партию. | разберём | разбираем, разобрали, разобрать | Let's go through this game.
+
+## vocab
+замЕтить | to notice | verb
+защИта | defence, protection | noun, f. | без защиты = undefended
+грУбая ошИбка | blunder | phrase
+позИция | position | noun, f.
+рАвный | equal | adjective
+слИшком | too (much) | adverb
+дебЮт | opening (chess) | noun, m.
+упустИть | to let slip, to miss | verb
+преимУщество | advantage | noun, n.
+разобрАть | to analyse, to go through | verb
+решАющий | decisive | adjective
+момЕнт | moment | noun, m.
+анАлиз | analysis | noun, m.
+учАствовать | to take part | verb
+
+# lesson b1-13 | chess_vocab | Strategy | Стратегия
+summary: Describe a position: who's better, which pawns are weak and what the plan is.
+intro: Russian chess literature is famous, and its strategic vocabulary is everyday language for club players.
+
+## phrases: Evaluating a position
+У|by белых|White есть|there_is преимущество.|an_advantage = White has the advantage.
+Чёрные|Black контролируют|control центр.|the_center = Black controls the center.
+Это|this слабая|weak пешка.|pawn = That's a weak pawn.
+У|by тебя|you лишняя|extra пешка.|pawn = You're a pawn up.
+Я|I перехватил{перехватила}|seized инициативу.|the_initiative = I've seized the initiative.
+Король|the_king в|in безопасности.|safety = The king is safe.
+Нужно|(you)_need развивать|to_develop фигуры.|the_pieces = You need to develop your pieces.
+Это|this открытая|open линия.|file = That's an open file.
+Конь|a_knight на|on краю|the_edge доски|of_the_board —|(is) плохой|a_bad конь.|knight = A knight on the rim is dim.
+  > A classic proverb: a knight on the edge of the board is a bad knight.
+Позиция|the_position примерно|roughly равная.|equal = The position is roughly equal.
+
+## grammar: The two sides
+The sides are plural nouns: **белые** (White), **чёрные** (Black). "White has…" = **у белых** есть…; "Black has…" = **у чёрных**.
+Adjectives agree with chess nouns: слаб**ая** пешка, сильн**ый** слон, открыт**ая** линия, лишн**ее** качество.
+ex: У чёрных слабый король. = Black's king is weak.
+ex: Белые атакуют на ферзевом фланге. = White is attacking on the queenside.
+
+## drills
+? У ___ есть преимущество. (White) | белых | белые, белым, белыми | White has the advantage.
+? Это ___ пешка. | слабая | слабый, слабое, слабые | That's a weak pawn.
+? Я перехватил ___. | инициативу | инициатива, инициативы, инициативой | I've seized the initiative.
+? Король в ___. | безопасности | безопасность, безопасный, безопасно | The king is safe.
+
+## vocab
+стратЕгия | strategy | noun, f.
+контролИровать | to control | verb
+центр | center | noun, m.
+слАбый | weak | adjective
+лИшний | extra, spare | adjective
+инициатИва | initiative | noun, f.
+перехватИть | to seize, to intercept | verb
+безопАсность | safety | noun, f.
+развивАть | to develop | verb
+открЫтый | open | adjective
+лИния | line, file | noun, f.
+край | edge | noun, m.
+прИмерно | approximately | adverb
+
+# lesson b1-14 | family | Family and relationships | Семья и отношения
+summary: Describe the people close to you and how you get along.
+intro: «Мы с братом» means "my brother and I" — literally "we with brother". It's one of the most natural constructions in Russian.
+
+## phrases: People close to me
+Мы|we с|with братом|brother очень|very близки.|close = My brother and I are very close.
+Мои|my родители|parents живут|live в|in другом|another городе.|city = My parents live in another city.
+Мы|we видимся|see_each_other редко.|rarely = We rarely see each other.
+Я|I звоню|call маме|mom каждый|every день.|day = I call my mom every day.
+У|by моей|my сестры|sister двое|two детей.|children = My sister has two children.
+Я|I похож{похожа}|look_like на|— отца.|my_father = I look like my father.
+Мы|we часто|often спорим,|argue но|but любим|love друг|each друга.|other = We argue a lot, but we love each other.
+Бабушка|grandma всегда|always нас|us поддерживает.|supports = Grandma always supports us.
+Я|I вырос{выросла}|grew_up в|in маленьком|a_small городе.|town = I grew up in a small town.
+Мы|we собираемся|gather всей|as_the_whole семьёй|family на|for Новый|New год.|Year = The whole family gets together for New Year.
+
+## grammar: Мы с…, друг друга
+**Мы с** + instrumental = "X and I": мы с мамой, мы с другом, мы с женой.
+**Друг друга** = "each other" — the second word takes the case the verb needs: любим друг друга, помогаем друг другу.
+**Двое, трое** count people and children: двое детей, трое друзей.
+ex: Мы с подругой учимся вместе. = My friend and I study together.
+ex: Они часто звонят друг другу. = They often call each other.
+
+## drills
+? Мы с ___ очень близки. (брат) | братом | брат, брата, брату | My brother and I are very close.
+? Мы любим друг ___. | друга | другу, другом, друг | We love each other.
+? Я похож на ___. | отца | отец, отцом, отцу | I look like my father.
+? У сестры ___ детей. | двое | два, две, двух | My sister has two children.
+
+## vocab
+блИзкий | close | adjective | близки (short form)
+вИдеться | to see each other | verb
+рЕдко | rarely | adverb
+двОе | two (people) | numeral
+похОж | similar, alike | short adjective | похож на + accusative
+отЕц | father | noun, m.
+спОрить | to argue | verb
+друг дрУга | each other | phrase
+всегдА | always | adverb
+поддЕрживать | to support | verb
+собирАться | to gather; to plan to | verb
+^нОвый год | New Year | phrase

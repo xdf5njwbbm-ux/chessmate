@@ -5,7 +5,7 @@ import { supabase, APP_URL } from "../lib/supabase";
 import { friendly } from "../lib/api";
 import { useSession } from "../state/session";
 import { useToast } from "../state/toast";
-import { Button, Logo, TopBar } from "../components/ui";
+import { BackButton, Button, Logo } from "../components/ui";
 
 function PasswordField({ value, onChange, autoComplete }: { value: string; onChange: (v: string) => void; autoComplete: string }) {
   const [show, setShow] = useState(false);
@@ -40,14 +40,15 @@ export default function AuthPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [adult, setAdult] = useState(false);
+  const [agree, setAgree] = useState(false);
+  const next = params.get("next");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [sent, setSent] = useState<null | "confirm" | "reset">(null);
 
   useEffect(() => setError(null), [mode]);
 
-  if (ready && uid) return <Navigate to="/" replace />;
+  if (ready && uid) return <Navigate to={next && next.startsWith("/") ? next : "/"} replace />;
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,7 +56,7 @@ export default function AuthPage() {
     setBusy(true);
     try {
       if (mode === "signup") {
-        if (!adult) throw new Error("Please confirm you're 18 or older.");
+        if (!agree) throw new Error("Please agree to play fair and treat other learners with respect.");
         if (password.length < 8) throw new Error("Use at least 8 characters for your password.");
         const { data, error } = await supabase.auth.signUp({
           email: email.trim(),
@@ -64,11 +65,11 @@ export default function AuthPage() {
         });
         if (error) throw error;
         if (!data.session) setSent("confirm");
-        else navigate("/onboarding", { replace: true });
+        else navigate("/welcome", { replace: true });
       } else if (mode === "signin") {
         const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
         if (error) throw error;
-        navigate("/", { replace: true });
+        navigate(next && next.startsWith("/") ? next : "/", { replace: true });
       } else {
         const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), { redirectTo: APP_URL });
         if (error) throw error;
@@ -92,10 +93,10 @@ export default function AuthPage() {
 
   if (sent) {
     return (
-      <div className="safe-top mx-auto flex min-h-dvh max-w-md flex-col px-6">
-        <TopBar back="/" transparent />
+      <div className="safe-top mx-auto flex min-h-dvh max-w-md flex-col px-6 pb-10">
+        <div className="pt-4"><BackButton to="/" /></div>
         <div className="flex flex-1 flex-col items-center justify-center pb-24 text-center">
-          <div className="mb-6 grid size-16 animate-pop place-items-center rounded-3xl bg-gold/10 text-gold">
+          <div className="mb-6 grid size-16 animate-pop place-items-center rounded-3xl bg-accent/10 text-accent">
             <Mail className="size-8" />
           </div>
           <h1 className="font-display text-3xl font-semibold">Check your inbox</h1>
@@ -109,7 +110,7 @@ export default function AuthPage() {
             variant="secondary"
             onClick={() => {
               setSent(null);
-              setParams({ mode: "signin" });
+              setParams(next ? { mode: "signin", next } : { mode: "signin" });
             }}
           >
             Back to sign in
@@ -120,8 +121,8 @@ export default function AuthPage() {
   }
 
   return (
-    <div className="safe-top mx-auto flex min-h-dvh max-w-md flex-col px-6">
-      <TopBar back="/" transparent />
+    <div className="safe-top mx-auto flex min-h-dvh max-w-md flex-col px-6 pb-10">
+      <div className="pt-4"><BackButton to="/" /></div>
       <div className="mt-4 animate-rise">
         <Logo size={34} />
         <h1 className="mt-8 font-display text-4xl font-semibold tracking-tight">
@@ -129,9 +130,9 @@ export default function AuthPage() {
         </h1>
         <p className="mt-2 text-fog">
           {mode === "signup"
-            ? "It takes about three minutes to set up your profile."
+            ? "Free to start. Your Russian level and chess rating are tracked separately."
             : mode === "signin"
-              ? "Your next game is waiting."
+              ? "Продолжим? Your next lesson and game are waiting."
               : "Enter your email and we'll send you a reset link."}
         </p>
       </div>
@@ -152,8 +153,8 @@ export default function AuthPage() {
         )}
         {mode === "signup" && (
           <label className="mt-1 flex items-start gap-3 text-sm text-fog">
-            <input type="checkbox" checked={adult} onChange={(e) => setAdult(e.target.checked)} className="mt-0.5 size-5 accent-[#ffc61a]" />
-            <span>I'm 18 or older and I'll treat other members with respect.</span>
+            <input type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)} className="mt-0.5 size-5 accent-[#3fbf7f]" />
+            <span>I'll play fair (no engine help in rated games) and treat other learners with respect.</span>
           </label>
         )}
         {error && <div className="rounded-xl border border-danger/30 bg-danger/10 px-4 py-3 text-sm text-[#ffb3b3]">{error}</div>}
@@ -169,12 +170,12 @@ export default function AuthPage() {
           </button>
         )}
         {mode === "signup" ? (
-          <button onClick={() => setParams({ mode: "signin" })}>
-            Already have an account? <span className="font-semibold text-gold">Sign in</span>
+          <button onClick={() => setParams(next ? { mode: "signin", next } : { mode: "signin" })}>
+            Already have an account? <span className="font-semibold text-accent">Sign in</span>
           </button>
         ) : (
-          <button onClick={() => setParams({ mode: "signup" })}>
-            New to Chessmate? <span className="font-semibold text-gold">Create an account</span>
+          <button onClick={() => setParams(next ? { mode: "signup", next } : { mode: "signup" })}>
+            New here? <span className="font-semibold text-accent">Create an account</span>
           </button>
         )}
       </div>
@@ -190,8 +191,8 @@ export function ResetPassword() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   return (
-    <div className="safe-top mx-auto flex min-h-dvh max-w-md flex-col px-6">
-      <TopBar back="/" transparent />
+    <div className="safe-top mx-auto flex min-h-dvh max-w-md flex-col px-6 pb-10">
+      <div className="pt-4"><BackButton to="/" /></div>
       <h1 className="mt-6 font-display text-4xl font-semibold">Choose a new password</h1>
       {!uid && <p className="mt-2 text-fog">Open the reset link from your email on this device to continue.</p>}
       <form

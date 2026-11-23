@@ -1,12 +1,12 @@
 {
-  "name": "Chessmate",
-  "short_name": "Chessmate",
-  "description": "The dating app where every first date is a game of chess.",
+  "name": "Russian Chess Academy",
+  "short_name": "Chess Academy",
+  "description": "Learn Russian. Think in Russian. Play chess.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#070b16",
-  "theme_color": "#070b16",
+  "background_color": "#09090a",
+  "theme_color": "#09090a",
   "icons": [
     { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" },
     { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
