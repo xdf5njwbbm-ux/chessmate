@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Check, Sparkles, Volume2, X } from "lucide-react";
 import { api } from "../lib/api";
+import { plain } from "../lib/russian";
 import { nextQuestion, type MoveQuestion, type QuestionPool } from "../lib/moveQuestions";
 import { useSession } from "../state/session";
 import { useLive } from "../state/live";
@@ -36,6 +37,9 @@ export function MoveQuestionCard({ q }: { q: MoveQuestion }) {
   const [picked, setPicked] = useState<string | null>(null);
   const done = picked != null;
   const right = picked === q.answer;
+  // Listening questions keep their mic beside "Play again" at the top; the rest get it under the answer.
+  const practiseBelow = !q.audio;
+  const practiceRow = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setPicked(null);
@@ -44,6 +48,14 @@ export function MoveQuestionCard({ q }: { q: MoveQuestion }) {
       return () => clearTimeout(t);
     }
   }, [q.key]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // the mic row appears under the answer — bring it into view so it isn't hidden below the fold
+  useEffect(() => {
+    if (!done || !practiceRow.current) return;
+    const el = practiceRow.current;
+    const t = setTimeout(() => revealInPanel(el), 80);
+    return () => clearTimeout(t);
+  }, [done]);
 
   const choose = (o: string) => {
     if (done) return;
@@ -106,9 +118,41 @@ export function MoveQuestionCard({ q }: { q: MoveQuestion }) {
             <span className={`font-semibold ${right ? "text-accent-soft" : "text-warn"}`}>{right ? "Правильно! " : "Not quite. "}</span>
             <span className="ru text-base">{q.reveal.ru}</span> <span className="text-mist">— {q.reveal.en}</span>
           </div>
-          <button className="grid size-8 shrink-0 place-items-center rounded-lg bg-white/[0.07]" aria-label="Listen" onClick={() => say(q.reveal.ru)}><Volume2 className="size-4" /></button>
+          {!practiseBelow && (
+            <button className="grid size-8 shrink-0 place-items-center rounded-lg bg-white/[0.07]" aria-label="Listen" onClick={() => say(q.reveal.ru)}><Volume2 className="size-4" /></button>
+          )}
+        </div>
+      )}
+      {done && practiseBelow && (
+        // Every other question type: once answered, listen to the Russian and say it yourself.
+        <div ref={practiceRow} className="mt-2.5">
+          <SpeakPractice
+            key={q.key}
+            compact
+            text={plain(q.reveal.ru)}
+            refKey="move-question"
+            label={sayLabel(q)}
+            leading={<button className="btn btn-secondary h-11 px-4" onClick={() => say(q.reveal.ru)}><Volume2 className="size-4" /> Listen</button>}
+          />
         </div>
       )}
     </div>
   );
+}
+
+function sayLabel(q: MoveQuestion): string {
+  if (q.kind === "word" || q.kind === "word-ru") return plain(q.reveal.ru).trim().includes(" ") ? "Say phrase" : "Say word";
+  return "Say sentence";
+}
+
+/** Scrolls `el` into view inside its own scrolling panel (never the page, so the board stays put). */
+function revealInPanel(el: HTMLElement) {
+  for (let p = el.parentElement; p; p = p.parentElement) {
+    const oy = getComputedStyle(p).overflowY;
+    if ((oy === "auto" || oy === "scroll") && p.scrollHeight > p.clientHeight) {
+      const below = el.getBoundingClientRect().bottom - p.getBoundingClientRect().bottom;
+      if (below > 0) p.scrollBy({ top: below + 12, behavior: "smooth" });
+      return;
+    }
+  }
 }
