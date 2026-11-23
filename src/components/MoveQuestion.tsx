@@ -4,7 +4,7 @@ import { api } from "../lib/api";
 import { nextQuestion, type MoveQuestion, type QuestionPool } from "../lib/moveQuestions";
 import { useSession } from "../state/session";
 import { useLive } from "../state/live";
-import { useSay } from "./Audio";
+import { SpeakPractice, useSay } from "./Audio";
 
 /** One pool of lesson material per game screen; `questionFor(slot)` gives each move its own, never-repeated question. */
 export function useMoveQuestions() {
@@ -67,8 +67,22 @@ export function MoveQuestionCard({ q }: { q: MoveQuestion }) {
         </div>
       )}
       {q.showEn && <div className={`${q.show ? "mt-0.5 text-sm text-mist" : "mt-2 text-lg"}`}>{q.kind === "gap" ? `“${q.showEn}”` : q.showEn}</div>}
-      {q.audio && (
-        <button className="btn btn-secondary mt-2 h-10 px-4" onClick={() => say(q.audio!)}><Volume2 className="size-4" /> Play again</button>
+      {q.audio && !done && (
+        <button className="btn btn-secondary mt-2 h-11 px-4" onClick={() => say(q.audio!)}><Volume2 className="size-4" /> Play again</button>
+      )}
+      {q.audio && done && (
+        // Once answered, the learner can repeat the sentence and the mic checks it.
+        // (Hidden before answering — its word-by-word feedback would give the answer away.)
+        <div className="mt-2">
+          <SpeakPractice
+            key={q.key}
+            compact
+            text={q.audio}
+            refKey="move-question"
+            label="Say sentence"
+            leading={<button className="btn btn-secondary h-11 px-4" onClick={() => say(q.audio!)}><Volume2 className="size-4" /> Play again</button>}
+          />
+        </div>
       )}
 
       <div className="mt-3 grid gap-1.5">

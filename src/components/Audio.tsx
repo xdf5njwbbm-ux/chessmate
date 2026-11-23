@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Mic, Play, RotateCcw, Square, Volume2 } from "lucide-react";
 import { canRecognize, canRecord, listen, onSpeaking, playUrl, speak, speechStatus, startRecording, stopSpeaking, type Recorder, type Recording } from "../lib/speech";
 import { compareWords, normalizeRu, similarity } from "../lib/russian";
@@ -88,7 +88,16 @@ function adviceFrom(a: Assessment): string[] {
  * (0–100) on the server. Otherwise the device's recognizer reports which
  * words it understood — useful feedback, but not a pronunciation score.
  */
-export function SpeakPractice({ text, refKey, onResult, compact }: { text: string; refKey?: string; onResult?: (passed: boolean) => void; compact?: boolean }) {
+export function SpeakPractice({ text, refKey, onResult, compact, label = "Say it", leading }: {
+  text: string;
+  refKey?: string;
+  onResult?: (passed: boolean) => void;
+  compact?: boolean;
+  /** Text on the mic button before the first attempt. */
+  label?: string;
+  /** Rendered at the start of the button row (e.g. a "Play again" button). */
+  leading?: ReactNode;
+}) {
   const { entitlements } = useSession();
   const { celebrate } = useLive();
   const toast = useToast();
@@ -187,15 +196,19 @@ export function SpeakPractice({ text, refKey, onResult, compact }: { text: strin
 
   if (!supported) {
     return (
-      <p className="text-sm text-mist">
-        Speaking practice needs microphone access and speech recognition. Try Chrome, Edge or Safari on this device.
-      </p>
+      <div>
+        {leading && <div className="mb-2 flex flex-wrap items-center gap-2">{leading}</div>}
+        <p className="text-sm text-mist">
+          Speaking practice needs microphone access and speech recognition. Try Chrome, Edge or Safari on this device.
+        </p>
+      </div>
     );
   }
 
   return (
     <div className={compact ? "" : "rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4"}>
       <div className="flex flex-wrap items-center gap-2">
+        {leading}
         {state === "recording" ? (
           <button onClick={stop} className="btn h-11 animate-pulse-ring bg-danger px-4 text-white">
             <Square className="size-4 fill-white" /> Stop
@@ -206,7 +219,7 @@ export function SpeakPractice({ text, refKey, onResult, compact }: { text: strin
         ) : (
           <button onClick={start} disabled={state === "working"} className="btn btn-primary h-11 px-4">
             {state === "working" ? <Spinner className="size-5 text-ink-950" /> : <Mic className="size-[18px]" />}
-            {feedback ? "Try again" : "Say it"}
+            {feedback ? "Try again" : label}
           </button>
         )}
         {mine && state === "idle" && (
