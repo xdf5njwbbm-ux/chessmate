@@ -12,6 +12,7 @@ import { useToast } from "../state/toast";
 import { RussianLine, stressMapFrom } from "./RussianText";
 import { AudioButtons } from "./Audio";
 import { Segmented } from "./ui";
+import { MoveQuestionCard, useMoveQuestions } from "./MoveQuestion";
 
 const toLine = (p: Phrase): Line => ({ ru: p.ru, en: p.en, words: p.words });
 const WHO = { me: "You", ai: "Stockfish", opponent: "Opponent" } as const;
@@ -29,6 +30,9 @@ export function LearningPanel({ cards, focus, onIntensity }: { cards: { ply: num
   const [history, setHistory] = useState(false);
   const intensity: Intensity = profile?.learning_intensity === "deep" && !ent.deep_learning ? "standard" : profile?.learning_intensity ?? "standard";
   const latest = cards.at(-1);
+  const lastOpp = [...cards].reverse().find((c) => c.card.speaker !== "me");
+  const { questionFor } = useMoveQuestions();
+  const question = lastOpp ? questionFor(lastOpp.ply) : null;
 
   const setIntensity = (i: Intensity) => {
     saveProfile({ learning_intensity: i }).catch(() => {});
@@ -65,6 +69,7 @@ export function LearningPanel({ cards, focus, onIntensity }: { cards: { ply: num
         </div>
       ) : (
         <div className="max-h-[60vh] overflow-y-auto px-4 py-4 lg:max-h-[calc(100dvh-260px)]">
+          {question && <div className="mb-4"><MoveQuestionCard key={question.key} q={question} /></div>}
           <CardView key={latest.ply} ply={latest.ply} card={latest.card} intensity={intensity} focus={focus} />
           {cards.length > 1 && (
             <div className="mt-5 border-t border-white/[0.06] pt-3">
@@ -109,6 +114,8 @@ export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards
   const [open, setOpen] = useState(false);
   const [auto, setAuto] = useState<boolean>(() => pref("lessonPopup", true));
   const [top, setTop] = useState(12);
+  const [more, setMore] = useState(false);
+  const { questionFor } = useMoveQuestions();
 
   useEffect(() => {
     if (collapse) setOpen(false);
@@ -117,6 +124,7 @@ export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards
   // pop up once the opponent has replied (after its piece has finished moving)
   useEffect(() => {
     setOpen(false);
+    setMore(false);
     if (!latest || latest.card.speaker === "me" || !auto || paused) return;
     const t = setTimeout(() => setOpen(true), 750);
     return () => clearTimeout(t);
@@ -141,6 +149,7 @@ export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards
   if (!latest) return null;
   const standard = intensity !== "quick";
   const close = () => setOpen(false);
+  const question = latest.card.speaker !== "me" ? questionFor(latest.ply) : null;
   const toggleAuto = () => {
     setAuto(!auto);
     setPref("lessonPopup", !auto);
@@ -171,17 +180,22 @@ export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards
               </button>
             </div>
             <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-3">
-              {prev && prev.card.speaker === "me" && (
-                <div className="mb-3 flex items-start gap-2 rounded-xl bg-white/[0.03] px-3 py-2">
-                  <span className="w-16 shrink-0 pt-0.5 text-[11px] font-semibold uppercase tracking-wider text-faint">Your move</span>
-                  <div className="min-w-0 flex-1">
-                    <div className="ru text-[15px]">{prev.card.phrase.ru}</div>
-                    {standard && <div className="text-xs text-mist">{prev.card.phrase.en}</div>}
+              {question && <MoveQuestionCard key={question.key} q={question} />}
+              {question ? (
+                <div className="mt-4">
+                  <div className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider text-mist">These moves in Russian</div>
+                  <div className="grid gap-1.5">
+                    {prev && prev.card.speaker === "me" && <MiniLine label="You" phrase={prev.card.phrase} showEn={standard} />}
+                    <MiniLine label={WHO[latest.card.speaker]} phrase={latest.card.phrase} showEn={standard} />
                   </div>
-                  <AudioButtons text={prev.card.phrase.ru} compact />
+                  <button className="mt-2 flex items-center gap-1 text-xs font-semibold text-mist hover:text-fog" onClick={() => setMore(!more)}>
+                    {more ? <ChevronUp className="size-3.5" /> : <ChevronDown className="size-3.5" />} More about this move
+                  </button>
+                  {more && <div className="mt-3"><CardView key={latest.ply} ply={latest.ply} card={latest.card} intensity={intensity} focus={focus} /></div>}
                 </div>
+              ) : (
+                <CardView key={latest.ply} ply={latest.ply} card={latest.card} intensity={intensity} focus={focus} />
               )}
-              <CardView key={latest.ply} ply={latest.ply} card={latest.card} intensity={intensity} focus={focus} />
             </div>
             <div className="shrink-0 border-t border-white/[0.06] p-3">
               <button className="btn btn-primary h-12 w-full text-base" onClick={close} autoFocus>
@@ -371,6 +385,19 @@ function FocusReview({ word }: { word: FocusWord }) {
       ) : (
         <div className="mt-1 text-xs text-mist">{done ? "Nice — it moves further out in your reviews." : "It'll come back again soon."}</div>
       )}
+    </div>
+  );
+}
+
+function MiniLine({ label, phrase, showEn }: { label: string; phrase: Phrase; showEn: boolean }) {
+  return (
+    <div className="flex items-start gap-2 rounded-xl bg-white/[0.03] px-3 py-2">
+      <span className="w-[4.5rem] shrink-0 pt-0.5 text-[11px] font-semibold uppercase tracking-wider text-faint">{label}</span>
+      <div className="min-w-0 flex-1">
+        <div className="ru text-[15px]">{phrase.ru}</div>
+        {showEn && <div className="text-xs text-mist">{phrase.en}</div>}
+      </div>
+      <AudioButtons text={phrase.ru} compact />
     </div>
   );
 }

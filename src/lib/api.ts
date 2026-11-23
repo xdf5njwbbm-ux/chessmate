@@ -1,4 +1,5 @@
 import { supabase, SUPABASE_KEY, SUPABASE_URL } from "./supabase";
+import type { QuestionPool } from "./moveQuestions";
 import type {
   Assessment, BlindfoldRecord, BlindfoldStats, ChallengeItem, ChessStats, Curriculum, Dashboard, Entitlements, Game, GameMessage, GameSummary, Inbox,
   LeaderRow, Lesson, Mini, Plan, PronunciationOverview, PublicProfile, ReviewItem, SavedPhrase, Scenario, ScriptStep,
@@ -88,6 +89,7 @@ export const api = {
   chessStats: () => rpc<ChessStats>("chess_stats"),
   recordBlindfold: (r: BlindfoldRecord) => rpc<{ id: number | null; new_achievements: string[] }>("record_blindfold", { p: r }),
   blindfoldStats: () => rpc<BlindfoldStats>("blindfold_stats"),
+  moveQuestions: () => rpc<QuestionPool>("move_questions"),
   leaderboard: (pool: Pool) => rpc<{ pool: Pool; rows: LeaderRow[]; players: number; me: { rating: number | null; status: string; placement_left: number; rank: number | null } | null }>("leaderboard", { p_pool: pool, p_limit: 100 }),
   publicProfile: (username: string) => rpc<PublicProfile | null>("public_profile", { p_username: username }),
 
