@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { BarChart3, BookOpen, House, Library, Menu, Mic, Settings, Swords, Trophy, UserRound } from "lucide-react";
 import { useLive } from "../state/live";
@@ -33,9 +33,22 @@ export function Shell() {
   const navigate = useNavigate();
   const [more, setMore] = useState(false);
   const immersive = IMMERSIVE.some((r) => r.test(location.pathname));
+  const scroller = useRef<HTMLDivElement>(null);
 
+  // Each screen opens at the top. A layout effect so it runs before a page's own scrollIntoView.
+  useLayoutEffect(() => {
+    scroller.current?.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  /*
+   * On phones the bottom bar is docked, not `position: fixed`: the shell fills the screen, only the
+   * content area scrolls, and the bar sits under it in normal layout. iOS Safari shrinks and grows its
+   * toolbar while the page itself scrolls, and fixed bars get stranded mid-screen when it does. Here the
+   * page never scrolls, so the toolbar stays put and the bar stays right above it.
+   * Immersive screens (no bar) and desktop keep ordinary page scrolling.
+   */
   return (
-    <div className="min-h-dvh">
+    <div data-docked-nav={immersive ? undefined : ""} className={immersive ? "min-h-dvh" : "fixed inset-0 flex flex-col lg:static lg:block lg:min-h-dvh"}>
       {/* desktop sidebar */}
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-white/[0.06] bg-ink-900/80 px-4 py-6 backdrop-blur lg:flex">
         <button className="px-2 text-left" onClick={() => navigate("/home")} aria-label="Home">
@@ -74,15 +87,15 @@ export function Shell() {
         )}
       </aside>
 
-      <div className="lg:pl-64">
-        <main className={`mx-auto w-full max-w-6xl px-4 pt-5 md:px-8 md:pt-8 ${immersive ? "pb-8" : "pb-28 lg:pb-12"}`}>
+      <div ref={scroller} className={immersive ? "lg:pl-64" : "min-h-0 flex-1 overflow-y-auto overscroll-y-contain lg:overflow-visible lg:pl-64"}>
+        <main className={`mx-auto w-full max-w-6xl px-4 pt-5 md:px-8 md:pt-8 ${immersive ? "pb-8" : "pb-8 lg:pb-12"}`}>
           <Outlet />
         </main>
       </div>
 
-      {/* mobile bottom bar */}
+      {/* mobile bottom bar, docked under the scrolling content */}
       {!immersive && (
-        <nav className="glass safe-bottom fixed inset-x-0 bottom-0 z-40 border-t border-white/[0.06] lg:hidden">
+        <nav className="safe-bottom relative z-40 shrink-0 border-t border-white/[0.06] bg-ink-900 lg:hidden">
           <div className="mx-auto grid h-16 max-w-xl grid-cols-5">
             {NAV.filter((n) => MOBILE.includes(n.to)).map(({ to, label, short, Icon }) => (
               <NavLink key={to} to={to} className={({ isActive }) => `relative flex flex-col items-center justify-center gap-1 text-[11px] font-medium ${isActive ? "text-white" : "text-mist"}`}>
