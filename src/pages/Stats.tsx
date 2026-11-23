@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Bot } from "lucide-react";
+import { Bot, EyeOff } from "lucide-react";
 import { api } from "../lib/api";
 import { TERMINATION, bracket, poolLabel, tcLabel } from "../lib/constants";
 import { ago, pct, ratingText } from "../lib/format";
-import type { ChessStats, Curriculum, Dashboard, GameSummary, Pool } from "../lib/types";
+import { blindLevelLabel } from "../lib/blindfold";
+import type { BlindfoldStats, ChessStats, Curriculum, Dashboard, GameSummary, Pool } from "../lib/types";
 import { Button, EmptyState, Initials, PageHeader, PageLoader, Progress, SectionTitle, Segmented, Stat } from "../components/ui";
 
 export default function Stats() {
@@ -128,6 +129,8 @@ function ChessTab() {
         </>
       ) : null}
 
+      <BlindfoldSection />
+
       <SectionTitle right={<Segmented size="sm" value={filter} onChange={(v) => { setFilter(v); setPage(0); }} options={[{ v: "all", l: "All" }, { v: "rated", l: "Rated" }, { v: "casual", l: "Casual" }, { v: "ai", l: "vs AI" }]} />}>Match history</SectionTitle>
       {!games ? <PageLoader /> : games.games.length === 0 ? (
         <EmptyState title="No games here yet" action={<Button onClick={() => navigate("/play")}>Play a game</Button>} />
@@ -205,6 +208,67 @@ function RussianTab() {
           );
         })}
       </div>
+    </div>
+  );
+}
+
+function BlindfoldSection() {
+  const navigate = useNavigate();
+  const [b, setB] = useState<BlindfoldStats | null>(null);
+  useEffect(() => {
+    api.blindfoldStats().then(setB).catch(() => {});
+  }, []);
+  useEffect(() => {
+    if (b && window.location.hash.endsWith("#blindfold")) document.getElementById("blindfold")?.scrollIntoView({ behavior: "smooth" });
+  }, [b]);
+  if (!b) return null;
+  const t = b.totals;
+  const r = b.rating;
+  const secs = (ms: number | null) => (ms == null ? "—" : `${(ms / 1000).toFixed(1)} s`);
+  return (
+    <div id="blindfold" className="scroll-mt-6">
+      <SectionTitle>
+        <span className="inline-flex items-center gap-2"><EyeOff className="size-5 text-gold" /> Blindfold</span>
+      </SectionTitle>
+      {t.games === 0 && !r ? (
+        <div className="card flex flex-wrap items-center gap-4 p-5">
+          <p className="flex-1 text-sm text-mist">Play with invisible pieces against Stockfish or online. Online blindfold games have their own rating, separate from everything else.</p>
+          <Button onClick={() => navigate("/play")}>Try blindfold</Button>
+        </div>
+      ) : (
+        <div className="card p-5">
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-4">
+            <Stat label="Blindfold rating" tone="gold"
+              value={r?.rating ?? "Unrated"}
+              sub={r ? (r.rating == null ? `${r.placement_left} placement game${r.placement_left === 1 ? "" : "s"} left` : `Best ${r.peak ?? r.rating}`) : "Play online blindfold"} />
+            <Stat label="Games" value={t.games} sub={`${t.wins}W · ${t.losses}L · ${t.draws}D`} />
+            <Stat label="Accuracy" value={t.accuracy == null ? "—" : `${t.accuracy}%`} sub="vs Stockfish" />
+            <Stat label="Avg. move time" value={secs(t.avg_response_ms)} />
+            <Stat label="Mistakes" value={t.mistakes + t.blunders} sub={`${t.blunders} blunder${t.blunders === 1 ? "" : "s"}`} />
+            <Stat label="Reveals" value={t.reveals} sub={`${t.no_reveal_games} game${t.no_reveal_games === 1 ? "" : "s"} without one`} />
+            <Stat label="Longest game, no reveal" value={`${t.longest_no_reveal_game}`} sub="your moves" />
+            <Stat label="Best blind streak" value={`${t.longest_blind_streak}`} sub="moves in a row" />
+          </div>
+          {b.by_level.length > 0 && (
+            <div className="mt-5 flex flex-wrap gap-2">
+              {b.by_level.map((l) => (
+                <span key={l.level} className="tag">{blindLevelLabel(l.level)} · {l.games} game{l.games === 1 ? "" : "s"} · {l.wins} won{l.accuracy != null ? ` · ${l.accuracy}%` : ""}</span>
+              ))}
+            </div>
+          )}
+          {b.recent.length > 0 && (
+            <div className="mt-5 grid gap-1.5 text-sm">
+              {b.recent.slice(0, 8).map((g) => (
+                <div key={g.id} className="flex flex-wrap items-center gap-x-3 gap-y-0.5 rounded-xl bg-white/[0.03] px-3 py-2">
+                  <span className={`w-12 font-semibold ${g.result === "win" ? "text-accent-soft" : g.result === "loss" ? "text-danger" : "text-mist"}`}>{g.result === "win" ? "Won" : g.result === "loss" ? "Lost" : "Draw"}</span>
+                  <span className="flex-1 text-mist">{g.opponent_kind === "ai" ? `Stockfish ~${g.ai_elo}` : "Online"} · {blindLevelLabel(g.level)}</span>
+                  <span className="tabular-nums text-mist">{g.accuracy != null ? `${g.accuracy}% · ` : ""}{g.reveals} reveal{g.reveals === 1 ? "" : "s"} · {ago(g.created_at)}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

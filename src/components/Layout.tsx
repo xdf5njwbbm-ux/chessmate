@@ -19,7 +19,7 @@ export const NAV = [
 const MOBILE = ["/home", "/play", "/learn", "/practice"];
 
 /** Screens where the mobile bottom bar would steal space from the board or the exercise. */
-const IMMERSIVE = [/^\/game\//, /^\/play\/computer/, /^\/learn\/lesson\//, /^\/learn\/test\//, /^\/practice\/(review|listening|pronunciation|conversation|phrases)/, /^\/analysis\//, /^\/welcome/];
+const IMMERSIVE = [/^\/game\//, /^\/play\/computer/, /^\/play\/blindfold/, /^\/learn\/lesson\//, /^\/learn\/test\//, /^\/practice\/(review|listening|pronunciation|conversation|phrases)/, /^\/analysis\//, /^\/welcome/];
 
 function Badge({ n }: { n: number }) {
   if (n <= 0) return null;

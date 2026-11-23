@@ -1,6 +1,6 @@
 import { supabase, SUPABASE_KEY, SUPABASE_URL } from "./supabase";
 import type {
-  Assessment, ChallengeItem, ChessStats, Curriculum, Dashboard, Entitlements, Game, GameMessage, GameSummary, Inbox,
+  Assessment, BlindfoldRecord, BlindfoldStats, ChallengeItem, ChessStats, Curriculum, Dashboard, Entitlements, Game, GameMessage, GameSummary, Inbox,
   LeaderRow, Lesson, Mini, Plan, PronunciationOverview, PublicProfile, ReviewItem, SavedPhrase, Scenario, ScriptStep,
   Test, TestResult, TutorReply, VocabWord, Pool, Level,
 } from "./types";
@@ -67,14 +67,14 @@ export const api = {
     rpc<void>("log_conversation_turn", { p_conversation: conv, p_role: role, p_ru: ru, p_en: en, p_correction: correction }),
   conversations: () => rpc<{ id: string; scenario_id: string | null; title: string | null; level: Level; mode: string; turns: number; updated_at: string }[]>("conversations"),
 
-  findMatch: (tc: string, rated: boolean, russianChat: boolean) =>
-    rpc<{ status: "waiting" | "matched" | "in_game"; game_id?: string; waited_s?: number; window?: number; rating?: number; searching?: number }>("find_match", { p_time_control: tc, p_rated: rated, p_russian_chat: russianChat }),
+  findMatch: (tc: string, rated: boolean, russianChat: boolean, blindfold = false) =>
+    rpc<{ status: "waiting" | "matched" | "in_game"; game_id?: string; waited_s?: number; window?: number; rating?: number; searching?: number }>("find_match", { p_time_control: tc, p_rated: rated, p_russian_chat: russianChat, p_blindfold: blindfold }),
   cancelSeek: () => rpc<{ game_id: string | null }>("cancel_seek"),
   searchPlayers: (q: string) => rpc<Mini[]>("search_players", { p_query: q }),
-  sendChallenge: (username: string, tc: string, rated: boolean, russianChat: boolean, color: string) =>
-    rpc<string>("send_challenge", { p_username: username, p_time_control: tc, p_rated: rated, p_russian_chat: russianChat, p_color: color }),
-  createInvite: (tc: string, rated: boolean, russianChat: boolean, color: string) =>
-    rpc<string>("create_invite", { p_time_control: tc, p_rated: rated, p_russian_chat: russianChat, p_color: color }),
+  sendChallenge: (username: string, tc: string, rated: boolean, russianChat: boolean, color: string, blindfold = false) =>
+    rpc<string>("send_challenge", { p_username: username, p_time_control: tc, p_rated: rated, p_russian_chat: russianChat, p_color: color, p_blindfold: blindfold }),
+  createInvite: (tc: string, rated: boolean, russianChat: boolean, color: string, blindfold = false) =>
+    rpc<string>("create_invite", { p_time_control: tc, p_rated: rated, p_russian_chat: russianChat, p_color: color, p_blindfold: blindfold }),
   inviteInfo: (code: string) =>
     rpc<(ChallengeItem & { status: string; game_id: string | null; mine: boolean; from: Mini }) | null>("invite_info", { p_code: code }),
   acceptInvite: (code: string) => rpc<string>("accept_invite", { p_code: code }),
@@ -86,6 +86,8 @@ export const api = {
   sendMessage: (game: string, body: string) => rpc<number>("send_game_message", { p_game: game, p_body: body }),
   myGames: (filter: string, limit = 30, offset = 0) => rpc<{ total: number; games: GameSummary[] }>("my_games", { p_filter: filter, p_limit: limit, p_offset: offset }),
   chessStats: () => rpc<ChessStats>("chess_stats"),
+  recordBlindfold: (r: BlindfoldRecord) => rpc<{ id: number | null; new_achievements: string[] }>("record_blindfold", { p: r }),
+  blindfoldStats: () => rpc<BlindfoldStats>("blindfold_stats"),
   leaderboard: (pool: Pool) => rpc<{ pool: Pool; rows: LeaderRow[]; players: number; me: { rating: number | null; status: string; placement_left: number; rank: number | null } | null }>("leaderboard", { p_pool: pool, p_limit: 100 }),
   publicProfile: (username: string) => rpc<PublicProfile | null>("public_profile", { p_username: username }),
 

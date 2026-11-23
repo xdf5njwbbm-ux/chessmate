@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 const Welcome = lazy(() => import("./pages/Welcome"));
 const Play = lazy(() => import("./pages/Play"));
 const ComputerGame = lazy(() => import("./pages/ComputerGame"));
+const BlindfoldGame = lazy(() => import("./pages/BlindfoldGame"));
 const OnlineGame = lazy(() => import("./pages/OnlineGame"));
 const Analysis = lazy(() => import("./pages/Analysis"));
 const Invite = lazy(() => import("./pages/Invite"));
@@ -79,6 +80,7 @@ export default function App() {
                 <Route path="/home" element={<Home />} />
                 <Route path="/play" element={lazyPage(<Play />)} />
                 <Route path="/play/computer" element={lazyPage(<ComputerGame />)} />
+                <Route path="/play/blindfold" element={lazyPage(<BlindfoldGame />)} />
                 <Route path="/game/:id" element={lazyPage(<OnlineGame />)} />
                 <Route path="/analysis/:id" element={lazyPage(<Analysis />)} />
                 <Route path="/invite/:code" element={lazyPage(<Invite />)} />

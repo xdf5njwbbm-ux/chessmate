@@ -19,6 +19,7 @@ export const POOLS: { id: Pool; label: string; hint: string }[] = [
   { id: "blitz", label: "Blitz", hint: "3–5 minutes" },
   { id: "rapid", label: "Rapid", hint: "10–30 minutes · best for learning" },
   { id: "daily", label: "Daily", hint: "One day per move" },
+  { id: "blindfold", label: "Blindfold", hint: "Pieces hidden · its own rating" },
 ];
 export const poolLabel = (p: string) => POOLS.find((x) => x.id === p)?.label ?? (p === "untimed" ? "Practice" : p);
 

@@ -1,7 +1,7 @@
 export type Level = "A1" | "A2" | "B1" | "B2";
 export type Forms = "m" | "f";
 export type Intensity = "quick" | "standard" | "deep";
-export type Pool = "bullet" | "blitz" | "rapid" | "daily";
+export type Pool = "bullet" | "blitz" | "rapid" | "daily" | "blindfold";
 export type RatingStatus = "unrated" | "provisional" | "established";
 export type Voice = "female" | "male" | "female2";
 
@@ -78,6 +78,7 @@ export type GameSummary = {
   id: string;
   time_control: string;
   pool: Pool | "untimed";
+  blindfold?: boolean;
   rated: boolean;
   opponent_kind: "human" | "ai";
   ai_elo: number | null;
@@ -108,6 +109,7 @@ export type Game = {
   ai_elo: number | null;
   time_control: string;
   pool: Pool | "untimed";
+  blindfold: boolean;
   rated: boolean;
   russian_chat: boolean;
   initial_ms: number;
@@ -141,6 +143,7 @@ export type ChallengeItem = {
   id: string;
   time_control: string;
   rated: boolean;
+  blindfold?: boolean;
   russian_chat: boolean;
   color: "random" | "white" | "black";
   created_at: string;
@@ -359,4 +362,31 @@ export type PublicProfile = {
   achievements: Achievement[];
   lessons_completed: number;
   active_game: string | null;
+};
+
+export type BlindfoldRecord = {
+  client_ref: string;
+  game_id?: string | null;
+  level: "beginner" | "intermediate" | "advanced" | "expert" | "master";
+  color?: "white" | "black";
+  result?: "win" | "loss" | "draw";
+  ai_elo?: number;
+  my_moves: number;
+  accuracy?: number | null;
+  avg_response_ms?: number | null;
+  mistakes?: number;
+  blunders?: number;
+  reveals: number;
+  reveal_ms: number;
+  longest_blind_streak: number;
+};
+
+export type BlindfoldStats = {
+  rating: { rating: number | null; status: string; games: number; wins: number; losses: number; draws: number; peak: number | null; placement_left: number } | null;
+  totals: {
+    games: number; wins: number; losses: number; draws: number; accuracy: number | null; avg_response_ms: number | null;
+    mistakes: number; blunders: number; reveals: number; no_reveal_games: number; longest_no_reveal_game: number; longest_blind_streak: number;
+  };
+  by_level: { level: string; games: number; wins: number; accuracy: number | null }[];
+  recent: { id: number; game_id: string | null; opponent_kind: "human" | "ai"; ai_elo: number | null; level: string; color: string; result: "win" | "loss" | "draw"; moves: number; accuracy: number | null; avg_response_ms: number | null; mistakes: number; reveals: number; created_at: string }[];
 };

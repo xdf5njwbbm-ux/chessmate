@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { Bot, Copy, Link2, Search, Send, Swords, Users, X } from "lucide-react";
+import { Bot, Copy, EyeOff, Link2, Search, Send, Swords, Users, X } from "lucide-react";
 import { api } from "../lib/api";
 import { POOLS, SUGGESTED_BOT_ELO, TIME_CONTROLS, bracket, tcLabel } from "../lib/constants";
 import { ago, clock, pref, setPref } from "../lib/format";
+import { BLIND_LEVELS, type BlindLevel } from "../lib/blindfold";
 import type { ChallengeItem, GameSummary, Mini } from "../lib/types";
 import { useSession } from "../state/session";
 import { useLive } from "../state/live";
@@ -12,10 +13,10 @@ import { Button, Chip, Initials, LevelBadge, PageHeader, RatingBadge, SectionTit
 
 export const inviteUrl = (code: string) => `${window.location.origin}${import.meta.env.BASE_URL}#/invite/${code}`;
 
-function TimeControlPicker({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+function TimeControlPicker({ value, onChange, live }: { value: string; onChange: (v: string) => void; live?: boolean }) {
   return (
     <div className="grid gap-3">
-      {POOLS.map((p) => (
+      {POOLS.filter((p) => TIME_CONTROLS.some((t) => t.pool === p.id) && !(live && p.id === "daily")).map((p) => (
         <div key={p.id}>
           <div className="mb-1.5 text-xs font-semibold text-mist">{p.label} <span className="font-normal text-faint">· {p.hint}</span></div>
           <div className="flex flex-wrap gap-1.5">
@@ -44,6 +45,9 @@ export default function Play() {
   const [ruChat, setRuChat] = useState<boolean>(() => profile?.russian_chat ?? false);
   const [seeking, setSeeking] = useState<null | { waited: number; window: number; searching: number }>(null);
   const [friend, setFriend] = useState(false);
+  const [botBlind, setBotBlind] = useState<boolean>(() => pref("botBlind", false));
+  const [blindLevel, setBlindLevel] = useState<BlindLevel>(() => pref<BlindLevel>("blindLevel", "intermediate"));
+  const [blind, setBlind] = useState<boolean>(() => pref("onlineBlind", false));
 
   useEffect(() => {
     if (params.get("mode") === "online") onlineRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -52,6 +56,12 @@ export default function Play() {
   useEffect(() => setPref("botColor", botColor), [botColor]);
   useEffect(() => setPref("onlineTc", tc), [tc]);
   useEffect(() => setPref("onlineRated", rated), [rated]);
+  useEffect(() => setPref("botBlind", botBlind), [botBlind]);
+  useEffect(() => setPref("blindLevel", blindLevel), [blindLevel]);
+  useEffect(() => setPref("onlineBlind", blind), [blind]);
+  useEffect(() => {
+    if (blind && TIME_CONTROLS.find((t) => t.id === tc)?.pool === "daily") setTc("rapid15_10");
+  }, [blind, tc]);
 
   // matchmaking loop
   useEffect(() => {
@@ -59,7 +69,7 @@ export default function Play() {
     let alive = true;
     const tick = async () => {
       try {
-        const r = await api.findMatch(tc, rated, ruChat);
+        const r = await api.findMatch(tc, rated, ruChat, blind);
         if (!alive) return;
         if ((r.status === "matched" || r.status === "in_game") && r.game_id) {
           setSeeking(null);
@@ -80,7 +90,7 @@ export default function Play() {
       alive = false;
       clearInterval(t);
     };
-  }, [seeking === null, tc, rated, ruChat]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [seeking === null, tc, rated, ruChat, blind]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const cancelSeek = async () => {
     setSeeking(null);
@@ -94,7 +104,7 @@ export default function Play() {
 
   const startBot = () => {
     const color = botColor === "random" ? (Math.random() < 0.5 ? "white" : "black") : botColor;
-    navigate(`/play/computer?elo=${botElo}&color=${color}`);
+    navigate(`/play/${botBlind ? "blindfold" : "computer"}?elo=${botElo}&color=${color}`);
   };
 
   return (
@@ -124,6 +134,18 @@ export default function Play() {
               Results never affect your rating.
             </p>
           </div>
+          <div className="mt-3 divide-y divide-white/[0.06]">
+            <Toggle checked={botBlind} onChange={setBotBlind} label={<span className="inline-flex items-center gap-1.5"><EyeOff className="size-4 text-gold" /> Blindfold</span>}
+              hint="Pieces are invisible. Play from memory with spoken Russian announcements. Reveal the board any time." />
+          </div>
+          {botBlind && (
+            <div className="mt-2">
+              <div className="flex flex-wrap gap-1.5">
+                {BLIND_LEVELS.map((l) => <Chip key={l.id} on={blindLevel === l.id} onClick={() => setBlindLevel(l.id)}>{l.label}</Chip>)}
+              </div>
+              <p className="mt-2 text-xs text-faint">{BLIND_LEVELS.find((l) => l.id === blindLevel)?.hint}</p>
+            </div>
+          )}
           <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
             <Segmented value={botColor} onChange={setBotColor} options={[{ v: "white", l: "White" }, { v: "random", l: "Random" }, { v: "black", l: "Black" }]} />
             <Button onClick={startBot}>Start game</Button>
@@ -141,7 +163,7 @@ export default function Play() {
           {seeking ? (
             <div className="mt-8 flex flex-col items-center py-6 text-center">
               <Spinner className="size-9" />
-              <div className="mt-4 font-semibold">Looking for an opponent · {tcLabel(tc)} {rated ? "rated" : "casual"}</div>
+              <div className="mt-4 font-semibold">Looking for an opponent · {tcLabel(tc)} {rated ? "rated" : "casual"}{blind ? " · blindfold" : ""}</div>
               <div className="mt-1 text-sm text-mist">
                 {clock(seeking.waited * 1000)} · rating range ±{seeking.window} · {seeking.searching} searching
               </div>
@@ -149,9 +171,10 @@ export default function Play() {
             </div>
           ) : (
             <>
-              <div className="mt-5"><TimeControlPicker value={tc} onChange={setTc} /></div>
+              <div className="mt-5"><TimeControlPicker value={tc} onChange={setTc} live={blind} /></div>
               <div className="mt-3 divide-y divide-white/[0.06]">
-                <Toggle checked={rated} onChange={setRated} label="Rated" hint="Counts toward your Elo. New players play 5 placement games first." />
+                <Toggle checked={rated} onChange={setRated} label="Rated" hint={blind ? "Counts toward your separate blindfold rating (5 placement games first)." : "Counts toward your Elo. New players play 5 placement games first."} />
+                <Toggle checked={blind} onChange={setBlind} label={<span className="inline-flex items-center gap-1.5"><EyeOff className="size-4 text-gold" /> Blindfold</span>} hint="Both players' pieces are hidden. Matched only with other blindfold players." />
                 <Toggle checked={ruChat} onChange={setRuChat} label="Russian-only chat" hint="Used when both players turn it on. Suggested phrases help you." />
               </div>
               <div className="mt-4 flex flex-wrap justify-end gap-2">
@@ -165,7 +188,7 @@ export default function Play() {
 
       <Lists inbox={inbox} refresh={refreshInbox} />
 
-      <FriendSheet open={friend} onClose={() => setFriend(false)} defaults={{ tc, rated, ruChat }} onSent={refreshInbox} />
+      <FriendSheet open={friend} onClose={() => setFriend(false)} defaults={{ tc, rated, ruChat, blind }} onSent={refreshInbox} />
     </div>
   );
 }
@@ -222,6 +245,7 @@ function ChallengeRow({ c, incoming, onDone }: { c: ChallengeItem; incoming?: bo
             <span className="tag">{tcLabel(c.time_control)}</span>
             <span className={`tag ${c.rated ? "!bg-accent/10 !text-accent-soft" : ""}`}>{c.rated ? "Rated" : "Casual"}</span>
             {c.russian_chat && <span className="tag">RU chat</span>}
+            {c.blindfold && <span className="tag !text-gold">Blindfold</span>}
             {c.user && <RatingBadge rating={c.user.rating} status={c.user.rating_status} />}
             <span>{ago(c.created_at)}</span>
           </div>
@@ -256,14 +280,14 @@ function ActiveRow({ g }: { g: GameSummary }) {
       <Initials name={g.opponent?.display_name} online={g.opponent?.online} />
       <div className="min-w-0 flex-1">
         <div className="truncate font-semibold">{g.opponent?.display_name ?? "Opponent"}</div>
-        <div className="text-xs text-mist">{tcLabel(g.time_control)} · {g.rated ? "Rated" : "Casual"} · move {Math.floor(g.ply / 2) + 1}</div>
+        <div className="text-xs text-mist">{tcLabel(g.time_control)} · {g.rated ? "Rated" : "Casual"}{g.blindfold ? " · Blindfold" : ""} · move {Math.floor(g.ply / 2) + 1}</div>
       </div>
       <span className={`rounded-lg px-2.5 py-1 text-xs font-semibold ${mine ? "bg-accent/15 text-accent-soft" : "bg-white/[0.06] text-mist"}`}>{mine ? "Your move" : "Waiting"}</span>
     </button>
   );
 }
 
-function FriendSheet({ open, onClose, defaults, onSent }: { open: boolean; onClose: () => void; defaults: { tc: string; rated: boolean; ruChat: boolean }; onSent: () => void }) {
+function FriendSheet({ open, onClose, defaults, onSent }: { open: boolean; onClose: () => void; defaults: { tc: string; rated: boolean; ruChat: boolean; blind: boolean }; onSent: () => void }) {
   const toast = useToast();
   const [q, setQ] = useState("");
   const [results, setResults] = useState<Mini[]>([]);
@@ -272,6 +296,10 @@ function FriendSheet({ open, onClose, defaults, onSent }: { open: boolean; onClo
   const [rated, setRated] = useState(false);
   const [ruChat, setRuChat] = useState(defaults.ruChat);
   const [color, setColor] = useState<"random" | "white" | "black">("random");
+  const [blind, setBlind] = useState(defaults.blind);
+  useEffect(() => {
+    if (blind && TIME_CONTROLS.find((t) => t.id === tc)?.pool === "daily") setTc("rapid15_10");
+  }, [blind, tc]);
   const [busy, setBusy] = useState<string | null>(null);
   const [link, setLink] = useState<string | null>(null);
 
@@ -292,7 +320,7 @@ function FriendSheet({ open, onClose, defaults, onSent }: { open: boolean; onClo
     if (!pick) return;
     setBusy("send");
     try {
-      await api.sendChallenge(pick.username, tc, rated, ruChat, color);
+      await api.sendChallenge(pick.username, tc, rated, ruChat, color, blind);
       toast({ title: `Challenge sent to ${pick.display_name}`, tone: "success" });
       onSent();
       onClose();
@@ -305,7 +333,7 @@ function FriendSheet({ open, onClose, defaults, onSent }: { open: boolean; onClo
   const invite = async () => {
     setBusy("link");
     try {
-      const code = await api.createInvite(tc, rated, ruChat, color);
+      const code = await api.createInvite(tc, rated, ruChat, color, blind);
       setLink(inviteUrl(code));
       onSent();
     } catch (e) {
@@ -345,7 +373,7 @@ function FriendSheet({ open, onClose, defaults, onSent }: { open: boolean; onClo
               ))}
             </div>
           )}
-          <div className="mt-5"><TimeControlPicker value={tc} onChange={setTc} /></div>
+          <div className="mt-5"><TimeControlPicker value={tc} onChange={setTc} live={blind} /></div>
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <span className="text-sm text-mist">You play</span>
             <Segmented size="sm" value={color} onChange={setColor} options={[{ v: "white", l: "White" }, { v: "random", l: "Random" }, { v: "black", l: "Black" }]} />
@@ -353,6 +381,7 @@ function FriendSheet({ open, onClose, defaults, onSent }: { open: boolean; onClo
           <div className="mt-2 divide-y divide-white/[0.06]">
             <Toggle checked={rated} onChange={setRated} label="Rated" />
             <Toggle checked={ruChat} onChange={setRuChat} label="Russian-only chat" />
+            <Toggle checked={blind} onChange={setBlind} label="Blindfold" hint="Pieces hidden for both players. Rated blindfold games use the blindfold rating." />
           </div>
           <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
             <Button variant="secondary" loading={busy === "link"} onClick={invite}><Link2 className="size-4" /> Create invite link</Button>

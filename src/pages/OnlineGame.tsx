@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Chess, type Move } from "chess.js";
-import { BarChart3, Ellipsis, Flag, Handshake, MessageSquare, RotateCcw, Send, ShieldAlert, Swords, UserRound, X } from "lucide-react";
+import { BarChart3, EyeOff, Ellipsis, Flag, Handshake, MessageSquare, RotateCcw, Send, ShieldAlert, Swords, UserRound, X } from "lucide-react";
 import { api, gameAction, type GameActionError } from "../lib/api";
 import { supabase } from "../lib/supabase";
 import { REPORT_REASONS, TERMINATION, tcLabel } from "../lib/constants";
@@ -15,6 +15,7 @@ import { Board, capturedPieces } from "../components/Board";
 import { LearningPanel, LearningPopup } from "../components/LearningPanel";
 import { useWide } from "../lib/useMedia";
 import { MoveList, PlayerBar } from "../components/GameParts";
+import { AnnouncementStrip, BlindfoldPanel, RevealButton, useBlindfold } from "../components/Blindfold";
 import { AudioButtons } from "../components/Audio";
 import { BackButton, Button, Confirm, EmptyState, FullScreenLoader, Segmented, Sheet, Spinner, Toggle } from "../components/ui";
 
@@ -25,7 +26,7 @@ export default function OnlineGame() {
   const { uid, profile } = useSession();
   const navigate = useNavigate();
   const toast = useToast();
-  const { refreshInbox } = useLive();
+  const { refreshInbox, celebrate } = useLive();
   const [game, setGame] = useState<Game | null>(null);
   const [players, setPlayers] = useState<{ white: Mini | null; black: Mini | null } | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -149,6 +150,22 @@ export default function OnlineGame() {
     }));
   }, [replay, myColor, level, forms]);
 
+  // blindfold: pieces hidden, announcements, reveal tracking; stats saved once when a game you played here ends
+  const blind = !!game?.blindfold && !!myColor;
+  const bf = useBlindfold({ moves: replay, myColor: myColor ?? "w", over: !isActive, ruLevel: level, gameKey: game?.id ?? "none" });
+  const sawActive = useRef<string | null>(null);
+  const blindSaved = useRef<string | null>(null);
+  if (isActive && game) sawActive.current = game.id;
+  useEffect(() => {
+    if (!blind || !game || game.status !== "finished" || sawActive.current !== game.id || blindSaved.current === game.id) return;
+    blindSaved.current = game.id;
+    const sm = bf.summary();
+    api.recordBlindfold({
+      client_ref: game.id, game_id: game.id, level: bf.level, my_moves: sm.my_moves, accuracy: null,
+      avg_response_ms: sm.avg_response_ms, reveals: sm.reveals, reveal_ms: sm.reveal_ms, longest_blind_streak: sm.longest_blind_streak,
+    }).then((r) => celebrate(r.new_achievements)).catch(() => {});
+  }, [blind, game?.status, game?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const sendMove = async (from: string, to: string, promotion?: string) => {
     const g = gameRef.current;
     if (!g) return;
@@ -212,6 +229,7 @@ export default function OnlineGame() {
             {tcLabel(game.time_control)}
             <span className={`tag ${game.rated ? "!bg-accent/10 !text-accent-soft" : ""}`}>{game.rated ? "Rated" : "Casual"}</span>
             {game.russian_chat && <span className="tag">RU chat</span>}
+            {game.blindfold && <span className="tag !text-gold"><EyeOff className="mr-1 inline size-3.5" />Blindfold</span>}
             {!live && isActive && <span className="tag" title="The live connection dropped. The game still refreshes every few seconds.">Reconnecting…</span>}
           </div>
           <button aria-label="Game menu" onClick={() => setMenu(true)} className="grid size-10 place-items-center rounded-xl text-fog hover:bg-white/5"><Ellipsis className="size-5" /></button>
@@ -233,6 +251,9 @@ export default function OnlineGame() {
         <Board
           id={`game-${game.id}`}
           animationMs={display.moves.length && ((display.moves.length - 1) % 2 === 0 ? "w" : "b") !== myColor ? 500 : 200}
+          hidePieces={blind && !bf.revealed}
+          lastMoveMode={blind && !bf.revealed ? bf.caps.highlight : "both"}
+          showCheck={!blind || bf.revealed || bf.caps.check}
           fen={display.fen}
           orientation={myColor === "b" ? "black" : "white"}
           movable={myTurn ? myColor : null}
@@ -240,6 +261,8 @@ export default function OnlineGame() {
           onMove={sendMove}
         />
         </div>
+        {blind && <AnnouncementStrip bf={bf} moves={replay} myColor={myColor!} over={!isActive} ruLevel={level} myTurn={myTurn} />}
+        {blind && <RevealButton bf={bf} over={!isActive} />}
         <PlayerBar
           name={me?.display_name ?? "You"}
           sub={ratingSub(me)}
@@ -251,7 +274,7 @@ export default function OnlineGame() {
           ticking={running && serverTurn === myColor}
           perMove={game.per_move}
         />
-        <MoveList sans={replay.map((m) => m.san)} />
+        {(!blind || bf.caps.moveList || !isActive) && <MoveList sans={replay.map((m) => m.san)} />}
 
         {isActive ? (
           <div className="mt-3">
@@ -290,17 +313,22 @@ export default function OnlineGame() {
       {wide ? (
         <div className="lg:sticky lg:top-6 lg:self-start">
           <div className="mb-3">
-            <Segmented value={tab} onChange={setTab} options={[{ v: "learn", l: "Russian" }, { v: "chat", l: <span className="inline-flex items-center gap-1.5"><MessageSquare className="size-3.5" /> Chat</span> }]} />
+            <Segmented value={tab} onChange={setTab} options={[{ v: "learn", l: blind ? "Blindfold" : "Russian" }, { v: "chat", l: <span className="inline-flex items-center gap-1.5"><MessageSquare className="size-3.5" /> Chat</span> }]} />
           </div>
-          {tab === "learn" ? <LearningPanel cards={cards} /> : <ChatPanel game={game} players={players} level={level} />}
+          {tab === "learn"
+            ? blind
+              ? <BlindfoldPanel bf={bf} moves={replay} fen={display.fen} myColor={myColor!} over={!isActive} ruLevel={level} myTurn={myTurn} />
+              : <LearningPanel cards={cards} />
+            : <ChatPanel game={game} players={players} level={level} />}
         </div>
       ) : (
         <>
           {/* phones: the Russian for each move pops up over the screen; chat sits under the board */}
+          {blind && <BlindfoldPanel bf={bf} moves={replay} fen={display.fen} myColor={myColor!} over={!isActive} ruLevel={level} myTurn={myTurn} />}
           <div onPointerDown={() => setCollapse((n) => n + 1)} onFocusCapture={() => setCollapse((n) => n + 1)}>
             <ChatPanel game={game} players={players} level={level} />
           </div>
-          {isActive && <LearningPopup cards={cards} collapse={collapse} avoid={boardBox} />}
+          {isActive && !blind && <LearningPopup cards={cards} collapse={collapse} avoid={boardBox} />}
         </>
       )}
 

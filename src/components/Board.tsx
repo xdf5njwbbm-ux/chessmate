@@ -21,10 +21,18 @@ type Props = {
   id: string;
   /** How long pieces glide between squares (slower for the opponent's moves so they're easy to follow). */
   animationMs?: number;
+  /** Blindfold: pieces stay in their real squares but are drawn invisibly. Tap to select, tap to move. */
+  hidePieces?: boolean;
+  /** Which squares of the last move to highlight. */
+  lastMoveMode?: "both" | "to" | "none";
+  /** Highlight the king in check (off in harder blindfold levels — it would give the king away). */
+  showCheck?: boolean;
 };
 
+const HIDDEN_PIECES = Object.fromEntries(Object.keys(defaultPieces).map((k) => [k, () => <svg viewBox="0 0 1 1" aria-hidden="true" />]));
+
 /** The shared chessboard: drag or tap to move, legal-move hints, check and last-move highlights, promotion picker. */
-export function Board({ fen, orientation, movable, lastMove, onMove, arrows, id, animationMs = 160 }: Props) {
+export function Board({ fen, orientation, movable, lastMove, onMove, arrows, id, animationMs = 160, hidePieces = false, lastMoveMode = "both", showCheck = true }: Props) {
   const theme = BOARD_THEMES[pref<BoardTheme>("boardTheme", "green")] ?? BOARD_THEMES.green;
   const chess = useMemo(() => new Chess(fen), [fen]);
   const [selected, setSelected] = useState<string | null>(null);
@@ -57,15 +65,15 @@ export function Board({ fen, orientation, movable, lastMove, onMove, arrows, id,
     if (piece && piece.pieceType[0] === movable) setSelected(selected === square ? null : square);
     else setSelected(null);
   };
-  const canDragPiece = ({ piece }: PieceHandlerArgs) => myTurn && piece.pieceType[0] === movable;
+  const canDragPiece = ({ piece }: PieceHandlerArgs) => !hidePieces && myTurn && piece.pieceType[0] === movable;
 
   const squareStyles = useMemo(() => {
     const s: Record<string, React.CSSProperties> = {};
-    if (lastMove) {
-      s[lastMove.slice(0, 2)] = { backgroundColor: "rgba(255, 214, 102, 0.42)" };
+    if (lastMove && lastMoveMode !== "none") {
+      if (lastMoveMode === "both") s[lastMove.slice(0, 2)] = { backgroundColor: "rgba(255, 214, 102, 0.42)" };
       s[lastMove.slice(2, 4)] = { backgroundColor: "rgba(255, 214, 102, 0.55)" };
     }
-    if (chess.inCheck()) {
+    if (showCheck && chess.inCheck()) {
       for (const row of chess.board())
         for (const sq of row)
           if (sq && sq.type === "k" && sq.color === chess.turn())
@@ -83,7 +91,7 @@ export function Board({ fen, orientation, movable, lastMove, onMove, arrows, id,
       }
     }
     return s;
-  }, [lastMove, chess, selected]);
+  }, [lastMove, chess, selected, lastMoveMode, showCheck]);
 
   return (
     <div className="relative w-full select-none">
@@ -102,7 +110,8 @@ export function Board({ fen, orientation, movable, lastMove, onMove, arrows, id,
           lightSquareNotationStyle: { color: theme.dark, fontWeight: 600, fontSize: 11 },
           darkSquareNotationStyle: { color: theme.light, fontWeight: 600, fontSize: 11 },
           dropSquareStyle: { boxShadow: "inset 0 0 0 3px rgba(63,191,127,0.9)" },
-          animationDurationInMs: animationMs,
+          animationDurationInMs: hidePieces ? 0 : animationMs,
+          ...(hidePieces ? { pieces: HIDDEN_PIECES, showAnimations: false } : {}),
           allowDrawingArrows: true,
           arrows: arrows?.map((a) => ({ startSquare: a.from, endSquare: a.to, color: a.color ?? "rgba(63,191,127,0.85)" })),
         }}
