@@ -9,6 +9,8 @@ export type Profile = {
   id: string;
   username: string;
   display_name: string;
+  /** false = a chess-only account: no Russian anywhere. Missing (older rows) counts as true. */
+  learn_russian?: boolean;
   ru_level: Level;
   ru_forms: Forms;
   learning_intensity: Intensity;
@@ -156,9 +158,15 @@ export type Inbox = { incoming: ChallengeItem[]; outgoing: ChallengeItem[]; acti
 export type GameMessage = { id: number; game_id: string; user_id: string | null; body: string; created_at: string };
 
 export type Word = { ru: string; f?: string; en: string };
-export type Line = { ru: string; ruF?: string; en: string; words: Word[]; note?: string; speaker?: string; tag?: "formal" | "informal" | "spoken" };
+/** Something else you could ask after an answer; `link` is the exchange where it's asked and answered. */
+export type FollowUp = { ru: string; ruF?: string; en: string; link?: string; linkTopic?: string; linkLevel?: string };
+export type Line = {
+  ru: string; ruF?: string; en: string; words: Word[]; note?: string; speaker?: string; tag?: "formal" | "informal" | "spoken";
+  /** Conversation lessons: question or answer, the exchange id ("a1-15:3") and follow-up questions (on answers). */
+  role?: "q" | "a"; x?: string; follow?: FollowUp[];
+};
 export type LessonSection =
-  | { type: "lines"; kind: "dialogue" | "phrases"; title: string; lines: Line[] }
+  | { type: "lines"; kind: "dialogue" | "phrases" | "conversation"; title: string; lines: Line[] }
   | { type: "grammar"; title: string; paragraphs: string[]; examples: { ru: string; en: string }[] };
 /** `why`: a note for each wrong option, shown when the learner picks it. */
 export type Drill = { q: string; answer: string; options: string[]; en: string; why?: Record<string, string> };

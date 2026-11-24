@@ -6,14 +6,20 @@ import { TERMINATION, bracket, poolLabel, tcLabel } from "../lib/constants";
 import { ago, pct, ratingText } from "../lib/format";
 import { blindLevelLabel } from "../lib/blindfold";
 import type { BlindfoldStats, ChessStats, Curriculum, Dashboard, GameSummary, Pool } from "../lib/types";
+import { useLearner } from "../state/session";
 import { Button, EmptyState, Initials, PageHeader, PageLoader, Progress, SectionTitle, Segmented, Stat } from "../components/ui";
 
 export default function Stats() {
+  const learner = useLearner();
   const [tab, setTab] = useState<"chess" | "russian">("chess");
   return (
     <div>
-      <PageHeader title="Statistics" subtitle="Your chess rating and your Russian progress are tracked separately — they're never combined." right={<Segmented value={tab} onChange={setTab} options={[{ v: "chess", l: "Chess" }, { v: "russian", l: "Russian" }]} />} />
-      {tab === "chess" ? <ChessTab /> : <RussianTab />}
+      <PageHeader
+        title="My Progress"
+        subtitle={learner ? "Your chess rating and your Russian progress are tracked separately — they're never combined." : "Your ratings, results and games."}
+        right={learner ? <Segmented value={tab} onChange={setTab} options={[{ v: "chess", l: "Chess" }, { v: "russian", l: "Russian" }]} /> : undefined}
+      />
+      {tab === "chess" || !learner ? <ChessTab /> : <RussianTab />}
     </div>
   );
 }

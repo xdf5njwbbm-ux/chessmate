@@ -6,12 +6,13 @@ import { api } from "../lib/api";
 import { POOLS, TIME_CONTROLS, bracket, poolLabel } from "../lib/constants";
 import { ratingText } from "../lib/format";
 import type { Achievement, PublicProfile } from "../lib/types";
-import { useSession } from "../state/session";
+import { useLearner, useSession } from "../state/session";
 import { useToast } from "../state/toast";
 import { Button, Chip, EmptyState, Initials, LevelBadge, PageLoader, SectionTitle, Segmented, Sheet, Stat, TierIcon, Toggle } from "../components/ui";
 import { ReportSheet } from "./OnlineGame";
 
 export default function Profile() {
+  const learner = useLearner();
   const { username } = useParams();
   const { profile: me } = useSession();
   const navigate = useNavigate();
@@ -39,8 +40,8 @@ export default function Profile() {
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <h1 className="font-display text-3xl font-semibold">{p.display_name}</h1>
-            <LevelBadge level={p.ru_level} />
-            {p.certified.map((l) => <span key={l} className="tag !bg-gold/10 !text-gold">{l} certified</span>)}
+            {learner && <LevelBadge level={p.ru_level} />}
+            {learner && p.certified.map((l) => <span key={l} className="tag !bg-gold/10 !text-gold">{l} certified</span>)}
           </div>
           <div className="mt-1 text-mist">@{p.username} · joined {new Date(p.joined).toLocaleDateString(undefined, { month: "long", year: "numeric" })}{p.online && !p.is_me ? " · online" : ""}</div>
         </div>
@@ -71,8 +72,8 @@ export default function Profile() {
       <div className="card mt-4 grid grid-cols-2 gap-5 p-5 md:grid-cols-4">
         <Stat label="Games vs players" value={p.stats.games} />
         <Stat label="Win rate" value={decided ? `${Math.round((100 * p.stats.wins) / decided)}%` : "—"} sub={`${p.stats.wins}W ${p.stats.losses}L ${p.stats.draws}D`} />
-        <Stat label="Russian level" value={p.ru_level} />
-        <Stat label="Lessons completed" value={p.lessons_completed} />
+        {learner && <Stat label="Russian level" value={p.ru_level} />}
+        {learner && <Stat label="Lessons completed" value={p.lessons_completed} />}
       </div>
 
       <SectionTitle>Achievements · {p.achievements.length}/{all.length}</SectionTitle>

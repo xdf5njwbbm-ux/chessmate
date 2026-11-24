@@ -1,24 +1,20 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowRight, BookOpenCheck, Check, Lightbulb, RotateCcw, X } from "lucide-react";
+import { ExerciseView, isCorrect } from "../components/ExerciseView";
+import { lessonSlot, practiceScore, validPractice, writeLessonSave, type LessonSave, type PracticeSave } from "../lib/lessonRun";
+import { ConversationSection } from "../components/ConversationSection";
 import { api, isPremiumError } from "../lib/api";
-import { buildExercises, reviewPair, sameSentence, scored, type Exercise } from "../lib/exercises";
+import { buildExercises, reviewPair, type Exercise } from "../lib/exercises";
 import type { Lesson as LessonT } from "../lib/types";
-import { clearSave, loadSave, writeSave } from "../lib/saved";
+import { clearSave, loadSave } from "../lib/saved";
 import { useSession } from "../state/session";
 import { useLive } from "../state/live";
 import { useToast } from "../state/toast";
 import { RussianLine, WordSheet, stressMapFrom } from "../components/RussianText";
-import { AudioButtons, SpeakPractice, useSay } from "../components/Audio";
-import { WhyWrong } from "../components/WhyWrong";
+import { AudioButtons } from "../components/Audio";
 import { BackButton, Button, EmptyState, PageLoader, PremiumLock, Progress, Ring } from "../components/ui";
 
-/** Where you are in a lesson, kept on this device: your place in the exercises and how far you'd read. */
-type PracticeSave = { exercises: Exercise[]; i: number; right: number; wrong: Exercise[]; picked: string | null };
-type LessonSave = { phase: "study" | "practice"; y?: number; practice?: PracticeSave };
-
-const validPractice = (p: PracticeSave | undefined): p is PracticeSave =>
-  !!p && Array.isArray(p.exercises) && p.exercises.length > 0 && Number.isInteger(p.i) && p.i >= 0 && p.i < p.exercises.length && Array.isArray(p.wrong) && Number.isFinite(p.right);
 
 function Rich({ text }: { text: string }) {
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
@@ -34,7 +30,7 @@ export default function Lesson() {
   const [result, setResult] = useState<{ score: number; wrong: Exercise[]; res?: Awaited<ReturnType<typeof api.completeLesson>> } | null>(null);
   const [vocabWord, setVocabWord] = useState<{ ru: string; en: string; stressed: string } | null>(null);
   const [progress, setProgress] = useState<PracticeSave | null>(null);
-  const slot = `lesson:${id}`;
+  const slot = lessonSlot(id);
   const saved = useRef<LessonSave>({ phase: "study" });
   const restoreY = useRef(0);
   const phaseRef = useRef(phase);
@@ -44,12 +40,11 @@ export default function Lesson() {
   const persist = (patch: Partial<LessonSave>) => {
     const next = { ...saved.current, ...patch };
     saved.current = next;
-    if (next.practice || (next.y ?? 0) > 200) writeSave(uid, slot, next);
-    else clearSave(uid, slot);
+    writeLessonSave(uid, id, next);
   };
 
   useEffect(() => {
-    const s = loadSave<LessonSave>(uid, `lesson:${id}`);
+    const s = loadSave<LessonSave>(uid, lessonSlot(id));
     const practice = validPractice(s?.practice) ? s!.practice : undefined;
     saved.current = { phase: practice && s?.phase === "practice" ? "practice" : "study", y: s?.y, practice };
     restoreY.current = saved.current.phase === "study" ? s?.y ?? 0 : 0;
@@ -132,7 +127,9 @@ export default function Lesson() {
       <p className="mt-3 text-sm text-faint">Tap any word for its meaning, stress, syllables and pronunciation practice.</p>
 
       {lesson.content.sections.map((s, i) =>
-        s.type === "lines" ? (
+        s.type === "lines" && s.kind === "conversation" ? (
+          <ConversationSection key={i} section={s} lessonId={lesson.id} stress={stress} />
+        ) : s.type === "lines" ? (
           <section key={i} className="mt-8">
             <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-mist">{s.kind === "dialogue" ? "Dialogue" : "Phrases"}{s.title ? ` · ${s.title}` : ""}</h2>
             <div className="card divide-y divide-white/[0.06]">
@@ -207,18 +204,15 @@ function Practice({ lesson, resume, onProgress, onDone, onExit }: {
   const { profile } = useSession();
   const toast = useToast();
   const { celebrate } = useLive();
-  const say = useSay();
   // a resumed set keeps its exact questions and order (they're shuffled when first built)
   const [exercises] = useState(() => resume?.exercises ?? buildExercises(lesson, profile?.ru_forms ?? "m"));
   const [i, setI] = useState(resume?.i ?? 0);
   const [picked, setPicked] = useState<string | null>(resume?.picked ?? null);
-  const [order, setOrder] = useState<number[]>([]);
   const [right, setRight] = useState(resume?.right ?? 0);
   const [wrong, setWrong] = useState<Exercise[]>(resume?.wrong ?? []);
   const [busy, setBusy] = useState(false);
   const firstRun = useRef(true);
   const ex = exercises[i];
-  const total = exercises.filter(scored).length;
 
   useEffect(() => {
     onProgress({ exercises, i, right, wrong, picked });
@@ -229,21 +223,15 @@ function Practice({ lesson, resume, onProgress, onDone, onExit }: {
     firstRun.current = false;
     if (reopenedAnswered) return; // came back to a question already answered: keep it answered (and scored once)
     setPicked(null);
-    setOrder([]);
-    if (ex?.kind === "listen") {
-      const t = setTimeout(() => say(ex.ru), 300);
-      return () => clearTimeout(t);
-    }
   }, [i]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!ex) return null;
   const answered = picked != null;
-  const correct = answered && (ex.kind === "order" ? sameSentence(picked!, ex.answer) : "answer" in ex && picked === ex.answer);
 
   const check = (value: string) => {
     if (answered) return;
     setPicked(value);
-    const ok = ex.kind === "order" ? sameSentence(value, ex.answer) : "answer" in ex && value === ex.answer;
+    const ok = isCorrect(ex, value);
     if (ok) setRight((r) => r + 1);
     else setWrong((w) => [...w, ex]);
     if (ex.kind === "listen") api.recordPractice("listening", ok, `lesson:${lesson.id}`).catch(() => {});
@@ -251,7 +239,7 @@ function Practice({ lesson, resume, onProgress, onDone, onExit }: {
 
   const next = async () => {
     if (i < exercises.length - 1) return setI(i + 1);
-    const score = Math.round((right / Math.max(1, total)) * 100);
+    const score = practiceScore({ exercises, i, right, wrong, picked });
     setBusy(true);
     try {
       const res = await api.completeLesson(lesson.id, score);
@@ -265,13 +253,6 @@ function Practice({ lesson, resume, onProgress, onDone, onExit }: {
     }
   };
 
-  const optionBtn = (o: string, isRu: boolean) => (
-    <button key={o} disabled={answered} onClick={() => check(o)}
-      className={`rounded-xl border px-4 py-3 text-left transition-colors ${answered && o === (ex as { answer: string }).answer ? "border-accent bg-accent/10" : answered && o === picked ? "border-danger bg-danger/10" : "border-white/10 bg-white/[0.02] hover:border-white/20"}`}>
-      <span className={isRu ? "ru text-lg" : ""}>{o}</span>
-    </button>
-  );
-
   return (
     <div className="mx-auto max-w-2xl">
       <div className="mb-6 flex items-center gap-3">
@@ -280,47 +261,7 @@ function Practice({ lesson, resume, onProgress, onDone, onExit }: {
         <span className="shrink-0 text-sm tabular-nums text-mist">{i + 1}/{exercises.length}</span>
       </div>
       <div key={i} className="card animate-rise p-6">
-        <div className="text-xs font-semibold uppercase tracking-wider text-mist">{ex.prompt}</div>
-
-        {ex.kind === "gap" && <div className="ru mt-4 text-2xl leading-snug">{ex.q.split("___").map((p, k, arr) => <span key={k}>{p}{k < arr.length - 1 && <span className={`mx-1 inline-block min-w-16 border-b-2 text-center ${answered ? (correct ? "border-accent text-accent-soft" : "border-danger text-danger") : "border-white/30"}`}>{picked ?? " "}</span>}</span>)}</div>}
-        {ex.kind === "gap" && <div className="mt-2 text-sm text-mist">{ex.en}</div>}
-        {ex.kind === "ru-en" && <div className="mt-4 flex items-start gap-3"><div className="ru flex-1 text-2xl leading-snug">{ex.ru}</div><AudioButtons text={ex.ru} compact /></div>}
-        {ex.kind === "en-ru" && <div className="mt-4 text-xl">{ex.en}</div>}
-        {ex.kind === "vocab" && <div className="mt-4 flex items-center gap-3"><div className="ru text-3xl">{ex.stressed}</div><AudioButtons text={ex.ru} compact /></div>}
-        {ex.kind === "listen" && <div className="mt-4"><AudioButtons text={ex.ru} /></div>}
-        {ex.kind === "order" && (
-          <>
-            <div className="mt-3 text-lg text-fog">{ex.en}</div>
-            <div className="ru mt-4 min-h-14 rounded-xl border border-dashed border-white/15 p-3 text-xl">
-              {order.map((k, n) => <button key={n} disabled={answered} onClick={() => setOrder(order.filter((_, m) => m !== n))} className="mr-1.5 mb-1.5 rounded-lg bg-white/10 px-2.5 py-1">{ex.tokens[k]}</button>)}
-            </div>
-            <div className="ru mt-3 flex flex-wrap gap-1.5 text-xl">
-              {ex.tokens.map((t, k) => order.includes(k) ? null : <button key={k} disabled={answered} onClick={() => setOrder([...order, k])} className="rounded-lg border border-white/10 px-2.5 py-1 hover:border-white/25">{t}</button>)}
-            </div>
-            {!answered && <Button className="mt-4" disabled={order.length !== ex.tokens.length} onClick={() => check(order.map((k) => ex.tokens[k]).join(" "))}>Check</Button>}
-            {answered && !correct && <div className="ru mt-3 text-lg text-accent-soft">{ex.answer}</div>}
-          </>
-        )}
-        {ex.kind === "speak" && (
-          <>
-            <div className="mt-4 flex items-start gap-3"><div className="ru flex-1 text-2xl leading-snug">{ex.ru}</div></div>
-            <div className="mt-1 text-sm text-mist">{ex.en}</div>
-            <div className="mt-4 flex items-center gap-2"><AudioButtons text={ex.ru} /></div>
-            <div className="mt-4"><SpeakPractice text={ex.ru} refKey={`lesson:${lesson.id}`} /></div>
-          </>
-        )}
-
-        {"options" in ex && (
-          <div className="mt-6 grid gap-2">{ex.options.map((o) => optionBtn(o, ex.kind === "gap" || ex.kind === "en-ru" || ex.kind === "listen"))}</div>
-        )}
-
-        {answered && (
-          <div className={`mt-5 flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold ${correct ? "bg-accent/10 text-accent-soft" : "bg-danger/10 text-[#ffb3b3]"}`}>
-            {correct ? <><Check className="size-4" /> Верно! Correct.</> : <><X className="size-4" /> Not quite — the answer is highlighted.</>}
-            {ex.kind === "listen" && <span className="ml-auto font-normal text-mist">{ex.ru}</span>}
-          </div>
-        )}
-        {answered && !correct && ex.kind === "gap" && picked && <WhyWrong picked={picked} note={ex.why?.[picked]} ru />}
+        <ExerciseView ex={ex} picked={picked} onPick={check} refKey={`lesson:${lesson.id}`} />
       </div>
       <div className="mt-5 flex justify-end">
         <Button disabled={!answered && ex.kind !== "speak"} loading={busy} onClick={next}>

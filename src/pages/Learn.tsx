@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CheckCircle2, ClipboardCheck, Lock } from "lucide-react";
+import { CheckCircle2, ClipboardCheck, Library, Lock, MessagesSquare, Mic } from "lucide-react";
 import { api } from "../lib/api";
 import type { Curriculum, Level } from "../lib/types";
 import { Button, Chip, PageHeader, PageLoader, Progress, Segmented } from "../components/ui";
@@ -43,6 +43,19 @@ export default function Learn() {
   return (
     <div>
       <PageHeader title="Learn Russian" subtitle="Everyday conversation and chess Russian, from A1 to B2. Every sentence has audio, a word-by-word breakdown and grammar notes." />
+
+      <div className="mb-6 grid grid-cols-1 gap-2 sm:grid-cols-3">
+        {[
+          { to: "/practice/talk", Icon: MessagesSquare, title: "Conversations", body: "112 everyday questions · answer, listen, repeat" },
+          { to: "/practice", Icon: Mic, title: "Practice", body: "Reviews, listening, speaking, guided chats" },
+          { to: "/vocabulary", Icon: Library, title: "Vocabulary", body: "Every word you've met, searchable" },
+        ].map(({ to, Icon, title, body }) => (
+          <button key={to} onClick={() => navigate(to)} className="card card-hover flex items-center gap-3 p-4 text-left">
+            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-accent/10"><Icon className="size-5 text-accent" /></span>
+            <span className="min-w-0"><span className="block font-semibold">{title}</span><span className="block truncate text-sm text-mist">{body}</span></span>
+          </button>
+        ))}
+      </div>
 
       <div className="flex flex-wrap items-center justify-between gap-3">
         <Segmented value={level} onChange={(v) => { setLevel(v); setCat(null); }} options={cur.levels.map((l) => ({ v: l.code, l: <span className="inline-flex items-center gap-1">{l.locked && <Lock className="size-3" />}{l.code}</span> }))} />

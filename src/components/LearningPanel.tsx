@@ -13,6 +13,29 @@ import { RussianLine, stressMapFrom } from "./RussianText";
 import { AudioButtons } from "./Audio";
 import { Segmented } from "./ui";
 import { MoveQuestionCard, useMoveQuestions } from "./MoveQuestion";
+import { BetweenMovesSwitch, GameLessonCard, TalkTurnCard, useBetweenMoves, useGameLesson, useTalkTurns } from "./GameLesson";
+
+/** Moves that need your full attention: the lesson doesn't pop up over the board after these. */
+const SHARP = new Set(["check", "capture", "en-passant", "promotion", "threat", "mate", "stalemate"]);
+
+/** Your lesson, a conversation question or a quick question — whatever "between moves" is set to. */
+function useBetween(oppPly: number | null) {
+  const [mode, setMode] = useBetweenMoves();
+  const gl = useGameLesson(mode === "lesson", oppPly);
+  const talk = useTalkTurns(mode === "mixed");
+  const { questionFor } = useMoveQuestions();
+  const node =
+    mode === "lesson" ? (
+      <GameLessonCard gl={gl} onMixed={() => setMode("mixed")} />
+    ) : oppPly == null ? null : (() => {
+      // every third reply is an everyday conversation question; the rest are quick questions
+      const x = Math.floor(oppPly / 2) % 3 === 1 ? talk.turnFor(oppPly) : null;
+      if (x) return <TalkTurnCard key={x.id} x={x} />;
+      const q = questionFor(oppPly);
+      return q ? <MoveQuestionCard key={q.key} q={q} /> : null;
+    })();
+  return { mode, setMode, node };
+}
 
 const toLine = (p: Phrase): Line => ({ ru: p.ru, en: p.en, words: p.words });
 const WHO = { me: "You", ai: "Stockfish", opponent: "Opponent" } as const;
@@ -31,8 +54,7 @@ export function LearningPanel({ cards, focus, onIntensity }: { cards: { ply: num
   const intensity: Intensity = profile?.learning_intensity === "deep" && !ent.deep_learning ? "standard" : profile?.learning_intensity ?? "standard";
   const latest = cards.at(-1);
   const lastOpp = [...cards].reverse().find((c) => c.card.speaker !== "me");
-  const { questionFor } = useMoveQuestions();
-  const question = lastOpp ? questionFor(lastOpp.ply) : null;
+  const between = useBetween(lastOpp?.ply ?? null);
 
   const setIntensity = (i: Intensity) => {
     saveProfile({ learning_intensity: i }).catch(() => {});
@@ -63,13 +85,14 @@ export function LearningPanel({ cards, focus, onIntensity }: { cards: { ply: num
             <AudioButtons text={latest.card.phrase.ru} compact />
           </div>
         )
-      ) : !latest ? (
-        <div className="px-4 py-6 text-sm text-mist">
-          Make a move. Each move gives you a short Russian phrase about what just happened on the board, pitched at your level ({profile?.ru_level}).
-        </div>
       ) : (
         <div className="max-h-[60vh] overflow-y-auto px-4 py-4 lg:max-h-[calc(100dvh-260px)]">
-          {question && <div className="mb-4"><MoveQuestionCard key={question.key} q={question} /></div>}
+          <BetweenMovesSwitch mode={between.mode} onChange={between.setMode} />
+          {between.node && <div className="mb-4">{between.node}</div>}
+          {!latest ? (
+            <div className="text-sm text-mist">Make a move. Each move gives you a short Russian phrase about what just happened on the board, pitched at your level ({profile?.ru_level}).</div>
+          ) : (
+          <>
           <CardView key={latest.ply} ply={latest.ply} card={latest.card} intensity={intensity} focus={focus} />
           {cards.length > 1 && (
             <div className="mt-5 border-t border-white/[0.06] pt-3">
@@ -93,6 +116,8 @@ export function LearningPanel({ cards, focus, onIntensity }: { cards: { ply: num
               )}
             </div>
           )}
+          </>
+          )}
         </div>
       )}
     </section>
@@ -115,7 +140,10 @@ export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards
   const [auto, setAuto] = useState<boolean>(() => pref("lessonPopup", true));
   const [top, setTop] = useState(12);
   const [more, setMore] = useState(false);
-  const { questionFor } = useMoveQuestions();
+  const oppPly = latest && latest.card.speaker !== "me" ? latest.ply : null;
+  const between = useBetween(oppPly);
+  // sharp moment on the board (check, a capture, a threat…): the lesson waits instead of popping up
+  const sharp = !!latest && latest.card.speaker !== "me" && SHARP.has(latest.card.key);
 
   useEffect(() => {
     if (collapse) setOpen(false);
@@ -125,7 +153,7 @@ export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards
   useEffect(() => {
     setOpen(false);
     setMore(false);
-    if (!latest || latest.card.speaker === "me" || !auto || paused) return;
+    if (!latest || latest.card.speaker === "me" || !auto || paused || sharp) return;
     const t = setTimeout(() => setOpen(true), 750);
     return () => clearTimeout(t);
   }, [latest?.ply, latest?.card.key, paused]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -149,7 +177,7 @@ export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards
   if (!latest) return null;
   const standard = intensity !== "quick";
   const close = () => setOpen(false);
-  const question = latest.card.speaker !== "me" ? questionFor(latest.ply) : null;
+  const lesson = between.node;
   const toggleAuto = () => {
     setAuto(!auto);
     setPref("lessonPopup", !auto);
@@ -180,8 +208,9 @@ export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards
               </button>
             </div>
             <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-3">
-              {question && <MoveQuestionCard key={question.key} q={question} />}
-              {question ? (
+              <BetweenMovesSwitch mode={between.mode} onChange={between.setMode} />
+              {lesson}
+              {lesson ? (
                 <div className="mt-4">
                   <div className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider text-mist">These moves in Russian</div>
                   <div className="grid gap-1.5">
@@ -209,7 +238,11 @@ export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards
           <div className="pointer-events-auto mx-auto flex max-w-[600px] items-center gap-2 rounded-2xl border border-white/10 bg-ink-900/95 py-1.5 pl-4 pr-1.5 shadow-[0_-16px_48px_-12px_rgba(0,0,0,0.85)] backdrop-blur">
             <button className="flex min-w-0 flex-1 items-center gap-3 py-1 text-left" onClick={() => setOpen(true)}>
               <GraduationCap className="size-4 shrink-0 text-accent" />
-              <span className="ru min-w-0 flex-1 truncate text-base">{latest.card.phrase.ru}</span>
+              {sharp && auto ? (
+                <span className="min-w-0 flex-1 truncate text-sm text-mist">Sharp position — your lesson waits. Tap when ready.</span>
+              ) : (
+                <span className="ru min-w-0 flex-1 truncate text-base">{latest.card.phrase.ru}</span>
+              )}
             </button>
             <AudioButtons text={latest.card.phrase.ru} compact />
             <button className="grid size-9 shrink-0 place-items-center rounded-lg text-mist hover:bg-white/5" onClick={() => setOpen(true)} aria-label="Show the Russian for this move">

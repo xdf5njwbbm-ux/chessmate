@@ -5,7 +5,7 @@ import { api } from "../lib/api";
 import { bracket, poolLabel, tcLabel } from "../lib/constants";
 import { pct, ratingText } from "../lib/format";
 import type { Dashboard } from "../lib/types";
-import { useSession } from "../state/session";
+import { useLearner, useSession } from "../state/session";
 import { useLive } from "../state/live";
 import { ResumeBotGames } from "../components/Resume";
 import { Button, LevelBadge, PageLoader, Progress, Ring, SectionTitle, Stat, TierIcon } from "../components/ui";
@@ -20,6 +20,7 @@ function greeting() {
 
 export default function Home() {
   const { profile } = useSession();
+  const learner = useLearner();
   const { inbox } = useLive();
   const navigate = useNavigate();
   const [d, setD] = useState<Dashboard | null>(null);
@@ -31,13 +32,9 @@ export default function Home() {
 
   if (err) return <div className="card p-6 text-mist">{err}</div>;
   if (!d || !profile) return <PageLoader />;
+  if (!learner) return <ChessHome d={d} />;
   const [ru, en] = greeting();
   const r = d.russian;
-  const c = d.chess;
-  const main = [...c.ratings].sort((a, b) => b.games - a.games)[0];
-  const rated = c.ratings.filter((x) => x.rating != null);
-  const peak = rated.reduce<number | null>((m, x) => (x.peak != null && (m == null || x.peak > m) ? x.peak : m), null);
-  const decided = c.totals.wins + c.totals.losses + c.totals.draws;
   const objectives = [
     { label: "Complete one Russian lesson", done: d.objectives.lesson >= 1, value: Math.min(1, d.objectives.lesson), goal: 1, Icon: BookOpen, to: r.next_lesson ? `/learn/lesson/${r.next_lesson.id}` : "/learn" },
     { label: "Play one chess game", done: d.objectives.game >= 1, value: Math.min(1, d.objectives.game), goal: 1, Icon: Swords, to: "/play" },
@@ -71,7 +68,7 @@ export default function Home() {
       )}
 
       {(myTurn.length > 0 || (inbox?.incoming.length ?? 0) > 0) && (
-        <button onClick={() => navigate(myTurn[0] ? `/game/${myTurn[0].id}` : "/play")} className="mb-6 flex w-full items-center gap-3 rounded-2xl border border-accent/30 bg-accent/[0.08] px-4 py-3 text-left">
+        <button onClick={() => navigate(myTurn[0] ? `/game/${myTurn[0].id}` : "/play/friend")} className="mb-6 flex w-full items-center gap-3 rounded-2xl border border-accent/30 bg-accent/[0.08] px-4 py-3 text-left">
           <Gamepad2 className="size-5 text-accent" />
           <span className="flex-1 text-sm font-medium">
             {myTurn.length > 0 ? `It's your move in ${myTurn.length} game${myTurn.length > 1 ? "s" : ""}.` : `${inbox!.incoming.length} challenge${inbox!.incoming.length > 1 ? "s" : ""} waiting for you.`}
@@ -124,8 +121,8 @@ export default function Home() {
           <div className="mt-1 font-display text-2xl font-semibold">Играем!</div>
           <p className="mt-1 text-sm text-mist">Every move comes with Russian at your level.</p>
           <div className="mt-auto grid gap-2 pt-5">
-            <Button onClick={() => navigate("/play?mode=online")}><Users className="size-4" /> Play someone</Button>
-            <Button variant="secondary" onClick={() => navigate("/play/computer")}><Bot className="size-4" /> Play Stockfish</Button>
+            <Button onClick={() => navigate("/play/friend")}><Users className="size-4" /> Play With a Friend</Button>
+            <Button variant="secondary" onClick={() => navigate("/play/solo")}><Bot className="size-4" /> Play Solo</Button>
           </div>
         </div>
       </div>
@@ -172,36 +169,7 @@ export default function Home() {
           {r.certified.length > 0 && <div className="mt-4 flex flex-wrap gap-1.5">{r.certified.map((l) => <span key={l} className="tag !bg-gold/10 !text-gold">{l} certified</span>)}</div>}
         </div>
 
-        {/* chess */}
-        <div className="card p-5">
-          <div className="flex items-center justify-between">
-            <div className="text-xs font-semibold uppercase tracking-wider text-mist">Chess progress</div>
-            {main && <span className="tag">{poolLabel(main.pool)}</span>}
-          </div>
-          <div className="mt-4 flex items-end gap-3">
-            <div className="text-4xl font-semibold tabular-nums">{main ? ratingText(main.rating, main.status) : "Unrated"}</div>
-            <div className="pb-1 text-sm text-mist">{main?.rating != null ? bracket(main.rating) : main ? `${main.placement_left} placement games left` : "Play 5 rated games to get a rating"}</div>
-          </div>
-          <div className="mt-5 grid grid-cols-3 gap-4">
-            <Stat label="Peak" value={peak ?? "—"} tone={peak ? "gold" : undefined} />
-            <Stat label="Games" value={c.totals.games} sub={`${c.totals.vs_ai} vs AI`} />
-            <Stat label="Win rate" value={decided ? `${pct(c.totals.wins, decided)}%` : "—"} />
-          </div>
-          {c.recent.length > 0 && (
-            <div className="mt-5 flex gap-1.5">
-              {c.recent.map((g) => {
-                const won = (g.result === "1-0" && g.my_color === "white") || (g.result === "0-1" && g.my_color === "black");
-                const draw = g.result === "1/2-1/2";
-                return (
-                  <button key={g.id} onClick={() => navigate(`/analysis/${g.id}`)} title={`${g.opponent_kind === "ai" ? "Stockfish" : g.opponent?.display_name ?? "Opponent"} · ${tcLabel(g.time_control)}`}
-                    className={`grid size-8 place-items-center rounded-lg text-xs font-bold ${won ? "bg-accent/15 text-accent" : draw ? "bg-white/10 text-fog" : "bg-danger/15 text-danger"}`}>
-                    {won ? "W" : draw ? "D" : "L"}
-                  </button>
-                );
-              })}
-            </div>
-          )}
-        </div>
+        <ChessCard d={d} />
       </div>
 
       <SectionTitle right={<button className="text-sm text-mist hover:text-white" onClick={() => navigate("/profile")}>All {d.achievement_count}</button>}>Recent achievements</SectionTitle>
@@ -222,6 +190,84 @@ export default function Home() {
           <Headphones className="size-5 text-faint" /> Finish your first lesson or game to earn your first achievement.
         </div>
       )}
+    </div>
+  );
+}
+
+/** Rating, peak, games and the last few results. */
+function ChessCard({ d }: { d: Dashboard }) {
+  const navigate = useNavigate();
+  const c = d.chess;
+  const main = [...c.ratings].sort((a, b) => b.games - a.games)[0];
+  const rated = c.ratings.filter((x) => x.rating != null);
+  const peak = rated.reduce<number | null>((m, x) => (x.peak != null && (m == null || x.peak > m) ? x.peak : m), null);
+  const decided = c.totals.wins + c.totals.losses + c.totals.draws;
+  return (
+  <div className="card p-5">
+    <div className="flex items-center justify-between">
+      <div className="text-xs font-semibold uppercase tracking-wider text-mist">Chess progress</div>
+      {main && <span className="tag">{poolLabel(main.pool)}</span>}
+    </div>
+    <div className="mt-4 flex items-end gap-3">
+      <div className="text-4xl font-semibold tabular-nums">{main ? ratingText(main.rating, main.status) : "Unrated"}</div>
+      <div className="pb-1 text-sm text-mist">{main?.rating != null ? bracket(main.rating) : main ? `${main.placement_left} placement games left` : "Play 5 rated games to get a rating"}</div>
+    </div>
+    <div className="mt-5 grid grid-cols-3 gap-4">
+      <Stat label="Peak" value={peak ?? "—"} tone={peak ? "gold" : undefined} />
+      <Stat label="Games" value={c.totals.games} sub={`${c.totals.vs_ai} vs AI`} />
+      <Stat label="Win rate" value={decided ? `${pct(c.totals.wins, decided)}%` : "—"} />
+    </div>
+    {c.recent.length > 0 && (
+      <div className="mt-5 flex gap-1.5">
+        {c.recent.map((g) => {
+          const won = (g.result === "1-0" && g.my_color === "white") || (g.result === "0-1" && g.my_color === "black");
+          const draw = g.result === "1/2-1/2";
+          return (
+            <button key={g.id} onClick={() => navigate(`/analysis/${g.id}`)} title={`${g.opponent_kind === "ai" ? "Stockfish" : g.opponent?.display_name ?? "Opponent"} · ${tcLabel(g.time_control)}`}
+              className={`grid size-8 place-items-center rounded-lg text-xs font-bold ${won ? "bg-accent/15 text-accent" : draw ? "bg-white/10 text-fog" : "bg-danger/15 text-danger"}`}>
+              {won ? "W" : draw ? "D" : "L"}
+            </button>
+          );
+        })}
+      </div>
+    )}
+  </div>
+  );
+}
+
+/** Home for a chess-only account: no Russian, just games. */
+function ChessHome({ d }: { d: Dashboard }) {
+  const { profile } = useSession();
+  const { inbox } = useLive();
+  const navigate = useNavigate();
+  const myTurn = (inbox?.active ?? []).filter((g) => (g.turn === "w") === (g.my_color === "white"));
+  const h = new Date().getHours();
+  const hello = h < 5 ? "Good night" : h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening";
+  return (
+    <div>
+      <h1 className="mb-6 font-display text-3xl font-semibold tracking-tight md:text-4xl">{hello}, {profile?.display_name}</h1>
+      {(myTurn.length > 0 || (inbox?.incoming.length ?? 0) > 0) && (
+        <button onClick={() => navigate(myTurn[0] ? `/game/${myTurn[0].id}` : "/play/friend")} className="mb-6 flex w-full items-center gap-3 rounded-2xl border border-accent/30 bg-accent/[0.08] px-4 py-3 text-left">
+          <Gamepad2 className="size-5 text-accent" />
+          <span className="flex-1 text-sm font-medium">
+            {myTurn.length > 0 ? `It's your move in ${myTurn.length} game${myTurn.length > 1 ? "s" : ""}.` : `${inbox!.incoming.length} challenge${inbox!.incoming.length > 1 ? "s" : ""} waiting for you.`}
+          </span>
+          <ArrowRight className="size-4 text-accent" />
+        </button>
+      )}
+      <ResumeBotGames className="mb-6" />
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <button onClick={() => navigate("/play/friend")} className="card card-hover flex items-center gap-4 p-5 text-left">
+          <span className="grid size-12 place-items-center rounded-xl bg-accent/10"><Users className="size-6 text-accent" /></span>
+          <span><span className="block font-display text-xl font-semibold">Play With a Friend</span><span className="text-sm text-mist">Send an invite link or a challenge.</span></span>
+        </button>
+        <button onClick={() => navigate("/play/solo")} className="card card-hover flex items-center gap-4 p-5 text-left">
+          <span className="grid size-12 place-items-center rounded-xl bg-white/[0.06]"><Bot className="size-6 text-accent" /></span>
+          <span><span className="block font-display text-xl font-semibold">Play Solo</span><span className="text-sm text-mist">Practise against Stockfish.</span></span>
+        </button>
+      </div>
+      <div className="mt-4"><ChessCard d={d} /></div>
+      <p className="mt-6 text-sm text-mist">Want to learn some Russian too? Turn on <button className="font-semibold text-accent-soft" onClick={() => navigate("/settings")}>Learn Russian</button> in Settings.</p>
     </div>
   );
 }

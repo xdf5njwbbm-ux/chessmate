@@ -8,7 +8,12 @@ import { REPORT_REASONS, TERMINATION, tcLabel } from "../lib/constants";
 import { ratingText } from "../lib/format";
 import { CHAT_PHRASES, describeMove, type MoveCard } from "../lib/movePhrases";
 import type { Game, GameMessage, Level, Mini } from "../lib/types";
-import { useSession } from "../state/session";
+
+/** Quick chat for chess-only players (learners get the Russian phrases for their level). */
+const EN_CHAT = ["Hi! Good luck!", "Nice move!", "Good game!", "Thanks for the game!", "Rematch?", "Oops!"];
+/** English for the Russian quick phrases, so a chess-only friend understands them. */
+const PHRASE_EN = new Map(Object.values(CHAT_PHRASES).flat().map((p) => [p.ru, p.en]));
+import { useLearner, useSession } from "../state/session";
 import { useLive } from "../state/live";
 import { useToast } from "../state/toast";
 import { Board, capturedPieces } from "../components/Board";
@@ -45,6 +50,7 @@ export default function OnlineGame() {
   const gameRef = useRef<Game | null>(null);
   const flagFor = useRef(-1);
   const level = (profile?.ru_level ?? "A1") as Level;
+  const learner = useLearner(); // each player's own setting: a chess-only player never sees the Russian side
   const forms = profile?.ru_forms ?? "m";
 
   const accept = useCallback((g: Game) => {
@@ -205,7 +211,7 @@ export default function OnlineGame() {
   };
 
   if (error) {
-    return <EmptyState icon={<Swords className="size-7" />} title="Game unavailable" body={error} action={<Button variant="secondary" onClick={() => navigate("/play")}>Back to Play</Button>} />;
+    return <EmptyState icon={<Swords className="size-7" />} title="Game unavailable" body={error} action={<Button variant="secondary" onClick={() => navigate("/play/friend")}>Back</Button>} />;
   }
   if (!game || !display) return <FullScreenLoader />;
 
@@ -224,11 +230,11 @@ export default function OnlineGame() {
     <div className="grid grid-cols-[minmax(0,1fr)] gap-5 pb-20 lg:grid-cols-[minmax(0,1fr)_380px] lg:pb-0 xl:grid-cols-[minmax(0,1fr)_420px]">
       <div className="mx-auto w-full max-w-[600px]">
         <div className="mb-1 flex items-center gap-2">
-          <BackButton to="/play" />
+          <BackButton to="/play/friend" />
           <div className="flex flex-1 flex-wrap items-center gap-1.5 font-semibold">
             {tcLabel(game.time_control)}
             <span className={`tag ${game.rated ? "!bg-accent/10 !text-accent-soft" : ""}`}>{game.rated ? "Rated" : "Casual"}</span>
-            {game.russian_chat && <span className="tag">RU chat</span>}
+            {learner && game.russian_chat && <span className="tag">RU chat</span>}
             {game.blindfold && <span className="tag !text-gold"><EyeOff className="mr-1 inline size-3.5" />Blindfold</span>}
             {!live && isActive && <span className="tag" title="The live connection dropped. The game still refreshes every few seconds.">Reconnecting…</span>}
           </div>
@@ -237,7 +243,7 @@ export default function OnlineGame() {
         <PlayerBar
           name={opp?.display_name ?? "Opponent"}
           sub={ratingSub(opp)}
-          level={opp?.ru_level}
+          level={learner ? opp?.ru_level : undefined}
           online={opp?.online}
           captured={oppColor === "w" ? cap.byWhite : cap.byBlack}
           plus={oppColor === "w" ? Math.max(0, cap.diff) : Math.max(0, -cap.diff)}
@@ -266,7 +272,7 @@ export default function OnlineGame() {
         <PlayerBar
           name={me?.display_name ?? "You"}
           sub={ratingSub(me)}
-          level={me?.ru_level}
+          level={learner ? me?.ru_level : undefined}
           captured={myColor === "w" ? cap.byWhite : cap.byBlack}
           plus={myColor === "w" ? Math.max(0, cap.diff) : Math.max(0, -cap.diff)}
           color={myColor ?? "w"}
@@ -289,7 +295,7 @@ export default function OnlineGame() {
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2 pl-1 text-sm">
                 {optimistic ? <><Spinner className="size-4" /><span className="text-mist">Sending…</span></>
-                  : myTurn ? <span className="font-semibold text-accent-soft">Your move · <span className="ru">Твой ход</span></span>
+                  : myTurn ? <span className="font-semibold text-accent-soft">Your move{learner && <> · <span className="ru">Твой ход</span></>}</span>
                   : <span className="text-mist">Waiting for {opp?.display_name ?? "opponent"}…</span>}
               </div>
               <div className="flex gap-2">
@@ -312,10 +318,12 @@ export default function OnlineGame() {
 
       {wide ? (
         <div className="lg:sticky lg:top-6 lg:self-start">
-          <div className="mb-3">
-            <Segmented value={tab} onChange={setTab} options={[{ v: "learn", l: blind ? "Blindfold" : "Russian" }, { v: "chat", l: <span className="inline-flex items-center gap-1.5"><MessageSquare className="size-3.5" /> Chat</span> }]} />
-          </div>
-          {tab === "learn"
+          {(blind || learner) && (
+            <div className="mb-3">
+              <Segmented value={tab} onChange={setTab} options={[{ v: "learn", l: blind ? "Blindfold" : "Russian" }, { v: "chat", l: <span className="inline-flex items-center gap-1.5"><MessageSquare className="size-3.5" /> Chat</span> }]} />
+            </div>
+          )}
+          {tab === "learn" && (blind || learner)
             ? blind
               ? <BlindfoldPanel bf={bf} moves={replay} fen={display.fen} myColor={myColor!} over={!isActive} ruLevel={level} myTurn={myTurn} />
               : <LearningPanel cards={cards} />
@@ -328,7 +336,7 @@ export default function OnlineGame() {
           <div onPointerDown={() => setCollapse((n) => n + 1)} onFocusCapture={() => setCollapse((n) => n + 1)}>
             <ChatPanel game={game} players={players} level={level} />
           </div>
-          {isActive && !blind && <LearningPopup cards={cards} collapse={collapse} avoid={boardBox} />}
+          {isActive && !blind && learner && <LearningPopup cards={cards} collapse={collapse} avoid={boardBox} />}
         </>
       )}
 
@@ -348,7 +356,7 @@ export default function OnlineGame() {
           )}
         </div>
       </Sheet>
-      {oppId && opp && <ReportSheet open={report} onClose={() => setReport(false)} userId={oppId} name={opp.display_name} gameId={game.id} onBlocked={() => navigate("/play", { replace: true })} />}
+      {oppId && opp && <ReportSheet open={report} onClose={() => setReport(false)} userId={oppId} name={opp.display_name} gameId={game.id} onBlocked={() => navigate("/play/friend", { replace: true })} />}
     </div>
   );
 }
@@ -385,7 +393,8 @@ function GameOver({ game, myColor, opp, oppId }: { game: Game; myColor: Color | 
     const t = setTimeout(() => box.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 80);
     return () => clearTimeout(t);
   }, []);
-  const phrase = aborted ? null : draw ? "Ничья! Хорошая партия." : won ? `Я выиграл${f ? "а" : ""}! Спасибо за игру.` : "Хорошая партия! Поздравляю.";
+  const learner = useLearner();
+  const phrase = aborted || !learner ? null : draw ? "Ничья! Хорошая партия." : won ? `Я выиграл${f ? "а" : ""}! Спасибо за игру.` : "Хорошая партия! Поздравляю.";
 
   return (
     <div ref={box} className="card mt-4 animate-rise scroll-mb-24 overflow-hidden">
@@ -426,6 +435,7 @@ function GameOver({ game, myColor, opp, oppId }: { game: Game; myColor: Color | 
 
 function ChatPanel({ game, players, level }: { game: Game; players: { white: Mini | null; black: Mini | null } | null; level: Level }) {
   const { uid } = useSession();
+  const learner = useLearner();
   const toast = useToast();
   const [msgs, setMsgs] = useState<GameMessage[]>([]);
   const [text, setText] = useState("");
@@ -471,15 +481,16 @@ function ChatPanel({ game, players, level }: { game: Game; players: { white: Min
     <section className="card flex max-h-[70vh] flex-col overflow-hidden">
       <div className="border-b border-white/[0.06] px-4 py-2.5 text-sm">
         <span className="font-semibold">Chat</span>
-        {game.russian_chat && <span className="ml-2 text-mist">· Russian only (chess notation like e4 is fine)</span>}
+        {learner && game.russian_chat && <span className="ml-2 text-mist">· Russian only (chess notation like e4 is fine)</span>}
       </div>
       <div data-chat-pane className="min-h-[160px] flex-1 overflow-y-auto px-4 py-3">
-        {msgs.length === 0 ? <p className="text-sm text-mist">Say hello! Tap a suggested phrase below to practise.</p> : (
+        {msgs.length === 0 ? <p className="text-sm text-mist">{learner ? "Say hello! Tap a suggested phrase below to practise." : "Say hello!"}</p> : (
           <div className="grid gap-2">
             {msgs.map((m) => (
               <div key={m.id} className={`max-w-[85%] rounded-2xl px-3 py-2 ${m.user_id === uid ? "ml-auto bg-accent/15" : "bg-white/[0.05]"}`}>
                 <div className="text-[11px] text-mist">{nameOf(m.user_id)}</div>
                 <div className={/[а-яё]/i.test(m.body) ? "ru text-[17px]" : ""}>{m.body}</div>
+                {!learner && PHRASE_EN.has(m.body) && <div className="text-xs text-mist">“{PHRASE_EN.get(m.body)}”</div>}
               </div>
             ))}
             <div ref={end} />
@@ -488,12 +499,16 @@ function ChatPanel({ game, players, level }: { game: Game; players: { white: Min
       </div>
       <div className="border-t border-white/[0.06] p-3">
         <div className="no-scrollbar mb-2 flex gap-1.5 overflow-x-auto">
-          {CHAT_PHRASES[level].map((p) => (
-            <button key={p.ru} title={p.en} onClick={() => send(p.ru)} disabled={busy} className="chip ru shrink-0 !py-1.5 text-[15px]">{p.ru}</button>
-          ))}
+          {learner
+            ? CHAT_PHRASES[level].map((p) => (
+                <button key={p.ru} title={p.en} onClick={() => send(p.ru)} disabled={busy} className="chip ru shrink-0 !py-1.5 text-[15px]">{p.ru}</button>
+              ))
+            : EN_CHAT.map((p) => (
+                <button key={p} onClick={() => send(p)} disabled={busy} className="chip shrink-0 !py-1.5 text-sm">{p}</button>
+              ))}
         </div>
         <form className="flex gap-2" onSubmit={(e) => { e.preventDefault(); send(text); }}>
-          <input className="field !py-2.5" value={text} maxLength={300} onChange={(e) => setText(e.target.value)} placeholder={game.russian_chat ? "Напишите по-русски…" : "Message"} />
+          <input className="field !py-2.5" value={text} maxLength={300} onChange={(e) => setText(e.target.value)} placeholder={learner && game.russian_chat ? "Напишите по-русски…" : "Message"} />
           <Button type="submit" disabled={!text.trim()} loading={busy}><Send className="size-4" /></Button>
         </form>
       </div>

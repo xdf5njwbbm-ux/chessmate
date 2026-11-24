@@ -8,6 +8,7 @@ import { pref, setPref } from "../lib/format";
 import type { Level } from "../lib/types";
 import type { BlindResume } from "../lib/saved";
 import { useSay, SpeakPractice } from "./Audio";
+import { useLearner } from "../state/session";
 
 /** English speech for "hear it in English" (the device voice; Russian goes through the app's voices). */
 function sayEnglish(text: string) {
@@ -34,6 +35,7 @@ export type BlindSummary = { reveals: number; reveal_ms: number; longest_blind_s
  */
 export function useBlindfold({ moves, myColor, over, ruLevel, gameKey, resume }: { moves: Move[]; myColor: "w" | "b"; over: boolean; ruLevel: Level; gameKey: string; resume?: BlindResume }) {
   const say = useSay();
+  const learner = useLearner();
   const [level, setLevelState] = useState<BlindLevel>(() => pref<BlindLevel>("blindLevel", "intermediate"));
   const [voice, setVoiceState] = useState<boolean>(() => pref("blindVoice", true));
   const [revealed, setRevealed] = useState(false);
@@ -87,7 +89,7 @@ export function useBlindfold({ moves, myColor, over, ruLevel, gameKey, resume }:
       });
       s.current.revealedThisMove = false;
     } else {
-      if (voice && !over) speakMove(last, "ru");
+      if (voice && !over) speakMove(last, learner ? "ru" : "en"); // chess-only accounts hear English
       s.current.turnStart = Date.now();
     }
   }, [moves.length]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -152,6 +154,7 @@ export function RevealButton({ bf, over }: { bf: BlindfoldState; over: boolean }
 
 /** Phones: the opponent's last move right under the board, so nobody has to scroll to hear or read it. */
 export function AnnouncementStrip({ bf, moves, myColor, over, ruLevel, myTurn }: { bf: BlindfoldState; moves: Move[]; myColor: "w" | "b"; over: boolean; ruLevel: Level; myTurn: boolean }) {
+  const learner = useLearner();
   const lastOpp = [...moves].reverse().find((m) => m.color !== myColor) ?? null;
   if (over || !lastOpp) return null;
   const text = bf.caps.text;
@@ -160,8 +163,14 @@ export function AnnouncementStrip({ bf, moves, myColor, over, ruLevel, myTurn }:
       <div className="min-w-0 flex-1">
         {text === "full" ? (
           <>
-            <div className="ru truncate text-[17px] leading-tight">{announceRu(lastOpp, ruLevel)}</div>
-            <div className="truncate text-xs text-mist">{announceEn(lastOpp)}</div>
+            {learner ? (
+              <>
+                <div className="ru truncate text-[17px] leading-tight">{announceRu(lastOpp, ruLevel)}</div>
+                <div className="truncate text-xs text-mist">{announceEn(lastOpp)}</div>
+              </>
+            ) : (
+              <div className="truncate text-[17px] leading-tight">{announceEn(lastOpp)}</div>
+            )}
           </>
         ) : text === "notation" ? (
           <div className="font-mono text-lg font-semibold">{notationLine(lastOpp)}</div>
@@ -169,7 +178,7 @@ export function AnnouncementStrip({ bf, moves, myColor, over, ruLevel, myTurn }:
           <div className="text-sm text-mist">{myTurn ? "Your move. Listen again if you need to." : "Listen for the move."}</div>
         )}
       </div>
-      <button className="grid size-10 shrink-0 place-items-center rounded-xl bg-white/[0.07]" aria-label="Hear the move again" onClick={() => bf.speakMove(lastOpp, "ru")}>
+      <button className="grid size-10 shrink-0 place-items-center rounded-xl bg-white/[0.07]" aria-label="Hear the move again" onClick={() => bf.speakMove(lastOpp, learner ? "ru" : "en")}>
         <Repeat2 className="size-[18px]" />
       </button>
     </div>
@@ -181,6 +190,7 @@ export function BlindfoldPanel({ bf, moves, fen, myColor, over, ruLevel, myTurn 
   bf: BlindfoldState; moves: Move[]; fen: string; myColor: "w" | "b"; over: boolean; ruLevel: Level; myTurn: boolean;
 }) {
   const say = useSay();
+  const learner = useLearner();
   const [aid, setAid] = useState<null | "repeat" | "describe" | "legal">(null);
   const lastOpp = [...moves].reverse().find((m) => m.color !== myColor) ?? null;
   const lastMine = [...moves].reverse().find((m) => m.color === myColor) ?? null;
@@ -216,8 +226,14 @@ export function BlindfoldPanel({ bf, moves, fen, myColor, over, ruLevel, myTurn 
           ) : showText ? (
             <>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-mist">Opponent · {lastOpp.san}</div>
-              <div className="ru mt-1 text-xl">{announceRu(lastOpp, ruLevel)}</div>
-              <div className="mt-0.5 text-sm text-mist">{announceEn(lastOpp)}</div>
+              {learner ? (
+                <>
+                  <div className="ru mt-1 text-xl">{announceRu(lastOpp, ruLevel)}</div>
+                  <div className="mt-0.5 text-sm text-mist">{announceEn(lastOpp)}</div>
+                </>
+              ) : (
+                <div className="mt-1 text-xl">{announceEn(lastOpp)}</div>
+              )}
             </>
           ) : caps.text === "notation" ? (
             <>
@@ -227,16 +243,20 @@ export function BlindfoldPanel({ bf, moves, fen, myColor, over, ruLevel, myTurn 
           ) : (
             <div className="flex items-center gap-2 text-sm text-mist"><Volume2 className="size-4" /> Listen for the move{caps.writtenAids ? " — or ask to see it below." : "."}</div>
           )}
-          {caps.extra && !over && myTurn && lastOpp && <div className="mt-2 text-sm font-semibold text-accent-soft">Your move · Твой ход</div>}
+          {caps.extra && !over && myTurn && lastOpp && <div className="mt-2 text-sm font-semibold text-accent-soft">Your move{learner && <> · <span className="ru">Твой ход</span></>}</div>}
         </div>
 
         {/* aids */}
         <div className="mt-3 flex flex-wrap gap-1.5">
-          <button className="chip" disabled={!lastOpp} onClick={() => { if (!lastOpp) return; bf.speakMove(lastOpp, "ru"); if (writtenOk) setAid(aid === "repeat" ? null : "repeat"); }}>
+          <button className="chip" disabled={!lastOpp} onClick={() => { if (!lastOpp) return; bf.speakMove(lastOpp, learner ? "ru" : "en"); if (writtenOk) setAid(aid === "repeat" ? null : "repeat"); }}>
             <Repeat2 className="size-4" /> Repeat last move
           </button>
-          <button className="chip" disabled={!lastOpp} onClick={() => lastOpp && bf.speakMove(lastOpp, "ru")}><Volume2 className="size-4" /> Russian</button>
-          <button className="chip" disabled={!lastOpp} onClick={() => lastOpp && bf.speakMove(lastOpp, "en")}><Volume2 className="size-4" /> English</button>
+          {learner && (
+            <>
+              <button className="chip" disabled={!lastOpp} onClick={() => lastOpp && bf.speakMove(lastOpp, "ru")}><Volume2 className="size-4" /> Russian</button>
+              <button className="chip" disabled={!lastOpp} onClick={() => lastOpp && bf.speakMove(lastOpp, "en")}><Volume2 className="size-4" /> English</button>
+            </>
+          )}
           {writtenOk && (
             <>
               <button className={`chip ${aid === "describe" ? "!border-accent !text-accent-soft" : ""}`} onClick={() => setAid(aid === "describe" ? null : "describe")}><MapIcon className="size-4" /> Describe position</button>
@@ -250,10 +270,10 @@ export function BlindfoldPanel({ bf, moves, fen, myColor, over, ruLevel, myTurn 
           return (
             <div className="mt-3 rounded-xl border border-white/[0.06] p-3 text-sm leading-relaxed" data-describe>
               <div>{d.en}</div>
-              <div className="ru mt-2 text-base text-fog">{d.ru}</div>
+              {learner && <div className="ru mt-2 text-base text-fog">{d.ru}</div>}
               <div className="mt-2 flex gap-2">
-                <button className="chip" onClick={() => say(speakableRu(d.ru))}><Volume2 className="size-4" /> Russian</button>
-                <button className="chip" onClick={() => sayEnglish(d.en)}><Volume2 className="size-4" /> English</button>
+                {learner && <button className="chip" onClick={() => say(speakableRu(d.ru))}><Volume2 className="size-4" /> Russian</button>}
+                <button className="chip" onClick={() => sayEnglish(d.en)}><Volume2 className="size-4" /> {learner ? "English" : "Listen"}</button>
               </div>
             </div>
           );
@@ -267,7 +287,7 @@ export function BlindfoldPanel({ bf, moves, fen, myColor, over, ruLevel, myTurn 
         )}
 
         {/* say your own move in Russian */}
-        {lastMine && (
+        {lastMine && learner && (
           <div className="mt-4 border-t border-white/[0.06] pt-3">
             <div className="text-[11px] font-semibold uppercase tracking-wider text-mist">Say your move in Russian</div>
             <div className="mt-1 flex flex-wrap items-center gap-2">

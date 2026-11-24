@@ -128,10 +128,11 @@ function parseLessons(file, level) {
       if (!line) continue;
       if (line.startsWith("summary:")) { lesson.summary = line.slice(8).trim(); continue; }
       if (line.startsWith("intro:")) { lesson.content.intro = line.slice(6).trim(); continue; }
-      const h = line.match(/^## (dialogue|phrases|grammar|drills|vocab)(?::\s*(.*))?$/);
+      if (line.startsWith("partner:")) { lesson.partner = line.slice(8).trim(); continue; }
+      const h = line.match(/^## (dialogue|phrases|conversation|grammar|drills|vocab)(?::\s*(.*))?$/);
       if (h) {
         mode = h[1];
-        if (mode === "dialogue" || mode === "phrases") {
+        if (mode === "dialogue" || mode === "phrases" || mode === "conversation") {
           section = { type: "lines", kind: mode, title: h[2] ?? "", lines: [] };
           lesson.content.sections.push(section);
         } else if (mode === "grammar") {
@@ -140,11 +141,29 @@ function parseLessons(file, level) {
         }
         continue;
       }
-      if (mode === "dialogue" || mode === "phrases") {
+      if (mode === "dialogue" || mode === "phrases" || mode === "conversation") {
         if (line.startsWith(">")) {
           const prev = section.lines.at(-1);
           if (!prev) fail(where, "note before any line");
           else prev.note = line.slice(1).trim();
+          continue;
+        }
+        if (line.startsWith("+")) {
+          // "+ Russian follow-up question? = English" — something else you could ask after this answer
+          const prev = section.lines.at(-1);
+          const eq = line.lastIndexOf(" = ");
+          const ru = line.slice(1, eq).trim();
+          const en = line.slice(eq + 3).trim();
+          if (mode !== "conversation") fail(where, `follow-ups only belong in conversations: ${line}`);
+          else if (!prev) fail(where, "follow-up before any line");
+          else if (eq < 0 || !ru || !en) fail(where, `bad follow-up (use "+ Вопрос? = Question?"): ${line}`);
+          else if (!ru.endsWith("?") || !en.endsWith("?")) fail(where, `a follow-up is a question: ${line}`);
+          else {
+            // "был{была}" gives the masculine and feminine forms, as in sentences
+            const f = { ru: ru.replace(/([^\s{]*)\{([^}]+)\}/g, "$1"), en };
+            if (ru.includes("{")) f.ruF = ru.replace(/([^\s{]*)\{([^}]+)\}/g, (_, m, fem) => fem);
+            (prev.follow ??= []).push(f);
+          }
           continue;
         }
         const s = parseSentence(line, where);
@@ -193,6 +212,26 @@ function parseLessons(file, level) {
         lesson.vocab.push(item);
       } else fail(where, `content outside a section: ${line}`);
     }
+    let exchange = 0;
+    for (const sec of lesson.content.sections) {
+      if (sec.kind !== "conversation") continue;
+      if (sec.lines.length < 2 || sec.lines.length % 2) fail(where, `conversation "${sec.title}" must be question/answer pairs`);
+      for (let k = 0; k + 1 < sec.lines.length; k += 2) {
+        const q = sec.lines[k];
+        const a = sec.lines[k + 1];
+        exchange += 1;
+        q.role = "q";
+        a.role = "a";
+        q.x = a.x = `${id}:${exchange}`;
+        if (!q.ru.trim().endsWith("?")) fail(where, `question doesn't end with "?": ${q.ru}`);
+        if (!q.speaker || !a.speaker || q.speaker === a.speaker) fail(where, `a question and its answer need two different speakers: ${q.ru}`);
+        if (q.follow?.length) fail(where, `put follow-ups under the answer, not the question: ${q.ru}`);
+        if (!a.note) fail(where, `answer needs a "> note" (grammar or usage): ${a.ru}`);
+        const hasNext = k + 2 < sec.lines.length;
+        if ((a.follow?.length ?? 0) + (hasNext ? 1 : 0) < 2) fail(where, `answer needs at least two follow-ups (the next question counts as one): ${a.ru}`);
+      }
+    }
+    if (lesson.content.sections.some((s) => s.kind === "conversation") && !lesson.partner) fail(where, "conversation lessons need a partner: line");
     if (!lesson.summary) fail(where, "missing summary");
     if (!lesson.content.sections.some((s) => s.type === "lines")) fail(where, "no sentences");
     if (lesson.content.drills.length < 2) fail(where, "needs at least 2 drills");
@@ -204,6 +243,53 @@ function parseLessons(file, level) {
 }
 
 for (const lv of ["A1", "A2", "B1", "B2"]) parseLessons(lv.toLowerCase() + ".txt", lv);
+
+// ---------------------------------------------------------------- conversations
+// Linking words the conversation lessons teach (also shown as chips in the app).
+const CONNECTORS = [
+  ["потому что", "because"], ["поэтому", "so, that's why"], ["например", "for example"], ["кстати", "by the way"],
+  ["на самом деле", "actually"], ["сначала", "first"], ["потом", "then"], ["после этого", "after that"],
+  ["хотя", "although"], ["если", "if"], ["кроме того", "besides"], ["в общем", "all in all, basically"],
+  ["честно говоря", "to be honest"], ["с одной стороны", "on the one hand"], ["с другой стороны", "on the other hand"],
+];
+const normRu = (t) => t.toLowerCase().replace(/́/g, "").replace(/ё/g, "е").replace(/[^а-яa-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim();
+const hasPhrase = (text, p) => ` ${normRu(text)} `.includes(` ${normRu(p)} `);
+const exchanges = [];
+{
+  const older = new Set(); // every sentence in the non-conversation material
+  for (const l of lessons)
+    for (const sec of l.content.sections)
+      if (sec.type === "lines" && sec.kind !== "conversation") for (const ln of sec.lines) older.add(normRu(ln.ru));
+  for (const l of lessons) {
+    for (const sec of l.content.sections) {
+      if (sec.kind !== "conversation") continue;
+      for (let k = 0; k + 1 < sec.lines.length; k += 2) {
+        const [q, a] = [sec.lines[k], sec.lines[k + 1]];
+        exchanges.push({ id: q.x, lesson: l.id, level: l.level, category: l.category, topic: l.title, topicRu: l.titleRu, section: sec.title, partner: l.partner, q, a });
+      }
+    }
+  }
+  const byQ = new Map();
+  for (const x of exchanges) {
+    const key = normRu(x.q.ru);
+    if (byQ.has(key)) fail(x.id, `question asked twice (also ${byQ.get(key).id}): ${x.q.ru}`);
+    if (older.has(key)) fail(x.id, `question already taught in an earlier lesson: ${x.q.ru}`);
+    byQ.set(key, x);
+  }
+  exchanges.forEach((x, n) => {
+    const after = exchanges[n + 1];
+    if (after && after.lesson === x.lesson && after.section === x.section) x.next = after.id;
+    for (const f of x.a.follow ?? []) {
+      const hit = byQ.get(normRu(f.ru));
+      if (hit && hit.id !== x.id) Object.assign(f, { link: hit.id, linkTopic: hit.topic, linkLevel: hit.level });
+    }
+    x.connectors = CONNECTORS.filter(([c]) => hasPhrase(x.a.ru, c)).map(([c]) => c);
+  });
+  for (const [c] of CONNECTORS) {
+    const n = exchanges.filter((x) => x.connectors.includes(c)).length;
+    if (exchanges.length && n < 2) fail("conversations", `connector «${c}» is used in only ${n} answer(s); use it at least twice`);
+  }
+}
 
 // ---------------------------------------------------------------- tests
 const tests = [];
@@ -262,6 +348,21 @@ const scenarios = [];
   }
 }
 
+// Every conversation lesson is also a guided conversation (and an AI-tutor scenario): the partner
+// asks the lesson's questions in order and your replies are compared with the model answers.
+for (const l of lessons) {
+  const xs = exchanges.filter((x) => x.lesson === l.id);
+  if (!xs.length) continue;
+  const level = l.level;
+  const sort = scenarios.filter((s) => s.level === level).length + 1;
+  const script = xs.flatMap((x) => [
+    { who: "tutor", ru: x.q.ru, en: x.q.en },
+    { who: "user", hint: `Answer: “${x.a.en}”`, answers: [...new Set([x.a.ru, x.a.ruF].filter(Boolean))] },
+  ]);
+  script.push({ who: "tutor", ru: "Спасибо, было интересно поговорить!", en: "Thanks, it was nice talking!" });
+  scenarios.push({ id: `talk-${l.id}`, level, category: l.category, title: l.title, titleRu: l.titleRu, role: l.partner, description: l.summary, sort, script });
+}
+
 // ---------------------------------------------------------------- pronunciation
 const milestones = [];
 {
@@ -299,7 +400,29 @@ console.log(
     `drills ${lessons.reduce((n, l) => n + l.content.drills.length, 0)} · test items ${tests.reduce((n, t) => n + t.items.length, 0)} · ` +
     `scenarios ${scenarios.length} · pronunciation items ${milestones.reduce((n, m) => n + m.items.length, 0)}`,
 );
+const linked = exchanges.reduce((n, x) => n + (x.a.follow ?? []).filter((f) => f.link).length, 0);
+console.log(
+  `conversations: ${exchanges.length} questions (A1 ${exchanges.filter((x) => x.level === "A1").length}, A2 ${exchanges.filter((x) => x.level === "A2").length}) · ` +
+    `follow-ups ${exchanges.reduce((n, x) => n + (x.a.follow?.length ?? 0), 0)} (${linked} lead into another conversation)`,
+);
 if (process.argv.includes("--check")) process.exit(0);
+
+// ---------------------------------------------------------------- talk bank (bundled with the app)
+const TALK_OUT = path.join(ROOT, "src/generated/talk.json");
+fs.mkdirSync(path.dirname(TALK_OUT), { recursive: true });
+const strip = ({ role, x, follow, ...line }) => line; // eslint-disable-line no-unused-vars
+fs.writeFileSync(
+  TALK_OUT,
+  JSON.stringify({
+    connectors: CONNECTORS.map(([ru, en]) => ({ ru, en })),
+    exchanges: exchanges.map((x) => ({
+      id: x.id, lesson: x.lesson, level: x.level, category: x.category, topic: x.topic, topicRu: x.topicRu, partner: x.partner,
+      q: strip(x.q), a: strip(x.a), note: x.a.note ?? "", follow: x.a.follow ?? [], next: x.next ?? null, connectors: x.connectors,
+      vocab: vocab.filter((v) => v.lesson_id === x.lesson && (hasPhrase(x.q.ru, v.ru) || hasPhrase(x.a.ru, v.ru) || hasPhrase(x.a.ruF ?? "", v.ru))).map((v) => ({ ru: v.ru, stressed: v.stressed, en: v.en })),
+    })),
+  }),
+);
+console.log("wrote " + path.relative(ROOT, TALK_OUT));
 
 // ---------------------------------------------------------------- SQL
 const q = (v) => (v === null || v === undefined ? "null" : `'${String(v).replace(/'/g, "''")}'`);

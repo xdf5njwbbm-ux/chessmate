@@ -1,22 +1,24 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { BarChart3, BookOpen, House, Library, Menu, Mic, Settings, Swords, Trophy, UserRound } from "lucide-react";
+import { BarChart3, Bot, BookOpen, House, Menu, Settings, Trophy, UserRound, Users } from "lucide-react";
 import { useLive } from "../state/live";
-import { useSession } from "../state/session";
+import { useLearner, useSession } from "../state/session";
 import { Initials, LevelBadge, Logo, Sheet } from "./ui";
 
+/** The four things you come here to do. Chess-only accounts don't see Learn Russian. */
 export const NAV = [
+  { to: "/play/solo", label: "Play Solo", short: "Play Solo", Icon: Bot, match: [/^\/play\/(solo|computer|blindfold)/] },
+  { to: "/play/friend", label: "Play With a Friend", short: "With a Friend", Icon: Users, match: [/^\/play\/friend/, /^\/game\//, /^\/invite\//] },
+  { to: "/learn", label: "Learn Russian", short: "Learn Russian", Icon: BookOpen, learner: true, match: [/^\/learn/, /^\/practice/, /^\/vocabulary/] },
+  { to: "/stats", label: "My Progress", short: "My Progress", Icon: BarChart3, match: [/^\/stats/, /^\/analysis\//] },
+];
+/** Everything else lives under More (and the logo goes home). */
+const MORE = [
   { to: "/home", label: "Home", Icon: House },
-  { to: "/play", label: "Play Chess", short: "Play", Icon: Swords },
-  { to: "/learn", label: "Learn Russian", short: "Learn", Icon: BookOpen },
-  { to: "/practice", label: "Practice", Icon: Mic },
-  { to: "/vocabulary", label: "Vocabulary", Icon: Library },
-  { to: "/stats", label: "Statistics", Icon: BarChart3 },
-  { to: "/leaderboards", label: "Leaderboards", Icon: Trophy },
   { to: "/profile", label: "Profile", Icon: UserRound },
+  { to: "/leaderboards", label: "Leaderboards", Icon: Trophy },
   { to: "/settings", label: "Settings", Icon: Settings },
 ];
-const MOBILE = ["/home", "/play", "/learn", "/practice"];
 
 /** Screens where the mobile bottom bar would steal space from the board or the exercise. */
 const IMMERSIVE = [/^\/game\//, /^\/play\/computer/, /^\/play\/blindfold/, /^\/learn\/lesson\//, /^\/learn\/test\//, /^\/practice\/(review|listening|pronunciation|conversation|phrases)/, /^\/analysis\//, /^\/welcome/];
@@ -28,7 +30,10 @@ function Badge({ n }: { n: number }) {
 
 export function Shell() {
   const { profile } = useSession();
+  const learner = useLearner();
   const { badge } = useLive();
+  const nav = NAV.filter((n) => learner || !n.learner);
+  const on = (n: (typeof NAV)[number]) => n.match.some((r) => r.test(location.pathname));
   const location = useLocation();
   const navigate = useNavigate();
   const [more, setMore] = useState(false);
@@ -55,23 +60,27 @@ export function Shell() {
           <Logo size={34} />
         </button>
         <nav className="mt-8 grid gap-1">
-          {NAV.map(({ to, label, Icon }) => (
-            <NavLink
-              key={to}
-              to={to}
-              className={({ isActive }) =>
-                `flex items-center gap-3 rounded-xl px-3 py-2.5 text-[15px] font-medium transition-colors ${
-                  isActive ? "bg-white/[0.07] text-white" : "text-mist hover:bg-white/[0.04] hover:text-fog"
-                }`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  <Icon className={`size-[18px] ${isActive ? "text-accent" : ""}`} strokeWidth={isActive ? 2.2 : 1.8} />
-                  <span className="flex-1">{label}</span>
-                  {to === "/play" && <Badge n={badge} />}
-                </>
-              )}
+          {nav.map((n) => {
+            const active = on(n);
+            return (
+              <NavLink
+                key={n.to}
+                to={n.to}
+                className={`flex items-center gap-3 rounded-xl px-3 py-3 text-base font-semibold transition-colors ${
+                  active ? "bg-white/[0.07] text-white" : "text-mist hover:bg-white/[0.04] hover:text-fog"
+                }`}
+              >
+                <n.Icon className={`size-5 ${active ? "text-accent" : ""}`} strokeWidth={active ? 2.2 : 1.8} />
+                <span className="flex-1">{n.label}</span>
+                {n.to === "/play/friend" && <Badge n={badge} />}
+              </NavLink>
+            );
+          })}
+        </nav>
+        <nav className="mt-6 grid gap-0.5 border-t border-white/[0.06] pt-4">
+          {MORE.filter((m) => m.to !== "/home").map(({ to, label, Icon }) => (
+            <NavLink key={to} to={to} className={({ isActive }) => `flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-medium ${isActive ? "text-white" : "text-mist hover:text-fog"}`}>
+              <Icon className="size-4" strokeWidth={1.8} /> {label}
             </NavLink>
           ))}
         </nav>
@@ -82,7 +91,7 @@ export function Shell() {
               <div className="truncate text-sm font-semibold">{profile.display_name}</div>
               <div className="truncate text-xs text-mist">@{profile.username}</div>
             </div>
-            <LevelBadge level={profile.ru_level} />
+            {learner && <LevelBadge level={profile.ru_level} />}
           </button>
         )}
       </aside>
@@ -96,20 +105,19 @@ export function Shell() {
       {/* mobile bottom bar, docked under the scrolling content */}
       {!immersive && (
         <nav className="safe-bottom relative z-40 shrink-0 border-t border-white/[0.06] bg-ink-900 lg:hidden">
-          <div className="mx-auto grid h-16 max-w-xl grid-cols-5">
-            {NAV.filter((n) => MOBILE.includes(n.to)).map(({ to, label, short, Icon }) => (
-              <NavLink key={to} to={to} className={({ isActive }) => `relative flex flex-col items-center justify-center gap-1 text-[11px] font-medium ${isActive ? "text-white" : "text-mist"}`}>
-                {({ isActive }) => (
-                  <>
-                    <span className="relative">
-                      <Icon className={`size-[22px] ${isActive ? "text-accent" : ""}`} strokeWidth={isActive ? 2.2 : 1.8} />
-                      {to === "/play" && badge > 0 && <span className="absolute -right-2.5 -top-1.5"><Badge n={badge} /></span>}
-                    </span>
-                    {short ?? label}
-                  </>
-                )}
-              </NavLink>
-            ))}
+          <div className={`mx-auto grid h-16 max-w-xl ${nav.length === 4 ? "grid-cols-5" : "grid-cols-4"}`}>
+            {nav.map((n) => {
+              const active = on(n);
+              return (
+                <NavLink key={n.to} to={n.to} className={`relative flex flex-col items-center justify-center gap-1 whitespace-nowrap text-[10.5px] font-medium leading-tight ${active ? "text-white" : "text-mist"}`}>
+                  <span className="relative">
+                    <n.Icon className={`size-[22px] ${active ? "text-accent" : ""}`} strokeWidth={active ? 2.2 : 1.8} />
+                    {n.to === "/play/friend" && badge > 0 && <span className="absolute -right-2.5 -top-1.5"><Badge n={badge} /></span>}
+                  </span>
+                  {n.short}
+                </NavLink>
+              );
+            })}
             <button onClick={() => setMore(true)} className="flex flex-col items-center justify-center gap-1 text-[11px] font-medium text-mist">
               <Menu className="size-[22px]" strokeWidth={1.8} />
               More
@@ -120,7 +128,7 @@ export function Shell() {
 
       <Sheet open={more} onClose={() => setMore(false)} title="More">
         <div className="grid grid-cols-2 gap-2">
-          {NAV.filter((n) => !MOBILE.includes(n.to)).map(({ to, label, Icon }) => (
+          {MORE.map(({ to, label, Icon }) => (
             <button
               key={to}
               onClick={() => {

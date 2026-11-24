@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Check, Loader2, X } from "lucide-react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { BookOpen, Check, Loader2, Swords, X } from "lucide-react";
 import { supabase } from "../lib/supabase";
 import { api } from "../lib/api";
 import { EXPERIENCE, INTENSITY, LEVELS } from "../lib/constants";
@@ -10,13 +10,23 @@ import { useToast } from "../state/toast";
 import { Button, Logo, Progress, Toggle } from "../components/ui";
 import { TestRunner } from "../components/TestRunner";
 
-const STEPS = ["You", "Russian", "Forms", "Chess", "Style"];
+type StepId = "you" | "goal" | "russian" | "forms" | "chess" | "style";
 
 export default function Welcome() {
   const { uid, session, profile, setProfile } = useSession();
   const navigate = useNavigate();
   const toast = useToast();
-  const [step, setStep] = useState(0);
+  const [params] = useSearchParams();
+  // where they were going before signing up (an invite link, say); only in-app paths
+  const next = (() => {
+    const n = params.get("next") ?? "";
+    return n.startsWith("/") && !n.startsWith("//") && !n.startsWith("/welcome") ? n : "/home";
+  })();
+  const invited = next.startsWith("/invite/");
+  const [goal, setGoal] = useState<"chess" | "learn" | null>(null);
+  const STEPS: StepId[] = goal === "chess" ? ["you", "goal", "chess"] : ["you", "goal", "russian", "forms", "chess", "style"];
+  const [stepIndex, setStep] = useState(0);
+  const step = STEPS[stepIndex];
   const [name, setName] = useState(() => (session?.user.email ?? "").split("@")[0].replace(/[^a-zA-Z0-9 ]/g, " ").trim().slice(0, 20));
   const [username, setUsername] = useState(() => (session?.user.email ?? "").split("@")[0].toLowerCase().replace(/[^a-z0-9_]/g, "").slice(0, 16));
   const [available, setAvailable] = useState<boolean | null>(null);
@@ -30,8 +40,8 @@ export default function Welcome() {
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
-    if (profile) navigate("/home", { replace: true });
-  }, [profile, navigate]);
+    if (profile) navigate(next, { replace: true });
+  }, [profile, navigate]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     setAvailable(null);
@@ -50,6 +60,7 @@ export default function Welcome() {
           id: uid,
           username,
           display_name: name.trim(),
+          learn_russian: goal !== "chess",
           ru_level: level,
           ru_forms: forms,
           chess_experience: exp,
@@ -61,8 +72,8 @@ export default function Welcome() {
         .single();
       if (error) throw new Error(/duplicate|unique/i.test(error.message) ? "That username was just taken. Pick another one." : error.message);
       setProfile(data as Profile);
-      toast({ title: `Добро пожаловать, ${name.trim()}!`, body: "Welcome to the academy.", tone: "success" });
-      navigate("/home", { replace: true });
+      toast(goal === "chess" ? { title: `Welcome, ${name.trim()}!`, tone: "success" } : { title: `Добро пожаловать, ${name.trim()}!`, body: "Welcome to the academy.", tone: "success" });
+      navigate(next, { replace: true });
     } catch (e) {
       toast({ title: (e as Error).message, tone: "error" });
       if (/username/i.test((e as Error).message)) setStep(0);
@@ -71,7 +82,7 @@ export default function Welcome() {
     }
   };
 
-  const canNext = step === 0 ? name.trim().length > 0 && available === true : true;
+  const canNext = step === "you" ? name.trim().length > 0 && available === true : step === "goal" ? goal != null : true;
 
   if (placing) {
     return (
@@ -97,14 +108,14 @@ export default function Welcome() {
     <div className="safe-top mx-auto flex min-h-dvh max-w-2xl flex-col px-5 py-8">
       <Logo size={32} />
       <div className="mt-8 flex items-center gap-3">
-        <Progress value={((step + 1) / STEPS.length) * 100} />
-        <span className="shrink-0 text-sm text-mist">{step + 1} / {STEPS.length}</span>
+        <Progress value={((stepIndex + 1) / STEPS.length) * 100} />
+        <span className="shrink-0 text-sm text-mist">{stepIndex + 1} / {STEPS.length}</span>
       </div>
 
       <div key={step} className="mt-8 flex-1 animate-rise">
-        {step === 0 && (
+        {step === "you" && (
           <>
-            <h1 className="font-display text-3xl font-semibold">Welcome to the academy</h1>
+            <h1 className="font-display text-3xl font-semibold">{invited ? "You've been invited to a game" : "Welcome"}</h1>
             <p className="mt-2 text-mist">How should other players see you?</p>
             <label className="mt-8 block text-sm font-medium text-fog">Display name</label>
             <input className="field mt-2" value={name} maxLength={40} onChange={(e) => setName(e.target.value)} placeholder="Alex" />
@@ -122,7 +133,31 @@ export default function Welcome() {
           </>
         )}
 
-        {step === 1 && (
+        {step === "goal" && (
+          <>
+            <h1 className="font-display text-3xl font-semibold">What would you like to do here?</h1>
+            <p className="mt-2 text-mist">{invited ? "You don't need to learn Russian to play with your friend." : "You can change this any time in Settings."}</p>
+            <div className="mt-6 grid gap-3">
+              <button onClick={() => setGoal("chess")} className={`flex items-center gap-4 rounded-2xl border p-5 text-left transition-colors ${goal === "chess" ? "border-accent bg-accent/10" : "border-white/10 hover:border-white/20"}`}>
+                <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-white/[0.06]"><Swords className="size-6 text-accent" /></span>
+                <span>
+                  <span className="block text-lg font-semibold">Just play chess</span>
+                  <span className="block text-sm text-mist">A regular chess account. No Russian lessons, no Russian during games.</span>
+                </span>
+              </button>
+              <button onClick={() => setGoal("learn")} className={`flex items-center gap-4 rounded-2xl border p-5 text-left transition-colors ${goal === "learn" ? "border-accent bg-accent/10" : "border-white/10 hover:border-white/20"}`}>
+                <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-white/[0.06]"><BookOpen className="size-6 text-accent" /></span>
+                <span>
+                  <span className="block text-lg font-semibold">Play chess and learn Russian</span>
+                  <span className="block text-sm text-mist">Lessons from A1 to B2, and a little Russian with every move.</span>
+                </span>
+              </button>
+            </div>
+            {invited && <p className="mt-4 text-sm text-mist">Whatever you pick, you and your friend play on the same board. Each of you keeps your own settings.</p>}
+          </>
+        )}
+
+        {step === "russian" && (
           <>
             <h1 className="font-display text-3xl font-semibold">How much Russian do you know?</h1>
             <p className="mt-2 text-mist">This sets your lessons and the Russian you'll see during games. You can change it any time.</p>
@@ -148,7 +183,7 @@ export default function Welcome() {
           </>
         )}
 
-        {step === 2 && (
+        {step === "forms" && (
           <>
             <h1 className="font-display text-3xl font-semibold">Masculine or feminine forms?</h1>
             <p className="mt-2 text-mist">
@@ -165,7 +200,7 @@ export default function Welcome() {
           </>
         )}
 
-        {step === 3 && (
+        {step === "chess" && (
           <>
             <h1 className="font-display text-3xl font-semibold">Your chess experience</h1>
             <p className="mt-2 text-mist">We use this to suggest a practice-bot strength. Your real rating starts after five placement games.</p>
@@ -180,7 +215,7 @@ export default function Welcome() {
           </>
         )}
 
-        {step === 4 && (
+        {step === "style" && (
           <>
             <h1 className="font-display text-3xl font-semibold">How much Russian per move?</h1>
             <p className="mt-2 text-mist">During games, a panel next to the board teaches you Russian for each move. Learning should never make chess frustrating — pick a pace.</p>
@@ -200,11 +235,11 @@ export default function Welcome() {
       </div>
 
       <div className="mt-10 flex justify-between gap-3">
-        <Button variant="ghost" disabled={step === 0} onClick={() => setStep(step - 1)}>Back</Button>
-        {step < STEPS.length - 1 ? (
-          <Button disabled={!canNext} onClick={() => setStep(step + 1)}>Continue</Button>
+        <Button variant="ghost" disabled={stepIndex === 0} onClick={() => setStep(stepIndex - 1)}>Back</Button>
+        {stepIndex < STEPS.length - 1 ? (
+          <Button disabled={!canNext} onClick={() => setStep(stepIndex + 1)}>Continue</Button>
         ) : (
-          <Button loading={busy} onClick={finish}>Start learning</Button>
+          <Button loading={busy} onClick={finish}>{goal === "chess" ? (invited ? "Go to the game" : "Start playing") : "Start learning"}</Button>
         )}
       </div>
     </div>

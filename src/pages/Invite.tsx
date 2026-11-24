@@ -4,6 +4,7 @@ import { Link2 } from "lucide-react";
 import { api } from "../lib/api";
 import { tcLabel } from "../lib/constants";
 import { useToast } from "../state/toast";
+import { useLearner } from "../state/session";
 import { Button, EmptyState, Initials, LevelBadge, PageLoader, RatingBadge } from "../components/ui";
 
 export default function Invite() {
@@ -12,13 +13,14 @@ export default function Invite() {
   const toast = useToast();
   const [info, setInfo] = useState<Awaited<ReturnType<typeof api.inviteInfo>> | undefined>(undefined);
   const [busy, setBusy] = useState(false);
+  const learner = useLearner();
 
   useEffect(() => {
     api.inviteInfo(code).then(setInfo).catch(() => setInfo(null));
   }, [code]);
 
   if (info === undefined) return <PageLoader />;
-  if (!info) return <EmptyState icon={<Link2 className="size-7" />} title="Invite not found" body="This link isn't valid. Ask your friend to send a new one." action={<Button variant="secondary" onClick={() => navigate("/play")}>Go to Play</Button>} />;
+  if (!info) return <EmptyState icon={<Link2 className="size-7" />} title="Invite not found" body="This link isn't valid. Ask your friend to send a new one." action={<Button variant="secondary" onClick={() => navigate("/play/friend")}>Play With a Friend</Button>} />;
   if (info.game_id) {
     return <EmptyState icon={<Link2 className="size-7" />} title="This game has started" action={<Button onClick={() => navigate(`/game/${info.game_id}`)}>Open game</Button>} />;
   }
@@ -31,15 +33,15 @@ export default function Invite() {
         <div className="flex justify-center"><Initials name={info.from.display_name} size={64} online={info.from.online} /></div>
         <h1 className="mt-4 font-display text-2xl font-semibold">{info.mine ? "Your invite link" : `${info.from.display_name} challenges you`}</h1>
         <div className="mt-2 flex items-center justify-center gap-2 text-sm text-mist">
-          <LevelBadge level={info.from.ru_level} /> <RatingBadge rating={info.from.rating} status={info.from.rating_status} />
+          {learner && <LevelBadge level={info.from.ru_level} />} <RatingBadge rating={info.from.rating} status={info.from.rating_status} />
         </div>
         <div className="mt-4 flex flex-wrap justify-center gap-1.5">
           <span className="tag">{tcLabel(info.time_control)}</span>
           <span className="tag">{info.rated ? "Rated" : "Casual"}</span>
-          {info.russian_chat && <span className="tag">Russian-only chat</span>}
+          {learner && info.russian_chat && <span className="tag">Russian-only chat</span>}
         </div>
         <p className="mt-3 text-sm text-mist">{colorText}</p>
-        <div className="ru mt-4 text-lg">Давай сыграем!</div>
+        {learner ? <div className="ru mt-4 text-lg">Давай сыграем!</div> : <div className="mt-4 text-lg">Let's play!</div>}
         {info.mine ? (
           <p className="mt-5 text-sm text-mist">Share this page's link with a friend. It stays open for 24 hours.</p>
         ) : open ? (

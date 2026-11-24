@@ -8,7 +8,9 @@ export type Exercise =
   | { kind: "listen"; prompt: string; ru: string; en: string; answer: string; options: string[] }
   | { kind: "order"; prompt: string; en: string; answer: string; tokens: string[] }
   | { kind: "vocab"; prompt: string; ru: string; stressed: string; answer: string; options: string[] }
-  | { kind: "speak"; prompt: string; ru: string; en: string };
+  | { kind: "speak"; prompt: string; ru: string; en: string }
+  /** Conversation lessons: someone asks a question, pick the natural reply. */
+  | { kind: "respond"; prompt: string; who: string; q: string; qEn: string; answer: string; options: string[]; en: string };
 
 export const shuffle = <T,>(a: T[]): T[] => {
   const x = [...a];
@@ -60,6 +62,17 @@ export function buildExercises(lesson: Lesson, forms: Forms): Exercise[] {
         break;
     }
   });
+  // conversation lessons: hear a question, choose the reply that fits (the others answer other questions)
+  const pairs = lesson.content.sections.flatMap((s) =>
+    s.type === "lines" && s.kind === "conversation" ? s.lines.flatMap((l, k) => (l.role === "q" && s.lines[k + 1] ? [{ q: l, a: s.lines[k + 1] }] : [])) : [],
+  );
+  if (pairs.length >= 4) {
+    const replies = pairs.map((p) => lineText(p.a, forms));
+    for (const p of pick(pairs, 3)) {
+      const answer = lineText(p.a, forms);
+      out.push({ kind: "respond", prompt: "Choose the natural reply", who: p.q.speaker ?? "Someone", q: lineText(p.q, forms), qEn: p.q.en, answer, options: distract(replies, answer), en: p.a.en });
+    }
+  }
   const vocabEns = lesson.vocab.map((v) => v.en);
   for (const v of pick(lesson.vocab, 3)) {
     out.push({ kind: "vocab", prompt: "What does this word mean?", ru: v.ru, stressed: v.stressed, answer: v.en, options: distract(vocabEns, v.en) });
@@ -76,6 +89,7 @@ export function reviewPair(e: Exercise): { ru: string; en: string } {
     case "ru-en": return { ru: e.ru, en: e.answer };
     case "vocab": return { ru: e.stressed || e.ru, en: e.answer };
     case "en-ru": case "order": return { ru: e.answer, en: e.en };
+    case "respond": return { ru: `${e.q} — ${e.answer}`, en: `${e.qEn} — ${e.en}` };
     default: return { ru: e.ru, en: e.en };
   }
 }

@@ -11,7 +11,7 @@ import { uuid } from "../lib/format";
 import { clearSave, writeSave } from "../lib/saved";
 import { loadBotGame, toUci } from "../lib/botSave";
 import type { Game, Level } from "../lib/types";
-import { useSession } from "../state/session";
+import { useLearner, useSession } from "../state/session";
 import { useLive } from "../state/live";
 import { useToast } from "../state/toast";
 import { Board, capturedPieces } from "../components/Board";
@@ -36,6 +36,7 @@ export default function BlindfoldGame() {
   const elo = saved?.elo ?? Math.max(100, Math.min(3000, Number(params.get("elo")) || 900));
   const color: "w" | "b" = saved?.color ?? (params.get("color") === "black" ? "b" : "w");
   const ruLevel = (profile?.ru_level ?? "A1") as Level;
+  const learner = useLearner();
 
   const [gameKey, setGameKey] = useState(0);
   const [moves, setMoves] = useState<Move[]>(() => saved?.history ?? []);
@@ -214,7 +215,7 @@ export default function BlindfoldGame() {
     <div className="grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-[minmax(0,1fr)_400px] xl:grid-cols-[minmax(0,1fr)_440px]">
       <div className="mx-auto w-full max-w-[600px]">
         <div className="mb-1 flex items-center gap-2">
-          <BackButton to="/play" />
+          <BackButton to="/play/solo" />
           <div className="flex flex-1 flex-wrap items-center gap-1.5 font-semibold">
             <EyeOff className="size-4 text-gold" /> Blindfold vs Stockfish <span className="tag">~{elo}</span> <span className="tag">{blindLevelLabel(bf.level)}</span> <span className="tag">Unrated</span>
           </div>
@@ -249,7 +250,7 @@ export default function BlindfoldGame() {
           <div ref={endCard} className="card mt-4 animate-rise scroll-mb-24 p-5 text-center">
             <div className={`font-display text-3xl font-semibold ${won ? "text-gold" : ""}`}>{draw ? "Draw" : won ? "You won blindfold!" : "Stockfish won"}</div>
             <div className="mt-1 text-sm text-mist">{TERMINATION[ended.termination] ?? ""} · {blindLevelLabel(bf.level)} · practice, no rating change</div>
-            <div className="ru mt-3 text-lg">{draw ? "Ничья!" : won ? "Отлично! Ты играешь вслепую!" : "Ничего страшного — играть вслепую трудно!"}</div>
+            {learner && <div className="ru mt-3 text-lg">{draw ? "Ничья!" : won ? "Отлично! Ты играешь вслепую!" : "Ничего страшного — играть вслепую трудно!"}</div>}
             <div className="mx-auto mt-4 grid max-w-md grid-cols-3 gap-2 text-left">
               {[
                 ["Accuracy", ended.summary.accuracy == null ? "—" : `${ended.summary.accuracy}%`],

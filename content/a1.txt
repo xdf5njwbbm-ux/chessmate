@@ -804,3 +804,682 @@ ex: Где мой конь? Вот он. = Where's my knight? Here it is.
 друг | friend | noun, m. | Plural: друзья.
 телефОн | phone | noun, m.
 вот | here is | particle
+
+# lesson a1-15 | meeting | Where do you live? | Где ты живёшь?
+summary: Say where you live, when you moved, who you live with and what's near your home.
+intro: A conversation lesson: every answer leads to the next question. Listen to each question and answer separately, say the answers out loud, and look at the follow-up questions under each answer — they show where the conversation could go next.
+partner: Anya, your new neighbour
+
+## conversation: A new neighbour
+Аня: Где|where ты|you живёшь?|live = Where do you live?
+Алекс: Я|I живу|live во|in Флориде.|Florida Здесь|here всегда|always тепло!|warm = I live in Florida. It's always warm here!
+  > Флорида → во Флориде: after в (in), a place takes the prepositional case, usually -е. В becomes во before в or ф plus a consonant.
+  + Тебе нравится жара? = Do you like the heat?
+  + Тебе нравится твой район? = Do you like your neighbourhood?
+Аня: Ты|you давно|long во|in Флориде?|Florida = Have you been in Florida long?
+Алекс: Нет,|no я|I переехал{переехала}|moved недавно.|recently = No, I moved here recently.
+  > Переехал (a woman says переехала) is the past of переехать — to move to a new home or city. Давно = for a long time, недавно = recently.
+  + Где ты жил{жила} раньше? = Where did you live before?
+  + Тебе здесь нравится? = Do you like it here?
+Аня: Почему|why ты|you переехал{переехала}|moved во|to Флориду?|Florida = Why did you move to Florida?
+Алекс: Потому|because что|(that) здесь|here есть|there_is работа|work и|and тепло.|warmth = Because there's work here, and it's warm.
+  > Почему? — Потому что… is the standard why/because pair. Motion to a place takes the accusative: во Флориду. Being there takes the prepositional: во Флориде.
+  + Чем ты занимаешься? = What do you do?
+  + Ты скучаешь по дому? = Do you miss home?
+Аня: С|with кем|whom ты|you живёшь?|live = Who do you live with?
+Алекс: С|with другом.|friend Мы|we вместе|together снимаем|rent квартиру.|apartment = With a friend. We rent an apartment together.
+  > С (with) takes the instrumental case: друг → с другом, подруга → с подругой. Снимать квартиру = to rent an apartment.
+  + Где живёт твоя семья? = Where does your family live?
+  + Вы давно знакомы? = Have you known each other long?
+Аня: У|by вас|you большая|big квартира?|apartment = Is your apartment big?
+Алекс: Нет,|no небольшая,|smallish но|but удобная.|comfortable = No, it's smallish, but comfortable.
+  > Квартира is feminine, so its adjectives end in -ая: большая, небольшая, удобная. Небольшая is a softer "not big".
+  + Сколько у вас комнат? = How many rooms do you have?
+  + У вас есть балкон? = Do you have a balcony?
+Аня: Тебе|to_you нравится|pleases твой|your район?|neighbourhood = Do you like your neighbourhood?
+Алекс: Да,|yes очень.|very_much Здесь|here тихо,|quiet и|and рядом|nearby есть|there_is парк.|park = Yes, very much. It's quiet here, and there's a park nearby.
+  > Тебе нравится…? is literally "does it please you?": the thing you like is the subject. Мне нравится район = I like the neighbourhood.
+  + Ты часто гуляешь в парке? = Do you often walk in the park?
+  + Как ты отдыхаешь? = How do you relax?
+Аня: А|and что|what ещё|else есть|there_is рядом|near с|with домом?|home = And what else is near your home?
+Алекс: Магазин,|shop кафе|café и|and спортзал.|gym Например,|for_example в|to спортзал|gym я|I хожу|go пешком.|on_foot = A shop, a café and a gym. For example, I walk to the gym.
+  > Рядом с домом = near the house (с + instrumental). Например (for example) adds a detail — and gives the other person something to ask about.
+  + Что ты делаешь после работы? = What do you do after work?
+  + Ты часто ходишь в спортзал? = Do you often go to the gym?
+
+## grammar: Where? — the prepositional case
+To say where something is, use **в** or **на** + the prepositional case. Most nouns change their ending to **-е**: Москва → в Москве, город → в городе, парк → в парке. Words ending in -ия take **-ии**: Россия → в России.
+**Во** replaces в before в or ф plus a consonant: во Флориде, во Франции. Movement "to" a place uses the accusative instead: Я переехал во Флориду.
+ex: Я живу в Москве. = I live in Moscow.
+ex: Мы гуляем в парке. = We walk in the park.
+ex: Я переехал во Флориду. = I moved to Florida.
+
+## grammar: Linking words: потому что, например
+**Потому что** (because) answers почему (why): Почему ты переехал? — Потому что здесь есть работа.
+**Например** (for example) adds a concrete example. Put a comma after it. Short answers sound more natural with one more sentence that starts with a linking word.
+ex: Мне нравится район, потому что здесь тихо. = I like the area because it's quiet.
+ex: Здесь всё рядом. Например, магазин и кафе. = Everything's close. For example, the shop and the café.
+
+## drills
+? Я живу ___ Флориде. | во | в, на, из | I live in Florida.
+  > в: Before в or ф plus a consonant, в becomes во: во Флориде.
+  > на: На is for open spaces and events (на работе, на улице). States and cities take в/во.
+  > из: Из means "from" and takes the genitive: из Флориды. To say "in", use во.
+? Почему ты переехал? — ___ здесь есть работа. | Потому что | Поэтому, Например, Почему | Why did you move? — Because there's work here.
+  > Поэтому: Поэтому means "that's why" and comes after the reason. To answer почему, start with потому что.
+  > Например: Например means "for example". The answer to почему begins with потому что.
+  > Почему: Почему is the question word "why". The answer starts with потому что.
+? Я живу с ___. | другом | друг, друга, другу | I live with a friend.
+  > друг: After с (with) the noun takes the instrumental case: с другом.
+  > друга: Друга is the accusative or genitive. С (with) needs the instrumental: с другом.
+  > другу: Другу is the dative ("to a friend"). С (with) needs the instrumental: с другом.
+
+## vocab
+давнО | for a long time | adverb
+недАвно | recently | adverb
+переЕхать | to move (house) | verb | я перее́хал(а)
+почемУ | why | adverb
+потомУ что | because | conjunction
+вмЕсте | together | adverb
+снимАть квартИру | to rent an apartment | phrase
+квартИра | apartment | noun, f.
+удОбный | comfortable, convenient | adjective
+райОн | neighbourhood, area | noun, m.
+тИхо | quiet, quietly | adverb
+рЯдом | nearby | adverb | ря́дом с + instrumental
+напримЕр | for example | adverb
+пешкОм | on foot | adverb
+
+# lesson a1-16 | work | What do you do? | Чем ты занимаешься?
+summary: Talk about your job: what you do, where it is, how you get there and when you're free.
+intro: Russians rarely ask "What's your job?" directly. They ask Чем ты занимаешься? — "What do you occupy yourself with?" Watch how each answer about work leads naturally to the next question.
+partner: Dima, a friend of a friend at a party
+
+## conversation: At a party
+Дима: Чем|(with)_what ты|you занимаешься?|occupy_yourself = What do you do?
+Алекс: Я|I работаю|work в|in мебельном|furniture магазине.|store = I work at a furniture store.
+  > Чем ты занимаешься? asks about your job or studies. В магазине — "in a store": the prepositional case. Мебельный (furniture) is the adjective from мебель.
+  + Тебе нравится твоя работа? = Do you like your job?
+  + Это далеко от дома? = Is it far from home?
+Дима: А|and что|what ты|you там|there делаешь?|do = And what do you do there?
+Алекс: Я|I работаю|work продавцом.|salesperson Я|I помогаю|help людям|people выбирать|choose мебель.|furniture = I work as a salesperson. I help people choose furniture.
+  > Работать кем? — the job takes the instrumental case: продавец → продавцом, водитель → водителем. Помогать takes the dative: помогаю людям.
+  + Тебе нравится общаться с людьми? = Do you like talking to people?
+  + Что самое сложное в твоей работе? = What's the hardest thing about your job?
+Дима: Где|where находится|is_located твой|your магазин?|store = Where is your store?
+Алекс: В|in центре|centre города,|of_the_city недалеко|not_far от|from моего|my дома.|home = In the city centre, not far from my home.
+  > Находиться = to be located. Недалеко от + genitive: от дома, от работы, от центра.
+  + Это удобно? = Is that convenient?
+  + А что ещё есть рядом с домом? = And what else is near your home?
+Дима: Как|how ты|you ездишь|travel на|to работу?|work = How do you get to work?
+Алекс: Обычно|usually на|by машине,|car но|but иногда|sometimes на|by автобусе.|bus = Usually by car, but sometimes by bus.
+  > Ездить на + prepositional = to travel by: на машине, на автобусе, на метро. On foot is пешком.
+  + Сколько времени ты едешь на работу? = How long does it take you to get to work?
+  + У тебя есть машина? = Do you have a car?
+Дима: Во|at сколько|what_time ты|you начинаешь|start работать?|to_work = What time do you start work?
+Алекс: В|at девять|nine утра,|in_the_morning поэтому|so я|I встаю|get_up в|at семь.|seven = At nine in the morning, so I get up at seven.
+  > Во сколько? = at what time? Поэтому (so, that's why) comes after the reason and before the result.
+  + Во сколько ты обычно просыпаешься? = What time do you usually wake up?
+  + Во сколько ты заканчиваешь? = What time do you finish?
+Дима: Ты|you работаешь|work по|on субботам?|Saturdays = Do you work on Saturdays?
+Алекс: Да,|yes по|on субботам|Saturdays у|by нас|us много|many клиентов.|customers = Yes, on Saturdays we have a lot of customers.
+  > По субботам = on Saturdays, every Saturday (по + dative plural). Много + genitive plural: много клиентов, много людей.
+  + Ты устаёшь после работы? = Do you get tired after work?
+  + Тебе нравится работать по выходным? = Do you like working weekends?
+Дима: А|and когда|when у|by тебя|you выходной?|day_off = And when's your day off?
+Алекс: В|on понедельник|Monday и|and вторник.|Tuesday Кстати,|by_the_way ты|you свободен|free в|on понедельник?|Monday = Monday and Tuesday. By the way, are you free on Monday?
+  > В понедельник = on Monday (в + accusative). Кстати (by the way) moves the conversation somewhere new — here, it turns the question back to Dima.
+  + Какие у тебя планы на выходные? = What are your plans for the weekend?
+  + Хочешь сыграть со мной? = Do you want to play with me?
+
+## grammar: Jobs: кем and чем
+Questions about jobs use the instrumental case. **Чем ты занимаешься?** — what do you do? **Кем ты работаешь?** — what do you work as? The answer takes the same case: Я работаю **продавцом**, **водителем**, **врачом**.
+Masculine nouns add **-ом** (or **-ем** after a soft consonant); feminine nouns change -а to **-ой**: продавщица → продавщицей.
+ex: Я работаю менеджером. = I work as a manager.
+ex: Она работает учительницей. = She works as a teacher.
+
+## grammar: Linking words: поэтому, кстати
+**Поэтому** means "so, that's why". It follows the reason: Я начинаю в девять, **поэтому** встаю в семь.
+**Кстати** means "by the way". Use it to change the topic or ask something back: Кстати, ты свободен в понедельник?
+ex: Магазин недалеко, поэтому я хожу пешком. = The store is close, so I walk.
+ex: Кстати, где ты работаешь? = By the way, where do you work?
+
+## drills
+? Я работаю ___. | продавцом | продавец, продавца, продавцу | I work as a salesperson.
+  > продавец: After работать (as a job) use the instrumental: продавцом.
+  > продавца: Продавца is the accusative or genitive. A job after работать takes the instrumental: продавцом.
+  > продавцу: Продавцу is the dative ("to the salesperson"). Use the instrumental: продавцом.
+? Обычно я езжу на работу на ___. | машине | машина, машину, машиной | I usually drive to work.
+  > машина: After на (by) the vehicle takes the prepositional: на машине.
+  > машину: Машину is the accusative ("buy a car"). Travelling by car is на машине.
+  > машиной: Машиной is the instrumental. "By car" in Russian is на машине.
+? Я начинаю в девять, ___ встаю в семь. | поэтому | потому что, например, кстати | I start at nine, so I get up at seven.
+  > потому что: Потому что introduces a reason. The second part here is the result, so use поэтому.
+  > например: Например introduces an example, not a result. Use поэтому (so).
+  > кстати: Кстати (by the way) changes the topic. The result of starting at nine needs поэтому.
+
+## vocab
+занимАться | to do, to be busy with | verb | Чем ты занима́ешься?
+мЕбельный | furniture (adj.) | adjective | from ме́бель
+мЕбель | furniture | noun, f.
+продавЕц | salesperson | noun, m. | f. продавщи́ца
+помогАть | to help | verb | + dative
+выбирАть | to choose | verb
+находИться | to be located | verb
+недалекО от | not far from | phrase | + genitive
+Ездить | to go (by transport), to drive | verb | я е́зжу
+обЫчно | usually | adverb
+иногдА | sometimes | adverb
+начинАть | to start | verb
+вставАть | to get up | verb | я встаю́
+поЭтому | so, that's why | adverb
+клиЕнт | customer, client | noun, m.
+выходнОй | day off | noun, m.
+кстАти | by the way | adverb
+свобОден | free (not busy) | short adjective | свобо́дна (f.)
+
+# lesson a1-17 | routines | From morning to evening | С утра до вечера
+summary: Describe your day in order — first, then, after that — from waking up to going to bed.
+intro: In this conversation you walk a colleague through your day. Notice how сначала, потом and после этого turn a list of actions into a little story.
+partner: Lena, a colleague on a coffee break
+
+## conversation: On a coffee break
+Лена: Во|at сколько|what_time ты|you обычно|usually просыпаешься?|wake_up = What time do you usually wake up?
+Алекс: Обычно|usually я|I просыпаюсь|wake_up в|at семь|seven утра.|in_the_morning = I usually wake up at seven in the morning.
+  > Просыпаться = to wake up; вставать = to get up (out of bed). The -ся ending stays in every form: я просыпаюсь, ты просыпаешься.
+  + Тебе легко вставать утром? = Is it easy for you to get up in the morning?
+  + Ты жаворонок или сова? = Are you a morning person or a night owl?
+Лена: А|and что|what ты|you делаешь|do сначала?|first = And what do you do first?
+Алекс: Сначала|first я|I пью|drink кофе,|coffee потом|then принимаю|take душ.|shower = First I have coffee, then I take a shower.
+  > Сначала… потом… = first… then… Принимать душ = to take a shower.
+  + Что ты пьёшь утром, чай или кофе? = What do you drink in the morning, tea or coffee?
+  + Ты делаешь зарядку? = Do you do morning exercises?
+Лена: Что|what ты|you обычно|usually ешь|eat на|for завтрак?|breakfast = What do you usually eat for breakfast?
+Алекс: Обычно|usually я|I ем|eat яйца|eggs и|and тосты.|toast = I usually eat eggs and toast.
+  > Есть (to eat) is irregular: я ем, ты ешь, он ест. На завтрак = for breakfast; на обед, на ужин.
+  + Ты часто готовишь дома? = Do you often cook at home?
+  + Какое твоё любимое блюдо? = What's your favourite dish?
+Лена: Ты|you обедаешь|have_lunch на|at работе?|work = Do you have lunch at work?
+Алекс: Да,|yes я|I беру|take обед|lunch с|with собой.|myself = Yes, I bring my lunch with me.
+  > Брать с собой = to take with you: я беру, ты берёшь. Обедать = to have lunch; обед = lunch.
+  + Где ты обычно покупаешь продукты? = Where do you usually buy groceries?
+  + Сколько у тебя времени на обед? = How much time do you have for lunch?
+Лена: Что|what ты|you делаешь|do после|after работы?|work = What do you do after work?
+Алекс: Обычно|usually я|I иду|go в|to спортзал.|gym После|after этого|that я|I готовлю|cook ужин.|dinner = I usually go to the gym. After that I cook dinner.
+  > После + genitive: после работы, после ужина. После этого (after that) links two actions in order.
+  + Ты часто ходишь в спортзал? = Do you often go to the gym?
+  + Как ты отдыхаешь? = How do you relax?
+Лена: Ты|you поздно|late ложишься|lie_down спать?|to_sleep = Do you go to bed late?
+Алекс: Нет,|no обычно|usually в|at одиннадцать,|eleven потому|because что|(that) я|I рано|early встаю.|get_up = No, usually at eleven, because I get up early.
+  > Ложиться спать = to go to bed. Поздно = late, рано = early.
+  + Сколько часов ты спишь? = How many hours do you sleep?
+  + Ты смотришь что-нибудь перед сном? = Do you watch anything before bed?
+Лена: Ты|you сегодня|today занят{занята}?|busy = Are you busy today?
+Алекс: Нет,|no сегодня|today у|by меня|me свободный|free вечер.|evening = No, I have a free evening today.
+  > Занят (to a woman: занята) is a short adjective. У меня свободный вечер = I have a free evening.
+  + Хочешь сыграть со мной? = Do you want to play with me?
+  + Что ты будешь делать вечером? = What will you do this evening?
+
+## grammar: Verbs ending in -ся
+Many everyday verbs end in **-ся**: просыпаться (to wake up), заниматься (to do, to practise), ложиться (to lie down). Conjugate the verb as usual, then add **-сь** after a vowel or **-ся** after a consonant: я просыпаю**сь**, ты просыпаешь**ся**, мы просыпаем**ся**.
+ex: Я просыпаюсь в семь. = I wake up at seven.
+ex: Во сколько ты ложишься спать? = What time do you go to bed?
+
+## grammar: Telling a story: сначала, потом, после этого
+**Сначала** (first), **потом** (then) and **после этого** (after that) put actions in order. They make a list sound like a story.
+ex: Сначала я завтракаю, потом иду на работу. = First I have breakfast, then I go to work.
+ex: После этого я отдыхаю. = After that I rest.
+
+## drills
+? Обычно я ___ в семь утра. | просыпаюсь | просыпается, просыпаешься, просыпаться | I usually wake up at seven.
+  > просыпается: Просыпается is the он/она form. With я use просыпаюсь.
+  > просыпаешься: Просыпаешься is the ты form. With я use просыпаюсь.
+  > просыпаться: Просыпаться is the infinitive. After я you need the conjugated form: просыпаюсь.
+? На завтрак я ___ яйца. | ем | ест, ешь, есть | I eat eggs for breakfast.
+  > ест: Ест is the он/она form. With я use ем.
+  > ешь: Ешь is the ты form. With я use ем.
+  > есть: Есть is the infinitive ("to eat"). With я use ем.
+? Сначала я пью кофе, ___ принимаю душ. | потом | после, поэтому, потому что | First I drink coffee, then I take a shower.
+  > после: После needs a noun after it (после работы). On its own, "then" is потом.
+  > поэтому: Поэтому means "so, that's why" — a result, not the next step. Use потом.
+  > потому что: Потому что gives a reason. The next step in order is потом.
+
+## vocab
+просыпАться | to wake up | verb | я просыпа́юсь
+сначАла | first, at first | adverb
+потОм | then, afterwards | adverb
+принимАть дУш | to take a shower | phrase
+зАвтрак | breakfast | noun, m.
+Есть | to eat | verb | я ем, ты ешь, он ест
+яйцО | egg | noun, n. | plural я́йца
+обЕдать | to have lunch | verb
+обЕд | lunch | noun, m.
+пОсле Этого | after that | phrase
+Ужин | dinner | noun, m.
+ложИться спАть | to go to bed | phrase
+пОздно | late | adverb
+рАно | early | adverb
+зАнят | busy | short adjective | занята́ (f.)
+
+# lesson a1-18 | cooking | Food you love | Любимая еда
+summary: Talk about cooking, your favourite food, Russian dishes and where you shop.
+intro: Food is one of the easiest ways to keep a conversation going. Here every answer gives your friend something new to ask about.
+partner: Olya, a friend who loves to cook
+
+## conversation: Talking about food
+Оля: Ты|you часто|often готовишь|cook дома?|at_home = Do you often cook at home?
+Алекс: Да,|yes почти|almost каждый|every день.|day Особенно|especially я|I люблю|love готовить|to_cook мясо|meat и|and рис.|rice = Yes, almost every day. I especially love cooking meat and rice.
+  > Любить + infinitive = to love doing something: люблю готовить. Особенно = especially.
+  + Кто тебя научил готовить? = Who taught you to cook?
+  + Что ты готовишь чаще всего? = What do you cook most often?
+Оля: Какое|which твоё|your любимое|favourite блюдо?|dish = What's your favourite dish?
+Алекс: Мне|to_me очень|very нравится|pleases паста|pasta с|with курицей.|chicken = I really like pasta with chicken.
+  > Блюдо is neuter, so the question uses какое, твоё, любимое. С + instrumental: с курицей, с сыром, с молоком.
+  + Ты умеешь готовить пасту? = Can you make pasta?
+  + Какая еда тебе не нравится? = What food don't you like?
+Оля: Ты|you пробовал{пробовала}|tried русскую|Russian кухню?|cuisine = Have you tried Russian food?
+Алекс: Да,|yes я|I пробовал{пробовала}|tried борщ|borscht и|and блины.|pancakes Было|it_was очень|very вкусно!|tasty = Yes, I've tried borscht and blini. It was delicious!
+  > Пробовал (a woman: пробовала) is the past of пробовать, "to try (food)". Было вкусно = it was tasty — the impersonal past uses было.
+  + Хочешь попробовать пельмени? = Do you want to try pelmeni?
+  + Где ты их пробовал{пробовала}? = Where did you try them?
+Оля: Что|what ты|you пьёшь|drink утром,|in_the_morning чай|tea или|or кофе?|coffee = What do you drink in the morning, tea or coffee?
+Алекс: Кофе,|coffee конечно!|of_course Без|without кофе|coffee я|I не|not могу|can проснуться.|wake_up = Coffee, of course! I can't wake up without coffee.
+  > Без + genitive = without: без молока, без сахара. Кофе never changes its ending — and it's masculine: чёрный кофе.
+  + Ты пьёшь кофе с молоком? = Do you take your coffee with milk?
+  + Сколько чашек кофе ты пьёшь в день? = How many cups of coffee do you drink a day?
+Оля: Ты|you любишь|love сладкое?|sweet_things = Do you like sweets?
+Алекс: Не|not очень.|very Но|but иногда|sometimes я|I ем|eat мороженое.|ice_cream = Not really. But sometimes I have ice cream.
+  > Сладкое = sweet things (an adjective used as a noun). Мороженое (ice cream) works the same way. Не очень = not really.
+  + Какое мороженое ты любишь? = What ice cream do you like?
+  + Ты умеешь печь торты? = Can you bake cakes?
+Оля: Где|where ты|you обычно|usually покупаешь|buy продукты?|groceries = Where do you usually buy groceries?
+Алекс: В|in супермаркете|supermarket рядом|near с|with домом.|home Там|there есть|there_is всё.|everything = At the supermarket near my home. They have everything there.
+  > Продукты means groceries, not "products". Там есть всё = there's everything there.
+  + Сколько ты тратишь на продукты? = How much do you spend on groceries?
+  + На что ты обычно тратишь деньги? = What do you usually spend money on?
+Оля: Хочешь|want научиться|to_learn готовить|to_cook блины?|pancakes = Do you want to learn to make blini?
+Алекс: Да,|yes очень!|very_much Ты|you можешь|can меня|me научить?|teach = Yes, I'd love to! Can you teach me?
+  > Научиться = to learn (a skill); научить = to teach. Меня научить = to teach me (accusative).
+  + Когда тебе удобно? = When is good for you?
+  + Что нужно купить для блинов? = What do we need to buy for blini?
+
+## grammar: Liking things: люблю and мне нравится
+**Я люблю** + a noun or an infinitive says what you love in general: Я люблю мясо. Я люблю готовить.
+**Мне нравится** is softer — "I like". The thing you like is the subject, so with plural things the verb is plural: Мне нравятся блины.
+ex: Я люблю готовить. = I love cooking.
+ex: Мне нравятся блины. = I like blini.
+
+## grammar: С and без
+**С** (with) takes the instrumental: с курицей, с молоком. **Без** (without) takes the genitive: без молока, без сахара.
+ex: Кофе с молоком, пожалуйста. = Coffee with milk, please.
+ex: Чай без сахара. = Tea without sugar.
+
+## drills
+? Мне очень ___ блины. | нравятся | нравится, люблю, любит | I really like blini.
+  > нравится: Блины is plural, so the verb is plural too: нравятся.
+  > люблю: Люблю needs я, not мне: Я люблю блины. With мне use нравятся.
+  > любит: Любит is the он/она form and doesn't go with мне. Use нравятся.
+? Чай без ___, пожалуйста. | сахара | сахар, сахаром, сахару | Tea without sugar, please.
+  > сахар: Без (without) takes the genitive: без сахара.
+  > сахаром: Сахаром is the instrumental — it goes with с: с сахаром. Без needs сахара.
+  > сахару: Сахару is the dative. Без (without) takes the genitive: сахара.
+? Паста с ___. | курицей | курица, курицу, курицы | Pasta with chicken.
+  > курица: After с (with) use the instrumental: с курицей.
+  > курицу: Курицу is the accusative ("I'm buying chicken"). After с (with) use курицей.
+  > курицы: Курицы is the genitive — it goes with без: без курицы. With с use курицей.
+
+## vocab
+готОвить | to cook | verb
+почтИ | almost | adverb
+осОбенно | especially | adverb
+мЯсо | meat | noun, n.
+рис | rice | noun, m.
+блЮдо | dish | noun, n.
+кУрица | chicken | noun, f.
+прОбовать | to try (food) | verb
+кУхня | cuisine; kitchen | noun, f.
+блинЫ | blini, pancakes | noun, plural | singular блин
+вкУсно | tasty | adverb
+слАдкое | sweet things | noun, n.
+морОженое | ice cream | noun, n.
+продУкты | groceries | noun, plural
+научИться | to learn (a skill) | verb
+научИть | to teach | verb
+
+# lesson a1-19 | hobbies | Getting to know you | Давай познакомимся поближе
+summary: Ask about someone's day, free time, music, films and travel — and keep the conversation going.
+intro: When you're getting to know someone, the best questions come from their last answer. Each answer here contains a "hook" for the next question.
+partner: Katya, a new friend from the chess club
+
+## conversation: Getting to know each other
+Катя: Как|how прошёл|went твой|your день?|day = How was your day?
+Алекс: Хорошо,|well но|but я|I немного|a_little устал{устала}.|tired = Good, but I'm a little tired.
+  > Как прошёл день? is literally "how did the day pass?" Устал (a woman: устала) is past tense but means "I'm tired" right now.
+  + Что ты делал{делала} сегодня? = What did you do today?
+  + Ты много работал{работала}? = Did you work a lot?
+Катя: Как|how ты|you отдыхаешь?|relax = How do you relax?
+Алекс: Мне|to_me нравится|pleases гулять,|to_walk заниматься|to_do спортом|sport и|and смотреть|to_watch фильмы.|films = I like walking, doing sport and watching films.
+  > Мне нравится + infinitive = I like doing: мне нравится гулять. Заниматься takes the instrumental: заниматься спортом.
+  + Где ты любишь гулять? = Where do you like to walk?
+  + Каким спортом ты занимаешься? = What sport do you do?
+Катя: Какую|what_kind_of музыку|music ты|you слушаешь?|listen_to = What kind of music do you listen to?
+Алекс: Разную.|different Например,|for_example рок|rock и|and хип-хоп.|hip-hop = All kinds. For example, rock and hip-hop.
+  > Слушать takes the accusative: музыка → какую музыку. Разную (музыку) = various kinds.
+  + У тебя есть любимая группа? = Do you have a favourite band?
+  + Ты играешь на гитаре? = Do you play the guitar?
+Катя: Какой|which твой|your любимый|favourite фильм?|film = What's your favourite film?
+Алекс: Мне|to_me нравятся|please научно-фантастические|science-fiction фильмы.|films = I like science fiction films.
+  > Фильмы is plural, so нравятся is plural too. Научно-фантастический = science fiction; the whole genre is фантастика.
+  + Ты часто ходишь в кино? = Do you go to the cinema often?
+  + Какой фильм ты смотрел{смотрела} последним? = What's the last film you saw?
+Катя: Ты|you любишь|love путешествовать?|to_travel = Do you like travelling?
+Алекс: Да,|yes я|I люблю|love открывать|to_discover новые|new места.|places = Yes, I love discovering new places.
+  > Место (place) is neuter: plural места, новые места. Путешествовать: я путешествую, ты путешествуешь.
+  + Ты когда-нибудь был{была} в Европе? = Have you ever been to Europe?
+  + Куда ты хочешь поехать? = Where do you want to go?
+Катя: Ты|you давно|long играешь|play в|(at) шахматы?|chess = Have you been playing chess long?
+Алекс: Нет,|no я|I начал{начала}|started недавно.|recently Но|but я|I играю|play каждый|every день!|day = No, I started recently. But I play every day!
+  > Games take играть в + accusative: в шахматы, в футбол. Instruments take играть на: на гитаре. Давно + present tense = "have been … for a long time".
+  + Где ты играешь? = Where do you play?
+  + Ты играешь онлайн? = Do you play online?
+Катя: Хочешь|want сыграть|to_play со|with мной?|me = Do you want to play with me?
+Алекс: Конечно!|of_course Только|only я|I ещё|still плохо|badly играю.|play = Sure! Only I don't play very well yet.
+  > Сыграть = to play (one game) — the completed form of играть. Со мной = with me: с becomes со before мной.
+  + Ты хочешь играть белыми? = Do you want to play white?
+  + Когда тебе удобно? = When is good for you?
+
+## grammar: Asking "which?" — какой
+**Какой** agrees with its noun like an adjective: какой фильм (m.), какая музыка (f.), какое блюдо (n.), какие фильмы (pl.). After a verb like слушать or смотреть, use the accusative: Какую музыку ты слушаешь?
+ex: Какой твой любимый фильм? = What's your favourite film?
+ex: Какую музыку ты любишь? = What music do you like?
+
+## grammar: Играть в or играть на?
+Games and sports take **в** + accusative: играть в шахматы, в футбол, в теннис. Musical instruments take **на** + prepositional: играть на гитаре, на пианино.
+ex: Я играю в шахматы. = I play chess.
+ex: Он играет на гитаре. = He plays the guitar.
+
+## drills
+? Какую ___ ты слушаешь? | музыку | музыка, музыки, музыкой | What music do you listen to?
+  > музыка: After слушать the noun takes the accusative: какую музыку.
+  > музыки: Музыки is the genitive. Слушать takes the accusative: музыку.
+  > музыкой: Музыкой is the instrumental. Слушать takes the accusative: музыку.
+? Я играю ___ шахматы. | в | на, с, о | I play chess.
+  > на: На is for instruments (на гитаре). Games take в: в шахматы.
+  > с: С means "with": я играю с другом. For the game itself use в.
+  > о: О means "about". The game you play takes в: в шахматы.
+? Хочешь сыграть ___ мной? | со | с, у, на | Do you want to play with me?
+  > с: Before мной, с becomes со so it's easier to say: со мной.
+  > у: У means "by, at" (у меня). "With me" is со мной.
+  > на: На means "on, at". "With me" is со мной.
+
+## vocab
+устАть | to get tired | verb | я уста́л(а) = I'm tired
+отдыхАть | to rest, to relax | verb
+гулЯть | to walk, to go for a walk | verb
+занимАться спОртом | to do sport | phrase
+мУзыка | music | noun, f.
+слУшать | to listen to | verb
+рАзный | different, various | adjective
+любИмый | favourite | adjective
+путешЕствовать | to travel | verb
+мЕсто | place | noun, n. | plural места́
+начАть | to start | verb | я на́чал, она начала́
+сыгрАть | to play (a game) | verb | completed form of игра́ть
+тОлько | only | adverb
+плОхо | badly | adverb
+
+# lesson a1-20 | shopping | At a clothes shop | В магазине одежды
+summary: Answer a shop assistant's questions, try something on, ask for another size and pay.
+intro: In a shop the assistant asks most of the questions. Your answers can include small questions of your own — Можно посмотреть? У вас есть другой размер? — so you stay in control.
+partner: a shop assistant in a clothes shop
+
+## conversation: Buying a jacket
+Продавец: Вам|to_you помочь?|help = Can I help you?
+Алекс: Да,|yes спасибо.|thanks Я|I ищу|look_for куртку.|jacket = Yes, thanks. I'm looking for a jacket.
+  > Помочь takes the dative: вам помочь. Искать: я ищу, ты ищешь. Куртка → куртку (accusative).
+  + Для себя или в подарок? = For yourself or as a gift?
+  + Какой цвет вы хотите? = What colour would you like?
+Продавец: Какой|what у|by вас|you размер?|size = What size are you?
+Алекс: Сорок|forty восьмой.|eighth Можно|may_I посмотреть|look_at вот|here эту?|this_one = Forty-eight. Can I look at this one?
+  > Russian clothing sizes are numbers: 46 ≈ S, 48 ≈ M, 50 ≈ L. Можно + infinitive = may I…? Эту (куртку) is accusative.
+  + Вам нравится этот цвет? = Do you like this colour?
+  + Хотите посмотреть другие модели? = Would you like to see other styles?
+Продавец: Хотите|want примерить?|to_try_on = Would you like to try it on?
+Алекс: Да,|yes спасибо.|thanks Где|where у|by вас|you примерочная?|fitting_room = Yes, thanks. Where's the fitting room?
+  > Примерить = to try on (clothes); примерочная = fitting room. Где у вас…? is a polite way to ask where something is in a shop.
+  + Вам принести другой размер? = Shall I bring you another size?
+  + Хотите примерить что-нибудь ещё? = Would you like to try anything else on?
+Продавец: Ну|well как?|how Подходит?|fits = Well? Does it fit?
+Алекс: Немного|a_little маленькая.|small У|by вас|you есть|is_there другой|another размер?|size = It's a bit small. Do you have another size?
+  > Подходить = to fit, to suit. Куртка is feminine: маленькая, большая. У вас есть…? = do you have…?
+  + Вам принести пятидесятый? = Shall I bring you a fifty?
+  + Может, другую модель? = Maybe a different style?
+Продавец: Вот|here_is пятидесятый.|fiftieth Так|this_way лучше?|better = Here's a fifty. Is that better?
+Алекс: Да,|yes намного|much лучше!|better Сколько|how_much она|it стоит?|costs = Yes, much better! How much is it?
+  > Намного лучше = much better. Она = куртка (feminine): Сколько она стоит?
+  + Будете брать? = Will you take it?
+  + Хотите посмотреть что-нибудь ещё? = Would you like to see anything else?
+Продавец: Сто|hundred долларов.|dollars Как|how будете|will платить?|pay = A hundred dollars. How would you like to pay?
+Алекс: Картой,|by_card если|if можно.|possible = By card, if that's OK.
+  > Платить картой = to pay by card (instrumental). Если можно = if possible — a polite softener for any request.
+  + У вас есть карта скидок? = Do you have a discount card?
+  + Вам нужен чек? = Do you need the receipt?
+Продавец: Пакет|bag нужен?|needed = Do you need a bag?
+Алекс: Нет,|no спасибо,|thanks не|not нужно.|necessary До|until свидания!|meeting = No thanks, I don't need one. Goodbye!
+  > Нужен (m.), нужна (f.), нужно (n.), нужны (pl.) agree with the thing that's needed: пакет нужен. Не нужно = there's no need.
+  + Вы у нас первый раз? = Is this your first time here?
+  + Хотите оставить отзыв? = Would you like to leave a review?
+
+## grammar: Polite questions: можно…? and у вас есть…?
+**Можно** + infinitive asks permission: Можно посмотреть? Можно примерить? Можно оплатить картой? On its own, Можно? means "May I?".
+**У вас есть…?** asks whether a shop has something: У вас есть другой размер? Answers: Да, есть. / Нет, к сожалению, нет.
+ex: Можно примерить? = Can I try it on?
+ex: У вас есть другой цвет? = Do you have another colour?
+
+## grammar: Linking words: если
+**Если** means "if". In everyday speech **если можно** (if possible) softens any request: Картой, если можно.
+ex: Если можно, я примерю. = If I may, I'll try it on.
+ex: Если есть, дайте пятидесятый. = If you have one, give me a fifty.
+
+## drills
+? Я ищу ___. | куртку | куртка, куртки, курткой | I'm looking for a jacket.
+  > куртка: Искать takes the accusative: -а becomes -у, куртку.
+  > куртки: Куртки is the genitive or the plural. "I'm looking for a jacket" is ищу куртку.
+  > курткой: Курткой is the instrumental. Искать takes the accusative: куртку.
+? ___ примерить? | Можно | Нужно, Надо, Хотите | May I try it on?
+  > Нужно: Нужно means "it's necessary". To ask permission, use можно.
+  > Надо: Надо also means "need to". "May I…?" is Можно…?
+  > Хотите: Хотите примерить? is what the assistant asks ("Would you like to…?"). To ask permission yourself: Можно примерить?
+? Пакет ___? | нужен | нужна, нужно, нужны | Do you need a bag?
+  > нужна: Нужна goes with feminine nouns (нужна сумка). Пакет is masculine: нужен.
+  > нужно: Нужно goes with neuter nouns or with a verb. Пакет is masculine: нужен.
+  > нужны: Нужны goes with plurals (нужны пакеты). One пакет: нужен.
+
+## vocab
+помОчь | to help | verb | + dative: вам помо́чь
+искАть | to look for | verb | я ищу́, ты и́щешь
+кУртка | jacket | noun, f.
+размЕр | size | noun, m.
+сОрок | forty | number
+примЕрить | to try on | verb
+примЕрочная | fitting room | noun, f.
+подходИть | to fit, to suit | verb
+намнОго | much (with "better", "bigger") | adverb
+лУчше | better | adverb
+платИть | to pay | verb | плати́ть ка́ртой = to pay by card
+кАрта | card | noun, f.
+Если | if | conjunction
+пакЕт | (plastic) bag | noun, m.
+нУжен | needed | short adjective | нужна́, ну́жно, нужны́
+одЕжда | clothes | noun, f.
+
+# lesson a1-21 | essentials | Can you help me? | Ты можешь мне помочь?
+summary: Ask for help, ask the way, ask someone to slow down and say thank you.
+intro: When you're lost or don't understand, a few short questions solve almost everything. A friendly local helps you here — and your answers contain the questions you'll need most.
+partner: Sasha, a friendly local on the street
+
+## conversation: Lost in town
+Саша: Ты|you что-то|something ищешь?|look_for = Are you looking for something?
+Алекс: Да,|yes я|I ищу|look_for аптеку.|pharmacy Ты|you можешь|can мне|me помочь?|help = Yes, I'm looking for a pharmacy. Can you help me?
+  > Помочь takes the dative: мне помочь. With a stranger who is older, use вы: Вы можете мне помочь?
+  + Что случилось? = What happened?
+  + Тебе плохо? = Are you feeling unwell?
+Саша: Конечно!|of_course Ты|you знаешь|know адрес?|address = Sure! Do you know the address?
+Алекс: Нет,|no не|not знаю.|know Как|how мне|me туда|there добраться?|to_get = No, I don't. How do I get there?
+  > Как мне туда добраться? is literally "how to me to get there?" Туда = (to) there, with movement; там = there, no movement.
+  + Ты на машине? = Are you by car?
+  + Тебе нужна ближайшая аптека? = Do you need the nearest pharmacy?
+Саша: Иди|go прямо,|straight потом|then направо.|right Понятно?|clear = Go straight, then turn right. Got it?
+Алекс: Не|not совсем.|quite Говори,|speak пожалуйста,|please медленнее.|more_slowly = Not quite. Please speak more slowly.
+  > Медленнее = more slowly (from медленно). Говори is the ты command; to a stranger say Говорите, пожалуйста, медленнее.
+  + Ты меня понимаешь? = Do you understand me?
+  + Повторить? = Shall I say it again?
+Саша: Прямо,|straight а|and потом|then направо.|right Теперь|now понятно?|clear = Straight, and then right. Clear now?
+Алекс: Да,|yes теперь|now понятно.|clear Это|it далеко?|far = Yes, I've got it now. Is it far?
+  > Понятно ("it's clear") is the most common way to say "I understand" or "got it". Далеко = far, близко = near.
+  + Показать тебе на карте? = Shall I show you on the map?
+  + Ты пешком? = Are you on foot?
+Саша: Нет,|no пять|five минут|minutes пешком.|on_foot Ты|you не|not местный{местная}?|local = No, five minutes on foot. You're not from around here?
+Алекс: Нет,|no я|I здесь|here первый|first раз.|time Я|I плохо|badly знаю|know город.|city = No, it's my first time here. I don't know the city well.
+  > Первый раз = the first time. Плохо знаю ("know badly") is how Russians say "don't know well".
+  + Откуда ты приехал{приехала}? = Where have you come from?
+  + Тебе нравится наш город? = Do you like our city?
+Саша: Но|but ты|you хорошо|well говоришь|speak по-русски!|in_Russian Ты|you учишь|learn русский?|Russian = But you speak Russian well! Are you learning Russian?
+Алекс: Спасибо!|thanks Да,|yes учу,|learn но|but пока|for_now говорю|speak медленно.|slowly = Thanks! Yes, I am, but for now I speak slowly.
+  > Учить русский = to learn Russian (the language); говорить по-русски = to speak Russian. Пока = for now, so far.
+  + Почему ты учишь русский? = Why are you learning Russian?
+  + Ты давно учишь русский? = Have you been learning Russian long?
+Саша: Что|what ещё|else тебе|to_you нужно?|needed = What else do you need?
+Алекс: Больше|more ничего,|nothing спасибо!|thanks Ты|you мне|me очень|very_much помог.|helped = Nothing else, thanks! You've been a big help.
+  > Ты мне очень помог — to a woman, помогла. Больше ничего = nothing more. Russian happily uses double negatives: мне ничего не нужно.
+  + Хочешь, я тебя провожу? = Want me to walk you there?
+  + Может, выпьем кофе? = Shall we grab a coffee?
+
+## grammar: Asking for help
+Three questions that rescue any conversation:
+**Ты можешь мне помочь?** / **Вы можете мне помочь?** — Can you help me?
+**Говори медленнее, пожалуйста.** — Please speak more slowly. **Повтори, пожалуйста.** — Please say it again.
+**Как это называется по-русски?** — What's this called in Russian?
+ex: Вы можете мне помочь? = Can you help me? (formal)
+ex: Как это называется по-русски? = What's this called in Russian?
+ex: Повторите, пожалуйста. = Please say it again. (formal)
+
+## grammar: Там or туда? Где or куда?
+Russian separates location from direction. **Где?** (where?) → **там** (there), **здесь** (here). **Куда?** (where to?) → **туда** (to there), **сюда** (to here).
+ex: Аптека там. = The pharmacy is there.
+ex: Как мне туда добраться? = How do I get there?
+
+## drills
+? Ты можешь ___ помочь? | мне | меня, я, мной | Can you help me?
+  > меня: Помочь takes the dative: мне, тебе, вам. Меня is the accusative.
+  > я: Я is the subject form. "Help me" is помочь мне (dative).
+  > мной: Мной is the instrumental (со мной). Помочь takes the dative: мне.
+? Как мне ___ добраться? | туда | там, где, тут | How do I get there?
+  > там: Там means "there" with no movement. Getting somewhere is movement: туда.
+  > где: Где is the question word "where?". Here you need "(to) there": туда.
+  > тут: Тут means "here". To get "there", use туда.
+? Говори, пожалуйста, ___. | медленнее | медленно, медленный, медленная | Please speak more slowly.
+  > медленно: Медленно means "slowly". To ask for "more slowly", use медленнее.
+  > медленный: Медленный is an adjective (a slow train). After a verb you need an adverb: медленнее.
+  > медленная: Медленная is a feminine adjective. After говори you need the adverb медленнее.
+
+## vocab
+аптЕка | pharmacy | noun, f.
+Адрес | address | noun, m.
+добрАться | to get to, to reach | verb
+тудА | (to) there | adverb
+прЯмо | straight ahead | adverb
+напрАво | (to the) right | adverb
+налЕво | (to the) left | adverb
+понЯтно | clear, understood | adverb
+совсЕм | completely, quite | adverb | не совсе́м = not quite
+мЕдленно | slowly | adverb | ме́дленнее = more slowly
+мЕстный | local | adjective
+учИть | to learn, to study | verb | учи́ть ру́сский
+покА | for now, so far | adverb
+ничегО | nothing | pronoun
+
+# lesson a1-22 | family | The people close to you | Мои близкие
+summary: Talk about where your family lives, brothers and sisters, your parents' jobs and staying in touch.
+intro: Family comes up in almost every friendly conversation with Russians. Notice how each answer gives a detail the other person can ask about next.
+partner: Misha, a friend from work
+
+## conversation: Family and home
+Миша: Где|where живёт|lives твоя|your семья?|family = Where does your family live?
+Алекс: Мои|my родители|parents живут|live в|in другом|another штате,|state далеко|far отсюда.|from_here = My parents live in another state, far from here.
+  > Другой (another) → в другом штате: the prepositional case. Отсюда = from here.
+  + В каком штате? = Which state?
+  + Ты родился{родилась} там? = Were you born there?
+Миша: Ты|you часто|often их|them видишь?|see = Do you see them often?
+Алекс: Не|not очень|very часто,|often поэтому|so я|I звоню|call им|them каждую|every неделю.|week = Not very often, so I call them every week.
+  > Звонить takes the dative: звоню им, звоню маме. Каждую неделю = every week (time takes the accusative).
+  + Ты скучаешь по ним? = Do you miss them?
+  + Когда ты их видел{видела} в последний раз? = When did you last see them?
+Миша: У|by тебя|you есть|are_there братья|brothers или|or сёстры?|sisters = Do you have any brothers or sisters?
+Алекс: Да,|yes у|by меня|me есть|there_is младший|younger брат.|brother = Yes, I have a younger brother.
+  > У меня есть = I have. Младший = younger, старший = older: старшая сестра, младший брат.
+  + Как его зовут? = What's his name?
+  + Вы дружите? = Do you get along?
+Миша: Сколько|how_many ему|to_him лет?|years = How old is he?
+Алекс: Ему|to_him пятнадцать|fifteen лет.|years Он|he ещё|still учится|studies в|at школе.|school = He's fifteen. He's still at school.
+  > Age uses the dative: ему пятнадцать лет — "to him fifteen years". Год (1) → года (2–4) → лет (5 and up).
+  + Он хорошо учится? = Does he do well at school?
+  + Чем он увлекается? = What's he into?
+Миша: Вы|you похожи?|alike = Are you alike?
+Алекс: Немного.|a_little Например,|for_example мы|we оба|both любим|love спорт.|sport = A little. For example, we both love sport.
+  > Похожи = alike (a short adjective in the plural). Оба = both (men or mixed); обе for two women.
+  + Вы вместе играете в шахматы? = Do you play chess together?
+  + Вы часто ссоритесь? = Do you argue often?
+Миша: Чем|(with)_what занимаются|are_busy_with твои|your родители?|parents = What do your parents do?
+Алекс: Мама|mum работает|works в|at больнице,|hospital а|and папа|dad — водитель.|driver = Mum works at a hospital, and Dad is a driver.
+  > The dash stands in for "is" between two nouns: папа — водитель. А (and, while) sets two people side by side.
+  + Им нравится их работа? = Do they like their jobs?
+  + Твоя мама врач? = Is your mum a doctor?
+Миша: Ты|you скучаешь|miss по|(for) ним?|them = Do you miss them?
+Алекс: Да,|yes конечно.|of_course Но|but мы|we часто|often говорим|talk по|by видео.|video = Yes, of course. But we often talk on video.
+  > Скучать по + dative = to miss someone: скучаю по маме, по ним. По видео = on a video call.
+  + Когда ты к ним поедешь? = When are you going to see them?
+  + Они приедут к тебе в гости? = Will they come and visit you?
+
+## grammar: Saying someone's age
+Age uses the **dative**: мне двадцать лет (I'm 20), ему пятнадцать лет, ей тридцать лет. The word for "years" changes with the number: 1 → **год** (двадцать один год), 2–4 → **года** (два года), 5–20 → **лет** (пять лет).
+ex: Сколько тебе лет? = How old are you?
+ex: Мне двадцать пять лет. = I'm twenty-five.
+ex: Ему три года. = He's three.
+
+## grammar: А or и?
+**И** joins similar things: мама и папа. **А** sets two things side by side or contrasts them: Мама работает в больнице, **а** папа — водитель. It's also how you turn a question back: А ты?
+ex: Я живу здесь, а они живут далеко. = I live here, and they live far away.
+ex: А у тебя есть сестра? = And do you have a sister?
+
+## drills
+? Я звоню ___ каждую неделю. | им | их, они, ими | I call them every week.
+  > их: Их is the accusative. Звонить takes the dative: им.
+  > они: Они is the subject form. Звонить (to call) takes the dative: им.
+  > ими: Ими is the instrumental (с ними). Звонить takes the dative: им.
+? Ему пятнадцать ___. | лет | год, года, годы | He's fifteen.
+  > год: Год goes with 1 (and 21, 31…). After 5–20 use лет.
+  > года: Года goes with 2, 3, 4. After пятнадцать use лет.
+  > годы: Годы means "years" as a period (the nineties), not age. Use лет.
+? Я скучаю по ___. | маме | мама, маму, мамой | I miss my mum.
+  > мама: After скучать по the noun takes the dative: по маме.
+  > маму: Маму is the accusative. Скучать по takes the dative: маме.
+  > мамой: Мамой is the instrumental. Скучать по takes the dative: маме.
+
+## vocab
+семьЯ | family | noun, f.
+родИтели | parents | noun, plural
+штат | state | noun, m.
+отсЮда | from here | adverb
+звонИть | to call (on the phone) | verb | + dative
+кАждый | every, each | adjective
+брат | brother | noun, m.
+сестрА | sister | noun, f. | plural сёстры
+млАдший | younger | adjective
+стАрший | older | adjective
+учИться | to study (at school) | verb
+похОжи | alike | short adjective
+Оба | both | number | о́бе (f.)
+больнИца | hospital | noun, f.
+водИтель | driver | noun, m.
+скучАть по | to miss (someone) | verb | + dative

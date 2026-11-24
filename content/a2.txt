@@ -760,3 +760,677 @@ ex: Этот слон бьёт всю диагональ. = This bishop controls
 превратИться | to turn into | verb
 бУква | letter | noun, f.
 наискосОк | diagonally | adverb
+
+# lesson a2-15 | smalltalk | How was your weekend? | Как прошли выходные?
+summary: Tell the story of your weekend in the past tense — what you did, where you went and what you thought of it.
+intro: Monday-morning small talk is the perfect place to practise the past tense. Notice how linking words — сначала, потом, хотя, честно говоря — turn short answers into real stories.
+partner: Ira, a coworker on Monday morning
+
+## conversation: Monday morning
+Ира: Как|how прошли|went твои|your выходные?|weekend = How was your weekend?
+Алекс: Хорошо,|good но|but слишком|too быстро!|fast Честно|honestly говоря,|speaking я|I бы|would хотел{хотела}|like ещё|one_more один|one выходной.|day_off = Good, but too short! To be honest, I'd like one more day off.
+  > Выходные (the weekend) is plural, so the verb is plural: прошли. Честно говоря = to be honest. Я бы хотел (a woman: хотела) = I'd like — бы makes it "would".
+  + Ты устал{устала}? = Are you tired?
+  + Что ты делал{делала} в пятницу вечером? = What did you do on Friday night?
+Ира: А|and что|what ты|you делал{делала}|did на|at выходных?|weekend = So what did you do at the weekend?
+Алекс: В|on субботу|Saturday я|I ходил{ходила}|went в|to спортзал,|gym а|and вечером|in_the_evening встретился{встретилась}|met с|with друзьями.|friends = On Saturday I went to the gym, and in the evening I met up with friends.
+  > Ходил (a woman: ходила) means "went and came back" — a round trip. Встретиться с + instrumental = to meet up with: с друзьями.
+  + Ты давно знаешь этих друзей? = Have you known these friends long?
+  + Вас было много? = Were there a lot of you?
+Ира: Куда|where_to вы|you ходили|went с|with друзьями?|friends = Where did you go with your friends?
+Алекс: Сначала|first мы|we поужинали|had_dinner в|at ресторане,|restaurant а|and потом|then пошли|went в|to кино.|cinema = First we had dinner at a restaurant, and then we went to the cinema.
+  > Поужинали and пошли are completed, one-time actions in a sequence, so they're perfective. Сначала… а потом… sets the order.
+  + В каком ресторане вы были? = Which restaurant were you at?
+  + Что вы ели? = What did you eat?
+Ира: Какой|which фильм|film вы|you смотрели?|watched = What film did you see?
+Алекс: Новый|new боевик.|action_film На|on самом|very деле,|matter мне|to_me он|it не|not очень|very понравился.|pleased = A new action film. Actually, I didn't really like it.
+  > На самом деле = actually, in fact — it often brings in something unexpected. Понравился agrees with фильм: фильм мне понравился, книга мне понравилась.
+  + Тебе нравятся боевики? = Do you like action films?
+  + А друзьям понравилось? = Did your friends like it?
+Ира: Почему|why он|it тебе|to_you не|not понравился?|pleased = Why didn't you like it?
+Алекс: Потому|because что|(that) сюжет|plot был|was скучный,|boring хотя|although актёры|actors играли|played хорошо.|well = Because the plot was boring, although the actors were good.
+  > Хотя = although: it adds the other side of the story. Актёры играли хорошо — actors "play" roles in Russian.
+  + Какой твой любимый фильм? = What's your favourite film?
+  + Какие фильмы тебе нравятся? = What kind of films do you like?
+Ира: А|and что|what ты|you делал{делала}|did в|on воскресенье?|Sunday = And what did you do on Sunday?
+Алекс: В|on воскресенье|Sunday я|I отдыхал{отдыхала}|rested дома:|at_home убирал{убирала}|cleaned квартиру,|apartment читал{читала}|read и|and рано|early лёг{легла}|lay_down спать.|to_sleep = On Sunday I rested at home: I cleaned the apartment, read, and went to bed early.
+  > The imperfective past (отдыхал, убирал, читал) describes how the time was spent. Лёг (a woman: легла) спать = went to bed.
+  + Ты любишь убирать? = Do you like cleaning?
+  + Что ты сейчас читаешь? = What are you reading at the moment?
+Ира: Ты|you хорошо|well отдохнул{отдохнула}?|rested = Did you get a good rest?
+Алекс: В|in общем,|general да.|yes Я|I готов{готова}|ready к|for новой|new неделе!|week = All in all, yes. I'm ready for a new week!
+  > В общем = all in all, basically — use it to sum up. Готов (a woman: готова) к + dative = ready for: к новой неделе.
+  + Какие у тебя планы на эту неделю? = What are your plans for this week?
+  + Хочешь кофе? = Do you want some coffee?
+
+## grammar: Finished or not? Поужинали or ужинали
+Most Russian verbs come in pairs. The **perfective** (поужинать, посмотреть, пойти) is for one completed action — especially actions in a sequence: Мы поужинали, а потом пошли в кино.
+The **imperfective** (ужинать, смотреть, читать) describes an activity or how time was spent, without focusing on the result: В воскресенье я отдыхал, читал, убирал квартиру.
+ex: Вчера я смотрел телевизор. = Yesterday I watched TV (for a while).
+ex: Вчера я посмотрел новый фильм. = Yesterday I watched a new film (start to finish).
+
+## grammar: Linking words: на самом деле, хотя, честно говоря, в общем
+**На самом деле** (actually) corrects or surprises. **Хотя** (although) adds the other side. **Честно говоря** (to be honest) softens an opinion. **В общем** (all in all) sums up.
+ex: На самом деле, я не люблю боевики. = Actually, I don't like action films.
+ex: Было скучно, хотя актёры хорошие. = It was boring, although the actors are good.
+ex: В общем, всё было хорошо. = All in all, everything was fine.
+
+## drills
+? Сначала мы ___ в ресторане, а потом пошли в кино. | поужинали | ужинаем, поужинаем, ужинать | First we had dinner at a restaurant, then went to the cinema.
+  > ужинаем: Ужинаем is the present tense. The story is about Saturday: поужинали.
+  > поужинаем: Поужинаем is the future ("we'll have dinner"). This already happened: поужинали.
+  > ужинать: Ужинать is the infinitive. After мы you need the past form: поужинали.
+? Сюжет был скучный, ___ актёры играли хорошо. | хотя | потому что, поэтому, если | The plot was boring, although the actors were good.
+  > потому что: Потому что gives a reason, but good acting isn't why the plot was boring. The two parts contrast: хотя.
+  > поэтому: Поэтому means "so, that's why" — a result. Here the two parts contrast: хотя.
+  > если: Если means "if". The actors really did play well, so use хотя (although).
+? Фильм мне не ___. | понравился | понравилась, понравилось, понравились | I didn't like the film.
+  > понравилась: Понравилась agrees with a feminine noun (книга). Фильм is masculine: понравился.
+  > понравилось: Понравилось is neuter (кино мне понравилось). Фильм is masculine: понравился.
+  > понравились: Понравились is plural. One фильм: понравился.
+
+## vocab
+выходнЫе | weekend | noun, plural
+слИшком | too (much) | adverb
+чЕстно говорЯ | to be honest | phrase
+встрЕтиться | to meet up | verb | + с + instrumental
+поУжинать | to have dinner | verb
+боевИк | action film | noun, m.
+на сАмом дЕле | actually, in fact | phrase
+понрАвиться | to like (a specific thing) | verb | фильм мне понра́вился
+сюжЕт | plot | noun, m.
+скУчный | boring | adjective
+хотЯ | although | conjunction
+актёр | actor | noun, m.
+убирАть | to clean, to tidy | verb
+в Общем | all in all, basically | phrase
+готОв | ready | short adjective | гото́ва (f.)
+
+# lesson a2-16 | travel | Travel stories | Путешествия
+summary: Talk about places you've been, your last trip, what you liked and where you dream of going.
+intro: Travel stories are full of past and future: where you've been, and where you'll go next. Notice кроме того, хотя and если — they make your answers longer and more natural.
+partner: Maxim, a friend who loves to travel
+
+## conversation: Travel talk
+Максим: Ты|you когда-нибудь|ever был{была}|been в|in Европе?|Europe = Have you ever been to Europe?
+Алекс: Да,|yes я|I был{была}|was в|in Германии|Germany и|and хотел{хотела}|wanted бы|would посетить|to_visit ещё|more несколько|several стран.|countries = Yes, I've been to Germany, and I'd like to visit a few more countries.
+  > "Have been to" a place: был в + prepositional (в Германии). Несколько + genitive plural: несколько стран.
+  + Что тебе понравилось в Германии? = What did you like in Germany?
+  + В какие страны ты хочешь поехать? = Which countries do you want to go to?
+Максим: Когда|when ты|you в|(the) последний|last раз|time путешествовал{путешествовала}?|travelled = When did you last travel?
+Алекс: Несколько|several месяцев|months назад,|ago когда|when я|I ездил{ездила}|went в|to другой|another город.|city = A few months ago, when I went to another city.
+  > Назад = ago, after the time: месяц назад, несколько месяцев назад. Ездил (a woman: ездила) = went there and back by transport.
+  + Ты ездил{ездила} один{одна}? = Did you go alone?
+  + Ты летел{летела} или ехал{ехала} на машине? = Did you fly or drive?
+Максим: В|to какой|which город?|city = Which city?
+Алекс: В|to Нью-Йорк.|New_York Я|I был{была}|was там|there в|for первый|first раз.|time = New York. It was my first time there.
+  > В первый раз = for the first time. Нью-Йорк doesn't change after в when you're going somewhere (the accusative looks like the dictionary form).
+  + Сколько дней ты там был{была}? = How many days were you there?
+  + Где ты жил{жила}? = Where did you stay?
+Максим: Что|what тебе|to_you больше|more всего|of_all понравилось?|pleased = What did you like most?
+Алекс: Больше|more всего|of_all мне|to_me понравились|pleased музеи.|museums Кроме|besides того,|that там|there очень|very вкусная|tasty еда.|food = I liked the museums most. Besides that, the food there is really good.
+  > Больше всего = most of all. Кроме того (besides, also) adds one more point to what you've said.
+  + В каком музее ты был{была}? = Which museum did you go to?
+  + Что ты там ел{ела}? = What did you eat there?
+Максим: Ты|you любишь|like путешествовать|to_travel один{одна}?|alone = Do you like travelling alone?
+Алекс: Не|not очень.|very Обычно|usually я|I езжу|go с|with друзьями,|friends потому|because что|(that) так|that_way веселее.|more_fun Хотя|although иногда|sometimes хочется|one_feels_like побыть|to_be одному{одной}.|alone = Not really. I usually go with friends, because it's more fun that way. Although sometimes I feel like being on my own.
+  > Веселее = more fun (comparative of весело). Хочется + infinitive = I feel like… Одному (a woman: одной) is the dative after побыть.
+  + С кем ты обычно путешествуешь? = Who do you usually travel with?
+  + Ты любишь большие компании? = Do you like big groups?
+Максим: Куда|where_to ты|you хочешь|want поехать|to_go в|(the) следующий|next раз?|time = Where do you want to go next time?
+Алекс: Я|I мечтаю|dream поехать|to_go в|to Россию.|Russia Если|if получится,|it_works_out поеду|will_go летом.|in_summer = I dream of going to Russia. If it works out, I'll go in the summer.
+  > Если получится = if it works out — a very common phrase. Поеду (I'll go) is the perfective future. Летом = in summer.
+  + Какой город ты хочешь увидеть? = Which city do you want to see?
+  + Тебе нужна виза? = Do you need a visa?
+Максим: Ты|you уже|already готовишься|prepare к|for поездке?|trip = Are you already getting ready for the trip?
+Алекс: Да,|yes я|I учу|learn русский|Russian каждый|every день.|day Кстати,|by_the_way это|this одна|one из|of причин,|reasons почему|why я|I учу|learn язык!|language = Yes, I study Russian every day. By the way, that's one of the reasons I'm learning the language!
+  > Готовиться к + dative = to prepare for: к поездке, к экзамену. Одна из причин = one of the reasons (из + genitive plural).
+  + Почему ты учишь русский? = Why are you learning Russian?
+  + Что ещё тебе нужно сделать до поездки? = What else do you need to do before the trip?
+
+## grammar: Have you ever been…? — был в…, ездил в…
+"Have you ever been to…?" is simply the past of быть + в + prepositional: Ты когда-нибудь был в Европе? — Да, я был в Германии.
+**Ездил / ходил** + в + accusative tells about a round trip: Я ездил в Нью-Йорк (I went to New York and came back).
+ex: Я был в Москве два раза. = I've been to Moscow twice.
+ex: Летом я ездил к родителям. = In the summer I went to see my parents.
+
+## grammar: Linking words: кроме того, хотя, если
+**Кроме того** (besides, also) adds another point. **Хотя** (although) adds a contrast, even at the start of a sentence in speech. **Если** (if) + the future describes a possible plan: Если получится, поеду летом.
+ex: Там красиво. Кроме того, недорого. = It's beautiful there. Besides, it's not expensive.
+ex: Если будет время, я тебе позвоню. = If I have time, I'll call you.
+
+## drills
+? Я был в ___. | Германии | Германию, Германия, Германией | I've been to Germany.
+  > Германию: Германию is for movement (поехать в Германию). "Been in" takes the prepositional: в Германии.
+  > Германия: After в you need a case ending. With был: в Германии.
+  > Германией: Германией is the instrumental. After был в use the prepositional: в Германии.
+? Я ездил в Нью-Йорк три месяца ___. | назад | после, потом, через | I went to New York three months ago.
+  > после: После needs a noun after it (после работы). "Ago" is назад, after the time.
+  > потом: Потом means "then, afterwards". "Ago" is назад.
+  > через: Через means "in" — from now into the future: через три месяца = in three months. For the past use назад.
+? Если ___, я поеду летом. | получится | получилось, получается, получить | If it works out, I'll go in the summer.
+  > получилось: Получилось is the past. With a future plan (поеду), если takes the future: получится.
+  > получается: Получается is the present. For the summer ahead, use the future: получится.
+  > получить: Получить is the infinitive ("to receive"). "If it works out" is если получится.
+
+## vocab
+когдА-нибУдь | ever | adverb
+посетИть | to visit (a place) | verb
+нЕсколько | several, a few | number | + genitive plural
+странА | country | noun, f. | plural стра́ны
+в послЕдний рАз | last time | phrase
+назАд | ago | adverb
+в пЕрвый рАз | for the first time | phrase
+музЕй | museum | noun, m.
+крОме тогО | besides, also | phrase
+веселЕе | more fun | adverb | comparative of ве́село
+мечтАть | to dream | verb
+Если получИтся | if it works out | phrase
+лЕтом | in summer | adverb
+готОвиться к | to prepare for | verb | + dative
+поЕздка | trip | noun, f.
+причИна | reason | noun, f.
+язЫк | language | noun, m.
+
+# lesson a2-17 | friends | What's new? | Что нового?
+summary: Catch up with an old friend: a new job, a first day, yesterday evening and when to meet.
+intro: Catching up means telling a lot in a little time. Weigh both sides with с одной стороны… с другой стороны, and order events with сначала and после этого.
+partner: Natasha, an old friend you haven't seen for a while
+
+## conversation: Catching up
+Наташа: Что|what интересного|interesting произошло|happened на|this этой|this неделе?|week = What interesting things happened this week?
+Алекс: На|this этой|this неделе|week я|I начал{начала}|started новую|new работу|job и|and познакомился{познакомилась}|met с|with интересными|interesting людьми.|people = This week I started a new job and met some interesting people.
+  > Что интересного? — что + an adjective in the genitive: что нового? что интересного? Познакомиться с + instrumental = to meet someone for the first time.
+  + С кем ты познакомился{познакомилась}? = Who did you meet?
+  + Как тебе коллеги? = How do you like your colleagues?
+Наташа: Правда?|really Где|where ты|you теперь|now работаешь?|work = Really? Where are you working now?
+Алекс: В|at автосалоне.|car_dealership Я|I продаю|sell машины.|cars = At a car dealership. I sell cars.
+  > Автосалон = car dealership: в автосалоне. Продавать: я продаю, ты продаёшь.
+  + Ты разбираешься в машинах? = Do you know a lot about cars?
+  + Ты ушёл{ушла} из мебельного магазина? = Did you leave the furniture store?
+Наташа: И|and как|how тебе|to_you там?|there = And how do you like it there?
+Алекс: Пока|so_far нравится.|pleases С|from одной|one стороны,|side много|a_lot нового,|new а|and с|from другой|other стороны,|side коллеги|colleagues очень|a_lot помогают.|help = I like it so far. On the one hand, there's a lot that's new, but on the other hand, my colleagues help a lot.
+  > Как тебе…? is a short, friendly "how do you find…?". С одной стороны… с другой стороны… weighs up two sides.
+  + Тебе нравится твой начальник? = Do you like your boss?
+  + Что самое сложное в твоей работе? = What's the hardest thing about your job?
+Наташа: Тебе|to_you было|was трудно|hard в|on первый|first день?|day = Was it hard on your first day?
+Алекс: Да,|yes немного.|a_little Сначала|at_first я|I ничего|nothing не|not понимал{понимала},|understood но|but после|after этого|that стало|it_became легче.|easier = Yes, a little. At first I didn't understand anything, but after that it got easier.
+  > Мне было трудно = it was hard for me (dative + было). Стало легче = it got easier. Ничего не понимал — a double negative is normal in Russian.
+  + Кто тебе помогал? = Who helped you?
+  + Что было самым трудным? = What was the hardest part?
+Наташа: Что|what ты|you делал{делала}|did вчера|yesterday после|after работы?|work = What did you do yesterday after work?
+Алекс: Сначала|first я|I поужинал{поужинала},|had_dinner потом|then немного|a_little погулял{погуляла}|walked и|and посмотрел{посмотрела}|watched фильм.|film = First I had dinner, then went for a short walk and watched a film.
+  > A chain of completed actions uses the perfective past: поужинал, погулял, посмотрел. Немного погулять = to go for a short walk.
+  + Какой фильм ты посмотрел{посмотрела}? = Which film did you watch?
+  + Где ты гулял{гуляла}? = Where did you walk?
+Наташа: Ты|you устаёшь|get_tired после|after работы?|work = Do you get tired after work?
+Алекс: Иногда,|sometimes но|but я|I стараюсь|try каждый|every день|day гулять,|to_walk потому|because что|(that) это|it помогает|helps отдохнуть.|to_rest = Sometimes, but I try to go for a walk every day, because it helps me unwind.
+  > Стараться + infinitive = to try to. Помогать + infinitive: это помогает отдохнуть.
+  + Как ты отдыхаешь? = How do you relax?
+  + Ты высыпаешься? = Do you get enough sleep?
+Наташа: Когда|when мы|we увидимся?|will_see_each_other = When shall we meet up?
+Алекс: Давай|let's в|on субботу!|Saturday Если|if ты|you свободна,|free можем|we_can вместе|together пообедать.|have_lunch = Let's do Saturday! If you're free, we can have lunch together.
+  > Увидимся (we'll see each other) is the perfective future. Наташа is a woman, so: если ты свободна.
+  + Где встретимся? = Where shall we meet?
+  + Во сколько тебе удобно? = What time suits you?
+
+## grammar: Что нового? Что интересного?
+After **что** in questions like these, the adjective goes into the genitive (-ого): Что нового? (What's new?) Что интересного? Что случилось плохого? The answer often starts with На этой неделе… or Ничего особенного (nothing special).
+ex: Что нового? — Ничего особенного. = What's new? — Nothing special.
+ex: Что интересного было на работе? = Anything interesting at work?
+
+## grammar: Weighing two sides
+**С одной стороны… а с другой стороны…** (on the one hand… on the other hand…) shows you've thought about both sides. **После этого** (after that) moves a story forward.
+ex: С одной стороны, работа трудная, а с другой стороны, интересная. = On the one hand the job is hard, but on the other hand it's interesting.
+ex: Сначала было трудно, но после этого стало легче. = At first it was hard, but after that it got easier.
+
+## drills
+? Что ___ произошло на этой неделе? | интересного | интересное, интересный, интересно | What interesting things happened this week?
+  > интересное: After что in this kind of question, the adjective goes into the genitive: что интересного.
+  > интересный: Интересный is the masculine dictionary form. "Что интересного?" uses the genitive -ого.
+  > интересно: Интересно is an adverb ("it's interesting"). The question is что интересного?
+? Я познакомился с интересными ___. | людьми | люди, людей, людям | I met some interesting people.
+  > люди: After с (with) use the instrumental: с людьми.
+  > людей: Людей is the genitive or accusative. С (with) takes the instrumental: людьми.
+  > людям: Людям is the dative. С (with) takes the instrumental: людьми.
+? С одной стороны, много нового, а с ___ стороны, коллеги помогают. | другой | другая, другую, другого | On the one hand there's a lot that's new; on the other, my colleagues help.
+  > другая: The phrase is с другой стороны — с + genitive, feminine ending -ой.
+  > другую: Другую is the accusative. The fixed phrase is с другой стороны.
+  > другого: Другого is masculine. Сторона is feminine: с другой стороны.
+
+## vocab
+произойтИ | to happen | verb | произошло́ = (it) happened
+познакОмиться | to meet, to get to know | verb | + с + instrumental
+автосалОн | car dealership | noun, m.
+продавАть | to sell | verb | я продаю́
+сторонА | side | noun, f. | с одно́й стороны́ … с друго́й стороны́
+коллЕга | colleague | noun, m./f.
+трУдно | hard, difficult | adverb
+стАло лЕгче | it got easier | phrase
+погулЯть | to go for a walk | verb
+старАться | to try | verb
+увИдеться | to see each other | verb | Когда́ уви́димся?
+пообЕдать | to have lunch | verb
+
+# lesson a2-18 | opinions | What do you think? | Что ты думаешь?
+summary: Give your opinion, explain why, compare big cities and small towns, and talk about what matters to you.
+intro: Opinions turn small talk into a real conversation. Мне кажется, потому что and с другой стороны help you say what you think — and why.
+partner: Oleg, a friend who loves a good discussion
+
+## conversation: A good discussion
+Олег: Я|I хочу|want открыть|to_open шахматный|chess клуб.|club Что|what ты|you думаешь|think об|about этом?|this = I want to open a chess club. What do you think about it?
+Алекс: Мне|to_me кажется,|seems это|this хорошая|good идея,|idea но|but я|I хотел{хотела}|wanted бы|would сначала|first всё|everything обдумать.|think_over = I think it's a good idea, but I'd like to think it all over first.
+  > Мне кажется = it seems to me, I think — softer than я думаю. Об этом = about this: о becomes об before a vowel.
+  + Где ты хочешь его открыть? = Where do you want to open it?
+  + Тебе нужна помощь? = Do you need help?
+Олег: Почему|why ты|you сомневаешься?|doubt = Why are you unsure?
+Алекс: Потому|because что|(that) это|it дорого.|expensive Но|but с|from другой|other стороны,|side это|it может|can быть|be полезно|useful в|in будущем.|future = Because it's expensive. But on the other hand, it could be useful in the future.
+  > Сомневаться = to doubt, to be unsure. Может быть полезно = may be useful. В будущем = in the future.
+  + Сколько это может стоить? = How much could it cost?
+  + Ты бы ходил{ходила} в такой клуб? = Would you go to a club like that?
+Олег: А|and ты|you предпочитаешь|prefer жить|to_live в|in большом|big городе|city или|or в|in маленьком?|small = And do you prefer living in a big city or a small one?
+Алекс: Я|I предпочитаю|prefer большой|big город,|city потому|because что|(that) там|there больше|more возможностей.|opportunities = I prefer a big city, because there are more opportunities.
+  > Предпочитать = to prefer: я предпочитаю, ты предпочитаешь. Больше + genitive plural: больше возможностей.
+  + В каком городе ты хотел{хотела} бы жить? = Which city would you like to live in?
+  + Ты вырос{выросла} в большом городе? = Did you grow up in a big city?
+Олег: А|and что|what тебе|to_you не|not нравится|pleases в|in больших|big городах?|cities = And what don't you like about big cities?
+Алекс: Честно|honestly говоря,|speaking там|there слишком|too много|many машин|cars и|and шума.|noise = To be honest, there are too many cars and too much noise.
+  > Слишком много + genitive = too many, too much: много машин (plural), много шума (singular).
+  + Где тебе больше нравится отдыхать? = Where do you prefer to relax?
+  + Ты бы хотел{хотела} жить в деревне? = Would you like to live in the countryside?
+Олег: Слушай,|listen а|and что|what для|for тебя|you важнее|more_important всего|of_all в|in отношениях?|relationships = Listen, what matters most to you in a relationship?
+Алекс: Для|for меня|me важны|important доверие,|trust уважение|respect и|and умение|ability разговаривать|to_talk друг|each с|with другом.|other = For me, trust, respect and being able to talk to each other are important.
+  > Важнее всего = most important of all. Друг с другом = with each other. Умение + infinitive = the ability to…
+  + А что для тебя неприемлемо? = And what's unacceptable to you?
+  + Ты легко знакомишься с новыми людьми? = Do you find it easy to meet new people?
+Олег: А|and в|in дружбе?|friendship = And in friendship?
+Алекс: В|in дружбе|friendship то|the же|same самое.|same_thing Кроме|besides того,|that друг|friend должен|must быть|be рядом,|close_by когда|when трудно.|hard = The same in friendship. Besides that, a friend should be there when things are hard.
+  > То же самое = the same thing. Должен (a woman: должна) + infinitive = must, should. Кроме того adds another point.
+  + У тебя много друзей? = Do you have a lot of friends?
+  + Как вы познакомились с лучшим другом? = How did you meet your best friend?
+Олег: Что|what бы|would ты|you изменил{изменила}|change в|in своей|your жизни?|life = What would you change in your life?
+Алекс: Я|I бы|would хотел{хотела}|like больше|more путешествовать|to_travel и|and постоянно|constantly развиваться.|to_grow = I'd like to travel more and keep growing as a person.
+  > Бы + past tense = would: что бы ты изменил? я бы хотел… Развиваться = to develop, to grow as a person.
+  + Что тебе мешает? = What's stopping you?
+  + Куда ты хочешь поехать в следующий раз? = Where do you want to go next time?
+
+## grammar: Giving your opinion
+**Мне кажется** (it seems to me) and **по-моему** (in my opinion) are soft. **Я думаю, что…** and **я считаю, что…** are firmer. Ask for someone's opinion with **Что ты думаешь об этом?** or **Как ты считаешь?**
+ex: По-моему, это хорошая идея. = In my opinion, it's a good idea.
+ex: Я считаю, что это дорого. = I think it's expensive.
+
+## grammar: "Would": бы + past tense
+Russian makes "would" with **бы** + the past tense. It works for wishes and imagined situations: **Я бы хотел** путешествовать (I'd like to travel). **Что бы ты изменил?** (What would you change?)
+ex: Я бы хотел жить у моря. = I'd like to live by the sea.
+ex: Я бы купила эту машину. = I'd buy this car. (a woman speaking)
+
+## drills
+? Мне ___, это хорошая идея. | кажется | кажусь, казаться, кажешься | I think it's a good idea.
+  > кажусь: Кажусь means "I seem" (я кажусь уставшим). "It seems to me" is мне кажется.
+  > казаться: Казаться is the infinitive. The fixed phrase is мне кажется.
+  > кажешься: Кажешься is the ты form ("you seem"). Use мне кажется.
+? Что бы ты ___ в своей жизни? | изменил | изменишь, изменять, изменит | What would you change in your life?
+  > изменишь: Изменишь is the future ("you will change"). With бы use the past form: изменил.
+  > изменять: Изменять is an infinitive. Бы needs the past form: изменил.
+  > изменит: Изменит is the future for он/она. With ты and бы: изменил.
+? Для меня важны доверие и ___. | уважение | уважать, уважаю, уважения | For me, trust and respect are important.
+  > уважать: Уважать is the verb "to respect". The list needs a noun like доверие: уважение.
+  > уважаю: Уважаю means "I respect" — a verb. You need the noun: уважение.
+  > уважения: Уважения is the genitive. In this list the noun stays in the dictionary form: уважение.
+
+## vocab
+открЫть | to open | verb
+шАхматный | chess (adj.) | adjective
+кАжется | it seems | verb | мне ка́жется = I think
+идЕя | idea | noun, f.
+обдУмать | to think over | verb
+сомневАться | to doubt, to be unsure | verb
+полЕзно | useful | adverb
+бУдущее | the future | noun, n. | в бу́дущем = in the future
+предпочитАть | to prefer | verb
+возмОжность | opportunity | noun, f.
+шум | noise | noun, m.
+вАжный | important | adjective | ва́жен, важна́, важны́
+довЕрие | trust | noun, n.
+уважЕние | respect | noun, n.
+отношЕния | relationship | noun, plural
+дрУжба | friendship | noun, f.
+дОлжен | must, should | short adjective | должна́ (f.)
+изменИть | to change | verb
+развивАться | to develop, to grow | verb
+
+# lesson a2-19 | plans | Plans and dreams | Планы и мечты
+summary: Talk about your plans for the weekend, the year and the next five years — and what you'll do if things change.
+intro: Plans need the future tense, and real plans come with conditions. Notice если (if) — in Russian it takes the future: если пойдёт дождь, я останусь дома.
+partner: Vika, a friend over coffee
+
+## conversation: Over coffee
+Вика: Какие|what у|by тебя|you планы|plans на|for выходные?|weekend = What are your plans for the weekend?
+Алекс: Я|I собираюсь|am_going закончить|to_finish несколько|several дел,|things а|and потом|then хочу|want отдохнуть.|to_rest = I'm going to finish a few things, and then I want to rest.
+  > Собираться + infinitive = to be going to, to plan to. Дело (a task) → несколько дел (genitive plural).
+  + Ты будешь работать в субботу? = Will you be working on Saturday?
+  + Хочешь пойти куда-нибудь вместе? = Do you want to go somewhere together?
+Вика: Какие|what дела?|things = What things?
+Алекс: Например,|for_example мне|to_me нужно|need постирать|to_wash вещи|clothes и|and купить|to_buy продукты.|groceries = For example, I need to do the laundry and buy groceries.
+  > Мне нужно + infinitive = I need to. Постирать вещи = to do the laundry (вещи = things, clothes).
+  + Где ты обычно покупаешь продукты? = Where do you usually buy groceries?
+  + Тебе помочь? = Do you want some help?
+Вика: А|and что|what ты|you будешь|will делать,|do если|if пойдёт|goes дождь?|rain = And what will you do if it rains?
+Алекс: Скорее|most всего,|likely останусь|will_stay дома|at_home и|and посмотрю|will_watch фильм.|film = Most likely I'll stay home and watch a film.
+  > Пойдёт дождь = it will rain (literally "rain will go"). Скорее всего = most likely. Останусь and посмотрю are the perfective future.
+  + Ты любишь дождь? = Do you like rain?
+  + Какие фильмы тебе нравятся? = What kind of films do you like?
+Вика: Ты|you планируешь|plan куда-нибудь|somewhere поехать|to_go в|this этом|this году?|year = Are you planning to go anywhere this year?
+Алекс: Да,|yes я|I хотел{хотела}|wanted бы|would съездить|to_take_a_trip в|to Европу.|Europe Если|if будут|will_be деньги,|money конечно.|of_course = Yes, I'd like to take a trip to Europe. If I have the money, of course.
+  > Съездить = to make a trip there and back. Деньги is plural, so: если будут деньги.
+  + Ты когда-нибудь был{была} в Европе? = Have you ever been to Europe?
+  + Ты копишь на что-нибудь? = Are you saving up for anything?
+Вика: Чем|(with)_what ты|you хочешь|want заниматься|to_do через|in пять|five лет?|years = What do you want to be doing in five years?
+Алекс: Я|I хочу|want иметь|to_have стабильную|stable работу,|job путешествовать|to_travel и|and создать|to_create семью.|family = I want to have a stable job, travel and start a family.
+  > Через + a time = in (from now): через пять лет, через неделю. Создать семью = to start a family.
+  + Ты хотел{хотела} бы открыть собственный бизнес? = Would you like to start your own business?
+  + Где ты хочешь жить? = Where do you want to live?
+Вика: Как|how ты|you думаешь,|think это|this реально?|realistic = Do you think that's realistic?
+Алекс: Думаю,|think да,|yes хотя|although придётся|will_have много|a_lot работать.|to_work = I think so, although I'll have to work a lot.
+  > Придётся + infinitive = will have to: мне придётся много работать. Хотя (although) adds the "but".
+  + Что тебе нужно для этого? = What do you need for that?
+  + Что тебе мешает? = What's stopping you?
+Вика: Ты|you уже|already решил{решила},|decided чем|(with)_what займёшься|will_do завтра?|tomorrow = Have you decided what you'll do tomorrow?
+Алекс: Пока|yet нет,|no я|I ещё|still думаю.|think А|and ты?|you = Not yet, I'm still thinking. And you?
+  > Решить = to decide. Займёшься is the perfective future of заняться: чем займёшься? Пока нет = not yet.
+  + Хочешь сходить в кино? = Do you want to go to the cinema?
+  + Давай что-нибудь придумаем вместе? = Shall we think of something together?
+
+## grammar: Talking about the future
+**Собираться** + infinitive = to be going to: Я собираюсь отдохнуть. The **imperfective future** is буду + infinitive (Что ты будешь делать?). The **perfective future** looks like the present but means a completed future action: останусь (I'll stay), посмотрю (I'll watch). **Через** + time = in (from now).
+ex: Через неделю я поеду в Москву. = In a week I'll go to Moscow.
+ex: Что ты будешь делать завтра? = What will you be doing tomorrow?
+
+## grammar: If: если + future
+When "if" is about the future, Russian uses the future after **если** — English uses the present: **Если пойдёт** дождь, я **останусь** дома (If it rains, I'll stay home).
+ex: Если будет время, я позвоню. = If I have time, I'll call.
+ex: Если получится, поеду летом. = If it works out, I'll go in the summer.
+
+## drills
+? Если ___ дождь, я останусь дома. | пойдёт | идёт, пошёл, идти | If it rains, I'll stay home.
+  > идёт: Идёт is the present. Russian uses the future after если for future events: пойдёт.
+  > пошёл: Пошёл is the past. For a future "if", use the future: пойдёт.
+  > идти: Идти is the infinitive. After если use a full verb in the future: пойдёт.
+? Я хочу открыть свой бизнес ___ пять лет. | через | назад, после, за | I want to start my own business in five years.
+  > назад: Назад means "ago". For "in five years from now", use через.
+  > после: После needs a noun after it (после работы). "In five years" is через пять лет.
+  > за: За пять лет means "within five years" — how long something takes. "Five years from now" is через.
+? Я ___ закончить несколько дел. | собираюсь | собираю, собираться, собирается | I'm going to finish a few things.
+  > собираю: Собираю (without -сь) means "I collect, I gather". "I'm going to" is собираюсь.
+  > собираться: Собираться is the infinitive. With я use собираюсь.
+  > собирается: Собирается is the он/она form. With я use собираюсь.
+
+## vocab
+собирАться | to be going to, to plan to | verb | + infinitive
+закОнчить | to finish | verb
+дЕло | a thing to do, task | noun, n. | plural дела́
+постирАть | to wash (clothes) | verb
+вЕщи | things; clothes | noun, plural
+дождь | rain | noun, m. | пойдёт дождь = it will rain
+скорЕе всегО | most likely | phrase
+остАться | to stay | verb | я оста́нусь
+планИровать | to plan | verb
+съЕздить | to make a trip | verb
+чЕрез | in (time from now); through | preposition
+стабИльный | stable | adjective
+создАть | to create | verb | созда́ть семью́ = to start a family
+реАльно | realistic | adverb
+придётся | will have to | verb | мне придётся + infinitive
+решИть | to decide | verb
+занЯться | to get busy with, to take up | verb | Чем займёшься?
+
+# lesson a2-20 | problems | Let's talk it through | Давай поговорим
+summary: Apologise, explain what you meant, talk about solving problems and feelings — and make up.
+intro: Clearing up a misunderstanding takes calm, clear Russian. This conversation teaches you to explain yourself, talk about feelings and finish on a good note.
+partner: Liza, a close friend
+
+## conversation: Clearing things up
+Лиза: Почему|why ты|you не|not ответил{ответила}|answered на|to моё|my сообщение?|message = Why didn't you answer my message?
+Алекс: Извини,|sorry я|I был{была}|was занят{занята}|busy на|at работе|work и|and не|not мог{могла}|could ответить.|to_answer = Sorry, I was busy at work and couldn't reply.
+  > Ответить на + accusative = to answer, to reply to: на сообщение, на вопрос. Мог (a woman: могла) is the past of мочь.
+  + Ты всегда так занят{занята}? = Are you always this busy?
+  + Ты его прочитал{прочитала}? = Did you read it?
+Лиза: Ладно.|okay Ты|you можешь|can объяснить,|explain что|what ты|you имеешь|have в|in виду?|view = Okay. Can you explain what you mean?
+Алекс: Конечно.|of_course Я|I просто|just хотел{хотела}|wanted сказать,|to_say что|that нам|to_us нужно|need всё|everything обсудить.|to_discuss = Of course. I just wanted to say that we need to talk everything through.
+  > Иметь в виду = to mean (what you intend to say). Нам нужно = we need (dative + нужно). Обсудить = to discuss.
+  + Что именно ты хочешь обсудить? = What exactly do you want to discuss?
+  + Это серьёзно? = Is it serious?
+Лиза: Как|how ты|you обычно|usually решаешь|solve проблемы?|problems = How do you usually solve problems?
+Алекс: Сначала|first я|I стараюсь|try понять|to_understand ситуацию,|situation а|and потом|then ищу|look_for решение.|solution = First I try to understand the situation, and then I look for a solution.
+  > Решать проблемы = to solve problems; решение = a solution. Стараться + infinitive = to try to.
+  + Ты просишь кого-нибудь о помощи? = Do you ask anyone for help?
+  + Это всегда работает? = Does that always work?
+Лиза: А|and если|if ты|you злишься?|are_angry = And if you're angry?
+Алекс: Если|if я|I злюсь,|am_angry мне|to_me нужно|need немного|a_little времени.|time После|after этого|that я|I спокойно|calmly всё|everything объясняю.|explain = If I'm angry, I need a little time. After that I calmly explain everything.
+  > Злиться = to be angry: я злюсь, ты злишься. Немного + genitive: немного времени.
+  + Что тебя может разозлить? = What can make you angry?
+  + Ты быстро успокаиваешься? = Do you calm down quickly?
+Лиза: Что|what тебя|you больше|more всего|of_all раздражает?|annoys = What annoys you most?
+Алекс: Мне|to_me не|not нравится,|pleases когда|when люди|people не|not говорят|speak прямо|directly о|about своих|their чувствах.|feelings = I don't like it when people don't say directly how they feel.
+  > Раздражать = to annoy: меня раздражает… О + prepositional: о чувствах. Свой = one's own.
+  + А тебе легко говорить о чувствах? = And is it easy for you to talk about feelings?
+  + Ты всегда говоришь прямо? = Do you always say things directly?
+Лиза: Ты|you легко|easily знакомишься|get_to_know с|with новыми|new людьми?|people = Do you find it easy to meet new people?
+Алекс: Иногда|sometimes да,|yes но|but сначала|at_first я|I могу|can немного|a_little стесняться.|to_be_shy = Sometimes, but at first I can be a little shy.
+  > Знакомиться с + instrumental = to get to know, to meet. Стесняться = to be shy, to feel awkward.
+  + Как ты обычно начинаешь разговор? = How do you usually start a conversation?
+  + Где ты обычно знакомишься с людьми? = Where do you usually meet people?
+Лиза: Ну|well что,|so мир?|peace = So, are we okay?
+Алекс: Конечно,|of_course мир!|peace В|in общем,|general я|I рад{рада},|glad что|that мы|we поговорили.|talked = Of course we are! All in all, I'm glad we talked.
+  > Мир means both "peace" and "world". Ну что, мир? is how friends make up. Рад (a woman: рада) = glad.
+  + Пойдём выпьем кофе? = Shall we go and get a coffee?
+  + Увидимся в выходные? = See you at the weekend?
+
+## grammar: Feelings: -ся verbs and "it annoys me"
+Many feeling verbs end in **-ся**: злиться (to be angry), стесняться (to be shy), обижаться (to take offence), волноваться (to worry). Others work like нравиться — the person is the object: **меня раздражает** шум (noise annoys me), **меня беспокоит** работа (work worries me).
+ex: Я злюсь, когда опаздывают. = I get angry when people are late.
+ex: Меня раздражает шум. = Noise annoys me.
+
+## grammar: Linking words: если, после этого, в общем
+**Если** (if) sets a condition. **После этого** (after that) moves to the next step. **В общем** (all in all) sums up at the end.
+ex: Если я злюсь, я молчу. = If I'm angry, I keep quiet.
+ex: В общем, всё хорошо. = All in all, everything's fine.
+
+## drills
+? Почему ты не ответил ___ моё сообщение? | на | в, о, для | Why didn't you answer my message?
+  > в: Ответить takes на: ответить на сообщение, на вопрос.
+  > о: О means "about". "Answer a message" is ответить на сообщение.
+  > для: Для means "for". Ответить takes на.
+? Когда я ___, мне нужно время. | злюсь | злишься, злится, злиться | When I'm angry, I need time.
+  > злишься: Злишься is the ты form. With я use злюсь.
+  > злится: Злится is the он/она form. With я use злюсь.
+  > злиться: Злиться is the infinitive. With я use злюсь.
+? Я рад, ___ мы поговорили. | что | чтобы, потому, если | I'm glad we talked.
+  > чтобы: Чтобы means "in order to, so that". After рад, use что: рад, что…
+  > потому: Потому on its own isn't a linking word — it's потому что. After рад, simply use что.
+  > если: Если means "if". You're glad about something that happened: рад, что…
+
+## vocab
+отвЕтить | to answer, to reply | verb | + на + accusative
+сообщЕние | message | noun, n.
+извинИ | sorry | interjection | извини́те (formal)
+имЕть в видУ | to mean | phrase | Что ты име́ешь в виду́?
+обсудИть | to discuss | verb
+решАть | to solve; to decide | verb
+ситуАция | situation | noun, f.
+решЕние | solution, decision | noun, n.
+злИться | to be angry | verb | я злю́сь
+спокОйно | calmly | adverb
+раздражАть | to annoy, to irritate | verb
+чУвство | feeling | noun, n. | The first в is silent.
+знакОмиться | to get to know, to meet | verb | + с + instrumental
+стеснЯться | to be shy | verb
+мир | peace; world | noun, m.
+рад | glad | short adjective | ра́да (f.)
+
+# lesson a2-21 | work | Talking about work | Разговор о работе
+summary: Say what you like about your job, what's hard, how many hours you work and whether you'd start your own business.
+intro: Work talk is full of opinions and reasons. Here you'll weigh pros and cons and list your points with во-первых, во-вторых and поэтому.
+partner: Yulia, a friend who's curious about your job
+
+## conversation: About your job
+Юля: Тебе|to_you нравится|pleases твоя|your работа?|job = Do you like your job?
+Алекс: Да,|yes мне|to_me нравится|pleases общаться|to_talk с|with людьми,|people но|but иногда|sometimes работа|work бывает|can_be сложной.|difficult = Yes, I like talking to people, but sometimes the work can be hard.
+  > Бывать = to be at times: работа бывает сложной (the instrumental after бывать). Общаться с + instrumental = to talk with.
+  + Сколько ты уже там работаешь? = How long have you been working there?
+  + Ты устаёшь после работы? = Do you get tired after work?
+Юля: Что|what самое|the_most сложное|difficult в|in твоей|your работе?|job = What's the hardest thing about your job?
+Алекс: Иногда|sometimes трудно|hard понять,|to_understand что|what именно|exactly нужно|needs клиенту.|the_customer = Sometimes it's hard to understand exactly what the customer needs.
+  > Самое сложное = the hardest thing (самый + adjective = the most…). Нужно клиенту = the customer needs (dative).
+  + Как ты это решаешь? = How do you deal with that?
+  + Клиенты бывают грубыми? = Are customers ever rude?
+Юля: А|and что|what тебе|to_you больше|more всего|of_all нравится?|pleases = And what do you like most?
+Алекс: Мне|to_me нравится|pleases помогать|to_help людям|people выбирать|choose машину.|car = I like helping people choose a car.
+  > Помогать + dative + infinitive: помогать людям выбирать. Машина → машину (accusative).
+  + Ты сам{сама} любишь машины? = Do you love cars yourself?
+  + Какая у тебя машина? = What car do you have?
+Юля: Сколько|how_many часов|hours в|a неделю|week ты|you работаешь?|work = How many hours a week do you work?
+Алекс: Около|about сорока,|forty но|but иногда|sometimes больше,|more если|if много|many клиентов.|customers = About forty, but sometimes more if there are a lot of customers.
+  > Около + genitive = about, approximately: около сорока. В неделю = a week, per week.
+  + Ты работаешь по выходным? = Do you work weekends?
+  + Тебе платят за переработку? = Do you get paid for overtime?
+Юля: Ты|you хотел{хотела}|wanted бы|would открыть|to_open собственный|own бизнес?|business = Would you like to start your own business?
+Алекс: Да,|yes мне|to_me интересно|interesting работать|to_work на|for себя|oneself и|and развивать|to_develop собственный|own проект.|project = Yes, I'm interested in working for myself and building my own project.
+  > Работать на себя = to work for yourself. Собственный = one's own — a little more formal than свой.
+  + У тебя уже есть идея? = Do you already have an idea?
+  + Это не страшно? = Isn't that scary?
+Юля: Какой|what_kind_of бизнес|business ты|you хотел{хотела}|wanted бы|would открыть?|to_open = What kind of business would you like to start?
+Алекс: Может|maybe быть,|be свой|own магазин.|store С|from одной|one стороны,|side это|it риск,|risk а|and с|from другой|other стороны|side — свобода.|freedom = Maybe my own store. On the one hand, it's a risk, but on the other hand — freedom.
+  > Может быть = maybe. Свой = one's own. The dash stands in for "is": с другой стороны — свобода.
+  + Что бы ты продавал{продавала}? = What would you sell?
+  + Ты готов{готова} рискнуть? = Are you ready to take the risk?
+Юля: Что|what тебе|to_you нужно|needed для|for этого?|this = What do you need for that?
+Алекс: Во-первых,|firstly деньги,|money а|and во-вторых,|secondly опыт.|experience Поэтому|so пока|for_now я|I коплю|save и|and учусь.|learn = First, money, and second, experience. So for now I'm saving up and learning.
+  > Во-первых, во-вторых = firstly, secondly. Копить = to save up: я коплю, ты копишь.
+  + Сколько тебе нужно накопить? = How much do you need to save?
+  + Ты копишь на что-нибудь? = Are you saving up for anything?
+
+## grammar: The most…: самый
+**Самый** + adjective makes "the most…" and agrees with the noun: самый интересный день, самая трудная работа, самое важное решение. On its own, the neuter **самое** + adjective means "the … thing": самое сложное (the hardest thing), самое главное (the main thing).
+ex: Это самый лучший день! = This is the best day!
+ex: Самое главное — здоровье. = The main thing is health.
+
+## grammar: Linking words: во-первых, во-вторых, поэтому
+List your reasons with **во-первых** (firstly) and **во-вторых** (secondly), then draw the conclusion with **поэтому** (so, that's why).
+ex: Во-первых, это дорого, а во-вторых, далеко. Поэтому я не поеду. = Firstly it's expensive, and secondly it's far. So I won't go.
+
+## drills
+? Что самое ___ в твоей работе? | сложное | сложный, сложная, сложно | What's the hardest thing about your job?
+  > сложный: "The hardest thing" is самое сложное — the neuter form, used as a noun.
+  > сложная: Сложная is feminine. "The hardest thing" is самое сложное (neuter).
+  > сложно: Сложно is an adverb ("it's hard"). After самое you need the neuter adjective: сложное.
+? Мне нравится помогать ___ выбирать машину. | людям | люди, людей, людьми | I like helping people choose a car.
+  > люди: Помогать takes the dative: людям.
+  > людей: Людей is the genitive or accusative. Помогать takes the dative: людям.
+  > людьми: Людьми is the instrumental (с людьми). Помогать takes the dative: людям.
+? Мне нужен опыт, ___ пока я учусь. | поэтому | потому что, хотя, кстати | I need experience, so for now I'm learning.
+  > потому что: Потому что gives a reason. Learning is the result of needing experience: поэтому.
+  > хотя: Хотя means "although" — a contrast. Here it's cause and result: поэтому.
+  > кстати: Кстати (by the way) changes the topic. The result here needs поэтому.
+
+## vocab
+общАться | to talk, to socialise | verb | + с + instrumental
+бывАть | to be (at times), to happen | verb
+слОжный | difficult, complicated | adjective
+сАмый | the most | adjective | са́мое сло́жное = the hardest thing
+Именно | exactly | adverb
+Около | about, approximately | preposition | + genitive
+сОбственный | own | adjective
+бИзнес | business | noun, m.
+развивАть | to develop | verb
+проЕкт | project | noun, m.
+риск | risk | noun, m.
+свобОда | freedom | noun, f.
+во-пЕрвых | firstly | adverb
+во-вторЫх | secondly | adverb
+Опыт | experience | noun, m.
+копИть | to save up | verb | я коплю́, ты ко́пишь
+
+# lesson a2-22 | money | Talking about money | Поговорим о деньгах
+summary: Talk about what you spend on, saving, your last purchase, shopping online and lending money.
+intro: Money is a great topic for practising reasons and opinions — and for prepositions: тратить на, копить на, платить за.
+partner: Pasha, your roommate
+
+## conversation: Money talk with a roommate
+Паша: На|on что|what ты|you обычно|usually тратишь|spend деньги?|money = What do you usually spend your money on?
+Алекс: В|in основном|main на|on жильё,|housing еду,|food машину|car и|and повседневные|everyday расходы.|expenses = Mostly on housing, food, the car and everyday expenses.
+  > Тратить на + accusative = to spend on: на еду, на машину. В основном = mostly, mainly.
+  + Сколько ты платишь за квартиру? = How much do you pay for the apartment?
+  + Ты ведёшь бюджет? = Do you keep a budget?
+Паша: Ты|you предпочитаешь|prefer экономить|to_save или|or тратить|to_spend деньги?|money = Do you prefer saving money or spending it?
+Алекс: Я|I стараюсь|try разумно|sensibly экономить,|to_save но|but иногда|sometimes позволяю|allow себе|myself что-нибудь|something приятное.|nice = I try to save sensibly, but sometimes I treat myself to something nice.
+  > Позволять себе = to allow yourself, to treat yourself. Что-нибудь приятное = something nice.
+  + На чём ты экономишь? = What do you save on?
+  + Тебе легко экономить? = Is saving easy for you?
+Паша: Что|what ты|you купил{купила}|bought себе|yourself в|(the) последний|last раз?|time = What's the last thing you bought for yourself?
+Алекс: Новые|new наушники.|headphones Честно|honestly говоря,|speaking они|they были|were дороговаты,|a_bit_pricey но|but очень|very хорошие.|good = New headphones. To be honest, they were a bit pricey, but they're really good.
+  > Дороговаты = a bit too expensive: the suffix -оват- softens an adjective. Наушники (headphones) is always plural.
+  + Сколько они стоили? = How much did they cost?
+  + Где ты их купил{купила}? = Where did you buy them?
+Паша: Ты|you копишь|save на|for что-нибудь?|anything = Are you saving up for anything?
+Алекс: Да,|yes я|I коплю|save на|for путешествие.|trip Кроме|besides того,|that я|I хочу|want купить|to_buy новую|new машину.|car = Yes, I'm saving up for a trip. Besides that, I want to buy a new car.
+  > Копить на + accusative = to save up for: на путешествие, на машину. Кроме того adds another point.
+  + Куда ты хочешь поехать в следующий раз? = Where do you want to go next time?
+  + Какую машину ты хочешь? = What car do you want?
+Паша: Ты|you часто|often покупаешь|buy что-то|something онлайн?|online = Do you often buy things online?
+Алекс: Да,|yes довольно|quite часто,|often потому|because что|(that) это|it удобно.|convenient Но|but одежду|clothes я|I покупаю|buy в|in магазине,|store потому|because что|(that) хочу|want её|it примерить.|to_try_on = Yes, quite often, because it's convenient. But I buy clothes in a store, because I want to try them on.
+  > Довольно = quite, fairly. Одежда (clothes) is singular in Russian, so it's её примерить — "try it on".
+  + Что ты покупаешь онлайн чаще всего? = What do you buy online most often?
+  + Ты когда-нибудь возвращал{возвращала} покупки? = Have you ever returned a purchase?
+Паша: Ты|you даёшь|give деньги|money в|into долг|debt друзьям?|friends = Do you lend money to friends?
+Алекс: Иногда|sometimes даю,|give если|if это|this хороший|good друг.|friend Но|but не|not очень|very большие|big суммы.|sums = Sometimes, if it's a good friend. But not very large amounts.
+  > Давать в долг = to lend (literally "give into debt"); брать в долг = to borrow. Давать: я даю, ты даёшь.
+  + Тебе всегда возвращают деньги? = Do people always pay you back?
+  + Ты когда-нибудь брал{брала} в долг? = Have you ever borrowed money?
+Паша: Как|how ты|you думаешь,|think деньги|money приносят|bring счастье?|happiness = Do you think money brings happiness?
+Алекс: На|on самом|very деле,|matter не|not совсем.|quite Деньги|money дают|give свободу,|freedom но|but счастье|happiness — это|that's люди|people рядом.|nearby = Actually, not exactly. Money gives you freedom, but happiness is the people around you.
+  > На самом деле = actually. Деньги is always plural: деньги дают, деньги приносят. Счастье — это… = happiness is…
+  + А что для тебя счастье? = And what is happiness for you?
+  + Что бы ты изменил{изменила} в своей жизни? = What would you change in your life?
+
+## grammar: Spending, saving, lending
+Each money verb has its own preposition: **тратить на** + accusative (spend on), **копить на** + accusative (save up for), **платить за** + accusative (pay for). **Давать в долг** = to lend, **брать в долг** = to borrow.
+ex: Я плачу за квартиру тысячу долларов. = I pay a thousand dollars for the apartment.
+ex: Можно взять у тебя в долг? = Can I borrow from you?
+
+## grammar: Softening: довольно, -оват-, не совсем
+Russians often soften what they say. **Довольно** = quite, fairly. The suffix **-оват-** means "a bit too": дороговато (a bit pricey), великовата (a bit big). **Не совсем** = not exactly.
+ex: Куртка мне великовата. = The jacket is a bit big for me.
+ex: Это довольно дорого. = That's fairly expensive.
+
+## drills
+? Я трачу деньги ___ еду и жильё. | на | в, за, для | I spend money on food and housing.
+  > в: Тратить takes на: тратить на еду.
+  > за: За goes with платить (платить за квартиру). Тратить takes на.
+  > для: Для means "for (the benefit of)". "Spend on" is тратить на.
+? Я коплю на ___. | путешествие | путешествия, путешествием, путешествии | I'm saving up for a trip.
+  > путешествия: Копить на takes the accusative: на путешествие (for this neuter noun it looks like the dictionary form).
+  > путешествием: Путешествием is the instrumental. Копить на takes the accusative: путешествие.
+  > путешествии: Путешествии is the prepositional (о путешествии). Копить на takes the accusative: путешествие.
+? Деньги ___ свободу. | дают | даёт, даю, даёшь | Money gives you freedom.
+  > даёт: Даёт is singular. Деньги is always plural in Russian: дают.
+  > даю: Даю is the я form. Plural деньги needs дают.
+  > даёшь: Даёшь is the ты form. Plural деньги needs дают.
+
+## vocab
+трАтить | to spend | verb | тра́тить на + accusative
+дЕньги | money | noun, plural
+в основнОм | mostly, mainly | phrase
+жильё | housing | noun, n.
+повседнЕвный | everyday | adjective
+расхОды | expenses | noun, plural
+эконОмить | to save (money) | verb
+рАзумно | sensibly | adverb
+позволЯть себЕ | to treat yourself, to afford | phrase
+наУшники | headphones | noun, plural
+дороговАт | a bit pricey | short adjective | дорогова́ты (pl.)
+путешЕствие | trip, journey | noun, n.
+довОльно | quite, fairly | adverb
+в долг | on loan (lend, borrow) | phrase | дава́ть в долг = to lend
+сУмма | sum, amount | noun, f.
+счАстье | happiness | noun, n.

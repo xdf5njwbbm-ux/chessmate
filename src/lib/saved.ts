@@ -59,6 +59,29 @@ export function writeSave<T>(uid: string | null | undefined, slot: string, data:
   }
 }
 
+/** Every save for this account whose slot starts with `prefix`, most recently touched first. */
+export function listSaves<T>(uid: string | null | undefined, prefix: string): { slot: string; at: number; data: T }[] {
+  if (!uid) return [];
+  pruneOld();
+  const out: { slot: string; at: number; data: T }[] = [];
+  try {
+    const head = keyFor(uid, prefix);
+    for (let n = 0; n < localStorage.length; n++) {
+      const k = localStorage.key(n);
+      if (!k?.startsWith(head)) continue;
+      try {
+        const e = JSON.parse(localStorage.getItem(k) ?? "null") as Envelope<T> | null;
+        if (e?.v === 1 && Date.now() - e.at <= MAX_AGE_MS) out.push({ slot: k.slice(keyFor(uid, "").length), at: e.at, data: e.data });
+      } catch {
+        /* skip unreadable entries */
+      }
+    }
+  } catch {
+    /* storage unavailable */
+  }
+  return out.sort((a, b) => b.at - a.at);
+}
+
 export function clearSave(uid: string | null | undefined, slot: string) {
   if (!uid) return;
   try {

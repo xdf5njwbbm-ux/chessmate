@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { Bot, Copy, EyeOff, Link2, Search, Send, Swords, Users, X } from "lucide-react";
+import { Bot, Copy, EyeOff, Link2, Search, Send, Users, X } from "lucide-react";
 import { api } from "../lib/api";
 import { POOLS, SUGGESTED_BOT_ELO, TIME_CONTROLS, bracket, tcLabel } from "../lib/constants";
 import { ago, clock, pref, setPref } from "../lib/format";
 import { BLIND_LEVELS, type BlindLevel } from "../lib/blindfold";
 import { clearSave, loadSave, type BotMode, type BotSave } from "../lib/saved";
 import type { ChallengeItem, GameSummary, Mini } from "../lib/types";
-import { useSession } from "../state/session";
+import { useLearner, useSession } from "../state/session";
 import { useLive } from "../state/live";
 import { useToast } from "../state/toast";
 import { Button, Chip, Confirm, Initials, LevelBadge, PageHeader, RatingBadge, SectionTitle, Segmented, Sheet, Spinner, Toggle } from "../components/ui";
@@ -32,8 +32,10 @@ function TimeControlPicker({ value, onChange, live }: { value: string; onChange:
   );
 }
 
-export default function Play() {
+/** Play Solo (Stockfish) and Play With a Friend (invites, challenges, online games) — one page, two modes. */
+export default function Play({ mode }: { mode: "solo" | "friend" }) {
   const { profile, uid } = useSession();
+  const learner = useLearner();
   const { inbox, refreshInbox } = useLive();
   const navigate = useNavigate();
   const toast = useToast();
@@ -44,7 +46,8 @@ export default function Play() {
   const [botColor, setBotColor] = useState<"white" | "black" | "random">(() => pref("botColor", "white"));
   const [tc, setTc] = useState<string>(() => pref("onlineTc", "rapid15_10"));
   const [rated, setRated] = useState<boolean>(() => pref("onlineRated", true));
-  const [ruChat, setRuChat] = useState<boolean>(() => profile?.russian_chat ?? false);
+  const [ruChatPref, setRuChat] = useState<boolean>(() => profile?.russian_chat ?? false);
+  const ruChat = learner && ruChatPref; // chess-only accounts never ask for Russian-only chat
   const [seeking, setSeeking] = useState<null | { waited: number; window: number; searching: number }>(null);
   const [friend, setFriend] = useState(false);
   const [botBlind, setBotBlind] = useState<boolean>(() => pref("botBlind", false));
@@ -53,7 +56,7 @@ export default function Play() {
   const [replacing, setReplacing] = useState<{ mode: BotMode; save: BotSave } | null>(null);
 
   useEffect(() => {
-    if (params.get("mode") === "online") onlineRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (params.get("find") === "1") onlineRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [params]);
   useEffect(() => setPref("botElo", botElo), [botElo]);
   useEffect(() => setPref("botColor", botColor), [botColor]);
@@ -115,18 +118,13 @@ export default function Play() {
     navigate(`/play/${mode}?elo=${botElo}&color=${color}`);
   };
 
-  return (
-    <div>
-      <PageHeader title="Play chess" subtitle="Rated games are against people. Stockfish games are for practice and never change your rating." />
-      <ResumeBotGames className="mb-4" />
-
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+  const solo = (
         <div className="card p-5">
           <div className="flex items-center gap-3">
             <div className="grid size-10 place-items-center rounded-xl bg-white/[0.06]"><Bot className="size-5 text-accent" /></div>
             <div>
               <div className="font-display text-xl font-semibold">Play Stockfish</div>
-              <div className="text-sm text-mist">Unrated practice · undo allowed · Russian on every move</div>
+              <div className="text-sm text-mist">Unrated practice · undo allowed{learner ? " · Russian on every move" : ""}</div>
             </div>
           </div>
           <div className="mt-6">
@@ -145,7 +143,7 @@ export default function Play() {
           </div>
           <div className="mt-3 divide-y divide-white/[0.06]">
             <Toggle checked={botBlind} onChange={setBotBlind} label={<span className="inline-flex items-center gap-1.5"><EyeOff className="size-4 text-gold" /> Blindfold</span>}
-              hint="Pieces are invisible. Play from memory with spoken Russian announcements. Reveal the board any time." />
+              hint={learner ? "Pieces are invisible. Play from memory with spoken Russian announcements. Reveal the board any time." : "Pieces are invisible. Play from memory with spoken announcements. Reveal the board any time."} />
           </div>
           {botBlind && (
             <div className="mt-2">
@@ -160,13 +158,15 @@ export default function Play() {
             <Button onClick={() => startBot()}>Start game</Button>
           </div>
         </div>
+  );
 
+  const online = (
         <div className="card p-5" ref={onlineRef}>
           <div className="flex items-center gap-3">
             <div className="grid size-10 place-items-center rounded-xl bg-white/[0.06]"><Users className="size-5 text-accent" /></div>
             <div>
-              <div className="font-display text-xl font-semibold">Play online</div>
-              <div className="text-sm text-mist">Matched by rating with other Russian learners</div>
+              <div className="font-display text-xl font-semibold">Or find an opponent online</div>
+              <div className="text-sm text-mist">Matched by rating with other players</div>
             </div>
           </div>
           {seeking ? (
@@ -184,28 +184,59 @@ export default function Play() {
               <div className="mt-3 divide-y divide-white/[0.06]">
                 <Toggle checked={rated} onChange={setRated} label="Rated" hint={blind ? "Counts toward your separate blindfold rating (5 placement games first)." : "Counts toward your Elo. New players play 5 placement games first."} />
                 <Toggle checked={blind} onChange={setBlind} label={<span className="inline-flex items-center gap-1.5"><EyeOff className="size-4 text-gold" /> Blindfold</span>} hint="Both players' pieces are hidden. Matched only with other blindfold players." />
-                <Toggle checked={ruChat} onChange={setRuChat} label="Russian-only chat" hint="Used when both players turn it on. Suggested phrases help you." />
+                {learner && <Toggle checked={ruChat} onChange={setRuChat} label="Russian-only chat" hint="Used when both players turn it on. Suggested phrases help you." />}
               </div>
               <div className="mt-4 flex flex-wrap justify-end gap-2">
-                <Button variant="secondary" onClick={() => setFriend(true)}><Swords className="size-4" /> Challenge a friend</Button>
                 <Button onClick={() => setSeeking({ waited: 0, window: 150, searching: 1 })}><Search className="size-4" /> Find opponent</Button>
               </div>
             </>
           )}
         </div>
+  );
+
+  if (mode === "solo") {
+    return (
+      <div>
+        <PageHeader title="Play Solo" subtitle="Practise against Stockfish at any strength. These games never change your rating." />
+        <ResumeBotGames className="mb-4" />
+        <div className="max-w-2xl">{solo}</div>
+        <Confirm
+          open={!!replacing}
+          onClose={() => setReplacing(null)}
+          title="Start a new game?"
+          body={replacing && `You have an unfinished ${replacing.mode === "blindfold" ? "blindfold " : ""}game against Stockfish (move ${Math.floor(replacing.save.moves.length / 2) + 1}). Starting a new one discards it.`}
+          confirmLabel="Start new game"
+          danger
+          onConfirm={() => startBot(true)}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <PageHeader title="Play With a Friend" subtitle="One shared board — every move shows up for both of you instantly." />
+
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <div className="card flex flex-col p-5">
+          <div className="flex items-center gap-3">
+            <div className="grid size-10 place-items-center rounded-xl bg-accent/10"><Users className="size-5 text-accent" /></div>
+            <div>
+              <div className="font-display text-xl font-semibold">Invite a friend</div>
+              <div className="text-sm text-mist">Send a link, or challenge someone by username.</div>
+            </div>
+          </div>
+          <ul className="mt-4 grid gap-2 text-sm text-fog">
+            <li className="flex gap-2"><span className="text-accent">✓</span> You share one board and one game.</li>
+            <li className="flex gap-2"><span className="text-accent">✓</span> Each of you keeps your own settings{learner ? " — you get Russian with every move, your friend can play plain chess." : "."}</li>
+            <li className="flex gap-2"><span className="text-accent">✓</span> Your friend never has to learn Russian: new players can sign up as “Just play chess”.</li>
+          </ul>
+          <Button size="lg" className="mt-5 w-full" onClick={() => setFriend(true)}><Link2 className="size-5" /> Invite a friend</Button>
+        </div>
+        {online}
       </div>
 
       <Lists inbox={inbox} refresh={refreshInbox} />
-
-      <Confirm
-        open={!!replacing}
-        onClose={() => setReplacing(null)}
-        title="Start a new game?"
-        body={replacing && `You have an unfinished ${replacing.mode === "blindfold" ? "blindfold " : ""}game against Stockfish (move ${Math.floor(replacing.save.moves.length / 2) + 1}). Starting a new one discards it.`}
-        confirmLabel="Start new game"
-        danger
-        onConfirm={() => startBot(true)}
-      />
 
       <FriendSheet open={friend} onClose={() => setFriend(false)} defaults={{ tc, rated, ruChat, blind }} onSent={refreshInbox} />
     </div>
@@ -308,6 +339,7 @@ function ActiveRow({ g }: { g: GameSummary }) {
 
 function FriendSheet({ open, onClose, defaults, onSent }: { open: boolean; onClose: () => void; defaults: { tc: string; rated: boolean; ruChat: boolean; blind: boolean }; onSent: () => void }) {
   const toast = useToast();
+  const learner = useLearner();
   const [q, setQ] = useState("");
   const [results, setResults] = useState<Mini[]>([]);
   const [pick, setPick] = useState<Mini | null>(null);
@@ -367,9 +399,11 @@ function FriendSheet({ open, onClose, defaults, onSent }: { open: boolean; onClo
       {link ? (
         <div>
           <p className="text-mist">Send this link to a friend. The game starts as soon as they open it and accept. It's valid for 24 hours.</p>
+          <p className="mt-2 text-sm text-mist">New to the app? They sign up in a minute and can choose <b className="text-fog">Just play chess</b> — no Russian for them.</p>
           <div className="mt-4 flex gap-2">
             <input readOnly className="field font-mono text-sm" value={link} onFocus={(e) => e.target.select()} />
-            <Button onClick={() => navigator.clipboard?.writeText(link).then(() => toast({ title: "Copied" }))}><Copy className="size-4" /></Button>
+            <Button onClick={() => navigator.clipboard?.writeText(link).then(() => toast({ title: "Copied" }))} aria-label="Copy link"><Copy className="size-4" /></Button>
+            {"share" in navigator && <Button variant="secondary" onClick={() => navigator.share({ title: "Play chess with me", text: "Let's play chess!", url: link }).catch(() => {})}><Send className="size-4" /> Share</Button>}
           </div>
           {"share" in navigator && (
             <Button variant="secondary" className="mt-3 w-full" onClick={() => navigator.share({ title: "Play chess with me", text: "Let's play a game on Russian Chess Academy!", url: link }).catch(() => {})}>
@@ -399,7 +433,7 @@ function FriendSheet({ open, onClose, defaults, onSent }: { open: boolean; onClo
           </div>
           <div className="mt-2 divide-y divide-white/[0.06]">
             <Toggle checked={rated} onChange={setRated} label="Rated" />
-            <Toggle checked={ruChat} onChange={setRuChat} label="Russian-only chat" />
+            {learner && <Toggle checked={ruChat} onChange={setRuChat} label="Russian-only chat" />}
             <Toggle checked={blind} onChange={setBlind} label="Blindfold" hint="Pieces hidden for both players. Rated blindfold games use the blindfold rating." />
           </div>
           <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">

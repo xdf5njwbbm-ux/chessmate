@@ -1,3 +1,4 @@
+import { useLearner } from "../state/session";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Trophy } from "lucide-react";
@@ -8,6 +9,7 @@ import type { LeaderRow, Pool } from "../lib/types";
 import { Button, EmptyState, Initials, LevelBadge, PageHeader, PageLoader, Segmented } from "../components/ui";
 
 export default function Leaderboards() {
+  const learner = useLearner();
   const navigate = useNavigate();
   const [pool, setPool] = useState<Pool>("rapid");
   const [data, setData] = useState<Awaited<ReturnType<typeof api.leaderboard>> | null>(null);
@@ -28,7 +30,7 @@ export default function Leaderboards() {
         </div>
       )}
       {!data ? <PageLoader /> : data.rows.length === 0 ? (
-        <EmptyState icon={<Trophy className="size-7" />} title="No ranked players yet" body="Be the first: finish five rated games in this time control." action={<Button onClick={() => navigate("/play?mode=online")}>Find a rated game</Button>} />
+        <EmptyState icon={<Trophy className="size-7" />} title="No ranked players yet" body="Be the first: finish five rated games in this time control." action={<Button onClick={() => navigate("/play/friend")}>Find a rated game</Button>} />
       ) : (
         <div className="card mt-4 divide-y divide-white/[0.06]">
           {data.rows.map((r: LeaderRow) => (
@@ -36,7 +38,7 @@ export default function Leaderboards() {
               <span className={`w-8 shrink-0 text-center font-semibold tabular-nums ${r.rank <= 3 ? "text-gold" : "text-mist"}`}>{r.rank}</span>
               <Initials name={r.display_name} size={36} online={r.online} />
               <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-2"><span className="truncate font-medium">{r.display_name}</span><LevelBadge level={r.ru_level} /></div>
+                <div className="flex items-center gap-2"><span className="truncate font-medium">{r.display_name}</span>{learner && <LevelBadge level={r.ru_level} />}</div>
                 <div className="text-xs text-mist">@{r.username} · {r.games} games · {bracket(r.rating)}</div>
               </div>
               <span className="text-lg font-semibold tabular-nums">{ratingText(r.rating, r.status)}</span>

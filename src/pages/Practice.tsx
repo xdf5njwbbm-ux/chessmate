@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AudioLines, Headphones, Mic, Repeat2, Sparkles } from "lucide-react";
+import { AudioLines, Headphones, MessagesSquare, Mic, Repeat2, Sparkles } from "lucide-react";
 import { api } from "../lib/api";
 import type { Dashboard } from "../lib/types";
 import { useSession } from "../state/session";
@@ -15,6 +15,7 @@ export default function Practice() {
   }, []);
 
   const tiles = [
+    { to: "/practice/talk", Icon: MessagesSquare, title: "Conversations", ru: "Вопросы и ответы", body: "Everyday questions from the conversation lessons — one by one, as a random conversation, or just the ones you missed.", stat: "A1–A2" },
     { to: "/practice/review", Icon: Repeat2, title: "Review", ru: "Повторение", body: "Spaced repetition of your words and saved phrases. Missed items come back sooner.", stat: d ? `${d.russian.due_reviews} due now` : "" },
     { to: "/practice/listening", Icon: Headphones, title: "Listening", ru: "Аудирование", body: "Hear sentences from your level and pick what you heard or what it means.", stat: d && d.russian.listening.total ? `${Math.round((100 * d.russian.listening.correct) / d.russian.listening.total)}% accuracy` : "" },
     { to: "/practice/pronunciation", Icon: Mic, title: "Pronunciation", ru: "Произношение", body: speech.assess ? "Milestones from the alphabet to intonation, scored 0–100 by a pronunciation engine." : "Milestones from the alphabet to intonation. Record yourself and see which words came through clearly.", stat: d ? `${d.russian.speaking.attempts} attempts` : "" },
@@ -23,7 +24,7 @@ export default function Practice() {
 
   return (
     <div>
-      <PageHeader title="Practice" subtitle="Short, focused sessions. Everything you practise counts toward today's objectives and your streak." />
+      <PageHeader back="/learn" title="Practice" subtitle="Short, focused sessions. Everything you practise counts toward today's objectives and your streak." />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {tiles.map(({ to, Icon, title, ru, body, stat }) => (
           <button key={to} onClick={() => navigate(to)} className="card card-hover flex flex-col p-6 text-left">

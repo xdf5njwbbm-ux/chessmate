@@ -7,7 +7,7 @@ import { EXPERIENCE, INTENSITY, LEVELS } from "../lib/constants";
 import { pref, setPref } from "../lib/format";
 import { deviceVoiceNames, speak } from "../lib/speech";
 import type { Level, Plan, Profile, Voice } from "../lib/types";
-import { useEntitlements, useSession } from "../state/session";
+import { useLearner, useEntitlements, useSession } from "../state/session";
 import { useToast } from "../state/toast";
 import { BOARD_THEMES, type BoardTheme } from "../components/Board";
 import { Button, PageHeader, SectionTitle, Segmented, Sheet, Toggle } from "../components/ui";
@@ -33,6 +33,7 @@ function featureValue(v: unknown) {
 }
 
 export default function Settings() {
+  const learner = useLearner();
   const { profile, saveProfile, session, signOut, speech, refreshProfile } = useSession();
   const ent = useEntitlements();
   const navigate = useNavigate();
@@ -65,6 +66,19 @@ export default function Settings() {
     <div className="mx-auto max-w-3xl">
       <PageHeader title="Settings" />
 
+      <div className="card px-4">
+        <Toggle
+          checked={learner}
+          onChange={(v) => set({ learn_russian: v })}
+          label="Learn Russian"
+          hint={learner
+            ? "Lessons, practice and a little Russian with every move. Turn it off for a plain chess account — your progress is kept if you turn it back on."
+            : "Off: this is a plain chess account — no lessons and no Russian during games. Turn it on any time to start learning."}
+        />
+      </div>
+
+      {learner && (
+      <>
       <SectionTitle>Learning</SectionTitle>
       <div className="card divide-y divide-white/[0.06] px-4">
         <div className="py-3">
@@ -110,6 +124,8 @@ export default function Settings() {
           </Button>
         </div>
       </div>
+      </>
+      )}
 
       <SectionTitle>Chess</SectionTitle>
       <div className="card divide-y divide-white/[0.06] px-4">
@@ -128,7 +144,7 @@ export default function Settings() {
           <div className="font-medium">Experience</div>
           <div className="mt-3"><Segmented size="sm" value={profile.chess_experience} onChange={(v) => set({ chess_experience: v })} options={EXPERIENCE.map((e) => ({ v: e.v, l: e.l.replace(" player", "") }))} /></div>
         </div>
-        <Toggle checked={profile.russian_chat} onChange={(v) => set({ russian_chat: v })} label="Prefer Russian-only chat" hint="Pre-selects Russian-only chat when you look for games." />
+        {learner && <Toggle checked={profile.russian_chat} onChange={(v) => set({ russian_chat: v })} label="Prefer Russian-only chat" hint="Pre-selects Russian-only chat when you look for games." />}
       </div>
 
       <SectionTitle>Profile & privacy</SectionTitle>

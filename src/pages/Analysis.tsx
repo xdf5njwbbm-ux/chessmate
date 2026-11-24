@@ -7,7 +7,7 @@ import { Engine, cpLoss } from "../lib/engine";
 import { classifyLoss, describeMove, reactionPhrase, type Reaction } from "../lib/movePhrases";
 import { TERMINATION, tcLabel } from "../lib/constants";
 import type { Game, Level, Mini } from "../lib/types";
-import { useEntitlements, useSession } from "../state/session";
+import { useEntitlements, useLearner, useSession } from "../state/session";
 import { Board } from "../components/Board";
 import { MoveList } from "../components/GameParts";
 import { RussianLine } from "../components/RussianText";
@@ -110,6 +110,7 @@ export default function Analysis() {
   const selVerdict = sel >= 0 ? verdicts[sel] : null;
   const bestBefore = sel >= 0 ? evals[sel]?.best : evals[0]?.best;
   const level = (profile?.ru_level ?? "A1") as Level;
+  const learner = useLearner();
   const card = selMove ? describeMove({ move: selMove, ply: sel, level, forms: profile?.ru_forms ?? "m", speaker: selMove.color === myColor ? "me" : game.opponent_kind === "ai" ? "ai" : "opponent" }) : null;
   const comment = selVerdict && selVerdict !== "good" ? reactionPhrase(selVerdict, level, profile?.ru_forms ?? "m") : null;
 
@@ -167,11 +168,11 @@ export default function Analysis() {
               {done && bestBefore && selVerdict && selVerdict !== "best" && (
                 <div className="mt-1 text-sm text-mist">Engine preferred <b className="text-fog">{new Chess(fens[sel]).move({ from: bestBefore.slice(0, 2), to: bestBefore.slice(2, 4), promotion: bestBefore[4] || undefined }).san}</b> (green arrow).</div>
               )}
-              <div className="mt-4"><RussianLine line={{ ru: card.phrase.ru, en: card.phrase.en, words: card.phrase.words }} showEn size="md" saveSource="game" /></div>
-              {comment && <div className="mt-4 border-t border-white/[0.06] pt-4"><RussianLine line={{ ru: comment.ru, en: comment.en, words: comment.words }} showEn size="md" saveSource="game" /></div>}
+              {learner && <div className="mt-4"><RussianLine line={{ ru: card.phrase.ru, en: card.phrase.en, words: card.phrase.words }} showEn size="md" saveSource="game" /></div>}
+              {learner && comment && <div className="mt-4 border-t border-white/[0.06] pt-4"><RussianLine line={{ ru: comment.ru, en: comment.en, words: comment.words }} showEn size="md" saveSource="game" /></div>}
             </div>
           ) : (
-            <div className="card p-4 text-sm text-mist">Pick a move to see the engine's verdict and how to talk about it in Russian.</div>
+            <div className="card p-4 text-sm text-mist">Pick a move to see the engine's verdict{learner ? " and how to talk about it in Russian" : ""}.</div>
           )}
           {!ent.full_analysis && <p className="text-xs text-faint">Free plan analysis runs at depth {depth}. Premium analyses deeper.</p>}
         </div>

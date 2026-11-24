@@ -129,11 +129,15 @@ export default function AuthPage() {
           {mode === "signup" ? "Create your account" : mode === "signin" ? "Welcome back" : "Reset your password"}
         </h1>
         <p className="mt-2 text-fog">
-          {mode === "signup"
-            ? "Free to start. Your Russian level and chess rating are tracked separately."
-            : mode === "signin"
-              ? "Продолжим? Your next lesson and game are waiting."
-              : "Enter your email and we'll send you a reset link."}
+          {next?.startsWith("/invite/")
+            ? mode === "forgot"
+              ? "Enter your email and we'll send you a reset link."
+              : "A friend invited you to a game of chess. Sign in or create a free account to play — you don't need to learn Russian."
+            : mode === "signup"
+              ? "Free to start. Play chess, learn Russian, or both."
+              : mode === "signin"
+                ? "Your games and lessons are waiting."
+                : "Enter your email and we'll send you a reset link."}
         </p>
       </div>
 

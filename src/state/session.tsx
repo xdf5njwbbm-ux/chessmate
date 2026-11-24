@@ -140,6 +140,12 @@ export function useSession() {
   return c;
 }
 
+/** Whether this account learns Russian. Chess-only accounts (false) never see Russian. */
+export function useLearner(): boolean {
+  const { profile } = useSession();
+  return profile?.learn_russian !== false;
+}
+
 /** Entitlements with safe defaults while loading. */
 export function useEntitlements(): Entitlements {
   const { entitlements } = useSession();

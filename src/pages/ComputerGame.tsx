@@ -10,7 +10,7 @@ import { uuid } from "../lib/format";
 import { clearSave, writeSave } from "../lib/saved";
 import { loadBotGame, toUci } from "../lib/botSave";
 import type { Game, Level } from "../lib/types";
-import { useSession } from "../state/session";
+import { useLearner, useSession } from "../state/session";
 import { useToast } from "../state/toast";
 import { Board, capturedPieces } from "../components/Board";
 import { LearningPanel, LearningPopup } from "../components/LearningPanel";
@@ -32,6 +32,7 @@ export default function ComputerGame() {
   const { profile, uid } = useSession();
   const toast = useToast();
   const level = (profile?.ru_level ?? "A1") as Level;
+  const learner = useLearner();
   const forms = profile?.ru_forms ?? "m";
   // an unfinished game on this device picks up where it was left (the Play page clears it before a new one)
   const [saved] = useState(() => loadBotGame(uid, "computer"));
@@ -228,7 +229,7 @@ export default function ComputerGame() {
     <div className="grid grid-cols-[minmax(0,1fr)] gap-5 pb-20 lg:grid-cols-[minmax(0,1fr)_380px] lg:pb-0 xl:grid-cols-[minmax(0,1fr)_420px]">
       <div className="mx-auto w-full max-w-[600px]">
         <div className="mb-1 flex items-center gap-2">
-          <BackButton to="/play" />
+          <BackButton to="/play/solo" />
           <div className="flex-1 font-semibold">Practice vs Stockfish <span className="ml-1 tag">~{elo}</span> <span className="tag">Unrated</span></div>
           {engineState === "loading" && <span className="flex items-center gap-2 text-xs text-mist"><Spinner className="size-4" /> Loading engine…</span>}
         </div>
@@ -269,11 +270,11 @@ export default function ComputerGame() {
           <div ref={endCard} className="card mt-4 animate-rise scroll-mb-24 p-5 text-center">
             <div className={`font-display text-3xl font-semibold ${won ? "text-gold" : ""}`}>{draw ? "Draw" : won ? "You won!" : "Stockfish won"}</div>
             <div className="mt-1 text-sm text-mist">{TERMINATION[ended.termination] ?? ""} · practice game, no rating change{undos ? ` · ${undos} undo${undos > 1 ? "s" : ""}` : ""}</div>
-            <div className="ru mt-3 text-lg">{draw ? "Ничья! Хорошая партия." : won ? "Поздравляю! Ты выиграл" + (forms === "f" ? "а" : "") + "!" : "Ничего страшного — в следующий раз!"}</div>
+            {learner && <div className="ru mt-3 text-lg">{draw ? "Ничья! Хорошая партия." : won ? "Поздравляю! Ты выиграл" + (forms === "f" ? "а" : "") + "!" : "Ничего страшного — в следующий раз!"}</div>}
             <div className="mt-5 flex flex-wrap justify-center gap-2">
               <Button onClick={newGame}><RotateCcw className="size-4" /> Play again</Button>
               {ended.saved && <Button variant="secondary" onClick={() => navigate(`/analysis/${ended.saved!.id}`)}><BarChart3 className="size-4" /> Analyze</Button>}
-              <Button variant="ghost" onClick={() => navigate("/play")}>Change settings</Button>
+              <Button variant="ghost" onClick={() => navigate("/play/solo")}>Change settings</Button>
             </div>
           </div>
         ) : (
@@ -286,10 +287,10 @@ export default function ComputerGame() {
 
       {wide ? (
         <div className="lg:sticky lg:top-6 lg:self-start">
-          <LearningPanel cards={cards} focus={focus} />
+          {learner && <LearningPanel cards={cards} focus={focus} />}
         </div>
       ) : (
-        <LearningPopup cards={cards} focus={focus} collapse={collapse} avoid={boardBox} paused={!!ended} />
+        learner && <LearningPopup cards={cards} focus={focus} collapse={collapse} avoid={boardBox} paused={!!ended} />
       )}
 
       <Confirm open={confirmResign} onClose={() => setConfirmResign(false)} title="Resign this game?" body="It's a practice game — your rating won't change." confirmLabel="Resign" danger onConfirm={() => finish(moves, "resign")} />

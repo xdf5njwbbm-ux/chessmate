@@ -24,6 +24,7 @@ const Review = lazy(() => import("./pages/Review"));
 const Listening = lazy(() => import("./pages/Listening"));
 const Pronunciation = lazy(() => import("./pages/Pronunciation"));
 const Conversation = lazy(() => import("./pages/Conversation"));
+const Talk = lazy(() => import("./pages/Talk"));
 const Vocabulary = lazy(() => import("./pages/Vocabulary"));
 const Stats = lazy(() => import("./pages/Stats"));
 const Leaderboards = lazy(() => import("./pages/Leaderboards"));
@@ -49,8 +50,15 @@ function RequireProfile({ children }: { children: ReactNode }) {
   const { ready, uid, profile } = useSession();
   if (!ready) return <FullScreenLoader />;
   if (!uid) return <Navigate to={`/auth?mode=signin&next=${encodeURIComponent(window.location.hash.slice(1))}`} replace />;
-  if (!profile) return <Navigate to="/welcome" replace />;
+  // keep where they were going (an invite link, say) so onboarding can send them back there
+  if (!profile) return <Navigate to={`/welcome?next=${encodeURIComponent(window.location.hash.slice(1))}`} replace />;
   return <>{children}</>;
+}
+
+/** Old links: /play → Play Solo, /play?mode=online → Play With a Friend. */
+function PlayRedirect() {
+  const online = new URLSearchParams(window.location.hash.split("?")[1] ?? "").get("mode") === "online";
+  return <Navigate to={online ? "/play/friend" : "/play/solo"} replace />;
 }
 
 function RecoveryWatcher() {
@@ -78,7 +86,9 @@ export default function App() {
               <Route path="/welcome" element={<RequireAuth><Suspense fallback={<FullScreenLoader />}><Welcome /></Suspense></RequireAuth>} />
               <Route element={<RequireProfile><Shell /></RequireProfile>}>
                 <Route path="/home" element={<Home />} />
-                <Route path="/play" element={lazyPage(<Play />)} />
+                <Route path="/play" element={<PlayRedirect />} />
+                <Route path="/play/solo" element={lazyPage(<Play mode="solo" />)} />
+                <Route path="/play/friend" element={lazyPage(<Play mode="friend" />)} />
                 <Route path="/play/computer" element={lazyPage(<ComputerGame />)} />
                 <Route path="/play/blindfold" element={lazyPage(<BlindfoldGame />)} />
                 <Route path="/game/:id" element={lazyPage(<OnlineGame />)} />
@@ -93,6 +103,7 @@ export default function App() {
                 <Route path="/practice/pronunciation" element={lazyPage(<Pronunciation />)} />
                 <Route path="/practice/pronunciation/:id" element={lazyPage(<Pronunciation />)} />
                 <Route path="/practice/conversation" element={lazyPage(<Conversation />)} />
+                <Route path="/practice/talk" element={lazyPage(<Talk />)} />
                 <Route path="/practice/conversation/:id" element={lazyPage(<Conversation />)} />
                 <Route path="/vocabulary" element={lazyPage(<Vocabulary />)} />
                 <Route path="/stats" element={lazyPage(<Stats />)} />

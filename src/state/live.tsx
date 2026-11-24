@@ -78,7 +78,7 @@ export function LiveProvider({ children }: { children: ReactNode }) {
       if (payload.eventType === "INSERT") {
         const c = inboxRef.current?.incoming.find((x) => x.id === payload.new.id && !before.has(x.id));
         if (c?.user) {
-          toast({ title: `${c.user.display_name} challenged you`, body: "Open Play to accept.", action: { label: "View", onClick: () => navigate("/play") } });
+          toast({ title: `${c.user.display_name} challenged you`, body: "Open Play With a Friend to accept.", action: { label: "View", onClick: () => navigate("/play/friend") } });
         }
       }
     };
