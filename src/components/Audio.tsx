@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Mic, Play, RotateCcw, Square, Volume2 } from "lucide-react";
-import { canRecognize, canRecord, listen, onSpeaking, playUrl, speak, speechStatus, startRecording, stopSpeaking, type Recorder, type Recording } from "../lib/speech";
+import { canRecognize, canRecord, isSpeaking, listen, micIsExclusive, onSpeaking, playUrl, speak, speechStatus, startRecording, stopSpeaking, type Recorder, type Recording } from "../lib/speech";
 import { compareWords, normalizeRu, similarity } from "../lib/russian";
 import { api, assessPronunciation } from "../lib/api";
 import type { Assessment } from "../lib/types";
@@ -58,7 +58,7 @@ export function AudioButtons({ text, compact, autoFocus }: { text: string; compa
 
 type Feedback =
   | { kind: "scored"; a: Assessment }
-  | { kind: "recognized"; heard: string; words: { word: string; ok: boolean }[]; passed: boolean }
+  | { kind: "recognized"; heard: string; words: { word: string; ok: boolean }[]; passed: boolean; gotSound: boolean }
   | null;
 
 function scoreTone(v: number | null | undefined) {
@@ -127,6 +127,7 @@ export function SpeakPractice({ text, refKey, onResult, compact, label = "Say it
   }, [text]);
 
   const start = async () => {
+    const wasSpeaking = isSpeaking();
     stopSpeaking();
     setFeedback(null);
     setInterim("");
@@ -137,32 +138,42 @@ export function SpeakPractice({ text, refKey, onResult, compact, label = "Say it
         setState("recording");
         return;
       }
-      // device recognizer; record alongside it for playback when possible
-      if (canRecord()) {
+      // Device recognizer. On computers, also record alongside it so you can play
+      // your attempt back. Phones can't share the microphone between the two —
+      // the recording can leave the recognizer with no audio — so there the
+      // recognizer gets the mic to itself.
+      if (canRecord() && !micIsExclusive()) {
         try {
           rec.current = await startRecording();
         } catch {
           rec.current = null;
         }
+      } else if (wasSpeaking) {
+        // give the phone a moment to switch from playing audio to listening
+        setState("working");
+        await new Promise((r) => setTimeout(r, 350));
       }
       recog.current = listen(setInterim);
       setState("recording");
-      const { transcript, alternatives } = await recog.current.result;
+      const { transcript, alternatives, diag } = await recog.current.result;
+      recog.current = null;
       const recording = rec.current ? await rec.current.stop() : null;
       rec.current = null;
       setMine(recording);
       const best = [transcript, ...alternatives].sort((a, b) => similarity(normalizeRu(b), normalizeRu(text)) - similarity(normalizeRu(a), normalizeRu(text)))[0] ?? "";
       const words = compareWords(text, best);
       const passed = words.length > 0 && words.filter((w) => w.ok).length / words.length >= 0.8;
-      setFeedback({ kind: "recognized", heard: best, words, passed });
+      const gotSound = diag.ev.some((e) => /^(sound|speech|result)@/.test(e));
+      setFeedback({ kind: "recognized", heard: best, words, passed, gotSound });
       setState("idle");
-      api.recordSpeech(text, refKey ?? null, best, words, passed, Date.now() - started.current)
+      api.recordSpeech(text, refKey ?? null, best, words, passed, Date.now() - started.current, diag)
         .then((r) => celebrate(r.new_achievements))
         .catch(() => {})
         .finally(() => onResult?.(passed));
     } catch (e) {
       rec.current?.cancel();
       rec.current = null;
+      recog.current = null;
       setState("idle");
       toast({ title: (e as Error).message, tone: "error" });
     }
@@ -269,7 +280,13 @@ export function SpeakPractice({ text, refKey, onResult, compact, label = "Say it
       {feedback?.kind === "recognized" && (
         <div className="mt-4 animate-rise">
           <div className={`text-sm font-semibold ${feedback.passed ? "text-accent-soft" : "text-warn"}`}>
-            {feedback.passed ? "Understood! The recognizer heard every key word." : feedback.heard ? "Almost — some words weren't recognized." : "We didn't catch anything. Try again a little closer to the mic."}
+            {feedback.passed
+              ? "Understood! The recognizer heard every key word."
+              : feedback.heard
+                ? "Almost — some words weren't recognized."
+                : feedback.gotSound
+                  ? "We heard you, but your phone's recognizer didn't return any words. Tap Try again and speak right after the mic turns red."
+                  : "No sound reached the recognizer. Tap Try again — if it keeps happening, reload the page."}
           </div>
           <div className="ru mt-2 flex flex-wrap gap-x-2 gap-y-1 text-xl">
             {feedback.words.map((w, i) => (

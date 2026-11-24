@@ -156,10 +156,13 @@ export async function speak(text: string, o: SpeakOptions = {}): Promise<void> {
 }
 
 // ---------------------------------------------------------------- recognition
+type RecResult = ArrayLike<{ transcript: string; confidence: number }> & { isFinal: boolean };
+type Handler = (() => void) | null;
 type Recognition = {
   lang: string; interimResults: boolean; maxAlternatives: number; continuous: boolean;
-  onresult: ((e: { results: ArrayLike<ArrayLike<{ transcript: string; confidence: number }> & { isFinal: boolean }> }) => void) | null;
-  onerror: ((e: { error: string }) => void) | null; onend: (() => void) | null;
+  onresult: ((e: { results: ArrayLike<RecResult> }) => void) | null;
+  onerror: ((e: { error: string }) => void) | null;
+  onend: Handler; onstart: Handler; onaudiostart: Handler; onsoundstart: Handler; onspeechstart: Handler; onspeechend: Handler; onnomatch: Handler;
   start: () => void; stop: () => void; abort: () => void;
 };
 function Recognizer(): (new () => Recognition) | null {
@@ -168,7 +171,36 @@ function Recognizer(): (new () => Recognition) | null {
 }
 export const canRecognize = () => !!Recognizer();
 
-export type Listening = { stop: () => void; result: Promise<{ transcript: string; alternatives: string[] }> };
+/**
+ * Phones and tablets (every iOS browser runs on Safari's engine, plus Android):
+ * the microphone can only feed one capture at a time, so a recording made
+ * alongside the speech recognizer can starve it of audio.
+ */
+export function micIsExclusive(): boolean {
+  if (typeof navigator === "undefined") return false;
+  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+}
+
+/** What the recognizer did during one attempt — stored with the attempt so failures can be diagnosed. */
+export type ListenDiag = {
+  ev: string[]; // event@ms since start
+  err?: string;
+  from: "final" | "interim" | "none"; // where the transcript came from
+  finals: number;
+  updates: number;
+  ms: number;
+  ua: string;
+};
+export type Heard = { transcript: string; alternatives: string[]; diag: ListenDiag };
+export type Listening = { stop: () => void; result: Promise<Heard> };
+
+/** Stop by ourselves once the words have stopped changing for this long (Safari often never ends on its own). */
+const QUIET_MS = 2000;
+/** Hard limit for one attempt. */
+const MAX_MS = 15000;
+/** After stop(), how long to wait for the recognizer's "end" before using what we have. */
+const END_GRACE_MS = 1500;
+
 export function listen(onInterim?: (t: string) => void): Listening {
   const R = Recognizer();
   if (!R) throw new Error("Speech recognition isn't available in this browser. Try Chrome, Edge or Safari.");
@@ -177,30 +209,120 @@ export function listen(onInterim?: (t: string) => void): Listening {
   r.interimResults = true;
   r.maxAlternatives = 3;
   r.continuous = false;
+
+  const t0 = performance.now();
+  const diag: ListenDiag = { ev: [], from: "none", finals: 0, updates: 0, ms: 0, ua: navigator.userAgent.slice(0, 200) };
+  const mark = (name: string) => {
+    if (diag.ev.length < 40) diag.ev.push(`${name}@${Math.round(performance.now() - t0)}`);
+  };
+
   let finalText = "";
+  // Last non-empty transcript, final or not. Safari on iPhone often never marks
+  // results final, and its final result after stop() can come back blank — the
+  // words it already showed are still the best answer we have.
+  let latest = "";
   let alts: string[] = [];
-  const result = new Promise<{ transcript: string; alternatives: string[] }>((resolve, reject) => {
-    r.onresult = (e) => {
-      let interim = "";
-      for (let i = 0; i < e.results.length; i++) {
-        const res = e.results[i];
-        if (res.isFinal) {
-          finalText += res[0].transcript;
-          alts = Array.from({ length: res.length }, (_, k) => res[k].transcript);
-        } else interim += res[0].transcript;
-      }
-      onInterim?.((finalText + " " + interim).trim());
+  let quiet: ReturnType<typeof setTimeout> | null = null;
+  let grace: ReturnType<typeof setTimeout> | null = null;
+  let cap: ReturnType<typeof setTimeout> | null = null;
+  let stopping = false;
+  let settle: (err?: Error) => void = () => {};
+
+  const result = new Promise<Heard>((resolve, reject) => {
+    let done = false;
+    settle = (err) => {
+      if (done) return;
+      done = true;
+      [quiet, grace, cap].forEach((t) => t && clearTimeout(t));
+      diag.ms = Math.round(performance.now() - t0);
+      if (err) return reject(err);
+      const fin = finalText.replace(/\s+/g, " ").trim();
+      diag.from = fin ? "final" : latest ? "interim" : "none";
+      resolve({ transcript: fin || latest, alternatives: fin ? alts : [], diag });
     };
-    r.onerror = (e) => {
-      if (e.error === "no-speech" || e.error === "aborted") resolve({ transcript: finalText.trim(), alternatives: alts });
-      else if (e.error === "not-allowed" || e.error === "service-not-allowed") reject(new Error("Microphone access was blocked. Allow it in your browser settings."));
-      else reject(new Error("Speech recognition stopped (" + e.error + ")."));
-    };
-    r.onend = () => resolve({ transcript: finalText.trim(), alternatives: alts });
   });
-  r.start();
-  return { stop: () => r.stop(), result };
+
+  const finish = () => {
+    if (stopping) return;
+    stopping = true;
+    mark("stop");
+    try {
+      r.stop();
+    } catch {
+      /* already stopped */
+    }
+    grace = setTimeout(() => {
+      mark("no-end");
+      try {
+        r.abort();
+      } catch {
+        /* ignore */
+      }
+      settle();
+    }, END_GRACE_MS);
+  };
+  cap = setTimeout(finish, MAX_MS);
+
+  r.onstart = () => mark("start");
+  r.onaudiostart = () => mark("audio");
+  r.onsoundstart = () => mark("sound");
+  r.onspeechstart = () => mark("speech");
+  r.onspeechend = () => mark("speechend");
+  r.onnomatch = () => mark("nomatch");
+  r.onresult = (e) => {
+    // Rebuild from the full list each time (it holds every result so far).
+    let fin = "";
+    let interim = "";
+    let finals = 0;
+    let lastAlts: string[] = [];
+    for (let i = 0; i < e.results.length; i++) {
+      const res = e.results[i];
+      if (res.isFinal) {
+        fin += " " + res[0].transcript;
+        finals++;
+        lastAlts = Array.from({ length: res.length }, (_, k) => res[k].transcript);
+      } else interim += " " + res[0].transcript;
+    }
+    if (!diag.updates) mark("result");
+    diag.updates++;
+    diag.finals = finals;
+    finalText = fin;
+    alts = finals === 1 ? lastAlts : [];
+    const all = `${fin} ${interim}`.replace(/\s+/g, " ").trim();
+    if (all && all !== latest) {
+      latest = all;
+      onInterim?.(all);
+      if (quiet) clearTimeout(quiet);
+      quiet = setTimeout(() => {
+        mark("quiet");
+        finish();
+      }, QUIET_MS);
+    }
+  };
+  r.onerror = (e) => {
+    mark("error:" + e.error);
+    diag.err = e.error;
+    if (e.error === "not-allowed" || e.error === "service-not-allowed")
+      settle(new Error("The microphone or speech recognition is blocked. Allow the microphone for this site — on iPhone, Siri and Dictation also need to be on."));
+    else if (e.error === "no-speech" || e.error === "aborted" || latest || finalText.trim()) settle();
+    else settle(new Error("Speech recognition stopped (" + e.error + "). Try again."));
+  };
+  r.onend = () => {
+    mark("end");
+    settle();
+  };
+
+  try {
+    r.start();
+  } catch (e) {
+    mark("start-failed");
+    settle(new Error("Couldn't start listening: " + ((e as Error).message || "unknown error") + ". Try again."));
+  }
+  return { stop: finish, result };
 }
+
+/** True while a voice (neural or device) is playing. */
+export const isSpeaking = () => current.text != null || ("speechSynthesis" in window && window.speechSynthesis.speaking);
 
 // ---------------------------------------------------------------- recording (16 kHz WAV)
 export type Recording = { blob: Blob; url: string; base64: string; durationMs: number };
