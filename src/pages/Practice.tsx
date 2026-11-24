@@ -15,6 +15,7 @@ export default function Practice() {
   }, []);
 
   const tiles = [
+    { to: "/practice/roleplay", Icon: AudioLines, title: "Real conversations", ru: "Разговор", body: "Talk with a Russian speaker who remembers what you said, asks follow-ups and corrects you — 20 role-plays, quick answers, a 10-reply challenge.", stat: "A1–B2" },
     { to: "/learn/how-are-you", Icon: Smile, title: "How are you?", ru: "Как дела?", body: "100 ways to answer — listen and repeat, flashcards, quizzes and a simulator where different people ask how you are.", stat: "A1–B2" },
     { to: "/practice/talk", Icon: MessagesSquare, title: "Conversations", ru: "Вопросы и ответы", body: "Everyday questions from the conversation lessons — one by one, as a random conversation, or just the ones you missed.", stat: "A1–A2" },
     { to: "/practice/review", Icon: Repeat2, title: "Review", ru: "Повторение", body: "Spaced repetition of your words and saved phrases. Missed items come back sooner.", stat: d ? `${d.russian.due_reviews} due now` : "" },

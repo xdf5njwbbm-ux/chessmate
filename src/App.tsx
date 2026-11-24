@@ -26,6 +26,7 @@ const Pronunciation = lazy(() => import("./pages/Pronunciation"));
 const Conversation = lazy(() => import("./pages/Conversation"));
 const Talk = lazy(() => import("./pages/Talk"));
 const KakDela = lazy(() => import("./pages/KakDela"));
+const Roleplay = lazy(() => import("./pages/Roleplay"));
 const Vocabulary = lazy(() => import("./pages/Vocabulary"));
 const Stats = lazy(() => import("./pages/Stats"));
 const Leaderboards = lazy(() => import("./pages/Leaderboards"));
@@ -105,6 +106,7 @@ export default function App() {
                 <Route path="/practice/pronunciation/:id" element={lazyPage(<Pronunciation />)} />
                 <Route path="/practice/conversation" element={lazyPage(<Conversation />)} />
                 <Route path="/practice/talk" element={lazyPage(<Talk />)} />
+                <Route path="/practice/roleplay" element={lazyPage(<Roleplay />)} />
                 <Route path="/learn/how-are-you" element={lazyPage(<KakDela />)} />
                 <Route path="/practice/conversation/:id" element={lazyPage(<Conversation />)} />
                 <Route path="/vocabulary" element={lazyPage(<Vocabulary />)} />

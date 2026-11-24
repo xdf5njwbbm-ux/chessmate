@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type RefObject } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { BookOpen, Check, ChevronDown, ChevronUp, GraduationCap, Lightbulb, X } from "lucide-react";
 import type { MoveCard, Phrase } from "../lib/movePhrases";
 import type { Intensity, Line } from "../lib/types";
@@ -14,18 +14,37 @@ import { AudioButtons } from "./Audio";
 import { Segmented } from "./ui";
 import { MoveQuestionCard, useMoveQuestions } from "./MoveQuestion";
 import { BetweenMovesSwitch, GameLessonCard, TalkTurnCard, useBetweenMoves, useGameLesson, useTalkTurns } from "./GameLesson";
+import { rpGet, rpMove, rpPending, useRp } from "../state/rpStore";
+
+const RoleplayChat = lazy(() => import("./RoleplayChat"));
 
 /** Moves that need your full attention: the lesson doesn't pop up over the board after these. */
 const SHARP = new Set(["check", "capture", "en-passant", "promotion", "threat", "mate", "stalemate"]);
 
-/** Your lesson, a conversation question or a quick question — whatever "between moves" is set to. */
-function useBetween(oppPly: number | null) {
+/** A conversation, your lesson, or a quick question — whatever "between moves" is set to. */
+function useBetween(oppPly: number | null, opp?: MoveCard, mine?: MoveCard | null) {
   const [mode, setMode] = useBetweenMoves();
   const gl = useGameLesson(mode === "lesson", oppPly);
   const talk = useTalkTurns(mode === "mixed");
   const { questionFor } = useMoveQuestions();
+  const { uid, profile, tutorAI } = useSession();
+  // start (or pick up) the conversation as soon as the game opens, so the first question is waiting
+  useEffect(() => {
+    if (mode !== "talk" || !uid || !profile) return;
+    import("../lib/roleplay/session")
+      .then((m) => m.ensure({ uid, forms: profile.ru_forms === "f" ? "f" : "m", level: profile.ru_level ?? "A1", myName: m.ruName(profile.display_name), ai: tutorAI }))
+      .catch(() => {});
+  }, [mode, uid, profile?.ru_forms, profile?.ru_level, tutorAI]); // eslint-disable-line react-hooks/exhaustive-deps
+  // the conversation partner hears about each move (their next question waits for it)
+  useEffect(() => {
+    if (mode === "talk" && oppPly != null && opp) rpMove({ ply: oppPly, key: opp.key, myKey: mine?.key ?? null, bot: opp.speaker === "ai" });
+  }, [oppPly, mode]); // eslint-disable-line react-hooks/exhaustive-deps
   const node =
-    mode === "lesson" ? (
+    mode === "talk" ? (
+      <Suspense fallback={<div className="rounded-2xl border border-white/10 p-3 text-sm text-mist">Starting the conversation…</div>}>
+        <RoleplayChat inGame compact />
+      </Suspense>
+    ) : mode === "lesson" ? (
       <GameLessonCard gl={gl} onMixed={() => setMode("mixed")} />
     ) : oppPly == null ? null : (() => {
       // every third reply is an everyday conversation question; the rest are quick questions
@@ -53,8 +72,10 @@ export function LearningPanel({ cards, focus, onIntensity }: { cards: { ply: num
   const [history, setHistory] = useState(false);
   const intensity: Intensity = profile?.learning_intensity === "deep" && !ent.deep_learning ? "standard" : profile?.learning_intensity ?? "standard";
   const latest = cards.at(-1);
-  const lastOpp = [...cards].reverse().find((c) => c.card.speaker !== "me");
-  const between = useBetween(lastOpp?.ply ?? null);
+  const lastOppIdx = cards.map((c) => c.card.speaker !== "me").lastIndexOf(true);
+  const lastOpp = lastOppIdx >= 0 ? cards[lastOppIdx] : undefined;
+  const mineBefore = lastOppIdx > 0 && cards[lastOppIdx - 1].card.speaker === "me" ? cards[lastOppIdx - 1].card : null;
+  const between = useBetween(lastOpp?.ply ?? null, lastOpp?.card, mineBefore);
 
   const setIntensity = (i: Intensity) => {
     saveProfile({ learning_intensity: i }).catch(() => {});
@@ -141,7 +162,9 @@ export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards
   const [top, setTop] = useState(12);
   const [more, setMore] = useState(false);
   const oppPly = latest && latest.card.speaker !== "me" ? latest.ply : null;
-  const between = useBetween(oppPly);
+  const between = useBetween(oppPly, oppPly != null ? latest!.card : undefined, prev && prev.card.speaker === "me" ? prev.card : null);
+  const rp = useRp();
+  const talkLine = between.mode === "talk" ? rpPending(rp.s) : null;
   // sharp moment on the board (check, a capture, a threat…): the lesson waits instead of popping up
   const sharp = !!latest && latest.card.speaker !== "me" && SHARP.has(latest.card.key);
 
@@ -154,7 +177,8 @@ export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards
     setOpen(false);
     setMore(false);
     if (!latest || latest.card.speaker === "me" || !auto || paused || sharp) return;
-    const t = setTimeout(() => setOpen(true), 750);
+    // in a conversation, only pop up when they've asked you something
+    const t = setTimeout(() => (between.mode !== "talk" || rpPending(rpGet().s) ? setOpen(true) : null), 750);
     return () => clearTimeout(t);
   }, [latest?.ply, latest?.card.key, paused]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -210,7 +234,20 @@ export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards
             <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-3">
               <BetweenMovesSwitch mode={between.mode} onChange={between.setMode} />
               {lesson}
-              {lesson ? (
+              {lesson && between.mode === "talk" ? (
+                <div className="mt-4 border-t border-white/[0.06] pt-2">
+                  <button className="flex items-center gap-1 text-xs font-semibold text-mist hover:text-fog" onClick={() => setMore(!more)}>
+                    {more ? <ChevronUp className="size-3.5" /> : <ChevronDown className="size-3.5" />} These moves in Russian
+                  </button>
+                  {more && (
+                    <div className="mt-2 grid gap-1.5">
+                      {prev && prev.card.speaker === "me" && <MiniLine label="You" phrase={prev.card.phrase} showEn={standard} />}
+                      <MiniLine label={WHO[latest.card.speaker]} phrase={latest.card.phrase} showEn={standard} />
+                      <div className="mt-2"><CardView key={latest.ply} ply={latest.ply} card={latest.card} intensity={intensity} focus={focus} /></div>
+                    </div>
+                  )}
+                </div>
+              ) : lesson ? (
                 <div className="mt-4">
                   <div className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider text-mist">These moves in Russian</div>
                   <div className="grid gap-1.5">
@@ -238,13 +275,15 @@ export function LearningPopup({ cards, focus, collapse, avoid, paused }: { cards
           <div className="pointer-events-auto mx-auto flex max-w-[600px] items-center gap-2 rounded-2xl border border-white/10 bg-ink-900/95 py-1.5 pl-4 pr-1.5 shadow-[0_-16px_48px_-12px_rgba(0,0,0,0.85)] backdrop-blur">
             <button className="flex min-w-0 flex-1 items-center gap-3 py-1 text-left" onClick={() => setOpen(true)}>
               <GraduationCap className="size-4 shrink-0 text-accent" />
-              {sharp && auto ? (
+              {talkLine ? (
+                <span className="ru min-w-0 flex-1 truncate text-base text-accent-soft">{talkLine.ru}</span>
+              ) : sharp && auto ? (
                 <span className="min-w-0 flex-1 truncate text-sm text-mist">Sharp position — your lesson waits. Tap when ready.</span>
               ) : (
                 <span className="ru min-w-0 flex-1 truncate text-base">{latest.card.phrase.ru}</span>
               )}
             </button>
-            <AudioButtons text={latest.card.phrase.ru} compact />
+            <AudioButtons text={talkLine?.ru ?? latest.card.phrase.ru} compact />
             <button className="grid size-9 shrink-0 place-items-center rounded-lg text-mist hover:bg-white/5" onClick={() => setOpen(true)} aria-label="Show the Russian for this move">
               <ChevronUp className="size-5" />
             </button>

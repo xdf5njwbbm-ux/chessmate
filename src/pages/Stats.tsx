@@ -6,7 +6,10 @@ import { TERMINATION, bracket, poolLabel, tcLabel } from "../lib/constants";
 import { ago, pct, ratingText } from "../lib/format";
 import { blindLevelLabel } from "../lib/blindfold";
 import type { BlindfoldStats, ChessStats, Curriculum, Dashboard, GameSummary, Pool } from "../lib/types";
-import { useLearner } from "../state/session";
+import { useLearner, useSession } from "../state/session";
+import { loadSave } from "../lib/saved";
+import { convoSummary } from "../lib/roleplay/progress";
+import type { Memory } from "../lib/roleplay/engine";
 import { Button, EmptyState, Initials, PageHeader, PageLoader, Progress, SectionTitle, Segmented, Stat } from "../components/ui";
 
 export default function Stats() {
@@ -196,6 +199,7 @@ function RussianTab() {
         <Stat label="Pronunciation score" value={r.speaking.avg_score ?? "—"} sub={r.speaking.avg_score != null ? "average" : "needs neural scoring"} />
         <Stat label="Reviews due" value={r.due_reviews} />
       </div>
+      <ConversationProgress />
       <SectionTitle>Progress by level</SectionTitle>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
         {c.levels.map((lv) => {
@@ -215,6 +219,38 @@ function RussianTab() {
         })}
       </div>
     </div>
+  );
+}
+
+/** Conversation practice (role-play between moves and on its own), kept on this device. */
+function ConversationProgress() {
+  const navigate = useNavigate();
+  const { uid } = useSession();
+  const sum = convoSummary(loadSave<Memory>(uid, "rp-mem"));
+  return (
+    <>
+      <SectionTitle right={<Button size="sm" variant="secondary" onClick={() => navigate("/practice/roleplay")}>Talk</Button>}>Conversation</SectionTitle>
+      {!sum.exchanges ? (
+        <div className="card p-5 text-sm text-mist">No conversations yet. Choose <b>Talk</b> between moves in a game, or open Real conversations in Practice.</div>
+      ) : (
+        <div className="card p-5" data-convo-progress>
+          <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
+            <Stat label="Talk level" value={sum.level ?? "—"} sub="adapts to your answers" />
+            <Stat label="Answers" value={sum.exchanges} sub={`${sum.week} this week`} />
+            <Stat label="Average score" value={sum.avg} sub={`${sum.understood}% understood`} />
+            <Stat label="Asked back" value={sum.askedBack} sub={`challenges: ${sum.challenges} · best ${sum.best}/10`} tone={sum.challenges ? "gold" : undefined} />
+          </div>
+          {sum.top.length > 0 && (
+            <div className="mt-4 border-t border-white/[0.06] pt-3">
+              <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-mist">Mistakes to work on</div>
+              <ul className="grid gap-1 text-sm text-fog">
+                {sum.top.map(([why, n]) => <li key={why}>{why}{why.length >= 60 ? "…" : ""} <span className="text-mist">×{n}</span></li>)}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+    </>
   );
 }
 

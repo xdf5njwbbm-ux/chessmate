@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CheckCircle2, ClipboardCheck, Library, Lock, MessagesSquare, Mic, Smile } from "lucide-react";
+import { AudioLines, CheckCircle2, ClipboardCheck, Library, Lock, MessagesSquare, Mic, Smile } from "lucide-react";
 import { api } from "../lib/api";
 import type { Curriculum, Level } from "../lib/types";
 import { Button, Chip, PageHeader, PageLoader, Progress, Segmented } from "../components/ui";
@@ -44,8 +44,9 @@ export default function Learn() {
     <div>
       <PageHeader title="Learn Russian" subtitle="Everyday conversation and chess Russian, from A1 to B2. Every sentence has audio, a word-by-word breakdown and grammar notes." />
 
-      <div className="mb-6 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mb-6 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
         {[
+          { to: "/practice/roleplay", Icon: AudioLines, title: "Real conversations · Разговор", body: "Role-play with a Russian speaker · 20 situations · corrections" },
           { to: "/learn/how-are-you", Icon: Smile, title: "How are you? · Как дела?", body: "100 real answers · audio, flashcards, quiz, simulator" },
           { to: "/practice/talk", Icon: MessagesSquare, title: "Conversations", body: "112 everyday questions · answer, listen, repeat" },
           { to: "/practice", Icon: Mic, title: "Practice", body: "Reviews, listening, speaking, guided chats" },

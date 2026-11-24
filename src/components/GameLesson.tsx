@@ -13,18 +13,18 @@ import { ExerciseView, isCorrect } from "./ExerciseView";
 import { AudioButtons, SpeakPractice } from "./Audio";
 import { Button, Progress, Segmented } from "./ui";
 
-/** What the panel next to the board shows between moves: your current lesson, or a mix of quick questions. */
-export type BetweenMoves = "lesson" | "mixed";
+/** What the panel next to the board shows between moves: a conversation, your current lesson, or quick questions. */
+export type BetweenMoves = "talk" | "lesson" | "mixed";
 export function useBetweenMoves(): [BetweenMoves, (m: BetweenMoves) => void] {
-  const [mode, setMode] = useState<BetweenMoves>(() => pref<BetweenMoves>("betweenMoves", "lesson"));
-  return [mode, (m) => { setMode(m); setPref("betweenMoves", m); }];
+  const [mode, setMode] = useState<BetweenMoves>(() => pref<BetweenMoves>("betweenMoves2", "talk"));
+  return [mode, (m) => { setMode(m); setPref("betweenMoves2", m); }];
 }
 
 export function BetweenMovesSwitch({ mode, onChange }: { mode: BetweenMoves; onChange: (m: BetweenMoves) => void }) {
   return (
     <div className="mb-3 flex items-center justify-between gap-2">
       <span className="text-[11px] font-semibold uppercase tracking-wider text-mist">Between moves</span>
-      <Segmented size="sm" value={mode} onChange={onChange} options={[{ v: "lesson", l: "My lesson" }, { v: "mixed", l: "Mixed questions" }]} />
+      <Segmented size="sm" value={mode} onChange={onChange} options={[{ v: "talk", l: "Talk" }, { v: "lesson", l: "Lesson" }, { v: "mixed", l: "Quiz" }]} />
     </div>
   );
 }
