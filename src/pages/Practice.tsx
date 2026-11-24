@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AudioLines, Headphones, MessagesSquare, Mic, Repeat2, Sparkles } from "lucide-react";
+import { AudioLines, Headphones, MessagesSquare, Mic, Repeat2, Smile, Sparkles } from "lucide-react";
 import { api } from "../lib/api";
 import type { Dashboard } from "../lib/types";
 import { useSession } from "../state/session";
@@ -15,6 +15,7 @@ export default function Practice() {
   }, []);
 
   const tiles = [
+    { to: "/learn/how-are-you", Icon: Smile, title: "How are you?", ru: "Как дела?", body: "100 ways to answer — listen and repeat, flashcards, quizzes and a simulator where different people ask how you are.", stat: "A1–B2" },
     { to: "/practice/talk", Icon: MessagesSquare, title: "Conversations", ru: "Вопросы и ответы", body: "Everyday questions from the conversation lessons — one by one, as a random conversation, or just the ones you missed.", stat: "A1–A2" },
     { to: "/practice/review", Icon: Repeat2, title: "Review", ru: "Повторение", body: "Spaced repetition of your words and saved phrases. Missed items come back sooner.", stat: d ? `${d.russian.due_reviews} due now` : "" },
     { to: "/practice/listening", Icon: Headphones, title: "Listening", ru: "Аудирование", body: "Hear sentences from your level and pick what you heard or what it means.", stat: d && d.russian.listening.total ? `${Math.round((100 * d.russian.listening.correct) / d.russian.listening.total)}% accuracy` : "" },
