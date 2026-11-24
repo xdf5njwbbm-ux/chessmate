@@ -56,8 +56,8 @@ export const api = {
   focusWords: () => rpc<{ id: string; ru: string; stressed: string; en: string; tags: string[]; lapses: number; due: boolean }[]>("focus_words"),
   recordPractice: (kind: "listening" | "speaking" | "phrase", correct: boolean, ref?: string) =>
     rpc<{ new_achievements: string[] }>("record_practice", { p_kind: kind, p_correct: correct, p_ref: ref ?? null }),
-  recordSpeech: (text: string, ref: string | null, recognized: string, words: unknown, passed: boolean, durationMs: number, diag?: unknown) =>
-    rpc<{ new_achievements: string[] }>("record_speech_attempt", { p_text: text, p_ref: ref, p_recognized: recognized, p_words: words, p_passed: passed, p_duration_ms: durationMs, p_diag: diag ?? null }),
+  recordSpeech: (text: string, ref: string | null, recognized: string, words: unknown, passed: boolean, durationMs: number) =>
+    rpc<{ new_achievements: string[] }>("record_speech_attempt", { p_text: text, p_ref: ref, p_recognized: recognized, p_words: words, p_passed: passed, p_duration_ms: durationMs }),
   pronunciation: () => rpc<PronunciationOverview>("pronunciation_overview"),
 
   scenarios: () => rpc<Scenario[]>("scenarios"),

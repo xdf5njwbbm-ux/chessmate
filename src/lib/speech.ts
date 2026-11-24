@@ -181,7 +181,7 @@ export function micIsExclusive(): boolean {
   return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 }
 
-/** What the recognizer did during one attempt — stored with the attempt so failures can be diagnosed. */
+/** What the recognizer did during one attempt (events, error, where the words came from). */
 export type ListenDiag = {
   ev: string[]; // event@ms since start
   err?: string;

@@ -166,7 +166,7 @@ export function SpeakPractice({ text, refKey, onResult, compact, label = "Say it
       const gotSound = diag.ev.some((e) => /^(sound|speech|result)@/.test(e));
       setFeedback({ kind: "recognized", heard: best, words, passed, gotSound });
       setState("idle");
-      api.recordSpeech(text, refKey ?? null, best, words, passed, Date.now() - started.current, diag)
+      api.recordSpeech(text, refKey ?? null, best, words, passed, Date.now() - started.current)
         .then((r) => celebrate(r.new_achievements))
         .catch(() => {})
         .finally(() => onResult?.(passed));
