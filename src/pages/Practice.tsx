@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AudioLines, Headphones, MessagesSquare, Mic, Repeat2, Smile, Sparkles } from "lucide-react";
+import { AudioLines, Headphones, MessagesSquare, Mic, PhoneCall, Repeat2, Smile, Sparkles } from "lucide-react";
 import { api } from "../lib/api";
 import type { Dashboard } from "../lib/types";
 import { useSession } from "../state/session";
@@ -15,6 +15,7 @@ export default function Practice() {
   }, []);
 
   const tiles = [
+    { to: "/practice/voice", Icon: PhoneCall, title: "AI Voice Practice", ru: "Звонок", body: "A real voice call with a patient native tutor: just talk, get gentle corrections, translations and a report after every call.", stat: "A1–C1" },
     { to: "/practice/roleplay", Icon: AudioLines, title: "Real conversations", ru: "Разговор", body: "Talk with a Russian speaker who remembers what you said, asks follow-ups and corrects you — 20 role-plays, quick answers, a 10-reply challenge.", stat: "A1–B2" },
     { to: "/learn/how-are-you", Icon: Smile, title: "How are you?", ru: "Как дела?", body: "100 ways to answer — listen and repeat, flashcards, quizzes and a simulator where different people ask how you are.", stat: "A1–B2" },
     { to: "/practice/talk", Icon: MessagesSquare, title: "Conversations", ru: "Вопросы и ответы", body: "Everyday questions from the conversation lessons — one by one, as a random conversation, or just the ones you missed.", stat: "A1–A2" },
