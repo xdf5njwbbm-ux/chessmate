@@ -58,6 +58,12 @@
   }
 }
 
+/* the voice tutor's blink */
+@keyframes blink {
+  0%, 93%, 100% { transform: scaleY(1); }
+  96% { transform: scaleY(0.1); }
+}
+
 @layer base {
   :root {
     color-scheme: dark;

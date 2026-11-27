@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowRight, BookOpen, Bot, Check, Flame, Gamepad2, Headphones, Mic, Repeat2, Sparkles, Swords, Users } from "lucide-react";
+import { ArrowRight, BookOpen, Bot, Check, Flame, Gamepad2, Headphones, Mic, PhoneCall, Repeat2, Sparkles, Swords, Users } from "lucide-react";
 import { api } from "../lib/api";
 import { bracket, poolLabel, tcLabel } from "../lib/constants";
 import { pct, ratingText } from "../lib/format";
@@ -112,6 +112,7 @@ export default function Home() {
             {r.due_reviews > 0 && (
               <Button variant="secondary" onClick={() => navigate("/practice/review")}><Repeat2 className="size-4" /> {r.due_reviews} reviews due</Button>
             )}
+            <Button variant="secondary" onClick={() => navigate("/practice/voice")}><PhoneCall className="size-4" /> Call your tutor</Button>
           </div>
         </div>
 

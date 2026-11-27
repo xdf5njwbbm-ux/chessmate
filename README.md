@@ -12,6 +12,7 @@ Live site: https://xdf5njwbbm-ux.github.io/chessmate/
 - **Course.** 56 lessons across 25 everyday topics plus chess talk, A1–B2. Every sentence has a word-by-word gloss, stress marks, masculine and feminine forms, and the ты/вы register. There's a placement test, level tests, SM‑2 spaced review, vocabulary, a listening drill and daily objectives.
 - **Speaking.** Neural Russian voices and pronunciation scoring through Azure Speech when it's configured. Otherwise the device's own voices and speech recognition are used, and they're labelled honestly: no invented scores.
 - **Conversation partner.** An AI tutor (Claude) that holds conversations in 25 scenarios and corrects you gently. Without an API key it falls back to scripted, guided conversations.
+- **AI Voice Practice.** A real voice call with a native Russian tutor (Аня or Миша): you just talk, and the tutor listens, answers and corrects you live. Three modes (beginner guided, natural, immersion), a 20-topic conversation curriculum, a live transcript with translations, stress marks and a pronunciation guide, replay and slow-down, a post-call report with scores and a personal review lesson, and long-term memory of what you've said, the words you know and the mistakes you make. The speaking level (A1–C1) only rises when your calls show it.
 - **Two progressions, never mixed.** Your Russian level and your chess rating are stored and shown separately.
 
 ## Stack
@@ -23,7 +24,8 @@ src/                    app (pages, components, lib, state)
 content/                course source text (A1–B2 lessons, tests, scenarios, pronunciation)
 scripts/build-content.mjs  validates content and generates the seed migration
 supabase/migrations/    schema, functions, config, generated curriculum seed
-supabase/functions/     game (server-validated moves, AI game records), speech (TTS + assessment), tutor (AI partner)
+supabase/functions/     game (server-validated moves, AI game records), speech (TTS + assessment), tutor (AI partner),
+                        voice (AI Voice Practice: realtime call setup, turn analysis, reports)
 supabase/tests/         SQL tests for ratings, matchmaking and learning
 ```
 
@@ -53,8 +55,14 @@ Add these in Supabase → Edge Functions → Secrets:
 | `AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION` | Neural voices and pronunciation scoring (optional) |
 | `ANTHROPIC_API_KEY` | AI conversation partner (optional) |
 | `TUTOR_MODEL` | Override the tutor model (optional) |
+| `OPENAI_API_KEY` | AI Voice Practice: the realtime voice call, transcript analysis, reports and the tutor's voice for replays |
+| `VOICE_MODEL`, `VOICE_TEXT_MODEL`, `VOICE_TRANSCRIBE_MODEL`, `VOICE_TTS_MODEL`, `VOICE_REASONING` | Override the voice models (optional; defaults `gpt-realtime-2.1`, `gpt-5.4-mini`, `gpt-transcribe`, `gpt-4o-mini-tts`, `low`) |
 
-Without them, the app uses device voices, recognition-based feedback and guided conversations.
+Without them, the app uses device voices, recognition-based feedback and guided conversations. AI Voice Practice needs `OPENAI_API_KEY`; daily call time per account is `app_config.voice_daily_minutes` (default 60).
+
+### How a voice call works
+
+The browser opens a WebRTC connection straight to OpenAI's Realtime API: the microphone goes up as a live audio track, the tutor's voice comes back as one, and a data channel carries transcripts and turn-taking events. The `voice` edge function builds the tutor's instructions on the server (level, mode, lesson, memory) and signs the connection with the API key, so no secret reaches the browser. Semantic turn detection decides when you've finished speaking, so there are no buttons between sentences. Each line of the transcript is annotated by a text model (translation, stress, pronunciation guide, corrections), and when the call ends the function writes the report, evaluates the speaking level, updates the tutor's memory and adds your corrected sentences and known words to Review.
 
 ## Development
 

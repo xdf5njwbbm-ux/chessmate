@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AudioLines, CheckCircle2, ClipboardCheck, Library, Lock, MessagesSquare, Mic, Smile } from "lucide-react";
+import { AudioLines, CheckCircle2, ClipboardCheck, Library, Lock, MessagesSquare, Mic, PhoneCall, Smile } from "lucide-react";
 import { api } from "../lib/api";
 import type { Curriculum, Level } from "../lib/types";
 import { Button, Chip, PageHeader, PageLoader, Progress, Segmented } from "../components/ui";
@@ -45,6 +45,15 @@ export default function Learn() {
       <PageHeader title="Learn Russian" subtitle="Everyday conversation and chess Russian, from A1 to B2. Every sentence has audio, a word-by-word breakdown and grammar notes." />
 
       <div className="mb-6 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        <button onClick={() => navigate("/practice/voice")} className="card card-hover relative flex items-center gap-4 overflow-hidden p-4 text-left sm:col-span-2 lg:col-span-3">
+          <span className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(420px 160px at 0% 50%, rgb(63 191 127 / 0.14), transparent 70%)" }} />
+          <span className="relative grid size-12 shrink-0 place-items-center rounded-2xl bg-accent text-ink-950 shadow-[0_8px_24px_-8px_rgb(63_191_127/0.8)]"><PhoneCall className="size-6" /></span>
+          <span className="relative min-w-0 flex-1">
+            <span className="block font-display text-xl font-semibold">AI Voice Practice · <span className="ru">Звонок</span></span>
+            <span className="block text-sm text-mist">Call a native Russian tutor and just talk — live corrections, your level, 24/7.</span>
+          </span>
+          <span className="relative hidden rounded-xl bg-accent/15 px-3 py-1.5 text-sm font-semibold text-accent-soft sm:block">Start a call</span>
+        </button>
         {[
           { to: "/practice/roleplay", Icon: AudioLines, title: "Real conversations · Разговор", body: "Role-play with a Russian speaker · 20 situations · corrections" },
           { to: "/learn/how-are-you", Icon: Smile, title: "How are you? · Как дела?", body: "100 real answers · audio, flashcards, quiz, simulator" },

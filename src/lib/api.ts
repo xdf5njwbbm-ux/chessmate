@@ -118,7 +118,7 @@ export const api = {
 };
 
 /** Calls one of the edge functions with the user's session. */
-export async function callFunction<T>(name: "game" | "speech" | "tutor", body: unknown): Promise<T> {
+export async function callFunction<T>(name: "game" | "speech" | "tutor" | "voice", body: unknown, init?: { keepalive?: boolean; signal?: AbortSignal }): Promise<T> {
   const { data } = await supabase.auth.getSession();
   const token = data.session?.access_token;
   if (!token) throw new ApiError("Please sign in again.");
@@ -128,6 +128,8 @@ export async function callFunction<T>(name: "game" | "speech" | "tutor", body: u
       method: "POST",
       headers: { "Content-Type": "application/json", apikey: SUPABASE_KEY, Authorization: `Bearer ${token}` },
       body: JSON.stringify(body),
+      keepalive: init?.keepalive,
+      signal: init?.signal,
     });
   } catch {
     throw new ApiError("Connection lost. Check your internet and try again.");
