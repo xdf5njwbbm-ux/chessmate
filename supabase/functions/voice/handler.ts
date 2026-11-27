@@ -81,13 +81,13 @@ async function usageSeconds(userId: string): Promise<{ used: number; limit: numb
 }
 
 /** One JSON answer from the text model (analysis and reports). */
-async function llmJson(system: string, user: string, maxTokens: number, userId: string, timeoutMs: number): Promise<unknown | null> {
+async function llmJson(system: string, user: string, maxTokens: number, userId: string, timeoutMs: number, effort: "none" | "low" = "none"): Promise<unknown | null> {
   const body: Record<string, unknown> = {
     model: TEXT_MODEL(),
     messages: [{ role: "system", content: system }, { role: "user", content: user }],
     response_format: { type: "json_object" },
     max_completion_tokens: maxTokens,
-    reasoning_effort: "low",
+    reasoning_effort: effort,
     safety_identifier: (await sha256("rca:" + userId)).slice(0, 64),
   };
   for (let attempt = 0; attempt < 2; attempt++) {
@@ -124,6 +124,37 @@ async function llmJson(system: string, user: string, maxTokens: number, userId: 
     }
   }
   return null;
+}
+
+/**
+ * Whether the OpenAI key works and the configured models are available to it.
+ * Cached per instance; returns booleans only — the key is never returned or logged.
+ */
+type KeyCheck = { key_ok: boolean | null; voice_model_ok: boolean | null; text_model_ok: boolean | null };
+let keyCheck: { at: number; value: KeyCheck } | null = null;
+async function checkOpenAI(): Promise<KeyCheck> {
+  if (!KEY()) return { key_ok: null, voice_model_ok: null, text_model_ok: null };
+  if (keyCheck && Date.now() - keyCheck.at < 10 * 60_000) return keyCheck.value;
+  const probe = async (model: string) => {
+    try {
+      const res = await fetch(`${OPENAI()}/v1/models/${encodeURIComponent(model)}`, { headers: { Authorization: `Bearer ${KEY()}` }, signal: AbortSignal.timeout(8_000) });
+      return res.status;
+    } catch {
+      return 0;
+    }
+  };
+  const [v, t] = await Promise.all([probe(VOICE_MODEL()), probe(TEXT_MODEL())]);
+  if (v === 0 && t === 0) return { key_ok: null, voice_model_ok: null, text_model_ok: null }; // network trouble: don't cache
+  const value: KeyCheck = {
+    key_ok: !(v === 401 || t === 401),
+    voice_model_ok: v === 200 ? true : v === 404 || v === 403 ? false : null,
+    text_model_ok: t === 200 ? true : t === 404 || t === 403 ? false : null,
+  };
+  if (!value.key_ok || value.voice_model_ok === false || value.text_model_ok === false) {
+    console.warn("voice: OpenAI check failed", JSON.stringify({ ...value, voice_model: VOICE_MODEL(), text_model: TEXT_MODEL(), voice_status: v, text_status: t }));
+  }
+  keyCheck = { at: Date.now(), value };
+  return value;
 }
 
 // ---------------------------------------------------------------- connect
@@ -387,7 +418,7 @@ async function end(user: User, body: Body): Promise<Response> {
       "TRANSCRIPT",
       transcriptText(turns),
     ].filter((x) => x !== "").join("\n");
-    raw = (await llmJson(reportPrompt(callLevel, call.mode, forms, call.lesson), context, 7000, user.id, 90_000)) as Record<string, unknown> | null;
+    raw = (await llmJson(reportPrompt(callLevel, call.mode, forms, call.lesson), context, 7000, user.id, 90_000, "low")) as Record<string, unknown> | null;
   }
 
   // scores: the evaluator's judgement, sanity-checked against the numbers
@@ -482,7 +513,10 @@ export async function handle(req: Request): Promise<Response> {
   const configured = !!KEY();
   const ent = await entitlements(user.id);
   const allowed = ent.ai_tutor === true;
-  if (body.action === "status") return json({ configured, allowed, ready: configured && allowed, model: configured ? VOICE_MODEL() : null });
+  if (body.action === "status") {
+    const chk = await checkOpenAI();
+    return json({ configured, allowed, ready: configured && allowed && chk.key_ok !== false && chk.voice_model_ok !== false, model: configured ? VOICE_MODEL() : null, ...chk });
+  }
   // A call that already happened can always be saved and reported.
   if (body.action === "end") return end(user, body);
   if (body.action === "sync") return sync(user, body);

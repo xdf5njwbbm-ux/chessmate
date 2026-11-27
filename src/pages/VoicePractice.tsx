@@ -238,6 +238,16 @@ export default function VoicePractice() {
                     Voice calls are almost ready: the server still needs its OpenAI API key (the <code className="text-fog">OPENAI_API_KEY</code> secret in Supabase → Edge Functions → Secrets).
                   </p>
                 )}
+                {status && status.configured && status.key_ok === false && (
+                  <p className="relative mt-3 rounded-xl bg-warn/10 px-3 py-2 text-sm text-warn">
+                    OpenAI rejected the server's API key. Check the <code>OPENAI_API_KEY</code> secret in Supabase → Edge Functions → Secrets.
+                  </p>
+                )}
+                {status && status.configured && status.key_ok !== false && status.voice_model_ok === false && (
+                  <p className="relative mt-3 rounded-xl bg-warn/10 px-3 py-2 text-sm text-warn">
+                    This OpenAI account can't use the voice model ({status.model}). Check the account's access, or set a different <code>VOICE_MODEL</code> secret.
+                  </p>
+                )}
                 {status && status.configured && !status.allowed && <p className="relative mt-3 rounded-xl bg-gold/10 px-3 py-2 text-sm text-gold">AI voice practice is part of Premium.</p>}
                 {home && leftMin <= 0 && <p className="relative mt-3 rounded-xl bg-warn/10 px-3 py-2 text-sm text-warn">You've used today's call time. It refills over the next 24 hours.</p>}
               </div>

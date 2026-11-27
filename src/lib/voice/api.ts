@@ -44,7 +44,16 @@ export type VoiceHome = {
   calls: CallSummary[];
 };
 
-export type VoiceStatus = { configured: boolean; allowed: boolean; ready: boolean; model: string | null };
+export type VoiceStatus = {
+  configured: boolean;
+  allowed: boolean;
+  ready: boolean;
+  model: string | null;
+  /** null = not checked (no key, or OpenAI unreachable) */
+  key_ok?: boolean | null;
+  voice_model_ok?: boolean | null;
+  text_model_ok?: boolean | null;
+};
 
 export type CallRow = {
   id: string;
